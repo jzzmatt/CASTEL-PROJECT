@@ -1,0 +1,19 @@
+---
+- name: CLEANUP DIRECTORY
+  file: path={{ item }} state=absent
+  with_items:
+     - "{{ inventory_dir }}/{{ build_dir }}"
+     - "{{ inventory_dir }}/host_vars/{{ inventory_hostname }}/{{ final_setup }}"
+     - "{{ inventory_dir }}/host_vars/{{ inventory_hostname }}/{{ temp_cfg }}"
+     - "{{ inventory_dir }}/host_vars/{{ inventory_hostname }}/{{ dir_facts }}"
+            
+
+- name: CREATE DIRECTORY 
+  file: path={{ item }} state=directory
+  with_items:
+      - "{{ inventory_dir }}/{{ build_dir }}"
+      - "{{ inventory_dir }}/host_vars/{{ inventory_hostname }}/{{ final_setup }}"
+      - "{{ inventory_dir }}/host_vars/{{ inventory_hostname }}/{{ temp_cfg }}"
+      - "{{ inventory_dir }}/host_vars/{{ inventory_hostname }}/{{ dir_facts }}" 
+
+- file: path={{ inventory_dir }}/host_vars/{{ inventory_hostname}}/{{ inventory_hostname }}.yml state=touch

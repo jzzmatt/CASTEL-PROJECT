@@ -1,0 +1,21 @@
+!
+loggin on
+{% for srv in loggin.ip %}
+loggin {{ srv }}
+{% endfor %}
+{% if loggin.severity is defined %}
+logging buffered {{ loggin.severity }}
+{% endif %}
+{% if loggin.size is defined %}
+loggin buffered {{ loggin.size }}
+{% endif %}
+{% if loggin.traplevel is defined %}
+loggin trap {{ loggin.traplevel }}
+{% endif %}
+{% if loggin.monlevel is defined %}
+loggin monitor {{ loggin.monlevel }}
+{% endif %}
+{% if loggin.consolevel is defined %}
+loggin console {{ loggin.consolevel }}
+{% endif %}
+

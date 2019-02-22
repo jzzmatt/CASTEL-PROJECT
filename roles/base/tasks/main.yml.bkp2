@@ -1,0 +1,10 @@
+---
+- name: SETUP BASIC CONFIG
+  ignore_errors: true  
+  ios_config:
+      authorize: yes 
+      provider: "{{ ios_provider }}"
+      diff_against: running 
+      src: common.j2
+  tags: ['base']
+...

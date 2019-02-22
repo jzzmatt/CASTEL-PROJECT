@@ -1,0 +1,126 @@
+get_facts:
+    napalm_facts:
+        fqdn: RT3560SW_WANCUCA.victoria.local
+        hostname: RT3560SW_WANCUCA
+        interface_list:
+        - Vlan1
+        - FastEthernet0/1
+        - FastEthernet0/2
+        - FastEthernet0/3
+        - FastEthernet0/4
+        - FastEthernet0/5
+        - FastEthernet0/6
+        - FastEthernet0/7
+        - FastEthernet0/8
+        - GigabitEthernet0/1
+        model: WS-C3560-8PC
+        os_version: C3560 Software (C3560-IPSERVICESK9-M), Version 12.2(55)SE9, RELEASE
+            SOFTWARE (fc1)
+        serial_number: FOC1525V2B3
+        uptime: 78868260
+        vendor: Cisco
+    napalm_fqdn: RT3560SW_WANCUCA.victoria.local
+    napalm_hostname: RT3560SW_WANCUCA
+    napalm_interface_list:
+    - Vlan1
+    - FastEthernet0/1
+    - FastEthernet0/2
+    - FastEthernet0/3
+    - FastEthernet0/4
+    - FastEthernet0/5
+    - FastEthernet0/6
+    - FastEthernet0/7
+    - FastEthernet0/8
+    - GigabitEthernet0/1
+    napalm_interfaces:
+        FastEthernet0/1:
+            description: NERA MICROWAVE VICTORIA DC
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: B8:62:1F:19:3D:41
+            speed: 100
+        FastEthernet0/2:
+            description: NERA MICROWAVE NOCAL
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: B8:62:1F:19:3D:42
+            speed: 100
+        FastEthernet0/3:
+            description: ''
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: B8:62:1F:19:3D:04
+            speed: 10
+        FastEthernet0/4:
+            description: ''
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: B8:62:1F:19:3D:05
+            speed: 10
+        FastEthernet0/5:
+            description: ''
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: B8:62:1F:19:3D:06
+            speed: 10
+        FastEthernet0/6:
+            description: ''
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: B8:62:1F:19:3D:07
+            speed: 10
+        FastEthernet0/7:
+            description: ''
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: B8:62:1F:19:3D:08
+            speed: 10
+        FastEthernet0/8:
+            description: ''
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: B8:62:1F:19:3D:09
+            speed: 10
+        GigabitEthernet0/1:
+            description: LINK CORE (CUCA SA)
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: B8:62:1F:19:3D:43
+            speed: 1000
+        Vlan1:
+            description: ''
+            is_enabled: false
+            is_up: false
+            last_flapped: -1.0
+            mac_address: B8:62:1F:19:3D:40
+            speed: 1000
+    napalm_interfaces_ip:
+        FastEthernet0/1:
+            ipv4:
+                172.31.255.6:
+                    prefix_length: 30
+        FastEthernet0/2:
+            ipv4:
+                172.31.255.9:
+                    prefix_length: 30
+        GigabitEthernet0/1:
+            ipv4:
+                172.10.35.2:
+                    prefix_length: 29
+    napalm_model: WS-C3560-8PC
+    napalm_os_version: C3560 Software (C3560-IPSERVICESK9-M), Version 12.2(55)SE9,
+        RELEASE SOFTWARE (fc1)
+    napalm_serial_number: FOC1525V2B3
+    napalm_uptime: 78868260
+    napalm_vendor: Cisco
+changed: false
+failed: false

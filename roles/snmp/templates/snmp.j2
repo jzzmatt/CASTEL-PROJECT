@@ -1,0 +1,15 @@
+no snmp-server community V1ct0ri@ RO
+default snmp-server
+snmp-server community {{ snmp_server.pub }} ro
+snmp-server community {{ snmp_server.wr }} rw
+snmp-server location {{ snmp_server.local }}
+snmp-server contact {{ snmp_server.contact }}
+{% for srv in snmp_server.ip %}
+snmp-server host {{ srv }} version 2c {{ snmp_server.pub }}
+{% endfor %}
+{% if groups['access_sw'] is defined and inventory_hostname in groups['access_sw'] %}
+snmp ifmib ifindex persist
+{% endif %}
+{% if groups['wan_rt'] is defined and inventory_hostname in groups['wan_rt'] %}
+snmp ifmib ifalias long
+{% endif %}

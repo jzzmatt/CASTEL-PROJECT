@@ -1,0 +1,9 @@
+---
+snmp_server:
+       ip: ["10.30.99.251"]
+       local: "DATACENTER VICTORIA"
+       contact: "support.helpdesk@bihangola.net"
+       pub: "Funda"
+       wr: "Funda_admin"
+
+...

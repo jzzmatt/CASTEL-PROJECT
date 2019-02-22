@@ -1,0 +1,349 @@
+get_facts:
+    napalm_facts:
+        fqdn: CORESW-DRINCO.victoria.local
+        hostname: CORESW-DRINCO
+        interface_list:
+        - Vlan1
+        - Vlan3
+        - Vlan90
+        - Vlan95
+        - Vlan99
+        - Vlan101
+        - Vlan106
+        - FastEthernet1/0/1
+        - FastEthernet1/0/2
+        - FastEthernet1/0/3
+        - FastEthernet1/0/4
+        - FastEthernet1/0/5
+        - FastEthernet1/0/6
+        - FastEthernet1/0/7
+        - FastEthernet1/0/8
+        - FastEthernet1/0/9
+        - FastEthernet1/0/10
+        - FastEthernet1/0/11
+        - FastEthernet1/0/12
+        - FastEthernet1/0/13
+        - FastEthernet1/0/14
+        - FastEthernet1/0/15
+        - FastEthernet1/0/16
+        - FastEthernet1/0/17
+        - FastEthernet1/0/18
+        - FastEthernet1/0/19
+        - FastEthernet1/0/20
+        - FastEthernet1/0/21
+        - FastEthernet1/0/22
+        - FastEthernet1/0/23
+        - FastEthernet1/0/24
+        - GigabitEthernet1/0/1
+        - GigabitEthernet1/0/2
+        model: WS-C3750V2-24PS
+        os_version: C3750 Software (C3750-IPSERVICESK9-M), Version 12.2(55)SE5, RELEASE
+            SOFTWARE (fc1)
+        serial_number: FDO1638Y3EW
+        uptime: 34380
+        vendor: Cisco
+    napalm_fqdn: CORESW-DRINCO.victoria.local
+    napalm_hostname: CORESW-DRINCO
+    napalm_interface_list:
+    - Vlan1
+    - Vlan3
+    - Vlan90
+    - Vlan95
+    - Vlan99
+    - Vlan101
+    - Vlan106
+    - FastEthernet1/0/1
+    - FastEthernet1/0/2
+    - FastEthernet1/0/3
+    - FastEthernet1/0/4
+    - FastEthernet1/0/5
+    - FastEthernet1/0/6
+    - FastEthernet1/0/7
+    - FastEthernet1/0/8
+    - FastEthernet1/0/9
+    - FastEthernet1/0/10
+    - FastEthernet1/0/11
+    - FastEthernet1/0/12
+    - FastEthernet1/0/13
+    - FastEthernet1/0/14
+    - FastEthernet1/0/15
+    - FastEthernet1/0/16
+    - FastEthernet1/0/17
+    - FastEthernet1/0/18
+    - FastEthernet1/0/19
+    - FastEthernet1/0/20
+    - FastEthernet1/0/21
+    - FastEthernet1/0/22
+    - FastEthernet1/0/23
+    - FastEthernet1/0/24
+    - GigabitEthernet1/0/1
+    - GigabitEthernet1/0/2
+    napalm_interfaces:
+        FastEthernet1/0/1:
+            description: TEST PORT
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 54:78:1A:D4:41:03
+            speed: 100
+        FastEthernet1/0/10:
+            description: Wireless_Devices_CAPWAP
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 54:78:1A:D4:41:0C
+            speed: 10
+        FastEthernet1/0/11:
+            description: Wireless_Devices_CAPWAP
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 54:78:1A:D4:41:0D
+            speed: 100
+        FastEthernet1/0/12:
+            description: Wireless_Devices_CAPWAP
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 54:78:1A:D4:41:0E
+            speed: 10
+        FastEthernet1/0/13:
+            description: AP_REGISTRATION
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 54:78:1A:D4:41:0F
+            speed: 10
+        FastEthernet1/0/14:
+            description: END USER+Cisco Phone
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 54:78:1A:D4:41:10
+            speed: 100
+        FastEthernet1/0/15:
+            description: ''
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 54:78:1A:D4:41:11
+            speed: 10
+        FastEthernet1/0/16:
+            description: ''
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 54:78:1A:D4:41:12
+            speed: 10
+        FastEthernet1/0/17:
+            description: ''
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 54:78:1A:D4:41:13
+            speed: 10
+        FastEthernet1/0/18:
+            description: ''
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 54:78:1A:D4:41:14
+            speed: 10
+        FastEthernet1/0/19:
+            description: ''
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 54:78:1A:D4:41:15
+            speed: 10
+        FastEthernet1/0/2:
+            description: TEST PORT
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 54:78:1A:D4:41:04
+            speed: 100
+        FastEthernet1/0/20:
+            description: ''
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 54:78:1A:D4:41:16
+            speed: 10
+        FastEthernet1/0/21:
+            description: ''
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 54:78:1A:D4:41:17
+            speed: 10
+        FastEthernet1/0/22:
+            description: LINK UNITEL MODEM
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 54:78:1A:D4:41:18
+            speed: 100
+        FastEthernet1/0/23:
+            description: LINK UNITEL MODEM
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 54:78:1A:D4:41:19
+            speed: 100
+        FastEthernet1/0/24:
+            description: LINK ROUTER WAN
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 54:78:1A:D4:41:41
+            speed: 100
+        FastEthernet1/0/3:
+            description: TEST PORT
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 54:78:1A:D4:41:05
+            speed: 100
+        FastEthernet1/0/4:
+            description: TEST PORT
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 54:78:1A:D4:41:06
+            speed: 10
+        FastEthernet1/0/5:
+            description: TEST PORT
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 54:78:1A:D4:41:07
+            speed: 100
+        FastEthernet1/0/6:
+            description: REDE_DRINCO-ANTIGA
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 54:78:1A:D4:41:08
+            speed: 100
+        FastEthernet1/0/7:
+            description: REDE_DRINCO-ANTIGA
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 54:78:1A:D4:41:09
+            speed: 100
+        FastEthernet1/0/8:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 54:78:1A:D4:41:0A
+            speed: 100
+        FastEthernet1/0/9:
+            description: Wireless_Devices_CAPWAP
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 54:78:1A:D4:41:0B
+            speed: 100
+        GigabitEthernet1/0/1:
+            description: ''
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 54:78:1A:D4:41:01
+            speed: 10
+        GigabitEthernet1/0/2:
+            description: ''
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 54:78:1A:D4:41:02
+            speed: 10
+        Vlan1:
+            description: ''
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 54:78:1A:D4:41:40
+            speed: 1000
+        Vlan101:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 54:78:1A:D4:41:46
+            speed: 1000
+        Vlan106:
+            description: SVI WIRED VLAN
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 54:78:1A:D4:41:47
+            speed: 1000
+        Vlan3:
+            description: SVI VOIP VLAN
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 54:78:1A:D4:41:42
+            speed: 1000
+        Vlan90:
+            description: SVI DRINCO LAN
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 54:78:1A:D4:41:43
+            speed: 1000
+        Vlan95:
+            description: VLAN AP REGISTRATION
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 54:78:1A:D4:41:44
+            speed: 1000
+        Vlan99:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 54:78:1A:D4:41:45
+            speed: 1000
+    napalm_interfaces_ip:
+        FastEthernet1/0/24:
+            ipv4:
+                10.75.35.2:
+                    prefix_length: 30
+        Vlan101:
+            ipv4:
+                10.75.101.254:
+                    prefix_length: 24
+        Vlan106:
+            ipv4:
+                10.75.106.254:
+                    prefix_length: 24
+        Vlan3:
+            ipv4:
+                10.75.3.254:
+                    prefix_length: 24
+        Vlan90:
+            ipv4:
+                192.168.90.254:
+                    prefix_length: 24
+        Vlan95:
+            ipv4:
+                10.75.95.30:
+                    prefix_length: 27
+        Vlan99:
+            ipv4:
+                10.75.99.254:
+                    prefix_length: 24
+    napalm_model: WS-C3750V2-24PS
+    napalm_os_version: C3750 Software (C3750-IPSERVICESK9-M), Version 12.2(55)SE5,
+        RELEASE SOFTWARE (fc1)
+    napalm_serial_number: FDO1638Y3EW
+    napalm_uptime: 34380
+    napalm_vendor: Cisco
+changed: false
+failed: false

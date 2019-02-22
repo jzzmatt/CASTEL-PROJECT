@@ -1,0 +1,283 @@
+Building configuration...
+
+Current configuration : 7789 bytes
+!
+! Last configuration change at 10:11:59 CET Fri Feb 22 2019 by junior.mateus
+!
+version 12.2
+no service pad
+service timestamps debug datetime msec
+service timestamps log datetime msec
+service password-encryption
+!
+hostname Sw_Import
+!
+boot-start-marker
+boot-end-marker
+!
+enable password 7 134E341D095E547A72
+!
+username admin privilege 15 password 7 041028090D731C1E50
+!
+!
+aaa new-model
+!
+!
+aaa authentication login use-srvtacacs group tacacs+ local enable
+aaa authentication enable default group tacacs+ enable
+aaa authorization console
+aaa authorization exec use-srvtacacs group tacacs+ local if-authenticated 
+aaa authorization commands 1 default group tacacs+ if-authenticated 
+aaa authorization commands 15 default group tacacs+ local if-authenticated 
+aaa accounting send stop-record authentication failure
+aaa accounting exec default start-stop group tacacs+
+aaa accounting network default start-stop group tacacs+
+aaa accounting connection default start-stop group tacacs+
+aaa accounting system default start-stop group tacacs+
+aaa accounting resource default start-stop group tacacs+
+!
+!
+!
+aaa session-id common
+clock timezone CET 1
+system mtu routing 1500
+!
+!
+ip domain-name victoria.local
+!
+!
+crypto pki trustpoint TP-self-signed-1552720512
+ enrollment selfsigned
+ subject-name cn=IOS-Self-Signed-Certificate-1552720512
+ revocation-check none
+ rsakeypair TP-self-signed-1552720512
+!
+!
+crypto pki certificate chain TP-self-signed-1552720512
+ certificate self-signed 01
+  30820242 308201AB A0030201 02020101 300D0609 2A864886 F70D0101 04050030 
+  31312F30 2D060355 04031326 494F532D 53656C66 2D536967 6E65642D 43657274 
+  69666963 6174652D 31353532 37323035 3132301E 170D3933 30333031 30303031 
+  30305A17 0D323030 31303130 30303030 305A3031 312F302D 06035504 03132649 
+  4F532D53 656C662D 5369676E 65642D43 65727469 66696361 74652D31 35353237 
+  32303531 3230819F 300D0609 2A864886 F70D0101 01050003 818D0030 81890281 
+  8100A92C 8B301430 D2F973C1 898BED0A 1F63C6A0 351A36D7 5CA02973 EC022127 
+  3501B269 EEE0D248 18A8A5ED 6FDE111B 195C9BC7 8C2CB8A3 0BA2ADAD 3B29F065 
+  9DE6EAE9 90712B8E 8499795F FAF3BCF8 30C42CBA 4F184766 AA75C365 6EB30AA7 
+  0A6A5A7F EC472337 00C105BD 9DADC574 E263CFE2 DD0F7C13 B21F9BFD 4E3E2FC4 
+  8B450203 010001A3 6A306830 0F060355 1D130101 FF040530 030101FF 30150603 
+  551D1104 0E300C82 0A53775F 496D706F 72742E30 1F060355 1D230418 30168014 
+  6E24D17D 7D5653A9 FEEDDADF 2CA44936 3738A99C 301D0603 551D0E04 1604146E 
+  24D17D7D 5653A9FE EDDADF2C A4493637 38A99C30 0D06092A 864886F7 0D010104 
+  05000381 8100A263 05293FBF D747997C 8838E97E C41C4077 F667C7CE ABD83FF2 
+  197AFF1D 08AEF48F 0EEB379C 9D8A15E2 88922CFF ED3B3365 102C19AE A1B38D6D 
+  EA00BCDA 61CA74D5 E732B3EC FB044E5A BC9C6976 840E67DB CF42EA43 4B58614D 
+  E87F6933 513FC0EA C45CC917 1473692B 43BAF062 C2E3EAF5 2561937C 0085A027 
+  610E86A2 9C0D
+  quit
+!
+!
+!
+errdisable recovery cause udld
+errdisable recovery cause bpduguard
+errdisable recovery cause security-violation
+errdisable recovery cause channel-misconfig (STP)
+errdisable recovery cause pagp-flap
+errdisable recovery cause dtp-flap
+errdisable recovery cause link-flap
+errdisable recovery cause sfp-config-mismatch
+errdisable recovery cause gbic-invalid
+errdisable recovery cause psecure-violation
+errdisable recovery cause port-mode-failure
+errdisable recovery cause dhcp-rate-limit
+errdisable recovery cause pppoe-ia-rate-limit
+errdisable recovery cause mac-limit
+errdisable recovery cause vmps
+errdisable recovery cause storm-control
+errdisable recovery cause inline-power
+errdisable recovery cause loopback
+errdisable recovery cause small-frame
+auto qos srnd4
+!
+spanning-tree mode rapid-pvst
+spanning-tree loopguard default
+spanning-tree portfast default
+spanning-tree portfast bpduguard default
+spanning-tree portfast bpdufilter default
+spanning-tree extend system-id
+spanning-tree uplinkfast
+spanning-tree backbonefast
+!
+vlan internal allocation policy ascending
+!
+ip ftp username ciscoBKP
+ip ftp password 7 104D000A061830203C
+ip ssh version 2
+ip scp server enable
+!
+interface FastEthernet0/1
+ switchport access vlan 106
+ switchport mode access
+ switchport voice vlan 3
+ switchport port-security maximum 5
+ switchport port-security
+ switchport port-security aging time 5
+ switchport port-security violation restrict
+ switchport port-security aging type inactivity
+ priority-queue out 
+ mls qos trust cos
+ spanning-tree portfast
+!
+interface FastEthernet0/2
+ switchport access vlan 106
+ switchport mode access
+ switchport voice vlan 3
+ switchport port-security maximum 5
+ switchport port-security
+ switchport port-security aging time 5
+ switchport port-security violation restrict
+ switchport port-security aging type inactivity
+ priority-queue out 
+ mls qos trust cos
+ spanning-tree portfast
+!
+interface FastEthernet0/3
+ switchport access vlan 106
+ switchport mode access
+ switchport voice vlan 3
+ switchport port-security maximum 5
+ switchport port-security
+ switchport port-security aging time 5
+ switchport port-security violation restrict
+ switchport port-security aging type inactivity
+ priority-queue out 
+ mls qos trust cos
+ spanning-tree portfast
+!
+interface FastEthernet0/4
+ switchport access vlan 106
+ switchport mode access
+ switchport voice vlan 3
+ switchport port-security maximum 5
+ switchport port-security
+ switchport port-security aging time 5
+ switchport port-security violation restrict
+ switchport port-security aging type inactivity
+ priority-queue out 
+ mls qos trust cos
+ spanning-tree portfast
+!
+interface FastEthernet0/5
+ description RESERVED_REDE_INDUSTRIAL
+ switchport access vlan 300
+ switchport mode access
+!
+interface FastEthernet0/6
+ switchport access vlan 19
+ switchport mode access
+!
+interface FastEthernet0/7
+ description RESERVED_REDE_INDUSTRIAL
+ switchport access vlan 300
+ switchport mode access
+!
+interface FastEthernet0/8
+ switchport access vlan 19
+ switchport mode access
+!
+interface FastEthernet0/9
+!
+interface FastEthernet0/10
+ switchport access vlan 19
+ switchport mode access
+!
+interface FastEthernet0/11
+ switchport access vlan 16
+ switchport mode access
+!
+interface FastEthernet0/12
+ switchport access vlan 16
+ switchport mode access
+!
+interface FastEthernet0/13
+!
+interface FastEthernet0/14
+!
+interface FastEthernet0/15
+!
+interface FastEthernet0/16
+!
+interface FastEthernet0/17
+!
+interface FastEthernet0/18
+!
+interface FastEthernet0/19
+!
+interface FastEthernet0/20
+!
+interface FastEthernet0/21
+!
+interface FastEthernet0/22
+!
+interface FastEthernet0/23
+!
+interface FastEthernet0/24
+!
+interface GigabitEthernet0/1
+ description RESERVED_TO_TRUNK
+ switchport trunk native vlan 99
+ switchport mode trunk
+!
+interface GigabitEthernet0/2
+ description RESERVED CCTV
+ switchport trunk native vlan 19
+ switchport trunk allowed vlan 19,99,106
+ switchport mode trunk
+!
+interface Vlan1
+ no ip address
+ no ip route-cache
+ shutdown
+!
+interface Vlan2
+ no ip address
+ no ip route-cache
+!
+interface Vlan99
+ ip address 10.40.99.38 255.255.255.0
+ no ip route-cache
+!
+ip default-gateway 10.40.99.254
+ip http server
+ip http authentication aaa login-authentication use-srvtacacs
+ip http authentication aaa exec-authorization use-srvtacacs
+ip http authentication aaa command-authorization 15 default
+no ip http secure-server
+tacacs-server host 10.30.10.10 timeout 5
+tacacs-server directed-request
+tacacs-server key 7 140441081E573E79747965
+!
+line con 0
+ exec-timeout 15 0
+ privilege level 15
+ logging synchronous
+ login authentication use-srvtacacs
+ length 0
+line vty 0 4
+ exec-timeout 15 0
+ privilege level 15
+ logging synchronous
+ login authentication use-srvtacacs
+ length 0
+ transport input telnet ssh
+line vty 5 15
+ exec-timeout 15 0
+ privilege level 15
+ logging synchronous
+ login authentication use-srvtacacs
+ length 0
+ transport input ssh
+!
+ntp clock-period 36029507
+ntp server 10.40.99.254
+end

@@ -1,0 +1,541 @@
+Building configuration...
+
+Current configuration : 17090 bytes
+!
+! Last configuration change at 16:19:29 UTC Tue Feb 19 2019 by junior.mateus
+! NVRAM config last updated at 20:30:02 UTC Mon Feb 18 2019
+!
+version 15.0
+no service pad
+service timestamps debug datetime msec
+service timestamps log datetime msec
+service password-encryption
+!
+hostname SW_fnd_8PoE_RH
+!
+boot-start-marker
+boot-end-marker
+!
+logging buffered 100000
+!
+username admin privilege 15 password 7 07440759400D185747435E4D
+aaa new-model
+!
+!
+aaa authentication login use-srvtacacs group tacacs+ local enable
+aaa authentication enable default group tacacs+ enable
+aaa authorization console
+aaa authorization exec use-srvtacacs group tacacs+ local if-authenticated 
+aaa authorization commands 1 default group tacacs+ if-authenticated 
+aaa authorization commands 15 default group tacacs+ local if-authenticated 
+aaa accounting send stop-record authentication failure
+aaa accounting exec default start-stop group tacacs+
+aaa accounting network default start-stop group tacacs+
+aaa accounting connection default start-stop group tacacs+
+aaa accounting system default start-stop group tacacs+
+!
+!
+!
+!
+!
+!
+aaa session-id common
+system mtu routing 1500
+!
+!
+no ip domain-lookup
+ip domain-name victoria.local
+!
+mls qos map policed-dscp  0 10 18 24 46 to 8
+mls qos map cos-dscp 0 8 16 24 32 46 48 56
+mls qos srr-queue input bandwidth 70 30
+mls qos srr-queue input threshold 1 80 90
+mls qos srr-queue input priority-queue 2 bandwidth 30
+mls qos srr-queue input cos-map queue 1 threshold 2 3
+mls qos srr-queue input cos-map queue 1 threshold 3 6 7
+mls qos srr-queue input cos-map queue 2 threshold 1 4
+mls qos srr-queue input dscp-map queue 1 threshold 2 24
+mls qos srr-queue input dscp-map queue 1 threshold 3 48 49 50 51 52 53 54 55
+mls qos srr-queue input dscp-map queue 1 threshold 3 56 57 58 59 60 61 62 63
+mls qos srr-queue input dscp-map queue 2 threshold 3 32 33 40 41 42 43 44 45
+mls qos srr-queue input dscp-map queue 2 threshold 3 46 47
+mls qos srr-queue output cos-map queue 1 threshold 3 4 5
+mls qos srr-queue output cos-map queue 2 threshold 1 2
+mls qos srr-queue output cos-map queue 2 threshold 2 3
+mls qos srr-queue output cos-map queue 2 threshold 3 6 7
+mls qos srr-queue output cos-map queue 3 threshold 3 0
+mls qos srr-queue output cos-map queue 4 threshold 3 1
+mls qos srr-queue output dscp-map queue 1 threshold 3 32 33 40 41 42 43 44 45
+mls qos srr-queue output dscp-map queue 1 threshold 3 46 47
+mls qos srr-queue output dscp-map queue 2 threshold 1 16 17 18 19 20 21 22 23
+mls qos srr-queue output dscp-map queue 2 threshold 1 26 27 28 29 30 31 34 35
+mls qos srr-queue output dscp-map queue 2 threshold 1 36 37 38 39
+mls qos srr-queue output dscp-map queue 2 threshold 2 24
+mls qos srr-queue output dscp-map queue 2 threshold 3 48 49 50 51 52 53 54 55
+mls qos srr-queue output dscp-map queue 2 threshold 3 56 57 58 59 60 61 62 63
+mls qos srr-queue output dscp-map queue 3 threshold 3 0 1 2 3 4 5 6 7
+mls qos srr-queue output dscp-map queue 4 threshold 1 8 9 11 13 15
+mls qos srr-queue output dscp-map queue 4 threshold 2 10 12 14
+mls qos queue-set output 1 threshold 1 100 100 50 200
+mls qos queue-set output 1 threshold 2 125 125 100 400
+mls qos queue-set output 1 threshold 3 100 100 100 400
+mls qos queue-set output 1 threshold 4 60 150 50 200
+mls qos queue-set output 1 buffers 15 25 40 20
+mls qos
+password encryption aes
+!
+crypto pki trustpoint TP-self-signed-2423017600
+ enrollment selfsigned
+ subject-name cn=IOS-Self-Signed-Certificate-2423017600
+ revocation-check none
+ rsakeypair TP-self-signed-2423017600
+!
+!
+crypto pki certificate chain TP-self-signed-2423017600
+ certificate self-signed 01
+  3082022B 30820194 A0030201 02020101 300D0609 2A864886 F70D0101 05050030 
+  31312F30 2D060355 04031326 494F532D 53656C66 2D536967 6E65642D 43657274 
+  69666963 6174652D 32343233 30313736 3030301E 170D3136 30363130 31363332 
+  32305A17 0D323030 31303130 30303030 305A3031 312F302D 06035504 03132649 
+  4F532D53 656C662D 5369676E 65642D43 65727469 66696361 74652D32 34323330 
+  31373630 3030819F 300D0609 2A864886 F70D0101 01050003 818D0030 81890281 
+  8100C9D3 CAA46473 F1D359E3 CE5E32EA 3E5B2A18 10EE33E3 74DC3C16 6199204F 
+  437E3749 F58F7E71 8AE91469 47690C95 325BDD2F 49DC861B CC6611A5 8F9D6B20 
+  A1BC5444 52FFB52D 11D6F2C5 313079BD 633F9637 AD33A4B3 EDC527B5 20F93C1A 
+  299F9758 5324E9A6 0419AB5E F92DF926 61A5F822 F5BA7854 F40910D5 E3B0A847 
+  263F0203 010001A3 53305130 0F060355 1D130101 FF040530 030101FF 301F0603 
+  551D2304 18301680 1414E38F BA6BA9EF E315D06D DD8AD87A 0C462751 E5301D06 
+  03551D0E 04160414 14E38FBA 6BA9EFE3 15D06DDD 8AD87A0C 462751E5 300D0609 
+  2A864886 F70D0101 05050003 8181000F 5EBF8790 FE1E7E13 C36AE780 79DD6CC9 
+  AB51E39E 853AF5D6 DC48DA38 942EE497 AB3B24CE AF970525 994D9DDD 4A712373 
+  B7B6C393 6E58742B 97A5CBE6 E85EF72F 0D1A76B9 872C1EED 5D0FB6DA D386E7CD 
+  38A8683D C872CE22 B9051A8D 25CE8CEA 2D0DF9D5 3C7CE444 0B151127 F6AE35AF 
+  AE8CF181 481EFF2A 34AA3E9C 8A60AF
+  	quit
+archive
+ log config
+  logging enable
+  logging size 1000
+  notify syslog contenttype plaintext
+  hidekeys
+!
+spanning-tree mode rapid-pvst
+spanning-tree loopguard default
+spanning-tree portfast default
+spanning-tree portfast bpduguard default
+spanning-tree portfast bpdufilter default
+spanning-tree extend system-id
+spanning-tree uplinkfast
+spanning-tree backbonefast
+!
+!
+!
+!
+!
+errdisable recovery cause udld
+errdisable recovery cause bpduguard
+errdisable recovery cause security-violation
+errdisable recovery cause channel-misconfig (STP)
+errdisable recovery cause pagp-flap
+errdisable recovery cause dtp-flap
+errdisable recovery cause link-flap
+errdisable recovery cause sfp-config-mismatch
+errdisable recovery cause gbic-invalid
+errdisable recovery cause psecure-violation
+errdisable recovery cause port-mode-failure
+errdisable recovery cause dhcp-rate-limit
+errdisable recovery cause mac-limit
+errdisable recovery cause vmps
+errdisable recovery cause storm-control
+errdisable recovery cause inline-power
+errdisable recovery cause loopback
+errdisable recovery cause small-frame
+!
+!
+!
+!
+vlan internal allocation policy ascending
+!
+ip ssh version 2
+ip scp server enable
+!
+class-map match-all AUTOQOS_MULTIENHANCED_CONF_CLASS
+  match access-group name AUTOQOS-ACL-MULTIENHANCED-CONF
+class-map match-all AUTOQOS_VOIP_DATA_CLASS
+  match ip dscp ef 
+class-map match-all AUTOQOS_DEFAULT_CLASS
+  match access-group name AUTOQOS-ACL-DEFAULT
+class-map match-all AUTOQOS_TRANSACTION_CLASS
+  match access-group name AUTOQOS-ACL-TRANSACTIONAL-DATA
+class-map match-all AutoQoS-VoIP-RTP-Trust
+  match ip dscp ef 
+class-map match-all AUTOQOS_VOIP_SIGNAL_CLASS
+  match ip dscp cs3 
+class-map match-all AUTOQOS_SIGNALING_CLASS
+  match access-group name AUTOQOS-ACL-SIGNALING
+class-map match-all AUTOQOS_BULK_DATA_CLASS
+  match access-group name AUTOQOS-ACL-BULK-DATA
+class-map match-all AUTOQOS_SCAVANGER_CLASS
+  match access-group name AUTOQOS-ACL-SCAVANGER
+class-map match-all AutoQoS-VoIP-Control-Trust
+  match ip dscp cs3  af31 
+!
+policy-map AUTOQOS-SRND4-CISCOPHONE-POLICY
+ class AUTOQOS_VOIP_DATA_CLASS
+   set dscp ef
+  police 128000 8000 exceed-action policed-dscp-transmit
+ class AUTOQOS_VOIP_SIGNAL_CLASS
+   set dscp cs3
+  police 32000 8000 exceed-action policed-dscp-transmit
+ class AUTOQOS_DEFAULT_CLASS
+   set dscp default
+  police 10000000 8000 exceed-action policed-dscp-transmit
+policy-map AUTOQOS-SRND4-SOFTPHONE-POLICY
+ class AUTOQOS_VOIP_DATA_CLASS
+   set dscp ef
+  police 128000 8000 exceed-action policed-dscp-transmit
+ class AUTOQOS_MULTIENHANCED_CONF_CLASS
+   set dscp af41
+  police 5000000 8000 exceed-action drop
+ class AUTOQOS_BULK_DATA_CLASS
+   set dscp af11
+  police 10000000 8000 exceed-action policed-dscp-transmit
+ class AUTOQOS_TRANSACTION_CLASS
+   set dscp af21
+  police 10000000 8000 exceed-action policed-dscp-transmit
+ class AUTOQOS_SCAVANGER_CLASS
+   set dscp cs1
+  police 10000000 8000 exceed-action drop
+ class AUTOQOS_SIGNALING_CLASS
+   set dscp cs3
+  police 32000 8000 exceed-action drop
+ class AUTOQOS_DEFAULT_CLASS
+   set dscp default
+  police 10000000 8000 exceed-action policed-dscp-transmit
+policy-map AutoQoS-Police-CiscoPhone
+ class AutoQoS-VoIP-RTP-Trust
+   set dscp ef
+  police 1000000 8000 exceed-action policed-dscp-transmit
+ class AutoQoS-VoIP-Control-Trust
+   set dscp cs3
+  police 1000000 8000 exceed-action policed-dscp-transmit
+!
+!
+! 
+!
+!
+!
+!
+!
+!
+!
+!
+interface FastEthernet0/1
+ description RESERVED-END USERS
+ switchport access vlan 106
+ switchport mode access
+ switchport voice vlan 2
+ switchport port-security maximum 5
+ switchport port-security
+ switchport port-security aging time 5
+ switchport port-security violation restrict
+ switchport port-security aging type inactivity
+ srr-queue bandwidth share 1 30 35 5
+ srr-queue bandwidth shape 10 0 0 0
+ queue-set 2
+ priority-queue out 
+ mls qos trust device cisco-phone
+ mls qos trust cos
+ spanning-tree portfast
+ service-policy input AUTOQOS-SRND4-SOFTPHONE-POLICY
+!
+interface FastEthernet0/2
+ description Reserved_Printer
+ switchport access vlan 16
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/3
+ description RESERVED-END USERS
+ switchport access vlan 106
+ switchport mode access
+ switchport voice vlan 2
+ switchport port-security maximum 5
+ switchport port-security
+ switchport port-security aging time 5
+ switchport port-security violation restrict
+ switchport port-security aging type inactivity
+ srr-queue bandwidth share 1 30 35 5
+ srr-queue bandwidth shape 10 0 0 0
+ queue-set 2
+ priority-queue out 
+ mls qos trust device cisco-phone
+ mls qos trust cos
+ spanning-tree portfast
+ service-policy input AUTOQOS-SRND4-SOFTPHONE-POLICY
+!
+interface FastEthernet0/4
+ description RESERVED-END USERS
+ switchport access vlan 106
+ switchport mode access
+ switchport voice vlan 2
+ switchport port-security maximum 5
+ switchport port-security
+ switchport port-security aging time 5
+ switchport port-security violation restrict
+ switchport port-security aging type inactivity
+ srr-queue bandwidth share 1 30 35 5
+ srr-queue bandwidth shape 10 0 0 0
+ queue-set 2
+ priority-queue out 
+ mls qos trust device cisco-phone
+ mls qos trust cos
+ spanning-tree portfast
+ service-policy input AUTOQOS-SRND4-SOFTPHONE-POLICY
+!
+interface FastEthernet0/5
+ description RESERVED-END USERS
+ switchport access vlan 106
+ switchport mode access
+ switchport voice vlan 2
+ switchport port-security maximum 5
+ switchport port-security
+ switchport port-security aging time 5
+ switchport port-security violation restrict
+ switchport port-security aging type inactivity
+ srr-queue bandwidth share 1 30 35 5
+ srr-queue bandwidth shape 10 0 0 0
+ queue-set 2
+ priority-queue out 
+ mls qos trust device cisco-phone
+ mls qos trust cos
+ spanning-tree portfast
+ service-policy input AUTOQOS-SRND4-SOFTPHONE-POLICY
+!
+interface FastEthernet0/6
+ description RESERVED-END USERS
+ switchport access vlan 106
+ switchport mode access
+ switchport voice vlan 2
+ switchport port-security maximum 5
+ switchport port-security
+ switchport port-security aging time 5
+ switchport port-security violation restrict
+ switchport port-security aging type inactivity
+ srr-queue bandwidth share 1 30 35 5
+ srr-queue bandwidth shape 10 0 0 0
+ queue-set 2
+ priority-queue out 
+ mls qos trust device cisco-phone
+ mls qos trust cos
+ spanning-tree portfast
+ service-policy input AUTOQOS-SRND4-SOFTPHONE-POLICY
+!
+interface FastEthernet0/7
+ description RESERVED-END USERS
+ switchport access vlan 106
+ switchport mode access
+ switchport voice vlan 2
+ srr-queue bandwidth share 1 30 35 5
+ priority-queue out 
+ mls qos trust device cisco-phone
+ mls qos trust cos
+ auto qos voip cisco-phone 
+ spanning-tree portfast
+ service-policy input AUTOQOS-SRND4-CISCOPHONE-POLICY
+!
+interface FastEthernet0/8
+ description Reserved Printer
+ switchport access vlan 16
+ switchport mode access
+ switchport port-security maximum 5
+ switchport port-security
+ switchport port-security aging time 5
+ switchport port-security violation restrict
+ switchport port-security aging type inactivity
+ spanning-tree portfast
+!
+interface GigabitEthernet0/1
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ srr-queue bandwidth share 1 30 35 5
+ priority-queue out 
+ mls qos trust dscp
+!
+interface GigabitEthernet0/2
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ srr-queue bandwidth share 1 30 35 5
+ priority-queue out 
+ mls qos trust dscp
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+interface Vlan199
+ ip address 10.15.99.30 255.255.255.0
+ no ip route-cache
+!
+ip default-gateway 10.15.99.254
+ip http server
+ip http authentication aaa login-authentication use-srvtacacs
+ip http authentication aaa exec-authorization use-srvtacacs
+ip http authentication aaa command-authorization 15 default
+no ip http secure-server
+!
+!
+ip access-list extended AUTOQOS-ACL-BULK-DATA
+ remark Web Traffic
+ permit tcp any any eq www
+ permit tcp any any eq 443
+ permit tcp any any eq ftp-data
+ permit tcp any any eq ftp
+ permit tcp any any eq 4434
+ permit tcp any eq 4434 any
+ip access-list extended AUTOQOS-ACL-DEFAULT
+ remark Best Effort
+ permit tcp any any
+ permit ip any any
+ip access-list extended AUTOQOS-ACL-MULTIENHANCED-CONF
+ remark IP/VC or SOFTPHONE
+ permit udp any any range 16348 32767
+ip access-list extended AUTOQOS-ACL-SCAVANGER
+ remark Kazaa
+ permit tcp any any eq 1214
+ permit udp any any eq 1214
+ remark MICROSOFT DIRECT X GAMING
+ permit tcp any any range 2300 2400
+ permit udp any any range 2300 2400
+ remark Apple ITunes Music SAHRING
+ permit tcp any any eq 3689
+ permit udp any any eq 3689
+ remark BITTORENTS
+ permit tcp any any range 6881 6999
+ remark YAHOO GAMES
+ permit tcp any any eq 11999
+ remark MSN GAMING ZONE
+ permit tcp any any range 28800 29100
+ remark FasTrack
+ remark Gnutella
+ permit udp any any eq 6346
+ permit udp any any eq 6347
+ permit udp any any eq 6348
+ permit tcp any any eq 6346
+ permit tcp any any eq 6347
+ permit tcp any any eq 6348
+ permit tcp any any eq 6349
+ permit tcp any any eq 6355
+ permit tcp any any eq 5634
+ remark Edonkey
+ permit tcp any any eq 4662
+ip access-list extended AUTOQOS-ACL-SIGNALING
+ remark SoftPhone SCCP
+ permit tcp any any range 2000 2002
+ remark SIP
+ permit tcp any any range 5060 5061
+ permit udp any any range 5060 5061
+ip access-list extended AUTOQOS-ACL-TRANSACTIONAL-DATA
+ remark Exchange server
+ permit tcp any any eq 135
+ remark SMTP
+ permit tcp any any eq smtp
+ remark Secure-SMTP
+ permit tcp any any eq 589
+ permit tcp any any eq 993
+ remark Secure-POP3
+ permit tcp any any eq 995
+ remark Kerberos
+ permit tcp any any eq 88
+ permit tcp any any eq 749
+ permit udp any any eq 88
+ permit udp any any eq 749
+ remark Net-Bios
+ permit tcp any any eq 139
+ permit tcp any any eq 137
+ permit udp any any eq netbios-ns
+ permit udp any any eq netbios-dgm
+ remark LDAP
+ permit tcp any any eq 389
+ remark Microsoft_ds (Active Directory)
+ permit tcp any any eq 445
+ permit udp any any eq 445
+ remark Ms_WBT_server or RDP
+ permit tcp any any eq 3389
+ remark SQL
+ permit tcp any any eq 1521
+ remark SNMP
+ permit tcp any any eq 161
+ permit tcp any any eq 162
+ permit udp any any eq snmp
+ remark NTP
+ permit tcp any any eq 37
+ permit udp any any eq time
+ remark Syslogs
+ permit udp any any eq syslog
+ remark NFS (Network File System )
+ permit tcp any any eq 2049
+ permit udp any any eq 2049
+ip access-list extended AUTOQOS_VOIP_DATA_CLASS
+ remark RTP (VOICE)
+ permit udp any any range 16384 32767
+!
+kron occurrence AutoSAVESchedule at 20:30 recurring
+ policy-list AutoSAVE
+!
+kron policy-list AutoSAVE
+ cli write
+ cli show startup | redirect ftp://10.30.23.1/SW_fnd_8PoE_RH.cfg
+!
+logging trap debugging
+logging host 10.30.99.251
+access-list 55 permit 10.30.10.50
+snmp-server community Funda RO
+snmp-server community Funda_admin RW
+snmp-server community victoria_pub RO
+snmp-server community victoria_wr RW
+snmp-server location DATACENTER VICTORIA
+snmp-server contact support.helpdesk@bihangola.net
+snmp-server host 10.30.99.251 version 2c Funda 
+snmp-server host 10.30.99.251 version 2c victoria_pub 
+snmp ifmib ifindex persist
+tacacs-server host 10.30.10.10
+tacacs-server key 7 1501580F16793F76786263
+!
+!
+!
+banner login ^CCC
+#################################################################
+#                 FUNDA SITE IT MANAGEMENT                      #
+#Unauthorized acces is prohibit and will be prosecuted          #
+#Each command lines may cause prejudice to service in production#
+#      We strongly recommend the Administrators                 #
+#to use a tools like NotePad for all transactions script        #
+#                   GROUP CASTEL                                #
+#            IT MANAGEMENT DEPARTEMENT                          #
+#################################################################
+^C
+!
+line con 0
+ exec-timeout 15 0
+ privilege level 15
+ logging synchronous
+ login authentication use-srvtacacs
+ length 0
+line vty 0 4
+ exec-timeout 15 0
+ privilege level 15
+ logging synchronous
+ login authentication use-srvtacacs
+ length 0
+ transport input telnet ssh
+line vty 5 15
+ exec-timeout 15 0
+ privilege level 15
+ logging synchronous
+ login authentication use-srvtacacs
+ length 0
+ transport input ssh
+!
+ntp server 10.121.170.1 prefer
+end

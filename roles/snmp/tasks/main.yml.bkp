@@ -1,0 +1,6 @@
+---
+- name: SETUP SNMP
+  template: src=snmp.j2 dest={{ build_dir }}/04-snmp.conf
+
+
+...

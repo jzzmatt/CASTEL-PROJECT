@@ -1,0 +1,307 @@
+get_facts:
+    napalm_facts:
+        fqdn: COBswPontoMetro2.victoria.local
+        hostname: COBswPontoMetro2
+        interface_list:
+        - Vlan1
+        - Vlan99
+        - FastEthernet0
+        - GigabitEthernet1/0/1
+        - GigabitEthernet1/0/2
+        - GigabitEthernet1/0/3
+        - GigabitEthernet1/0/4
+        - GigabitEthernet1/0/5
+        - GigabitEthernet1/0/6
+        - GigabitEthernet1/0/7
+        - GigabitEthernet1/0/8
+        - GigabitEthernet1/0/9
+        - GigabitEthernet1/0/10
+        - GigabitEthernet1/0/11
+        - GigabitEthernet1/0/12
+        - GigabitEthernet1/0/13
+        - GigabitEthernet1/0/14
+        - GigabitEthernet1/0/15
+        - GigabitEthernet1/0/16
+        - GigabitEthernet1/0/17
+        - GigabitEthernet1/0/18
+        - GigabitEthernet1/0/19
+        - GigabitEthernet1/0/20
+        - GigabitEthernet1/0/21
+        - GigabitEthernet1/0/22
+        - GigabitEthernet1/0/23
+        - GigabitEthernet1/0/24
+        - GigabitEthernet1/0/25
+        - GigabitEthernet1/0/26
+        - GigabitEthernet1/0/27
+        - GigabitEthernet1/0/28
+        model: WS-C2960S-24PS-L
+        os_version: C2960S Software (C2960S-UNIVERSALK9-M), Version 12.2(55)SE5, RELEASE
+            SOFTWARE (fc1)
+        serial_number: FOC1638X13Z
+        uptime: 6637260
+        vendor: Cisco
+    napalm_fqdn: COBswPontoMetro2.victoria.local
+    napalm_hostname: COBswPontoMetro2
+    napalm_interface_list:
+    - Vlan1
+    - Vlan99
+    - FastEthernet0
+    - GigabitEthernet1/0/1
+    - GigabitEthernet1/0/2
+    - GigabitEthernet1/0/3
+    - GigabitEthernet1/0/4
+    - GigabitEthernet1/0/5
+    - GigabitEthernet1/0/6
+    - GigabitEthernet1/0/7
+    - GigabitEthernet1/0/8
+    - GigabitEthernet1/0/9
+    - GigabitEthernet1/0/10
+    - GigabitEthernet1/0/11
+    - GigabitEthernet1/0/12
+    - GigabitEthernet1/0/13
+    - GigabitEthernet1/0/14
+    - GigabitEthernet1/0/15
+    - GigabitEthernet1/0/16
+    - GigabitEthernet1/0/17
+    - GigabitEthernet1/0/18
+    - GigabitEthernet1/0/19
+    - GigabitEthernet1/0/20
+    - GigabitEthernet1/0/21
+    - GigabitEthernet1/0/22
+    - GigabitEthernet1/0/23
+    - GigabitEthernet1/0/24
+    - GigabitEthernet1/0/25
+    - GigabitEthernet1/0/26
+    - GigabitEthernet1/0/27
+    - GigabitEthernet1/0/28
+    napalm_interfaces:
+        FastEthernet0:
+            description: ''
+            is_enabled: false
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 54:78:1A:7F:70:B7
+            speed: 100
+        GigabitEthernet1/0/1:
+            description: Reserved Biometrico
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 54:78:1A:7F:70:81
+            speed: 100
+        GigabitEthernet1/0/10:
+            description: Reserved Biometrico
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 54:78:1A:7F:70:8A
+            speed: 10
+        GigabitEthernet1/0/11:
+            description: Reserved Biometrico
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 54:78:1A:7F:70:8B
+            speed: 100
+        GigabitEthernet1/0/12:
+            description: Reserved Biometrico
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 54:78:1A:7F:70:8C
+            speed: 10
+        GigabitEthernet1/0/13:
+            description: Reserved Biometrico
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 54:78:1A:7F:70:8D
+            speed: 10
+        GigabitEthernet1/0/14:
+            description: Reserved Biometrico
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 54:78:1A:7F:70:8E
+            speed: 10
+        GigabitEthernet1/0/15:
+            description: Reserved Biometrico
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 54:78:1A:7F:70:8F
+            speed: 10
+        GigabitEthernet1/0/16:
+            description: Reserved Biometrico
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 54:78:1A:7F:70:90
+            speed: 100
+        GigabitEthernet1/0/17:
+            description: Reserved Biometrico
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 54:78:1A:7F:70:91
+            speed: 100
+        GigabitEthernet1/0/18:
+            description: Reserved Biometrico
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 54:78:1A:7F:70:92
+            speed: 100
+        GigabitEthernet1/0/19:
+            description: Reserved Biometrico
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 54:78:1A:7F:70:93
+            speed: 100
+        GigabitEthernet1/0/2:
+            description: Reserved Biometrico
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 54:78:1A:7F:70:82
+            speed: 100
+        GigabitEthernet1/0/20:
+            description: Reserved Biometrico
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 54:78:1A:7F:70:94
+            speed: 100
+        GigabitEthernet1/0/21:
+            description: Reserved Biometrico
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 54:78:1A:7F:70:95
+            speed: 10
+        GigabitEthernet1/0/22:
+            description: ''
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 54:78:1A:7F:70:96
+            speed: 10
+        GigabitEthernet1/0/23:
+            description: Reserved Biometrico
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 54:78:1A:7F:70:97
+            speed: 10
+        GigabitEthernet1/0/24:
+            description: RESERVED FAST TRUNK
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 54:78:1A:7F:70:98
+            speed: 1000
+        GigabitEthernet1/0/25:
+            description: RESERVED FAST TRUNK
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 54:78:1A:7F:70:99
+            speed: 10
+        GigabitEthernet1/0/26:
+            description: RESERVED FAST TRUNK
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 54:78:1A:7F:70:9A
+            speed: 10
+        GigabitEthernet1/0/27:
+            description: RESERVED FAST TRUNK
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 54:78:1A:7F:70:9B
+            speed: 10
+        GigabitEthernet1/0/28:
+            description: RESERVED FAST TRUNK
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 54:78:1A:7F:70:9C
+            speed: 1000
+        GigabitEthernet1/0/3:
+            description: Reserved Biometrico
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 54:78:1A:7F:70:83
+            speed: 100
+        GigabitEthernet1/0/4:
+            description: Reserved Biometrico
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 54:78:1A:7F:70:84
+            speed: 100
+        GigabitEthernet1/0/5:
+            description: Reserved Biometrico
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 54:78:1A:7F:70:85
+            speed: 10
+        GigabitEthernet1/0/6:
+            description: Reserved Biometrico
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 54:78:1A:7F:70:86
+            speed: 100
+        GigabitEthernet1/0/7:
+            description: Reserved Biometrico
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 54:78:1A:7F:70:87
+            speed: 100
+        GigabitEthernet1/0/8:
+            description: Reserved Biometrico
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 54:78:1A:7F:70:88
+            speed: 10
+        GigabitEthernet1/0/9:
+            description: Reserved Biometrico
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 54:78:1A:7F:70:89
+            speed: 100
+        Vlan1:
+            description: ''
+            is_enabled: false
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 54:78:1A:7F:70:C0
+            speed: 1000
+        Vlan99:
+            description: Management&Native
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 54:78:1A:7F:70:C1
+            speed: 1000
+    napalm_interfaces_ip:
+        Vlan99:
+            ipv4:
+                10.40.99.13:
+                    prefix_length: 24
+    napalm_model: WS-C2960S-24PS-L
+    napalm_os_version: C2960S Software (C2960S-UNIVERSALK9-M), Version 12.2(55)SE5,
+        RELEASE SOFTWARE (fc1)
+    napalm_serial_number: FOC1638X13Z
+    napalm_uptime: 6637260
+    napalm_vendor: Cisco
+changed: false
+failed: false

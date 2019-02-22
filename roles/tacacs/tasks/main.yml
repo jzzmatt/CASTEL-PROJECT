@@ -1,0 +1,19 @@
+---
+- name: ADD TACACS FILE & ASSEMBLY
+  template: src=tacacs.j2 dest={{ inventory_dir }}/{{ build_dir}}/01-tacacs.conf
+  run_once: true
+  tags: ['tacacs_file']
+
+
+- name: SETUP AAA TACACS
+  ignore_errors: true 
+  ios_config:
+      force: yes
+      authorize: yes 
+      provider: "{{ ios_provider }}"
+      diff_against: running
+      src: tacacs.j2
+  #  notify: SETUP LINE VTY  
+  tags: ['tacacs']
+
+...

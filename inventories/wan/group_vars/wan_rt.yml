@@ -1,0 +1,23 @@
+---
+ios_provider:
+    username: "{{ secret.username }}"
+    password: "{{ secret.password }}"
+    authorize: true 
+    auth_pass: "{{ secret.password }}"
+    host: "{{ inventory_hostname }}"
+
+
+netflow:
+    name: "CiscoPrime_Export"
+    ip: "10.30.99.252"
+    port: "9996"
+    policy: "perform_policy"
+    monitor_name: "CiscoPrime_flow"
+
+oldnetflow:
+    name: "MYMONITOR"
+    ip: "10.30.99.252"
+    port: "9996"
+    export: "NETFLOW_ANALYSER"
+    record: "MYRECORD"
+...

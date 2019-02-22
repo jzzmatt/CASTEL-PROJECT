@@ -1,0 +1,361 @@
+get_facts:
+    napalm_facts:
+        fqdn: CORESW.Funda_DISTRIB.victoria.local
+        hostname: CORESW.Funda_DISTRIB
+        interface_list:
+        - Vlan1
+        - Vlan2
+        - Vlan99
+        - Vlan100
+        - Vlan101
+        - Vlan199
+        - Vlan200
+        - Vlan211
+        - GigabitEthernet0/1
+        - GigabitEthernet0/2
+        - GigabitEthernet0/3
+        - GigabitEthernet0/4
+        - GigabitEthernet0/5
+        - GigabitEthernet0/6
+        - GigabitEthernet0/7
+        - GigabitEthernet0/8
+        - GigabitEthernet0/9
+        - GigabitEthernet0/10
+        - GigabitEthernet0/11
+        - GigabitEthernet0/12
+        - GigabitEthernet0/13
+        - GigabitEthernet0/14
+        - GigabitEthernet0/15
+        - GigabitEthernet0/16
+        - GigabitEthernet0/17
+        - GigabitEthernet0/18
+        - GigabitEthernet0/19
+        - GigabitEthernet0/20
+        - GigabitEthernet0/21
+        - GigabitEthernet0/22
+        - GigabitEthernet0/23
+        - GigabitEthernet0/24
+        - GigabitEthernet0/25
+        - GigabitEthernet0/26
+        - GigabitEthernet0/27
+        - GigabitEthernet0/28
+        - Port-channel1
+        model: WS-C3560G-24TS
+        os_version: C3560 Software (C3560-IPSERVICESK9-M), Version 12.2(55)SE9, RELEASE
+            SOFTWARE (fc1)
+        serial_number: FOC1001Y396
+        uptime: 6151500
+        vendor: Cisco
+    napalm_fqdn: CORESW.Funda_DISTRIB.victoria.local
+    napalm_hostname: CORESW.Funda_DISTRIB
+    napalm_interface_list:
+    - Vlan1
+    - Vlan2
+    - Vlan99
+    - Vlan100
+    - Vlan101
+    - Vlan199
+    - Vlan200
+    - Vlan211
+    - GigabitEthernet0/1
+    - GigabitEthernet0/2
+    - GigabitEthernet0/3
+    - GigabitEthernet0/4
+    - GigabitEthernet0/5
+    - GigabitEthernet0/6
+    - GigabitEthernet0/7
+    - GigabitEthernet0/8
+    - GigabitEthernet0/9
+    - GigabitEthernet0/10
+    - GigabitEthernet0/11
+    - GigabitEthernet0/12
+    - GigabitEthernet0/13
+    - GigabitEthernet0/14
+    - GigabitEthernet0/15
+    - GigabitEthernet0/16
+    - GigabitEthernet0/17
+    - GigabitEthernet0/18
+    - GigabitEthernet0/19
+    - GigabitEthernet0/20
+    - GigabitEthernet0/21
+    - GigabitEthernet0/22
+    - GigabitEthernet0/23
+    - GigabitEthernet0/24
+    - GigabitEthernet0/25
+    - GigabitEthernet0/26
+    - GigabitEthernet0/27
+    - GigabitEthernet0/28
+    - Port-channel1
+    napalm_interfaces:
+        GigabitEthernet0/1:
+            description: PORT-RESERVED-TRUNK
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:16:C7:85:C8:01
+            speed: 100
+        GigabitEthernet0/10:
+            description: PORT-RESERVED-TRUNK
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:16:C7:85:C8:0A
+            speed: 100
+        GigabitEthernet0/11:
+            description: PORT-RESERVED-TRUNK
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:16:C7:85:C8:0B
+            speed: 10
+        GigabitEthernet0/12:
+            description: PORT-RESERVED-TRUNK
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:16:C7:85:C8:0C
+            speed: 100
+        GigabitEthernet0/13:
+            description: LINK-TO-WLC
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:16:C7:85:C8:0D
+            speed: 10
+        GigabitEthernet0/14:
+            description: PORT-RESERVED-TRUNK
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:16:C7:85:C8:0E
+            speed: 10
+        GigabitEthernet0/15:
+            description: PORT-RESERVED-TRUNK
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:16:C7:85:C8:0F
+            speed: 1000
+        GigabitEthernet0/16:
+            description: PORT-RESERVED-TRUNK
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:16:C7:85:C8:10
+            speed: 1000
+        GigabitEthernet0/17:
+            description: PORT-RESERVED-TRUNK
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:16:C7:85:C8:11
+            speed: 1000
+        GigabitEthernet0/18:
+            description: PORT-RESERVED-TRUNK
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:16:C7:85:C8:12
+            speed: 1000
+        GigabitEthernet0/19:
+            description: ''
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:16:C7:85:C8:13
+            speed: 10
+        GigabitEthernet0/2:
+            description: PORT-RESERVED-TRUNK
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:16:C7:85:C8:02
+            speed: 10
+        GigabitEthernet0/20:
+            description: LINK TRUK TO LINHA 4
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:16:C7:85:C8:14
+            speed: 100
+        GigabitEthernet0/21:
+            description: PORT-RESERVED-TRUNK
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:16:C7:85:C8:15
+            speed: 1000
+        GigabitEthernet0/22:
+            description: PORT-RESERVED-TRUNK
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:16:C7:85:C8:16
+            speed: 100
+        GigabitEthernet0/23:
+            description: PORT-RESERVED-TRUNK
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:16:C7:85:C8:17
+            speed: 1000
+        GigabitEthernet0/24:
+            description: LINK TO CORE CENTRAL (F1/0/24)
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:16:C7:85:C8:18
+            speed: 100
+        GigabitEthernet0/25:
+            description: Link Channel TO CORE CENTRAL
+            is_enabled: false
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:16:C7:85:C8:19
+            speed: 10
+        GigabitEthernet0/26:
+            description: Link Channel TO CORE CENTRAL
+            is_enabled: false
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:16:C7:85:C8:1A
+            speed: 10
+        GigabitEthernet0/27:
+            description: FAST-PORT-TRUNK(FO)
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:16:C7:85:C8:1B
+            speed: 10
+        GigabitEthernet0/28:
+            description: FAST-PORT-TRUNK(FO)
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:16:C7:85:C8:1C
+            speed: 10
+        GigabitEthernet0/3:
+            description: Test L4 Krones
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:16:C7:85:C8:03
+            speed: 10
+        GigabitEthernet0/4:
+            description: PORT-RESERVED-TRUNK
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:16:C7:85:C8:04
+            speed: 10
+        GigabitEthernet0/5:
+            description: PORT-RESERVED-TRUNK
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:16:C7:85:C8:05
+            speed: 10
+        GigabitEthernet0/6:
+            description: test wireless_complexo
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:16:C7:85:C8:06
+            speed: 10
+        GigabitEthernet0/7:
+            description: PORT-RESERVED-TRUNK
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:16:C7:85:C8:07
+            speed: 100
+        GigabitEthernet0/8:
+            description: PORT-RESERVED-TRUNK
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:16:C7:85:C8:08
+            speed: 10
+        GigabitEthernet0/9:
+            description: PORT-RESERVED-TRUNK
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:16:C7:85:C8:09
+            speed: 10
+        Port-channel1:
+            description: Link Channel TO CORE CENTRAL
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:00:00:00:00:00
+            speed: 10
+        Vlan1:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:16:C7:85:C8:40
+            speed: 1000
+        Vlan100:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:16:C7:85:C8:43
+            speed: 1000
+        Vlan101:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:16:C7:85:C8:44
+            speed: 1000
+        Vlan199:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:16:C7:85:C8:45
+            speed: 1000
+        Vlan2:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:16:C7:85:C8:41
+            speed: 1000
+        Vlan200:
+            description: RESERVED *** P2P WATER STATION ***
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:16:C7:85:C8:46
+            speed: 1000
+        Vlan211:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:16:C7:85:C8:47
+            speed: 1000
+        Vlan99:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:16:C7:85:C8:42
+            speed: 1000
+    napalm_interfaces_ip:
+        Vlan199:
+            ipv4:
+                10.15.99.253:
+                    prefix_length: 24
+    napalm_model: WS-C3560G-24TS
+    napalm_os_version: C3560 Software (C3560-IPSERVICESK9-M), Version 12.2(55)SE9,
+        RELEASE SOFTWARE (fc1)
+    napalm_serial_number: FOC1001Y396
+    napalm_uptime: 6151500
+    napalm_vendor: Cisco
+changed: false
+failed: false

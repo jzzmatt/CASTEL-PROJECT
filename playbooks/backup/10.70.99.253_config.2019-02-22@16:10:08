@@ -1,0 +1,858 @@
+Building configuration...
+
+Current configuration : 24790 bytes
+!
+! Last configuration change at 17:03:11 WAT Fri Feb 22 2019 by junior.mateus
+! NVRAM config last updated at 11:08:57 WAT Wed Feb 6 2019 by odorico.domingos
+!
+version 12.2
+no service pad
+service timestamps debug uptime
+service timestamps log datetime
+service password-encryption
+service sequence-numbers
+!
+hostname VIDswCR
+!
+boot-start-marker
+boot-end-marker
+!
+logging buffered 10000
+!
+username Admin privilege 15 password 7 11422F0C13001E00567A7A7169
+!
+!
+aaa new-model
+!
+!
+aaa authentication login use-srvtacacs group tacacs+ local enable
+aaa authentication enable default group tacacs+ enable
+aaa authorization console
+aaa authorization exec use-srvtacacs group tacacs+ local if-authenticated 
+aaa authorization commands 1 default group tacacs+ if-authenticated 
+aaa authorization commands 15 default group tacacs+ local if-authenticated 
+aaa accounting send stop-record authentication failure
+aaa accounting exec default start-stop group tacacs+
+aaa accounting network default start-stop group tacacs+
+aaa accounting connection default start-stop group tacacs+
+aaa accounting system default start-stop group tacacs+
+aaa accounting resource default start-stop group tacacs+
+!
+!
+!
+aaa session-id common
+clock timezone WAT 1
+switch 1 provision ws-c3750g-24ts-1u
+system mtu routing 1500
+!
+track 10 ip sla 10 reachability
+udld enable
+
+no ip source-route
+ip routing
+ip domain-name victoria.local
+ip host srv-radius2 10.30.10.36
+ip name-server 10.70.10.20
+ip name-server 10.30.10.1
+ip dhcp relay information trust-all
+ip dhcp excluded-address 10.70.102.100 10.70.102.254
+ip dhcp excluded-address 10.70.103.100 10.70.103.254
+ip dhcp excluded-address 10.70.30.50 10.70.30.254
+ip dhcp excluded-address 10.70.6.100 10.70.6.254
+ip dhcp excluded-address 10.70.6.1
+ip dhcp excluded-address 10.70.101.253 10.70.101.254
+ip dhcp excluded-address 10.70.190.14
+ip dhcp excluded-address 10.70.95.14
+!
+ip dhcp pool WLAN-DHCP
+   network 10.70.102.0 255.255.255.0
+   default-router 10.70.102.254 
+   domain-name vidrul.victoria.local
+   dns-server 10.30.48.1 10.30.48.2 10.30.10.116 
+!
+ip dhcp pool Wireless_GUEST
+   network 10.70.103.0 255.255.255.0
+   default-router 10.70.103.254 
+   dns-server 4.2.2.2 8.8.8.8 
+   lease 0 4
+!
+ip dhcp pool Horlogio_Biometrico
+   network 10.70.30.0 255.255.255.0
+   default-router 10.70.30.254 
+!
+ip dhcp pool ENDUsers+Printers
+   network 10.70.6.0 255.255.255.0
+   dns-server 10.30.48.1 10.30.48.2 10.30.10.116 
+   domain-name vidrul.victoria.local
+   default-router 10.70.6.1 
+   lease 3
+!
+ip dhcp pool RESERVED_MAQUINA_ROSARIO
+   host 10.70.6.50 255.255.255.0
+   client-identifier 0003.2700.cf5d
+   domain-name vidrul.victoria.local
+   dns-server 10.30.10.116 10.70.10.20 
+   netbios-name-server 10.70.10.1 
+   netbios-node-type h-node
+   default-router 10.70.6.1 
+!
+ip dhcp pool AP_REGISTRATION(2ndVict_WC)
+   network 10.70.95.0 255.255.255.240
+   default-router 10.70.95.14 
+   dns-server 10.30.10.116 10.70.10.20 
+   option 43 hex f104.0a1e.6332
+   domain-name vidrul.victoria.local
+!
+ip dhcp pool Wireless_BIH_END-user
+   network 10.70.101.0 255.255.255.0
+   default-router 10.70.101.254 
+   dns-server 10.30.48.1 10.30.48.2 10.30.10.116 
+   domain-name vidrul.victoria.local
+   lease 0 4
+!
+!
+!
+mls qos map cos-dscp 0 8 16 24 32 46 48 56
+mls qos srr-queue input bandwidth 70 30
+mls qos srr-queue input threshold 1 80 90
+mls qos srr-queue input priority-queue 2 bandwidth 30
+mls qos srr-queue input cos-map queue 1 threshold 2 3
+mls qos srr-queue input cos-map queue 1 threshold 3 6 7
+mls qos srr-queue input cos-map queue 2 threshold 1 4
+mls qos srr-queue input dscp-map queue 1 threshold 2 24
+mls qos srr-queue input dscp-map queue 1 threshold 3 48 49 50 51 52 53 54 55
+mls qos srr-queue input dscp-map queue 1 threshold 3 56 57 58 59 60 61 62 63
+mls qos srr-queue input dscp-map queue 2 threshold 3 32 33 40 41 42 43 44 45
+mls qos srr-queue input dscp-map queue 2 threshold 3 46 47
+mls qos srr-queue output cos-map queue 1 threshold 3 4 5
+mls qos srr-queue output cos-map queue 2 threshold 1 2
+mls qos srr-queue output cos-map queue 2 threshold 2 3
+mls qos srr-queue output cos-map queue 2 threshold 3 6 7
+mls qos srr-queue output cos-map queue 3 threshold 3 0
+mls qos srr-queue output cos-map queue 4 threshold 3 1
+mls qos srr-queue output dscp-map queue 1 threshold 3 32 33 40 41 42 43 44 45
+mls qos srr-queue output dscp-map queue 1 threshold 3 46 47
+mls qos srr-queue output dscp-map queue 2 threshold 1 16 17 18 19 20 21 22 23
+mls qos srr-queue output dscp-map queue 2 threshold 1 26 27 28 29 30 31 34 35
+mls qos srr-queue output dscp-map queue 2 threshold 1 36 37 38 39
+mls qos srr-queue output dscp-map queue 2 threshold 2 24
+mls qos srr-queue output dscp-map queue 2 threshold 3 48 49 50 51 52 53 54 55
+mls qos srr-queue output dscp-map queue 2 threshold 3 56 57 58 59 60 61 62 63
+mls qos srr-queue output dscp-map queue 3 threshold 3 0 1 2 3 4 5 6 7
+mls qos srr-queue output dscp-map queue 4 threshold 1 8 9 11 13 15
+mls qos srr-queue output dscp-map queue 4 threshold 2 10 12 14
+mls qos queue-set output 1 threshold 1 100 100 50 200
+mls qos queue-set output 1 threshold 2 125 125 100 400
+mls qos queue-set output 1 threshold 3 100 100 100 400
+mls qos queue-set output 1 threshold 4 60 150 50 200
+mls qos queue-set output 1 buffers 15 25 40 20
+mls qos
+!
+crypto pki trustpoint TP-self-signed-3405411328
+ enrollment selfsigned
+ subject-name cn=IOS-Self-Signed-Certificate-3405411328
+ revocation-check none
+ rsakeypair TP-self-signed-3405411328
+!
+!
+crypto pki certificate chain TP-self-signed-3405411328
+ certificate self-signed 01
+  30820256 308201BF A0030201 02020101 300D0609 2A864886 F70D0101 04050030 
+  31312F30 2D060355 04031326 494F532D 53656C66 2D536967 6E65642D 43657274 
+  69666963 6174652D 33343035 34313133 3238301E 170D3933 30333031 30303032 
+  33365A17 0D323030 31303130 30303030 305A3031 312F302D 06035504 03132649 
+  4F532D53 656C662D 5369676E 65642D43 65727469 66696361 74652D33 34303534 
+  31313332 3830819F 300D0609 2A864886 F70D0101 01050003 818D0030 81890281 
+  8100B2A5 173A90D9 BF2F9400 46758952 09C15F82 637BD104 AF1477A1 6030711F 
+  7D2E9F64 9E07FBDB 3DD2D88B 032DAFBB 403BFEB4 E7E4A38B 83E5945B DDA3DED6 
+  576C9DA6 8B14EFAD 2E2D97AF 2F4CB108 953F0876 E0319870 B819AEA7 061B25E7 
+  A8A7D169 12D87E97 9946FC85 343EF775 4C21EE83 B7EDA9E0 60637998 2F56B123 
+  D11D0203 010001A3 7E307C30 0F060355 1D130101 FF040530 030101FF 30290603 
+  551D1104 22302082 1E564944 73774352 2E636163 7561636F 2E766963 746F7269 
+  612E6C6F 63616C30 1F060355 1D230418 30168014 224D82D4 C9B18980 00E0A7D7 
+  7FE5D5E3 F8630578 301D0603 551D0E04 16041422 4D82D4C9 B1898000 E0A7D77F 
+  E5D5E3F8 63057830 0D06092A 864886F7 0D010104 05000381 8100685C 16847379 
+  9B2944B7 1FA363DE 5A031A14 C710188A 2827F93B A220C119 26A24CA0 296C0924 
+  5A0FB786 AC261416 9E49FC4D 88B452F1 9F3BA15D 7F034CDF 29A47663 2FF9DAE3 
+  7F9A9EB0 B820FB31 B938803A AD5DB027 DEFB0C72 43278872 89000371 ECA8DE52 
+  A3D443DD E28DA3F5 7DED4791 BC3EBCF0 E4D8DB1E 12767182 AF20
+  quit
+auto qos srnd4
+!
+!
+!
+errdisable recovery cause udld
+errdisable recovery cause bpduguard
+errdisable recovery cause security-violation
+errdisable recovery cause channel-misconfig (STP)
+errdisable recovery cause pagp-flap
+errdisable recovery cause dtp-flap
+errdisable recovery cause link-flap
+errdisable recovery cause sfp-config-mismatch
+errdisable recovery cause gbic-invalid
+errdisable recovery cause l2ptguard
+errdisable recovery cause psecure-violation
+errdisable recovery cause port-mode-failure
+errdisable recovery cause dhcp-rate-limit
+errdisable recovery cause pppoe-ia-rate-limit
+errdisable recovery cause mac-limit
+errdisable recovery cause vmps
+errdisable recovery cause storm-control
+errdisable recovery cause inline-power
+errdisable recovery cause arp-inspection
+errdisable recovery cause loopback
+errdisable recovery cause small-frame
+errdisable recovery interval 30
+archive
+ log config
+  logging enable
+  logging size 1000
+  notify syslog contenttype plaintext
+  hidekeys
+ path ftp://10.30.23.1/$h-$t
+ write-memory
+!
+spanning-tree mode rapid-pvst
+spanning-tree loopguard default
+spanning-tree portfast default
+spanning-tree portfast bpduguard default
+spanning-tree portfast bpdufilter default
+spanning-tree extend system-id
+spanning-tree uplinkfast
+spanning-tree backbonefast
+spanning-tree vlan 1-9,11-19,21-98,100-4094 priority 24576
+spanning-tree vlan 10,20,99 priority 4096
+!
+vlan internal allocation policy ascending
+!
+ip ssh version 2
+ip scp server enable
+!
+class-map match-all TRANSACTIONAL_DATA
+ match access-group name AUTOQOS-ACL-TRANSACTIONAL-DATA
+class-map match-all CM_IP_traffic_VLAN
+ match access-group name ACL_Qos-traffic
+class-map match-all MULTIMEDIA_CONFERENCING
+ match access-group name AUTOQOS-ACL-MULTIENHANCED-CONF
+class-map match-all SCAVENGER
+ match access-group name AUTOQOS-ACL-SCAVANGER
+class-map match-all SIGNALING
+ match access-group name AUTOQOS-ACL-SIGNALING
+class-map match-all BULK_DATA
+ match access-group name AUTOQOS-ACL-BULK-DATA
+!
+!
+policy-map SRVFARM
+ class CM_IP_traffic_VLAN
+  set ip dscp af21
+policy-map DVLAN_MARKING
+ class MULTIMEDIA_CONFERENCING
+  set dscp af41
+ class SIGNALING
+  set dscp cs3
+ class TRANSACTIONAL_DATA
+  set dscp af21
+ class BULK_DATA
+  set dscp af11
+ class SCAVENGER
+  set dscp cs1
+ class class-default
+  set dscp default
+!
+!
+!
+!
+interface Loopback103
+ description Quarantine
+ ip address 172.19.255.255 255.255.255.255
+!
+interface GigabitEthernet1/0/1
+ switchport trunk encapsulation dot1q
+ switchport trunk native vlan 99
+ switchport mode trunk
+ srr-queue bandwidth share 1 30 35 5
+ priority-queue out 
+ mls qos vlan-based
+ auto qos trust dscp
+!
+interface GigabitEthernet1/0/2
+ description Trunk_to_Novos_Contentores
+ switchport trunk encapsulation dot1q
+ switchport trunk native vlan 99
+ switchport trunk allowed vlan 1-3,5,7,9,10,16,19-21,30,32,35,40,41,95,98-103
+ switchport trunk allowed vlan add 192,199,211
+ switchport mode trunk
+ srr-queue bandwidth share 1 30 35 5
+ priority-queue out 
+ mls qos vlan-based
+ auto qos trust dscp
+!
+interface GigabitEthernet1/0/3
+ switchport access vlan 10
+ switchport mode access
+ srr-queue bandwidth share 1 30 35 5
+ priority-queue out 
+ mls qos vlan-based
+ auto qos trust dscp
+!
+interface GigabitEthernet1/0/4
+ description RESERVED VMWARE
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ srr-queue bandwidth share 1 30 35 5
+ priority-queue out 
+ mls qos vlan-based
+ auto qos trust dscp
+!
+interface GigabitEthernet1/0/5
+ description RERSERVED-VMWARE
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ srr-queue bandwidth share 1 30 35 5
+ priority-queue out 
+ mls qos vlan-based
+ auto qos trust dscp
+!
+interface GigabitEthernet1/0/6
+ description RERSERVED-VMWARE
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ srr-queue bandwidth share 1 30 35 5
+ priority-queue out 
+ mls qos vlan-based
+ auto qos trust dscp
+!
+interface GigabitEthernet1/0/7
+ description CUCME
+ switchport access vlan 3
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ srr-queue bandwidth share 1 30 35 5
+ priority-queue out 
+ mls qos vlan-based
+ auto qos trust dscp
+ spanning-tree portfast
+!
+interface GigabitEthernet1/0/8
+ description Management-to-CME
+ switchport access vlan 99
+ switchport mode access
+ srr-queue bandwidth share 1 30 35 5
+ priority-queue out 
+ mls qos vlan-based
+ auto qos trust dscp
+ spanning-tree portfast
+!
+interface GigabitEthernet1/0/9
+ description Reserved VMWARE Machine
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ switchport nonegotiate
+ srr-queue bandwidth share 1 30 35 5
+ priority-queue out 
+ mls qos vlan-based
+ auto qos trust dscp
+!
+interface GigabitEthernet1/0/10
+ description Reserved CCTV_Server
+ switchport access vlan 19
+ switchport mode access
+ spanning-tree portfast
+!
+interface GigabitEthernet1/0/11
+ description Reserved CCTV_Server
+ switchport access vlan 19
+ switchport mode access
+ spanning-tree portfast
+ spanning-tree bpdufilter enable
+!
+interface GigabitEthernet1/0/12
+ description link ESXI 
+ switchport access vlan 98
+ switchport mode access
+ spanning-tree portfast
+!
+interface GigabitEthernet1/0/13
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 5,7,20,21
+ switchport mode trunk
+ srr-queue bandwidth share 1 30 35 5
+ priority-queue out 
+ mls qos vlan-based
+ auto qos trust dscp
+!
+interface GigabitEthernet1/0/14
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 5,7,20,21
+ switchport mode trunk
+ srr-queue bandwidth share 1 30 35 5
+ priority-queue out 
+ mls qos vlan-based
+ auto qos trust dscp
+!
+interface GigabitEthernet1/0/15
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 5,7,20,21
+ switchport mode trunk
+ srr-queue bandwidth share 1 30 35 5
+ priority-queue out 
+ mls qos vlan-based
+ auto qos trust dscp
+!
+interface GigabitEthernet1/0/16
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 5,7,20,21
+ switchport mode trunk
+ srr-queue bandwidth share 1 30 35 5
+ priority-queue out 
+ mls qos vlan-based
+ auto qos trust dscp
+!
+interface GigabitEthernet1/0/17
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 5,7,20,21
+ switchport mode trunk
+ srr-queue bandwidth share 1 30 35 5
+ priority-queue out 
+ mls qos vlan-based
+ auto qos trust dscp
+!
+interface GigabitEthernet1/0/18
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 5,7,20,21
+ switchport mode trunk
+ srr-queue bandwidth share 1 30 35 5
+ priority-queue out 
+ mls qos vlan-based
+ auto qos trust dscp
+!
+interface GigabitEthernet1/0/19
+ description LINK WLC vlan GUEST (PORTA 2)
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 103
+ switchport mode trunk
+ switchport nonegotiate
+!
+interface GigabitEthernet1/0/20
+ description TRUNK ASA FIREWALL (E0/1)
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ switchport nonegotiate
+ srr-queue bandwidth share 1 30 35 5
+ priority-queue out 
+ mls qos trust dscp
+ auto qos trust dscp
+!
+interface GigabitEthernet1/0/21
+ description CHECKPOINT INSIDE INTERFACE (LAN2)
+ switchport access vlan 41
+ switchport mode access
+ srr-queue bandwidth share 1 30 35 5
+ priority-queue out 
+ mls qos trust dscp
+ auto qos trust dscp
+ spanning-tree portfast
+!
+interface GigabitEthernet1/0/22
+ description CHECKPOINT MANAGEMENT INTERFACE (LAN1)
+ switchport access vlan 199
+ switchport mode access
+ srr-queue bandwidth share 1 30 35 5
+ priority-queue out 
+ mls qos vlan-based
+ auto qos trust dscp
+ spanning-tree portfast
+!
+interface GigabitEthernet1/0/23
+ description LINK WAN VLAN 35 (ASA E0/2)
+ switchport access vlan 35
+ switchport mode access
+ srr-queue bandwidth share 1 30 35 5
+ priority-queue out 
+ mls qos trust dscp
+ auto qos trust dscp
+ spanning-tree portfast
+!
+interface GigabitEthernet1/0/24
+ switchport access vlan 35
+ switchport mode access
+ srr-queue bandwidth share 1 30 35 5
+ priority-queue out 
+ mls qos vlan-based
+ auto qos trust dscp
+ spanning-tree portfast
+!
+interface GigabitEthernet1/0/25
+ switchport trunk encapsulation dot1q
+ switchport trunk native vlan 99
+ switchport trunk allowed vlan 1-3,5,7,9,10,16,19-21,30,32,35,40,41,95,98-103
+ switchport trunk allowed vlan add 192,199,211
+ switchport mode trunk
+ srr-queue bandwidth share 1 30 35 5
+ priority-queue out 
+ mls qos vlan-based
+ auto qos trust dscp
+!
+interface GigabitEthernet1/0/26
+ switchport trunk encapsulation dot1q
+ switchport trunk native vlan 99
+ switchport trunk allowed vlan 3,5,7,10,16,19-21,95,99,101,103
+ switchport mode trunk
+ srr-queue bandwidth share 1 30 35 5
+ priority-queue out 
+ mls qos vlan-based
+ auto qos trust dscp
+!
+interface GigabitEthernet1/0/27
+ description Link-to-ZonaQuente
+ switchport trunk encapsulation dot1q
+ switchport trunk native vlan 99
+ switchport trunk allowed vlan 1-3,5,7,9,10,16,19-21,30,32,35,40,41,95,98-103
+ switchport trunk allowed vlan add 192,199,211,259
+ switchport mode trunk
+ srr-queue bandwidth share 1 30 35 5
+ priority-queue out 
+ mls qos vlan-based
+ auto qos trust dscp
+!
+interface GigabitEthernet1/0/28
+ description LINK-TO-COMM
+ switchport trunk encapsulation dot1q
+ switchport trunk native vlan 99
+ switchport trunk allowed vlan 3,7,10,19,20,30,35,95,99,101,103
+ switchport mode trunk
+ srr-queue bandwidth share 1 30 35 5
+ priority-queue out 
+ mls qos vlan-based
+ auto qos trust dscp
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+interface Vlan2
+ description Vmware Virtual Console
+ ip address 10.70.2.254 255.255.255.0
+!
+interface Vlan3
+ description Vlan_Voice
+ ip address 10.70.3.254 255.255.255.0
+ ip helper-address 10.70.3.249
+!
+interface Vlan5
+ description SERVER FARM VLAN
+ ip address 10.70.10.254 255.255.255.0
+ service-policy input SRVFARM
+!
+interface Vlan7
+ description LAN_Vertech
+ ip address 10.70.7.254 255.255.255.0
+!
+interface Vlan9
+ description Vmware Virtual Center
+ ip address 10.70.9.254 255.255.255.0
+!
+interface Vlan10
+ description Administratif
+ ip address 10.70.1.253 255.255.255.0
+ service-policy input DVLAN_MARKING
+!
+interface Vlan16
+ description Printers
+ ip address 10.70.16.254 255.255.255.0
+ ip helper-address 10.70.1.10
+!
+interface Vlan19
+ description Reserved Access_Control
+ ip address 10.70.19.254 255.255.255.0
+!
+interface Vlan20
+ description BT_DG
+ ip address 10.70.6.1 255.255.255.0
+ service-policy input DVLAN_MARKING
+!
+interface Vlan21
+ no ip address
+!
+interface Vlan30
+ description Devices&Peripherics
+ ip address 10.70.30.254 255.255.255.0
+!
+interface Vlan32
+ description Link to Inside ASA
+ ip address 10.70.32.1 255.255.255.248
+!
+interface Vlan35
+ description WAN NERA
+ ip address 10.70.35.2 255.255.255.252
+!
+interface Vlan40
+ description Link to Inside TMG NIC
+ ip address 10.70.40.1 255.255.255.252
+!
+interface Vlan41
+ description CHECKPOINT INSIDE INTERFACE (LAN2)
+ ip address 172.19.253.6 255.255.255.252
+!
+interface Vlan95
+ description AP_REGISTRATION(2ndVict_WC)
+ ip address 10.70.95.14 255.255.255.240
+!
+interface Vlan98
+ ip address 10.70.98.254 255.255.255.0
+!
+interface Vlan99
+ description MNGT
+ ip address 10.70.99.253 255.255.255.0
+ ip helper-address 10.70.99.244
+!
+interface Vlan100
+ no ip address
+!
+interface Vlan101
+ description WIFI_GENERICA
+ ip address 10.70.101.254 255.255.255.0
+!
+interface Vlan102
+ description Wireless SSID "Wlan_cacuaco.Vid"
+ ip address 10.70.102.254 255.255.255.0
+ service-policy input DVLAN_MARKING
+!
+interface Vlan103
+ description Wireless GUEST
+ ip address 10.70.103.254 255.255.255.0
+ ip policy route-map RM_GUEST
+!
+interface Vlan199
+ description Management CHECKPOINT
+ ip address 10.70.199.6 255.255.255.248
+!
+interface Vlan211
+ description VLAN ISP ( ITA MAXNET)
+ no ip address
+!
+interface Vlan259
+ description RESERVED FORNO
+ ip address 10.70.249.6 255.255.255.248
+ ip access-group ACL_FORNO in
+!
+interface Vlan999
+ no ip address
+!
+!
+router eigrp 800
+ variance 2
+ network 10.70.32.0 0.0.0.3
+ network 10.70.35.0 0.0.0.3
+ redistribute connected
+ passive-interface default
+ no passive-interface Vlan35
+ no passive-interface Vlan32
+!
+ip classless
+ip route 0.0.0.0 0.0.0.0 10.70.32.2 250 name ASA_FW
+ip route 10.70.21.0 255.255.255.0 10.70.32.2 name EDGE
+ip route 10.70.255.0 255.255.255.0 10.70.32.2 name Ipsec_VPN
+ip route 10.100.0.0 255.255.0.0 10.70.32.2
+ip route 10.101.100.0 255.255.255.0 10.70.32.2 name DMVPN
+ip http server
+ip http authentication aaa login-authentication use-srvtacacs
+ip http authentication aaa exec-authorization use-srvtacacs
+ip http authentication aaa command-authorization 15 default
+no ip http secure-server
+!
+!
+ip access-list extended ACL_FORNO
+ permit ip any host 10.70.249.6
+ deny   ip any 192.168.0.0 0.0.255.255
+ deny   ip any 172.16.0.0 0.0.240.255
+ deny   ip any 10.0.0.0 0.255.255.255
+ permit ip any any
+ip access-list extended ACL_Qos-traffic
+ permit ip any any
+ip access-list extended AUTOQOS-ACL-BULK-DATA
+ remark Web Traffic
+ permit tcp any any eq www
+ permit tcp any any eq 443
+ permit tcp any any eq ftp-data
+ permit tcp any any eq ftp
+ permit tcp any any eq 4434
+ permit tcp any eq 4434 any
+ip access-list extended AUTOQOS-ACL-DEFAULT
+ remark Best Effort
+ permit tcp any any
+ip access-list extended AUTOQOS-ACL-MULTIENHANCED-CONF
+ remark IP/VC or SOFTPHONE
+ permit udp any any range 16348 32767
+ip access-list extended AUTOQOS-ACL-SCAVANGER
+ remark Kazaa 
+ permit tcp any any eq 1214
+ permit udp any any eq 1214
+ remark MICROSOFT DIRECT X GAMING
+ permit tcp any any range 2300 2400
+ permit udp any any range 2300 2400
+ remark Apple ITunes Music SAHRING
+ permit tcp any any eq 3689
+ permit udp any any eq 3689
+ remark BITTORENTS
+ permit tcp any any range 6881 6999
+ remark YAHOO GAMES
+ permit tcp any any eq 11999
+ remark MSN GAMING ZONE
+ permit tcp any any range 28800 29100
+ remark FasTrack
+ remark Gnutella
+ permit udp any any eq 6346
+ permit udp any any eq 6347
+ permit udp any any eq 6348
+ permit tcp any any eq 6346
+ permit tcp any any eq 6347
+ permit tcp any any eq 6348
+ permit tcp any any eq 6349
+ permit tcp any any eq 6355
+ permit tcp any any eq 5634
+ remark Edonkey
+ permit tcp any any eq 4662
+ip access-list extended AUTOQOS-ACL-SIGNALING
+ remark SoftPhone SCCP
+ permit tcp any any range 2000 2002
+ remark SIP
+ permit tcp any any range 5060 5061
+ permit udp any any range 5060 5061
+ip access-list extended AUTOQOS-ACL-TRANSACTIONAL-DATA
+ remark Exchange server 
+ permit tcp any any eq 135
+ remark SMTP
+ permit tcp any any eq smtp
+ remark Secure-SMTP
+ permit tcp any any eq 589
+ permit tcp any any eq 993
+ remark Secure-POP3
+ permit tcp any any eq 995
+ remark Kerberos
+ permit tcp any any eq 88
+ permit tcp any any eq 749
+ permit udp any any eq 88
+ permit udp any any eq 749
+ remark Net-Bios
+ permit tcp any any eq 139
+ permit tcp any any eq 137
+ permit udp any any eq netbios-ns
+ permit udp any any eq netbios-dgm
+ remark LDAP
+ permit tcp any any eq 389
+ remark Microsoft_ds (Active Directory)
+ permit tcp any any eq 445
+ permit udp any any eq 445
+ remark Ms_WBT_server or RDP
+ permit tcp any any eq 3389
+ remark SQL
+ permit tcp any any eq 1521
+ remark SNMP
+ permit tcp any any eq 161
+ permit tcp any any eq 162
+ permit udp any any eq snmp
+ remark NTP
+ permit tcp any any eq 37
+ permit udp any any eq time
+ remark Syslogs
+ permit udp any any eq syslog
+ remark NFS (Network File System )
+ permit tcp any any eq 2049
+ permit udp any any eq 2049
+ip access-list extended AUTOQOS_VOIP_DATA_CLASS
+ remark RTP (VOICE)
+ permit udp any any range 16384 32767
+ip access-list extended VIDRUL_GUEST_NETWORK
+ remark Allow DHCP
+ permit udp any any eq bootps
+ permit udp any any eq bootpc
+ remark Allow DNS
+ permit udp any any eq domain
+ remark Allow Time_SYNC
+ permit udp any any eq ntp
+ remark Allow Web Surffing
+ permit tcp any any eq www
+ permit tcp any any eq 443
+ permit tcp any any eq ftp
+ permit tcp any any eq ftp-data
+ remark Allow Mail Traffic
+ permit tcp any any eq pop3
+ permit tcp any any eq 993
+ permit tcp any any eq 995
+ permit tcp any any eq 587
+ permit tcp any any eq 465
+ip access-list extended Wireless_GUEST
+ deny   ip any 10.0.0.0 0.255.255.255
+ deny   ip any 192.168.0.0 0.0.255.255
+ deny   ip any 172.16.0.0 0.0.255.255
+ permit ip any any
+!
+ip radius source-interface Vlan32 vrf default
+ip sla 10
+ icmp-echo 10.30.40.2
+ip sla schedule 10 start-time now
+kron occurrence Semanal-BKP at 21:30 Fri recurring
+ policy-list MY_BKP_CFG
+!
+kron policy-list MY_BKP_CFG
+ cli sh startup-config | redirect ftp://10.30.23.1/VIDswCR-VICTSTARTUP
+ cli sh running-config | redirect ftp://10.30.23.1/VIDswCR-VICTRUNNING
+!
+access-list 55 remark SNMP Traffic
+access-list 55 permit 10.70.1.50
+access-list 55 permit 10.70.99.0 0.0.0.255
+access-list 55 deny   any log
+access-list 106 deny   ip any 91.151.0.0 0.0.255.255
+access-list 106 deny   ip any 10.0.0.0 0.255.255.255
+access-list 106 deny   ip any 192.168.0.0 0.0.255.255
+access-list 106 deny   ip any 172.16.0.0 0.15.255.255
+access-list 106 deny   tcp any 91.151.0.0 0.0.255.255 eq 443
+access-list 106 deny   tcp any 91.151.0.0 0.0.255.255 eq www
+access-list 106 permit ip any any
+route-map RM_GUEST permit 10
+ match ip address Wireless_GUEST
+ set ip next-hop 10.70.32.2
+!
+route-map RM_GUEST permit 20
+ set ip next-hop 172.19.255.255
+!
+route-map PBR_traffic permit 10
+ match ip address 106
+ set ip next-hop 10.30.35.1
+!
+route-map PBR_traffic permit 20
+!
+!
+snmp-server community VIDRUL RO 55
+snmp-server community VIDRUL_admin RW 55
+tacacs-server host 10.30.10.10 timeout 5
+tacacs-server directed-request
+tacacs-server key 7 0017400516081F545F701A
+!
+alias exec arch sh archive log config all
+!
+line con 0
+ exec-timeout 15 0
+ privilege level 15
+ logging synchronous
+ login authentication use-srvtacacs
+ length 0
+line vty 0 4
+ exec-timeout 15 0
+ privilege level 15
+ logging synchronous
+ login authentication use-srvtacacs
+ length 0
+ transport input telnet ssh
+line vty 5 15
+ exec-timeout 15 0
+ privilege level 15
+ logging synchronous
+ login authentication use-srvtacacs
+ length 0
+ transport input ssh
+!
+ntp clock-period 36029062
+ntp server 10.70.35.1
+end

@@ -1,0 +1,298 @@
+get_facts:
+    napalm_facts:
+        fqdn: SW24FnDPoE_SERV.ROOM.victoria.local
+        hostname: SW24FnDPoE_SERV.ROOM
+        interface_list:
+        - Vlan1
+        - Vlan2
+        - Vlan100
+        - Vlan199
+        - FastEthernet0/1
+        - FastEthernet0/2
+        - FastEthernet0/3
+        - FastEthernet0/4
+        - FastEthernet0/5
+        - FastEthernet0/6
+        - FastEthernet0/7
+        - FastEthernet0/8
+        - FastEthernet0/9
+        - FastEthernet0/10
+        - FastEthernet0/11
+        - FastEthernet0/12
+        - FastEthernet0/13
+        - FastEthernet0/14
+        - FastEthernet0/15
+        - FastEthernet0/16
+        - FastEthernet0/17
+        - FastEthernet0/18
+        - FastEthernet0/19
+        - FastEthernet0/20
+        - FastEthernet0/21
+        - FastEthernet0/22
+        - FastEthernet0/23
+        - FastEthernet0/24
+        - GigabitEthernet0/1
+        - GigabitEthernet0/2
+        model: WS-C2960-24PC-L
+        os_version: C2960 Software (C2960-LANBASEK9-M), Version 12.2(55)SE9, RELEASE
+            SOFTWARE (fc1)
+        serial_number: FOC1415Z38Q
+        uptime: 6250980
+        vendor: Cisco
+    napalm_fqdn: SW24FnDPoE_SERV.ROOM.victoria.local
+    napalm_hostname: SW24FnDPoE_SERV.ROOM
+    napalm_interface_list:
+    - Vlan1
+    - Vlan2
+    - Vlan100
+    - Vlan199
+    - FastEthernet0/1
+    - FastEthernet0/2
+    - FastEthernet0/3
+    - FastEthernet0/4
+    - FastEthernet0/5
+    - FastEthernet0/6
+    - FastEthernet0/7
+    - FastEthernet0/8
+    - FastEthernet0/9
+    - FastEthernet0/10
+    - FastEthernet0/11
+    - FastEthernet0/12
+    - FastEthernet0/13
+    - FastEthernet0/14
+    - FastEthernet0/15
+    - FastEthernet0/16
+    - FastEthernet0/17
+    - FastEthernet0/18
+    - FastEthernet0/19
+    - FastEthernet0/20
+    - FastEthernet0/21
+    - FastEthernet0/22
+    - FastEthernet0/23
+    - FastEthernet0/24
+    - GigabitEthernet0/1
+    - GigabitEthernet0/2
+    napalm_interfaces:
+        FastEthernet0/1:
+            description: LIN-RESERVED-TRUNK
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 9C:4E:20:3D:1A:81
+            speed: 10
+        FastEthernet0/10:
+            description: Reserved to Server(Future to Husky vlan1)
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 9C:4E:20:3D:1A:8A
+            speed: 100
+        FastEthernet0/11:
+            description: Reserved VLAN CCTV
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 9C:4E:20:3D:1A:8B
+            speed: 10
+        FastEthernet0/12:
+            description: Reserved VLAN CCTV
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 9C:4E:20:3D:1A:8C
+            speed: 10
+        FastEthernet0/13:
+            description: Reserved to Server(vlan1)
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 9C:4E:20:3D:1A:8D
+            speed: 100
+        FastEthernet0/14:
+            description: Reserved to Server(vlan1)
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 9C:4E:20:3D:1A:8E
+            speed: 100
+        FastEthernet0/15:
+            description: Reserved to Server(vlan1)
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 9C:4E:20:3D:1A:8F
+            speed: 100
+        FastEthernet0/16:
+            description: Reserved VLAN CCTV
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 9C:4E:20:3D:1A:90
+            speed: 100
+        FastEthernet0/17:
+            description: Reserved VLAN CCTV
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 9C:4E:20:3D:1A:91
+            speed: 100
+        FastEthernet0/18:
+            description: Reserved VLAN CCTV
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 9C:4E:20:3D:1A:92
+            speed: 10
+        FastEthernet0/19:
+            description: Reserved VLAN CCTV
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 9C:4E:20:3D:1A:93
+            speed: 100
+        FastEthernet0/2:
+            description: Reserved VLAN CCTV
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 9C:4E:20:3D:1A:82
+            speed: 100
+        FastEthernet0/20:
+            description: Reserved VLAN CCTV
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 9C:4E:20:3D:1A:94
+            speed: 10
+        FastEthernet0/21:
+            description: CAPWAPP FLEXConnect
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 9C:4E:20:3D:1A:95
+            speed: 100
+        FastEthernet0/22:
+            description: LINK-RESERVED-TO-LWAPP
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 9C:4E:20:3D:1A:96
+            speed: 10
+        FastEthernet0/23:
+            description: LINK-RESERVED-TRUNK
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 9C:4E:20:3D:1A:97
+            speed: 100
+        FastEthernet0/24:
+            description: LINK-RESERVED-TRUNK
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 9C:4E:20:3D:1A:98
+            speed: 100
+        FastEthernet0/3:
+            description: RESERVED VLAN_HUSKY
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 9C:4E:20:3D:1A:83
+            speed: 100
+        FastEthernet0/4:
+            description: LINK-RESERVED-TRUNK Xaroparia
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 9C:4E:20:3D:1A:84
+            speed: 100
+        FastEthernet0/5:
+            description: Reserved for_New_Servers
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 9C:4E:20:3D:1A:85
+            speed: 100
+        FastEthernet0/6:
+            description: Reserved for_New_Servers
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 9C:4E:20:3D:1A:86
+            speed: 100
+        FastEthernet0/7:
+            description: Reseved Control Magnetico
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 9C:4E:20:3D:1A:87
+            speed: 100
+        FastEthernet0/8:
+            description: Reseved Control Magnetico
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 9C:4E:20:3D:1A:88
+            speed: 100
+        FastEthernet0/9:
+            description: Reserved to Server(vlan1)
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 9C:4E:20:3D:1A:89
+            speed: 10
+        GigabitEthernet0/1:
+            description: FAST-PORT-TRUNK(FO)
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 9C:4E:20:3D:1A:99
+            speed: 10
+        GigabitEthernet0/2:
+            description: FAST-PORT-TRUNK(FO)
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 9C:4E:20:3D:1A:9A
+            speed: 1000
+        Vlan1:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 9C:4E:20:3D:1A:C0
+            speed: 1000
+        Vlan100:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 9C:4E:20:3D:1A:C2
+            speed: 1000
+        Vlan199:
+            description: VLAN MANAGEMENT
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 9C:4E:20:3D:1A:C3
+            speed: 1000
+        Vlan2:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 9C:4E:20:3D:1A:C1
+            speed: 1000
+    napalm_interfaces_ip:
+        Vlan199:
+            ipv4:
+                10.15.99.13:
+                    prefix_length: 24
+    napalm_model: WS-C2960-24PC-L
+    napalm_os_version: C2960 Software (C2960-LANBASEK9-M), Version 12.2(55)SE9, RELEASE
+        SOFTWARE (fc1)
+    napalm_serial_number: FOC1415Z38Q
+    napalm_uptime: 6250980
+    napalm_vendor: Cisco
+changed: false
+failed: false

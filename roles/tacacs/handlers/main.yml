@@ -1,0 +1,11 @@
+---
+- name: SETUP LINE VTY 
+  ignore_errors: true 
+  ios_config:
+      authorize: yes 
+      provider: "{{ ios_provider }}"
+      config:
+          lines:
+              - login authentication "{{ tacacs.method }}"
+          parents: line vty 0 4
+...

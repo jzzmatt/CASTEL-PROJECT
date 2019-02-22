@@ -1,0 +1,280 @@
+get_facts:
+    napalm_facts:
+        fqdn: SwCCblFunda_HUSKY.victoria.local
+        hostname: SwCCblFunda_HUSKY
+        interface_list:
+        - Vlan1
+        - Vlan199
+        - FastEthernet0/1
+        - FastEthernet0/2
+        - FastEthernet0/3
+        - FastEthernet0/4
+        - FastEthernet0/5
+        - FastEthernet0/6
+        - FastEthernet0/7
+        - FastEthernet0/8
+        - FastEthernet0/9
+        - FastEthernet0/10
+        - FastEthernet0/11
+        - FastEthernet0/12
+        - FastEthernet0/13
+        - FastEthernet0/14
+        - FastEthernet0/15
+        - FastEthernet0/16
+        - FastEthernet0/17
+        - FastEthernet0/18
+        - FastEthernet0/19
+        - FastEthernet0/20
+        - FastEthernet0/21
+        - FastEthernet0/22
+        - FastEthernet0/23
+        - FastEthernet0/24
+        - GigabitEthernet0/1
+        - GigabitEthernet0/2
+        model: WS-C2960-24LT-L
+        os_version: C2960 Software (C2960-LANBASEK9-M), Version 12.2(55)SE7, RELEASE
+            SOFTWARE (fc1)
+        serial_number: FCQ1743X2FW
+        uptime: 12210900
+        vendor: Cisco
+    napalm_fqdn: SwCCblFunda_HUSKY.victoria.local
+    napalm_hostname: SwCCblFunda_HUSKY
+    napalm_interface_list:
+    - Vlan1
+    - Vlan199
+    - FastEthernet0/1
+    - FastEthernet0/2
+    - FastEthernet0/3
+    - FastEthernet0/4
+    - FastEthernet0/5
+    - FastEthernet0/6
+    - FastEthernet0/7
+    - FastEthernet0/8
+    - FastEthernet0/9
+    - FastEthernet0/10
+    - FastEthernet0/11
+    - FastEthernet0/12
+    - FastEthernet0/13
+    - FastEthernet0/14
+    - FastEthernet0/15
+    - FastEthernet0/16
+    - FastEthernet0/17
+    - FastEthernet0/18
+    - FastEthernet0/19
+    - FastEthernet0/20
+    - FastEthernet0/21
+    - FastEthernet0/22
+    - FastEthernet0/23
+    - FastEthernet0/24
+    - GigabitEthernet0/1
+    - GigabitEthernet0/2
+    napalm_interfaces:
+        FastEthernet0/1:
+            description: RESERVED CCTV
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: C0:7B:BC:62:56:01
+            speed: 100
+        FastEthernet0/10:
+            description: RESERVED END USERS
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: C0:7B:BC:62:56:0A
+            speed: 10
+        FastEthernet0/11:
+            description: RESERVED END USERS
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: C0:7B:BC:62:56:0B
+            speed: 10
+        FastEthernet0/12:
+            description: RESERVED END USERS
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: C0:7B:BC:62:56:0C
+            speed: 10
+        FastEthernet0/13:
+            description: RESERVED END USERS
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: C0:7B:BC:62:56:0D
+            speed: 10
+        FastEthernet0/14:
+            description: RESERVED END USERS
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: C0:7B:BC:62:56:0E
+            speed: 10
+        FastEthernet0/15:
+            description: RESERVED END USERS
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: C0:7B:BC:62:56:0F
+            speed: 10
+        FastEthernet0/16:
+            description: RESERVED END USERS
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: C0:7B:BC:62:56:10
+            speed: 100
+        FastEthernet0/17:
+            description: Reserved Printer
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: C0:7B:BC:62:56:11
+            speed: 100
+        FastEthernet0/18:
+            description: RESERVED END USERS
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: C0:7B:BC:62:56:12
+            speed: 10
+        FastEthernet0/19:
+            description: RESERVED END USERS
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: C0:7B:BC:62:56:13
+            speed: 10
+        FastEthernet0/2:
+            description: RESERVED CCTV
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: C0:7B:BC:62:56:02
+            speed: 100
+        FastEthernet0/20:
+            description: RESERVED VLAN_HUSKY
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: C0:7B:BC:62:56:14
+            speed: 100
+        FastEthernet0/21:
+            description: RESERVED VLAN_HUSKY
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: C0:7B:BC:62:56:15
+            speed: 100
+        FastEthernet0/22:
+            description: RESERVED VLAN_HUSKY
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: C0:7B:BC:62:56:16
+            speed: 100
+        FastEthernet0/23:
+            description: RESERVED END USERS
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: C0:7B:BC:62:56:17
+            speed: 10
+        FastEthernet0/24:
+            description: RESERVED END USERS
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: C0:7B:BC:62:56:18
+            speed: 10
+        FastEthernet0/3:
+            description: RESERVED CCTV
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: C0:7B:BC:62:56:03
+            speed: 100
+        FastEthernet0/4:
+            description: RESERVED CCTV
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: C0:7B:BC:62:56:04
+            speed: 10
+        FastEthernet0/5:
+            description: RESERVED CCTV
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: C0:7B:BC:62:56:05
+            speed: 100
+        FastEthernet0/6:
+            description: RESERVED END USERS
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: C0:7B:BC:62:56:06
+            speed: 10
+        FastEthernet0/7:
+            description: RESERVED END_USER+PHONE
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: C0:7B:BC:62:56:07
+            speed: 100
+        FastEthernet0/8:
+            description: RESERVED END_USER+PHONE
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: C0:7B:BC:62:56:08
+            speed: 100
+        FastEthernet0/9:
+            description: RESERVED END_USER+PHONE
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: C0:7B:BC:62:56:09
+            speed: 10
+        GigabitEthernet0/1:
+            description: Reserved to Trunk
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: C0:7B:BC:62:56:19
+            speed: 100
+        GigabitEthernet0/2:
+            description: Reserved to Trunk
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: C0:7B:BC:62:56:1A
+            speed: 1000
+        Vlan1:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: C0:7B:BC:62:56:40
+            speed: 1000
+        Vlan199:
+            description: VLAN MANAGEMENT
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: C0:7B:BC:62:56:41
+            speed: 1000
+    napalm_interfaces_ip:
+        Vlan199:
+            ipv4:
+                10.15.99.19:
+                    prefix_length: 24
+    napalm_model: WS-C2960-24LT-L
+    napalm_os_version: C2960 Software (C2960-LANBASEK9-M), Version 12.2(55)SE7, RELEASE
+        SOFTWARE (fc1)
+    napalm_serial_number: FCQ1743X2FW
+    napalm_uptime: 12210900
+    napalm_vendor: Cisco
+changed: false
+failed: false

@@ -1,0 +1,72 @@
+get_facts:
+    napalm_facts:
+        fqdn: Huambo-RT-Vsat.victoria.local
+        hostname: Huambo-RT-Vsat
+        interface_list:
+        - Embedded-Service-Engine0/0
+        - GigabitEthernet0/0
+        - GigabitEthernet0/1
+        - Tunnel2016
+        model: CISCO1921/K9
+        os_version: C1900 Software (C1900-UNIVERSALK9-M), Version 15.1(4)M2, RELEASE
+            SOFTWARE (fc1)
+        serial_number: FCZ1545C1QW
+        uptime: 28302180
+        vendor: Cisco
+    napalm_fqdn: Huambo-RT-Vsat.victoria.local
+    napalm_hostname: Huambo-RT-Vsat
+    napalm_interface_list:
+    - Embedded-Service-Engine0/0
+    - GigabitEthernet0/0
+    - GigabitEthernet0/1
+    - Tunnel2016
+    napalm_interfaces:
+        Embedded-Service-Engine0/0:
+            description: ''
+            is_enabled: false
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:00:00:00:00:00
+            speed: 10
+        GigabitEthernet0/0:
+            description: LINK MPLS UNITEL
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: CC:EF:48:B2:A4:40
+            speed: 100
+        GigabitEthernet0/1:
+            description: link-to-CRSW(LAN)
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: CC:EF:48:B2:A4:41
+            speed: 1000
+        Tunnel2016:
+            description: '**** DMVPN SPOKE TO VICTORIA ****'
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: ''
+            speed: 10
+    napalm_interfaces_ip:
+        GigabitEthernet0/0:
+            ipv4:
+                10.0.1.34:
+                    prefix_length: 30
+        GigabitEthernet0/1:
+            ipv4:
+                10.80.34.2:
+                    prefix_length: 30
+        Tunnel2016:
+            ipv4:
+                172.16.255.17:
+                    prefix_length: 28
+    napalm_model: CISCO1921/K9
+    napalm_os_version: C1900 Software (C1900-UNIVERSALK9-M), Version 15.1(4)M2, RELEASE
+        SOFTWARE (fc1)
+    napalm_serial_number: FCZ1545C1QW
+    napalm_uptime: 28302180
+    napalm_vendor: Cisco
+changed: false
+failed: false

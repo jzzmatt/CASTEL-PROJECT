@@ -1,0 +1,37 @@
+get_facts:
+    napalm_facts:
+        fqdn: coreswtest.sic.local
+        hostname: coreswtest
+        interface_list:
+        - GigabitEthernet0/0
+        model: IOSv
+        os_version: vios_l2 Software (vios_l2-ADVENTERPRISEK9-M), Version 15.2(4.0.55)E,
+            TEST ENGINEERING ESTG_WEEKLY BUILD, synced to  END_OF_FLO_ISP
+        serial_number: 9XVR0M2M8TR
+        uptime: 845700
+        vendor: Cisco
+    napalm_fqdn: coreswtest.sic.local
+    napalm_hostname: coreswtest
+    napalm_interface_list:
+    - GigabitEthernet0/0
+    napalm_interfaces:
+        GigabitEthernet0/0:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 36:CB:54:50:3E:95
+            speed: 1000
+    napalm_interfaces_ip:
+        GigabitEthernet0/0:
+            ipv4:
+                10.30.107.214:
+                    prefix_length: 24
+    napalm_model: IOSv
+    napalm_os_version: vios_l2 Software (vios_l2-ADVENTERPRISEK9-M), Version 15.2(4.0.55)E,
+        TEST ENGINEERING ESTG_WEEKLY BUILD, synced to  END_OF_FLO_ISP
+    napalm_serial_number: 9XVR0M2M8TR
+    napalm_uptime: 845700
+    napalm_vendor: Cisco
+changed: false
+failed: false

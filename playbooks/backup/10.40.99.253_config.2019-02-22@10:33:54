@@ -1,0 +1,346 @@
+Building configuration...
+
+Current configuration : 9362 bytes
+!
+! Last configuration change at 11:32:12 WAT Fri Feb 22 2019 by junior.mateus
+! NVRAM config last updated at 15:41:31 WAT Tue Jun 19 2018 by odorico.domingos
+!
+version 12.2
+no service pad
+service timestamps debug datetime msec
+service timestamps log datetime msec
+service password-encryption
+!
+hostname SW_Cob_FO_Distrib.
+!
+boot-start-marker
+boot-end-marker
+!
+!
+username admin privilege 15 password 7 1252261810595C5473
+aaa new-model
+!
+!
+aaa authentication login use-srvtacacs group tacacs+ local enable
+aaa authentication enable default group tacacs+ enable
+aaa authorization console
+aaa authorization exec use-srvtacacs group tacacs+ local if-authenticated 
+aaa authorization commands 1 default group tacacs+ if-authenticated 
+aaa authorization commands 15 default group tacacs+ local if-authenticated 
+aaa accounting send stop-record authentication failure
+aaa accounting exec default start-stop group tacacs+
+aaa accounting network default start-stop group tacacs+
+aaa accounting connection default start-stop group tacacs+
+aaa accounting system default start-stop group tacacs+
+!
+!
+!
+!
+!
+aaa session-id common
+clock timezone WAT 1 0
+switch 1 provision ws-c3750x-24s
+system mtu routing 1500
+!
+!
+ip domain-name victoria.local
+!
+password encryption aes
+!
+crypto pki trustpoint TP-self-signed-824012032
+ enrollment selfsigned
+ subject-name cn=IOS-Self-Signed-Certificate-824012032
+ revocation-check none
+ rsakeypair TP-self-signed-824012032
+!
+!
+crypto pki certificate chain TP-self-signed-824012032
+ certificate self-signed 01
+  30820240 308201A9 A0030201 02020101 300D0609 2A864886 F70D0101 04050030 
+  30312E30 2C060355 04031325 494F532D 53656C66 2D536967 6E65642D 43657274 
+  69666963 6174652D 38323430 31323033 32301E17 0D393330 33303130 30303133 
+  355A170D 32303031 30313030 30303030 5A303031 2E302C06 03550403 1325494F 
+  532D5365 6C662D53 69676E65 642D4365 72746966 69636174 652D3832 34303132 
+  30333230 819F300D 06092A86 4886F70D 01010105 0003818D 00308189 02818100 
+  D572A56F E6D955DD 4F11D9B9 2A7CB52C 969A9744 079F2A22 787BDBF9 5458C9CE 
+  15BAA442 EF0C6CB4 E4717BB9 176F2604 FBF0B97F 9E9A7163 7B48522A D1349C85 
+  02042E80 0BB12385 47A83C09 D800C6AE 3A18D3D9 98EC20A6 DBF95A9C 29A037A8 
+  CB71FF19 67519C50 B57E0284 CA7A9891 641416B1 4DD78235 82C5B5B7 C59E1CFD 
+  02030100 01A36A30 68300F06 03551D13 0101FF04 05300301 01FF3015 0603551D 
+  11040E30 0C820A43 6F627377 63325F46 4F301F06 03551D23 04183016 80140B97 
+  6B76BA4A 1BECBE01 F9A5B364 EBFD20DA EB20301D 0603551D 0E041604 140B976B 
+  76BA4A1B ECBE01F9 A5B364EB FD20DAEB 20300D06 092A8648 86F70D01 01040500 
+  03818100 569459CC CA7A4539 90C063EC 331C6D7E E5231D1F D4DCFEF8 6CA40057 
+  7B696D3C 6D0F1944 37C3A01C 721E3DD8 4C9C89DA E87EACBF E5A2B219 2FE449D0 
+  61787A1C 64487FAD 1D7BB2A3 45208F14 57536B9F 1E0ACB9D AD2B18E6 08DA70C7 
+  9DA5865C 0456B943 6A5AF25B F356CB5A 576DE9A0 62498BA4 A2E3D9CA 096171AC DB35CF7E
+  	quit
+archive
+ log config
+  logging enable
+  logging size 1000
+  notify syslog contenttype plaintext
+  hidekeys
+ path ftp://10.30.23.1/$h-$t
+ write-memory
+!
+spanning-tree mode rapid-pvst
+spanning-tree portfast bpduguard default
+spanning-tree portfast bpdufilter default
+spanning-tree extend system-id
+spanning-tree uplinkfast
+spanning-tree backbonefast
+spanning-tree vlan 1-300 priority 4096
+!
+!
+!
+errdisable recovery cause udld
+errdisable recovery cause bpduguard
+errdisable recovery cause security-violation
+errdisable recovery cause channel-misconfig (STP)
+errdisable recovery cause pagp-flap
+errdisable recovery cause dtp-flap
+errdisable recovery cause link-flap
+errdisable recovery cause sfp-config-mismatch
+errdisable recovery cause gbic-invalid
+errdisable recovery cause l2ptguard
+errdisable recovery cause psecure-violation
+errdisable recovery cause dhcp-rate-limit
+errdisable recovery cause vmps
+errdisable recovery cause storm-control
+errdisable recovery cause inline-power
+errdisable recovery cause arp-inspection
+errdisable recovery cause loopback
+!
+vlan internal allocation policy ascending
+!
+ip ssh version 2
+ip scp server enable
+!
+!
+!
+!
+!
+interface FastEthernet0
+ no ip address
+!
+interface GigabitEthernet1/0/1
+ description LINK TRUNK FO
+ switchport trunk encapsulation dot1q
+ switchport trunk native vlan 99
+ switchport mode trunk
+ switchport nonegotiate
+!
+interface GigabitEthernet1/0/2
+ description LINK TRUNK FO
+ switchport trunk encapsulation dot1q
+ switchport trunk native vlan 99
+ switchport mode trunk
+ switchport nonegotiate
+!
+interface GigabitEthernet1/0/3
+ description LINK TRUNK FO
+ switchport trunk encapsulation dot1q
+ switchport trunk native vlan 99
+ switchport mode trunk
+ switchport nonegotiate
+!
+interface GigabitEthernet1/0/4
+ description LINK TRUNK FO
+ switchport trunk encapsulation dot1q
+ switchport trunk native vlan 99
+ switchport mode trunk
+ switchport nonegotiate
+!
+interface GigabitEthernet1/0/5
+ description LINK TRUNK FO
+ switchport trunk encapsulation dot1q
+ switchport trunk native vlan 99
+ switchport mode trunk
+ switchport nonegotiate
+!
+interface GigabitEthernet1/0/6
+ description LINK TRUNK FO
+ switchport trunk encapsulation dot1q
+ switchport trunk native vlan 99
+ switchport mode trunk
+ switchport nonegotiate
+!
+interface GigabitEthernet1/0/7
+ description LINK TRUNK FO
+ switchport trunk encapsulation dot1q
+ switchport trunk native vlan 99
+ switchport mode trunk
+ switchport nonegotiate
+!
+interface GigabitEthernet1/0/8
+ description LINK TRUNK FO
+ switchport trunk encapsulation dot1q
+ switchport trunk native vlan 99
+ switchport mode trunk
+ switchport nonegotiate
+!
+interface GigabitEthernet1/0/9
+ description LINK TRUNK FO
+ switchport trunk encapsulation dot1q
+ switchport trunk native vlan 99
+ switchport mode trunk
+ switchport nonegotiate
+!
+interface GigabitEthernet1/0/10
+ description LINK TRUNK FO
+ switchport trunk encapsulation dot1q
+ switchport trunk native vlan 99
+ switchport mode trunk
+ switchport nonegotiate
+!
+interface GigabitEthernet1/0/11
+ description LINK TRUNK FO
+ switchport trunk encapsulation dot1q
+ switchport trunk native vlan 99
+ switchport mode trunk
+ switchport nonegotiate
+!
+interface GigabitEthernet1/0/12
+ description LINK TRUNK FO
+ switchport trunk encapsulation dot1q
+ switchport trunk native vlan 99
+ switchport mode trunk
+ switchport nonegotiate
+!
+interface GigabitEthernet1/0/13
+ description LINK TRUNK FO
+ switchport trunk encapsulation dot1q
+ switchport trunk native vlan 99
+ switchport mode trunk
+ switchport nonegotiate
+!
+interface GigabitEthernet1/0/14
+ description LINK TRUNK FO
+ switchport trunk encapsulation dot1q
+ switchport trunk native vlan 99
+ switchport mode trunk
+ switchport nonegotiate
+!
+interface GigabitEthernet1/0/15
+ description LINK TRUNK FO
+ switchport trunk encapsulation dot1q
+ switchport trunk native vlan 99
+ switchport mode trunk
+ switchport nonegotiate
+!
+interface GigabitEthernet1/0/16
+ description LINK TRUNK FO
+ switchport trunk encapsulation dot1q
+ switchport trunk native vlan 99
+ switchport mode trunk
+ switchport nonegotiate
+!
+interface GigabitEthernet1/0/17
+ description LINK TRUNK FO
+ switchport trunk encapsulation dot1q
+ switchport trunk native vlan 99
+ switchport mode trunk
+ switchport nonegotiate
+!
+interface GigabitEthernet1/0/18
+ description LINK TRUNK FO
+ switchport trunk encapsulation dot1q
+ switchport trunk native vlan 99
+ switchport mode trunk
+ switchport nonegotiate
+!
+interface GigabitEthernet1/0/19
+ switchport trunk encapsulation dot1q
+ switchport trunk native vlan 99
+ switchport mode trunk
+ switchport nonegotiate
+!
+interface GigabitEthernet1/0/20
+ switchport trunk encapsulation dot1q
+ switchport trunk native vlan 99
+ switchport mode trunk
+ switchport nonegotiate
+!
+interface GigabitEthernet1/0/21
+ switchport trunk encapsulation dot1q
+ switchport trunk native vlan 99
+ switchport mode trunk
+ switchport nonegotiate
+!
+interface GigabitEthernet1/0/22
+ switchport trunk encapsulation dot1q
+ switchport trunk native vlan 99
+ switchport mode trunk
+ switchport nonegotiate
+!
+interface GigabitEthernet1/0/23
+ switchport trunk encapsulation dot1q
+ switchport trunk native vlan 99
+ switchport mode trunk
+ switchport nonegotiate
+!
+interface GigabitEthernet1/0/24
+ switchport trunk encapsulation dot1q
+ switchport trunk native vlan 99
+ switchport mode trunk
+ switchport nonegotiate
+!
+interface GigabitEthernet1/1/1
+!
+interface GigabitEthernet1/1/2
+!
+interface GigabitEthernet1/1/3
+!
+interface GigabitEthernet1/1/4
+!
+interface TenGigabitEthernet1/1/1
+!
+interface TenGigabitEthernet1/1/2
+!
+interface Vlan1
+ no ip address
+!
+interface Vlan99
+ ip address 10.40.99.253 255.255.255.0
+!
+ip default-gateway 10.40.99.254
+ip http server
+ip http authentication aaa login-authentication use-srvtacacs
+ip http authentication aaa exec-authorization use-srvtacacs
+ip http authentication aaa command-authorization 15 default
+no ip http secure-server
+!
+!
+logging esm config
+tacacs-server host 10.30.10.10 timeout 5
+tacacs-server directed-request
+tacacs-server key 7 105D5A1A174406595C557C
+!
+!
+!
+!
+line con 0
+ exec-timeout 15 0
+ privilege level 15
+ logging synchronous
+ login authentication use-srvtacacs
+ length 0
+line vty 0 4
+ exec-timeout 15 0
+ privilege level 15
+ logging synchronous
+ login authentication use-srvtacacs
+ length 0
+ transport input telnet ssh
+line vty 5 15
+ exec-timeout 15 0
+ privilege level 15
+ logging synchronous
+ login authentication use-srvtacacs
+ length 0
+ transport input ssh
+!
+ntp server 10.30.35.1
+ntp server 10.40.99.254
+end

@@ -1,0 +1,255 @@
+Building configuration...
+
+Current configuration : 7860 bytes
+!
+! Last configuration change at 14:21:19 UTC Fri Feb 22 2019 by admin
+! NVRAM config last updated at 01:28:50 UTC Wed Mar 30 2011
+!
+version 15.0
+no service pad
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+!
+hostname SW8PoE_S+C_Antena
+!
+boot-start-marker
+boot-end-marker
+!
+!
+username admin privilege 15 password 0 +Cob2009
+aaa new-model
+!
+!
+aaa authentication login use-srvtacacs group tacacs+ local enable
+aaa authentication enable default group tacacs+ enable
+aaa authorization console
+aaa authorization exec use-srvtacacs group tacacs+ local if-authenticated 
+aaa authorization commands 1 default group tacacs+ if-authenticated 
+aaa authorization commands 15 default group tacacs+ local if-authenticated 
+aaa accounting send stop-record authentication failure
+aaa accounting exec default start-stop group tacacs+
+aaa accounting network default start-stop group tacacs+
+aaa accounting connection default start-stop group tacacs+
+aaa accounting system default start-stop group tacacs+
+!
+!
+!
+!
+!
+!
+aaa session-id common
+system mtu routing 1500
+!
+!
+ip domain-name victoria.local
+!
+mls qos map policed-dscp  24 26 46 to 0
+mls qos map cos-dscp 0 8 16 24 32 46 48 56
+mls qos srr-queue input bandwidth 90 10
+mls qos srr-queue input threshold 1 8 16
+mls qos srr-queue input threshold 2 34 66
+mls qos srr-queue input buffers 67 33 
+mls qos srr-queue input cos-map queue 1 threshold 2 1
+mls qos srr-queue input cos-map queue 1 threshold 3 0
+mls qos srr-queue input cos-map queue 2 threshold 1 2
+mls qos srr-queue input cos-map queue 2 threshold 2 4 6 7
+mls qos srr-queue input cos-map queue 2 threshold 3 3 5
+mls qos srr-queue input dscp-map queue 1 threshold 2 9 10 11 12 13 14 15
+mls qos srr-queue input dscp-map queue 1 threshold 3 0 1 2 3 4 5 6 7
+mls qos srr-queue input dscp-map queue 1 threshold 3 32
+mls qos srr-queue input dscp-map queue 2 threshold 1 16 17 18 19 20 21 22 23
+mls qos srr-queue input dscp-map queue 2 threshold 2 33 34 35 36 37 38 39 48
+mls qos srr-queue input dscp-map queue 2 threshold 2 49 50 51 52 53 54 55 56
+mls qos srr-queue input dscp-map queue 2 threshold 2 57 58 59 60 61 62 63
+mls qos srr-queue input dscp-map queue 2 threshold 3 24 25 26 27 28 29 30 31
+mls qos srr-queue input dscp-map queue 2 threshold 3 40 41 42 43 44 45 46 47
+mls qos srr-queue output cos-map queue 1 threshold 3 5
+mls qos srr-queue output cos-map queue 2 threshold 3 3 6 7
+mls qos srr-queue output cos-map queue 3 threshold 3 2 4
+mls qos srr-queue output cos-map queue 4 threshold 2 1
+mls qos srr-queue output cos-map queue 4 threshold 3 0
+mls qos srr-queue output dscp-map queue 1 threshold 3 40 41 42 43 44 45 46 47
+mls qos srr-queue output dscp-map queue 2 threshold 3 24 25 26 27 28 29 30 31
+mls qos srr-queue output dscp-map queue 2 threshold 3 48 49 50 51 52 53 54 55
+mls qos srr-queue output dscp-map queue 2 threshold 3 56 57 58 59 60 61 62 63
+mls qos srr-queue output dscp-map queue 3 threshold 3 16 17 18 19 20 21 22 23
+mls qos srr-queue output dscp-map queue 3 threshold 3 32 33 34 35 36 37 38 39
+mls qos srr-queue output dscp-map queue 4 threshold 1 8
+mls qos srr-queue output dscp-map queue 4 threshold 2 9 10 11 12 13 14 15
+mls qos srr-queue output dscp-map queue 4 threshold 3 0 1 2 3 4 5 6 7
+mls qos queue-set output 1 threshold 1 138 138 92 138
+mls qos queue-set output 1 threshold 2 138 138 92 400
+mls qos queue-set output 1 threshold 3 36 77 100 318
+mls qos queue-set output 1 threshold 4 20 50 67 400
+mls qos queue-set output 2 threshold 1 149 149 100 149
+mls qos queue-set output 2 threshold 2 118 118 100 235
+mls qos queue-set output 2 threshold 3 41 68 100 272
+mls qos queue-set output 2 threshold 4 42 72 100 242
+mls qos queue-set output 1 buffers 10 10 26 54
+mls qos queue-set output 2 buffers 16 6 17 61
+mls qos
+!
+crypto pki trustpoint TP-self-signed-3285345152
+ enrollment selfsigned
+ subject-name cn=IOS-Self-Signed-Certificate-3285345152
+ revocation-check none
+ rsakeypair TP-self-signed-3285345152
+!
+!
+crypto pki certificate chain TP-self-signed-3285345152
+ certificate self-signed 01
+  3082022B 30820194 A0030201 02020101 300D0609 2A864886 F70D0101 05050030 
+  31312F30 2D060355 04031326 494F532D 53656C66 2D536967 6E65642D 43657274 
+  69666963 6174652D 33323835 33343531 3532301E 170D3131 30333330 30313238 
+  34385A17 0D323030 31303130 30303030 305A3031 312F302D 06035504 03132649 
+  4F532D53 656C662D 5369676E 65642D43 65727469 66696361 74652D33 32383533 
+  34353135 3230819F 300D0609 2A864886 F70D0101 01050003 818D0030 81890281 
+  8100F054 228813E1 F4BA0805 CD8CA240 897066F7 089CF22C CFA83184 4073D612 
+  E607506E 5DB70B71 4911593C 3D78600C 846C8C94 1F553448 D2F2CCD6 3EEA8EE5 
+  EAD64D50 FF5B30FE 22DD183E 21E6AC35 0E01E278 49A0F198 29E9679B 1967C4A9 
+  250CFD96 A47FF2B0 FF0AFFE5 3CB55A9A 43346682 7047262B 92E762CC 61638FF3 
+  7AD10203 010001A3 53305130 0F060355 1D130101 FF040530 030101FF 301F0603 
+  551D2304 18301680 14BF828A 1359AB0E 3FE026A9 E21E3965 BCC6BC8A 67301D06 
+  03551D0E 04160414 BF828A13 59AB0E3F E026A9E2 1E3965BC C6BC8A67 300D0609 
+  2A864886 F70D0101 05050003 81810033 4E3D4892 E46136C5 43F2265F F86563E4 
+  869C2091 625DF989 37D90136 5437F85D 99B13CCA 19A8C194 8FF69E02 BF36660E 
+  1E02AAEA 0316226B 8AF3B762 CFD388CA 8C59CD28 4CA81641 3CD8ABD0 B7E311F2 
+  907A6B17 D0289516 FFEADC19 1F909421 768C795F B86C1FB6 6F246C59 3FD4D976 
+  915F1293 D4137DAC 608D89B0 414ED3
+  	quit
+spanning-tree mode pvst
+spanning-tree extend system-id
+!
+!
+!
+!
+!
+!
+!
+!
+!
+vlan internal allocation policy ascending
+!
+ip ssh version 2
+ip scp server enable
+!
+class-map match-all AutoQoS-VoIP-RTP-Trust
+  match ip dscp ef 
+class-map match-all AutoQoS-VoIP-Control-Trust
+  match ip dscp cs3  af31 
+!
+policy-map AutoQoS-Police-CiscoPhone
+ class AutoQoS-VoIP-RTP-Trust
+   set dscp ef
+  police 320000 8000 exceed-action policed-dscp-transmit
+ class AutoQoS-VoIP-Control-Trust
+   set dscp cs3
+  police 32000 8000 exceed-action policed-dscp-transmit
+!
+!
+! 
+!
+!
+!
+!
+!
+!
+!
+!
+interface FastEthernet0/1
+ description RESERVED_END_USER
+ switchport access vlan 107
+ switchport mode access
+ switchport voice vlan 3
+ shutdown
+ srr-queue bandwidth share 10 10 60 20
+ srr-queue bandwidth shape 10 0 0 0
+ priority-queue out 
+ mls qos trust device cisco-phone
+ mls qos trust cos
+ auto qos voip cisco-phone 
+ spanning-tree portfast
+ service-policy input AutoQoS-Police-CiscoPhone
+!
+interface FastEthernet0/2
+ shutdown
+!
+interface FastEthernet0/3
+ shutdown
+!
+interface FastEthernet0/4
+ shutdown
+!
+interface FastEthernet0/5
+ shutdown
+!
+interface FastEthernet0/6
+ shutdown
+!
+interface FastEthernet0/7
+ description Guest_Complexo_S_C
+ switchport access vlan 105
+ switchport mode access
+ shutdown
+!
+interface FastEthernet0/8
+ description RESERVED_TRUNK
+ switchport trunk native vlan 99
+ switchport mode trunk
+ switchport nonegotiate
+!
+interface GigabitEthernet0/1
+ description RESERVED_TRUNK
+ switchport trunk native vlan 99
+ switchport mode trunk
+ switchport nonegotiate
+!
+interface GigabitEthernet0/2
+ description RESERVED_TRUNK
+ switchport trunk native vlan 99
+ switchport mode trunk
+ switchport nonegotiate
+ spanning-tree bpdufilter enable
+ spanning-tree bpduguard enable
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+interface Vlan99
+ ip address 10.40.99.12 255.255.255.0
+ no ip route-cache
+!
+ip http server
+ip http secure-server
+!
+!
+ip access-list extended AUTOQOS-ACL-DEFAULT
+ permit ip any any
+logging host 10.30.10.6
+snmp-server community V1Ctoria2014_admin RW 55
+snmp-server community V1Ctoria2014 RO
+tacacs-server host 10.30.10.10 timeout 5
+tacacs-server directed-request
+tacacs-server key s3cr3t2016
+!
+!
+!
+!
+line con 0
+ privilege level 15
+line vty 0 4
+ privilege level 15
+ login authentication use-srvtacacs
+ length 0
+ transport input telnet ssh
+line vty 5 15
+ exec-timeout 15 0
+ privilege level 15
+ logging synchronous
+ length 0
+ transport input ssh
+!
+ntp server 10.40.99.254
+end

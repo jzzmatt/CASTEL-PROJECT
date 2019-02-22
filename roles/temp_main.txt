@@ -1,0 +1,10 @@
+---
+- name: SETUP SNMP
+  ios_config:
+      authorize: yes 
+      provider: "{{ ios_provider }}"
+      diff_against: running
+      src: snmp.j2 
+  tags: ['snmp']
+
+...

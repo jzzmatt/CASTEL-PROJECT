@@ -1,0 +1,81 @@
+get_facts:
+    napalm_facts:
+        fqdn: CerbabRT_WAN.victoria.local
+        hostname: CerbabRT_WAN
+        interface_list:
+        - Embedded-Service-Engine0/0
+        - GigabitEthernet0/0
+        - GigabitEthernet0/1
+        - GigabitEthernet0/2
+        - Tunnel2016
+        model: CISCO2911/K9
+        os_version: C2900 Software (C2900-UNIVERSALK9-M), Version 15.1(4)M2, RELEASE
+            SOFTWARE (fc1)
+        serial_number: FCZ154170EH
+        uptime: 349860
+        vendor: Cisco
+    napalm_fqdn: CerbabRT_WAN.victoria.local
+    napalm_hostname: CerbabRT_WAN
+    napalm_interface_list:
+    - Embedded-Service-Engine0/0
+    - GigabitEthernet0/0
+    - GigabitEthernet0/1
+    - GigabitEthernet0/2
+    - Tunnel2016
+    napalm_interfaces:
+        Embedded-Service-Engine0/0:
+            description: ''
+            is_enabled: false
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:00:00:00:00:00
+            speed: 10
+        GigabitEthernet0/0:
+            description: ''
+            is_enabled: false
+            is_up: false
+            last_flapped: -1.0
+            mac_address: CC:EF:48:E5:9E:F0
+            speed: 1000
+        GigabitEthernet0/1:
+            description: LINK MPLS UNITEL
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: CC:EF:48:E5:9E:F1
+            speed: 100
+        GigabitEthernet0/2:
+            description: LINK-to-CRSW(LAN)
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: CC:EF:48:E5:9E:F2
+            speed: 1000
+        Tunnel2016:
+            description: '**** DMVPN SPOKE TO VICTORIA ****'
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: ''
+            speed: 4
+    napalm_interfaces_ip:
+        GigabitEthernet0/1:
+            ipv4:
+                10.0.1.54:
+                    prefix_length: 30
+        GigabitEthernet0/2:
+            ipv4:
+                10.50.35.2:
+                    prefix_length: 30
+        Tunnel2016:
+            ipv4:
+                172.16.255.18:
+                    prefix_length: 28
+    napalm_model: CISCO2911/K9
+    napalm_os_version: C2900 Software (C2900-UNIVERSALK9-M), Version 15.1(4)M2, RELEASE
+        SOFTWARE (fc1)
+    napalm_serial_number: FCZ154170EH
+    napalm_uptime: 349860
+    napalm_vendor: Cisco
+changed: false
+failed: false

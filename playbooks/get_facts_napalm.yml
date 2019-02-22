@@ -1,0 +1,33 @@
+---
+- name: GET FACTS DEVICE "{{ inventory_hostname }}"
+  napalm_get_facts:
+        hostname: "{{ inventory_hostname }}" 
+        username: "{{ secret.username }}"
+        password: "{{ secret.password }}"
+        dev_os: "ios"
+        filter: ['facts','interfaces','interfaces_ip']
+            
+#           with_items: 
+#                 - facts 
+#                 - interfaces 
+#                 - interfaces_ip 
+#                 - bgp_neighbors
+  register: result
+
+- name: MAKE SURE TO DELETE PREVIOUS FACTS FILE 
+  file:
+     path: "{{ inventory_dir }}/host_vars/{{ inventory_hostname }}/{{ dir_facts }}/{{ inventory_hostname }}_facts.yml" 
+     state: absent 
+
+- name: COPY OUTPOUT TO YAML FORMAT
+  copy:
+      content: "{{ result|to_nice_yaml }}"
+      dest: "{{ inventory_dir }}/host_vars/{{ inventory_hostname }}/{{ dir_facts }}/{{ inventory_hostname }}_facts.yml"
+
+
+- lineinfile:
+    path: "{{ inventory_dir }}/host_vars/{{ inventory_hostname }}/{{ dir_facts }}/{{ inventory_hostname }}_facts.yml"
+    regexp: '^ansible_facts:'
+    line: 'get_facts:'
+
+...

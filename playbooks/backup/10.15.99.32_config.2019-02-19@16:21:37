@@ -1,0 +1,453 @@
+Building configuration...
+
+Current configuration : 12079 bytes
+!
+version 12.2
+no service pad
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+!
+hostname SW24PoE_Fnd_Utilidade
+!
+boot-start-marker
+boot-end-marker
+!
+logging buffered 100000
+!
+username admin privilege 15 password 0 +funda2016
+aaa new-model
+!
+!
+aaa authentication login use-srvtacacs group tacacs+ local enable
+aaa authentication enable default group tacacs+ enable
+aaa authorization console
+aaa authorization exec use-srvtacacs group tacacs+ local if-authenticated 
+aaa authorization commands 1 default group tacacs+ if-authenticated 
+aaa authorization commands 15 default group tacacs+ local if-authenticated 
+aaa accounting send stop-record authentication failure 
+aaa accounting exec default start-stop group tacacs+
+aaa accounting network default start-stop group tacacs+
+aaa accounting connection default start-stop group tacacs+
+aaa accounting system default start-stop group tacacs+
+aaa accounting resource default start-stop group tacacs+
+!
+!
+!
+aaa session-id common
+system mtu routing 1500
+ip subnet-zero
+!
+ip domain-name victoria.local
+!
+!
+!
+!
+!
+!
+!
+!
+spanning-tree mode pvst
+spanning-tree extend system-id
+!
+vlan internal allocation policy ascending
+!
+ip ssh version 2
+ip scp server enable
+!
+class-map match-all AutoQoS-VoIP-RTP-Trust
+ match ip dscp ef 
+class-map match-all AutoQoS-VoIP-Control-Trust
+ match ip dscp cs3  af31 
+!
+!
+policy-map AutoQoS-Police-CiscoPhone
+ class AutoQoS-VoIP-RTP-Trust
+  set dscp ef
+  police 1000000 8000 exceed-action policed-dscp-transmit
+ class AutoQoS-VoIP-Control-Trust
+  set dscp cs3
+  police 1000000 8000 exceed-action policed-dscp-transmit
+!
+!
+!
+interface FastEthernet0/1
+ description RESERVED-END USERS
+ switchport access vlan 106
+ switchport mode access
+ switchport voice vlan 2
+ switchport port-security maximum 5
+ switchport port-security
+ switchport port-security aging time 5
+ switchport port-security violation restrict
+ switchport port-security aging type inactivity
+ srr-queue bandwidth share 1 30 35 5
+ srr-queue bandwidth shape  10  0  0  0 
+ queue-set 2
+ priority-queue out 
+ mls qos trust device cisco-phone
+ mls qos trust cos
+ spanning-tree portfast
+!
+interface FastEthernet0/2
+ description RESERVED-END USERS
+ switchport access vlan 106
+ switchport mode access
+ switchport voice vlan 2
+ switchport port-security maximum 5
+ switchport port-security
+ switchport port-security aging time 5
+ switchport port-security violation restrict
+ switchport port-security aging type inactivity
+ srr-queue bandwidth share 1 30 35 5
+ srr-queue bandwidth shape  10  0  0  0 
+ queue-set 2
+ priority-queue out 
+ mls qos trust device cisco-phone
+ mls qos trust cos
+ spanning-tree portfast
+!
+interface FastEthernet0/3
+ description RESERVED-END USERS
+ switchport access vlan 106
+ switchport mode access
+ switchport voice vlan 2
+ switchport port-security maximum 5
+ switchport port-security
+ switchport port-security aging time 5
+ switchport port-security violation restrict
+ switchport port-security aging type inactivity
+ srr-queue bandwidth share 1 30 35 5
+ srr-queue bandwidth shape  10  0  0  0 
+ queue-set 2
+ priority-queue out 
+ mls qos trust device cisco-phone
+ mls qos trust cos
+ spanning-tree portfast
+!
+interface FastEthernet0/4
+ description RESERVED-END USERS
+ switchport access vlan 106
+ switchport mode access
+ switchport voice vlan 2
+ switchport port-security maximum 5
+ switchport port-security
+ switchport port-security aging time 5
+ switchport port-security violation restrict
+ switchport port-security aging type inactivity
+ srr-queue bandwidth share 1 30 35 5
+ srr-queue bandwidth shape  10  0  0  0 
+ queue-set 2
+ priority-queue out 
+ mls qos trust device cisco-phone
+ mls qos trust cos
+ spanning-tree portfast
+!
+interface FastEthernet0/5
+ description RESERVED-END USERS
+ switchport access vlan 106
+ switchport mode access
+ switchport voice vlan 2
+ switchport port-security maximum 5
+ switchport port-security
+ switchport port-security aging time 5
+ switchport port-security violation restrict
+ switchport port-security aging type inactivity
+ srr-queue bandwidth share 1 30 35 5
+ srr-queue bandwidth shape  10  0  0  0 
+ queue-set 2
+ priority-queue out 
+ mls qos trust device cisco-phone
+ mls qos trust cos
+ spanning-tree portfast
+!
+interface FastEthernet0/6
+ description RESERVED-END USERS
+ switchport access vlan 106
+ switchport mode access
+ switchport voice vlan 2
+ switchport port-security maximum 5
+ switchport port-security
+ switchport port-security aging time 5
+ switchport port-security violation restrict
+ switchport port-security aging type inactivity
+ srr-queue bandwidth share 1 30 35 5
+ srr-queue bandwidth shape  10  0  0  0 
+ queue-set 2
+ priority-queue out 
+ mls qos trust device cisco-phone
+ mls qos trust cos
+ spanning-tree portfast
+!
+interface FastEthernet0/7
+ description RESERVED-END USERS
+ switchport access vlan 106
+ switchport mode access
+ switchport voice vlan 2
+ switchport port-security maximum 5
+ switchport port-security
+ switchport port-security aging time 5
+ switchport port-security violation restrict
+ switchport port-security aging type inactivity
+ srr-queue bandwidth share 1 30 35 5
+ srr-queue bandwidth shape  10  0  0  0 
+ queue-set 2
+ priority-queue out 
+ mls qos trust device cisco-phone
+ mls qos trust cos
+ spanning-tree portfast
+!
+interface FastEthernet0/8
+ description RESERVED-END USERS
+ switchport access vlan 106
+ switchport mode access
+ switchport voice vlan 2
+ switchport port-security maximum 5
+ switchport port-security
+ switchport port-security aging time 5
+ switchport port-security violation restrict
+ switchport port-security aging type inactivity
+ srr-queue bandwidth share 1 30 35 5
+ srr-queue bandwidth shape  10  0  0  0 
+ queue-set 2
+ priority-queue out 
+ mls qos trust device cisco-phone
+ mls qos trust cos
+ spanning-tree portfast
+!
+interface FastEthernet0/9
+ description RESERVED-END USERS
+ switchport access vlan 106
+ switchport mode access
+ switchport voice vlan 2
+ switchport port-security maximum 5
+ switchport port-security
+ switchport port-security aging time 5
+ switchport port-security violation restrict
+ switchport port-security aging type inactivity
+ srr-queue bandwidth share 1 30 35 5
+ srr-queue bandwidth shape  10  0  0  0 
+ queue-set 2
+ priority-queue out 
+ mls qos trust device cisco-phone
+ mls qos trust cos
+ spanning-tree portfast
+!
+interface FastEthernet0/10
+ description RESERVED-END USERS
+ switchport access vlan 106
+ switchport mode access
+ switchport voice vlan 2
+ switchport port-security maximum 5
+ switchport port-security
+ switchport port-security aging time 5
+ switchport port-security violation restrict
+ switchport port-security aging type inactivity
+ srr-queue bandwidth share 1 30 35 5
+ srr-queue bandwidth shape  10  0  0  0 
+ queue-set 2
+ priority-queue out 
+ mls qos trust device cisco-phone
+ mls qos trust cos
+ spanning-tree portfast
+!
+interface FastEthernet0/11
+ description RESERVED-END USERS
+ switchport access vlan 106
+ switchport mode access
+ switchport voice vlan 2
+ switchport port-security maximum 5
+ switchport port-security
+ switchport port-security aging time 5
+ switchport port-security violation restrict
+ switchport port-security aging type inactivity
+ srr-queue bandwidth share 1 30 35 5
+ srr-queue bandwidth shape  10  0  0  0 
+ queue-set 2
+ priority-queue out 
+ mls qos trust device cisco-phone
+ mls qos trust cos
+ spanning-tree portfast
+!
+interface FastEthernet0/12
+ description RESERVED-END USERS
+ switchport access vlan 106
+ switchport mode access
+ switchport voice vlan 2
+ switchport port-security maximum 5
+ switchport port-security
+ switchport port-security aging time 5
+ switchport port-security violation restrict
+ switchport port-security aging type inactivity
+ srr-queue bandwidth share 1 30 35 5
+ srr-queue bandwidth shape  10  0  0  0 
+ queue-set 2
+ priority-queue out 
+ mls qos trust device cisco-phone
+ mls qos trust cos
+ spanning-tree portfast
+!
+interface FastEthernet0/13
+ description RESERVED-END USERS
+ switchport access vlan 106
+ switchport mode access
+ switchport voice vlan 2
+ switchport port-security maximum 5
+ switchport port-security
+ switchport port-security aging time 5
+ switchport port-security violation restrict
+ switchport port-security aging type inactivity
+ srr-queue bandwidth share 1 30 35 5
+ srr-queue bandwidth shape  10  0  0  0 
+ queue-set 2
+ priority-queue out 
+ mls qos trust device cisco-phone
+ mls qos trust cos
+ spanning-tree portfast
+!
+interface FastEthernet0/14
+ description RESERVED-END USERS
+ switchport access vlan 106
+ switchport mode access
+ switchport voice vlan 2
+ switchport port-security maximum 5
+ switchport port-security
+ switchport port-security aging time 5
+ switchport port-security violation restrict
+ switchport port-security aging type inactivity
+ srr-queue bandwidth share 1 30 35 5
+ srr-queue bandwidth shape  10  0  0  0 
+ queue-set 2
+ priority-queue out 
+ mls qos trust device cisco-phone
+ mls qos trust cos
+ spanning-tree portfast
+!
+interface FastEthernet0/15
+ description RESERVED_PRINTER
+ switchport access vlan 16
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/16
+ description RESERVED_PRINTER
+ switchport access vlan 16
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/17
+ description RESERVED_PRINTER
+ switchport access vlan 16
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/18
+ description CAPWAPP FLEXConnect
+ switchport trunk native vlan 95
+ switchport trunk allowed vlan 95,99,101
+ switchport mode trunk
+!
+interface FastEthernet0/19
+ description RESERVED-END USERS
+ switchport access vlan 106
+ switchport mode access
+ switchport voice vlan 2
+ switchport port-security maximum 5
+ switchport port-security
+ switchport port-security aging time 5
+ switchport port-security violation restrict
+ switchport port-security aging type inactivity
+ srr-queue bandwidth share 1 30 35 5
+ srr-queue bandwidth shape  10  0  0  0 
+ queue-set 2
+ priority-queue out 
+ mls qos trust device cisco-phone
+ mls qos trust cos
+ spanning-tree portfast
+!
+interface FastEthernet0/20
+ description RESERVED-END USERS
+ switchport access vlan 106
+ switchport mode access
+ switchport voice vlan 2
+ switchport port-security maximum 5
+ switchport port-security
+ switchport port-security aging time 5
+ switchport port-security violation restrict
+ switchport port-security aging type inactivity
+ srr-queue bandwidth share 1 30 35 5
+ srr-queue bandwidth shape  10  0  0  0 
+ queue-set 2
+ priority-queue out 
+ mls qos trust device cisco-phone
+ mls qos trust cos
+ spanning-tree portfast
+!
+interface FastEthernet0/21
+!
+interface FastEthernet0/22
+!
+interface FastEthernet0/23
+!
+interface FastEthernet0/24
+!
+interface GigabitEthernet0/1
+ description Trunk_from_Cervejaria
+ switchport mode trunk
+!
+interface GigabitEthernet0/2
+!
+interface Vlan1
+ no ip address
+ no ip route-cache
+ shutdown
+!
+interface Vlan199
+ ip address 10.15.99.32 255.255.255.0
+ no ip route-cache
+!
+ip http server
+ip http authentication aaa login-authentication use-srvtacacs
+ip http authentication aaa exec-authorization use-srvtacacs
+ip http authentication aaa command-authorization 15 default
+no ip http secure-server
+logging trap debugging
+logging 10.30.99.251
+snmp-server community victoria_pub RO
+snmp-server community victoria_wr RW
+snmp-server community Funda RO
+snmp-server community Funda_admin RW
+snmp-server location DATACENTER VICTORIA
+snmp-server contact support.helpdesk@bihangola.net
+snmp-server host 10.30.99.251 version 2c Funda 
+snmp-server host 10.30.99.251 version 2c victoria_pub 
+snmp ifmib ifindex persist
+tacacs-server host 10.30.10.10 timeout 5
+tacacs-server directed-request
+tacacs-server key s3cr3t2016
+!
+control-plane
+!
+!
+line con 0
+ exec-timeout 15 0
+ privilege level 15
+ logging synchronous
+ login authentication use-srvtacacs
+ length 0
+line vty 0 4
+ exec-timeout 15 0
+ privilege level 15
+ logging synchronous
+ login authentication use-srvtacacs
+ length 0
+ transport input telnet ssh
+line vty 5 15
+ exec-timeout 15 0
+ privilege level 15
+ logging synchronous
+ login authentication use-srvtacacs
+ length 0
+ transport input ssh
+!
+end

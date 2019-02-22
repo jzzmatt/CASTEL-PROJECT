@@ -1,0 +1,120 @@
+get_facts:
+    napalm_facts:
+        fqdn: RT-Funda-CCbl.victoria.local
+        hostname: RT-Funda-CCbl
+        interface_list:
+        - Embedded-Service-Engine0/0
+        - GigabitEthernet0/0
+        - GigabitEthernet0/1
+        - GigabitEthernet0/2
+        - Loopback0
+        - NVI0
+        - Tunnel122
+        - Tunnel2015
+        model: CISCO2911/K9
+        os_version: C2900 Software (C2900-UNIVERSALK9-M), Version 15.1(4)M2, RELEASE
+            SOFTWARE (fc1)
+        serial_number: FCZ154521BE
+        uptime: 9184800
+        vendor: Cisco
+    napalm_fqdn: RT-Funda-CCbl.victoria.local
+    napalm_hostname: RT-Funda-CCbl
+    napalm_interface_list:
+    - Embedded-Service-Engine0/0
+    - GigabitEthernet0/0
+    - GigabitEthernet0/1
+    - GigabitEthernet0/2
+    - Loopback0
+    - NVI0
+    - Tunnel122
+    - Tunnel2015
+    napalm_interfaces:
+        Embedded-Service-Engine0/0:
+            description: ''
+            is_enabled: false
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:00:00:00:00:00
+            speed: 10
+        GigabitEthernet0/0:
+            description: link P2P DMVPN ITA
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: CC:EF:48:E5:AF:30
+            speed: 100
+        GigabitEthernet0/1:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: CC:EF:48:E5:AF:31
+            speed: 100
+        GigabitEthernet0/2:
+            description: LINK-TO-TERRAVERDE
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: CC:EF:48:E5:AF:32
+            speed: 80
+        Loopback0:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: ''
+            speed: 8000
+        NVI0:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: ''
+            speed: 0
+        Tunnel122:
+            description: TUNNEL ITA P2P FUNDA->VICTORIA
+            is_enabled: false
+            is_up: false
+            last_flapped: -1.0
+            mac_address: ''
+            speed: 4
+        Tunnel2015:
+            description: '*** DMVPN SPOKE TO VICTORIA  LINK ITA***'
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: ''
+            speed: 4
+    napalm_interfaces_ip:
+        GigabitEthernet0/0:
+            ipv4:
+                196.216.62.104:
+                    prefix_length: 31
+        GigabitEthernet0/1:
+            ipv4:
+                10.15.35.1:
+                    prefix_length: 30
+        GigabitEthernet0/2:
+            ipv4:
+                172.31.255.41:
+                    prefix_length: 30
+        Loopback0:
+            ipv4:
+                2.2.2.4:
+                    prefix_length: 32
+        Tunnel122:
+            ipv4:
+                172.22.22.2:
+                    prefix_length: 30
+        Tunnel2015:
+            ipv4:
+                172.16.24.1:
+                    prefix_length: 29
+    napalm_model: CISCO2911/K9
+    napalm_os_version: C2900 Software (C2900-UNIVERSALK9-M), Version 15.1(4)M2, RELEASE
+        SOFTWARE (fc1)
+    napalm_serial_number: FCZ154521BE
+    napalm_uptime: 9184800
+    napalm_vendor: Cisco
+changed: false
+failed: false

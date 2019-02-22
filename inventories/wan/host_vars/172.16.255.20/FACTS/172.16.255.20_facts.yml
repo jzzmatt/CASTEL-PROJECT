@@ -1,0 +1,72 @@
+get_facts:
+    napalm_facts:
+        fqdn: EKA-RT-VSAT.victoria.local
+        hostname: EKA-RT-VSAT
+        interface_list:
+        - Embedded-Service-Engine0/0
+        - GigabitEthernet0/0
+        - GigabitEthernet0/1
+        - Tunnel2016
+        model: CISCO1921/K9
+        os_version: C1900 Software (C1900-UNIVERSALK9-M), Version 15.1(4)M2, RELEASE
+            SOFTWARE (fc1)
+        serial_number: FCZ1545C1R5
+        uptime: 6630300
+        vendor: Cisco
+    napalm_fqdn: EKA-RT-VSAT.victoria.local
+    napalm_hostname: EKA-RT-VSAT
+    napalm_interface_list:
+    - Embedded-Service-Engine0/0
+    - GigabitEthernet0/0
+    - GigabitEthernet0/1
+    - Tunnel2016
+    napalm_interfaces:
+        Embedded-Service-Engine0/0:
+            description: ''
+            is_enabled: false
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:00:00:00:00:00
+            speed: 10
+        GigabitEthernet0/0:
+            description: LINK ROUTER UNITEL
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: CC:EF:48:AA:74:E0
+            speed: 1000
+        GigabitEthernet0/1:
+            description: LINK-TO-CRSW
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: CC:EF:48:AA:74:E1
+            speed: 1000
+        Tunnel2016:
+            description: '**** DMVPN SPOKE TO VICTORIA ****'
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: ''
+            speed: 4
+    napalm_interfaces_ip:
+        GigabitEthernet0/0:
+            ipv4:
+                10.0.1.70:
+                    prefix_length: 30
+        GigabitEthernet0/1:
+            ipv4:
+                10.60.35.2:
+                    prefix_length: 30
+        Tunnel2016:
+            ipv4:
+                172.16.255.20:
+                    prefix_length: 28
+    napalm_model: CISCO1921/K9
+    napalm_os_version: C1900 Software (C1900-UNIVERSALK9-M), Version 15.1(4)M2, RELEASE
+        SOFTWARE (fc1)
+    napalm_serial_number: FCZ1545C1R5
+    napalm_uptime: 6630300
+    napalm_vendor: Cisco
+changed: false
+failed: false

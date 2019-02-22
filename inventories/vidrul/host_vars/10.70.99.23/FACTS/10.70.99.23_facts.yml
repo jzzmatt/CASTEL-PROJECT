@@ -1,0 +1,280 @@
+get_facts:
+    napalm_facts:
+        fqdn: VIDRUL-SWI-ARMAZEM.victoria.local
+        hostname: VIDRUL-SWI-ARMAZEM
+        interface_list:
+        - Vlan1
+        - Vlan99
+        - FastEthernet0/1
+        - FastEthernet0/2
+        - FastEthernet0/3
+        - FastEthernet0/4
+        - FastEthernet0/5
+        - FastEthernet0/6
+        - FastEthernet0/7
+        - FastEthernet0/8
+        - FastEthernet0/9
+        - FastEthernet0/10
+        - FastEthernet0/11
+        - FastEthernet0/12
+        - FastEthernet0/13
+        - FastEthernet0/14
+        - FastEthernet0/15
+        - FastEthernet0/16
+        - FastEthernet0/17
+        - FastEthernet0/18
+        - FastEthernet0/19
+        - FastEthernet0/20
+        - FastEthernet0/21
+        - FastEthernet0/22
+        - FastEthernet0/23
+        - FastEthernet0/24
+        - GigabitEthernet0/1
+        - GigabitEthernet0/2
+        model: WS-C2960-24PC-L
+        os_version: C2960 Software (C2960-LANBASEK9-M), Version 12.2(55)SE9, RELEASE
+            SOFTWARE (fc1)
+        serial_number: FOC1333Z2VN
+        uptime: 893280
+        vendor: Cisco
+    napalm_fqdn: VIDRUL-SWI-ARMAZEM.victoria.local
+    napalm_hostname: VIDRUL-SWI-ARMAZEM
+    napalm_interface_list:
+    - Vlan1
+    - Vlan99
+    - FastEthernet0/1
+    - FastEthernet0/2
+    - FastEthernet0/3
+    - FastEthernet0/4
+    - FastEthernet0/5
+    - FastEthernet0/6
+    - FastEthernet0/7
+    - FastEthernet0/8
+    - FastEthernet0/9
+    - FastEthernet0/10
+    - FastEthernet0/11
+    - FastEthernet0/12
+    - FastEthernet0/13
+    - FastEthernet0/14
+    - FastEthernet0/15
+    - FastEthernet0/16
+    - FastEthernet0/17
+    - FastEthernet0/18
+    - FastEthernet0/19
+    - FastEthernet0/20
+    - FastEthernet0/21
+    - FastEthernet0/22
+    - FastEthernet0/23
+    - FastEthernet0/24
+    - GigabitEthernet0/1
+    - GigabitEthernet0/2
+    napalm_interfaces:
+        FastEthernet0/1:
+            description: ''
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:CA:E8:2A:01
+            speed: 10
+        FastEthernet0/10:
+            description: ''
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:CA:E8:2A:0A
+            speed: 10
+        FastEthernet0/11:
+            description: ''
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:CA:E8:2A:0B
+            speed: 100
+        FastEthernet0/12:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:CA:E8:2A:0C
+            speed: 100
+        FastEthernet0/13:
+            description: CCTV-Vidrul
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:CA:E8:2A:0D
+            speed: 100
+        FastEthernet0/14:
+            description: CCTV-Vidrul
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:CA:E8:2A:0E
+            speed: 100
+        FastEthernet0/15:
+            description: CCTV-Vidrul
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:CA:E8:2A:0F
+            speed: 100
+        FastEthernet0/16:
+            description: Access_to_WDS_AP
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:CA:E8:2A:10
+            speed: 100
+        FastEthernet0/17:
+            description: RESERVED VERTECH_Oficina de Moldes
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:CA:E8:2A:11
+            speed: 100
+        FastEthernet0/18:
+            description: RESERVED VERTECH_Oficina de Moldes
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:CA:E8:2A:12
+            speed: 10
+        FastEthernet0/19:
+            description: ''
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:CA:E8:2A:13
+            speed: 10
+        FastEthernet0/2:
+            description: ''
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:CA:E8:2A:02
+            speed: 10
+        FastEthernet0/20:
+            description: ''
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:CA:E8:2A:14
+            speed: 10
+        FastEthernet0/21:
+            description: ''
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:CA:E8:2A:15
+            speed: 10
+        FastEthernet0/22:
+            description: ''
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:CA:E8:2A:16
+            speed: 10
+        FastEthernet0/23:
+            description: AP_Regist(Vict2ndWC)
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:CA:E8:2A:17
+            speed: 10
+        FastEthernet0/24:
+            description: ''
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:CA:E8:2A:18
+            speed: 10
+        FastEthernet0/3:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:CA:E8:2A:03
+            speed: 100
+        FastEthernet0/4:
+            description: reserved Printer
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:CA:E8:2A:04
+            speed: 100
+        FastEthernet0/5:
+            description: ''
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:CA:E8:2A:05
+            speed: 10
+        FastEthernet0/6:
+            description: AP_Regist(Vict2ndWC)
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:CA:E8:2A:06
+            speed: 100
+        FastEthernet0/7:
+            description: ''
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:CA:E8:2A:07
+            speed: 10
+        FastEthernet0/8:
+            description: ''
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:CA:E8:2A:08
+            speed: 10
+        FastEthernet0/9:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:CA:E8:2A:09
+            speed: 100
+        GigabitEthernet0/1:
+            description: Trunk-to-Switch_Core
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:CA:E8:2A:19
+            speed: 10
+        GigabitEthernet0/2:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:CA:E8:2A:1A
+            speed: 1000
+        Vlan1:
+            description: ''
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:CA:E8:2A:40
+            speed: 1000
+        Vlan99:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:CA:E8:2A:41
+            speed: 1000
+    napalm_interfaces_ip:
+        Vlan99:
+            ipv4:
+                10.70.99.23:
+                    prefix_length: 24
+    napalm_model: WS-C2960-24PC-L
+    napalm_os_version: C2960 Software (C2960-LANBASEK9-M), Version 12.2(55)SE9, RELEASE
+        SOFTWARE (fc1)
+    napalm_serial_number: FOC1333Z2VN
+    napalm_uptime: 893280
+    napalm_vendor: Cisco
+changed: false
+failed: false

@@ -1,0 +1,136 @@
+get_facts:
+    napalm_facts:
+        fqdn: SW8PoE_S+C_Antena.victoria.local
+        hostname: SW8PoE_S+C_Antena
+        interface_list:
+        - Vlan1
+        - Vlan99
+        - FastEthernet0/1
+        - FastEthernet0/2
+        - FastEthernet0/3
+        - FastEthernet0/4
+        - FastEthernet0/5
+        - FastEthernet0/6
+        - FastEthernet0/7
+        - FastEthernet0/8
+        - GigabitEthernet0/1
+        - GigabitEthernet0/2
+        model: WS-C2960C-8PC-L
+        os_version: C2960C Software (C2960c405-UNIVERSALK9-M), Version 15.0(2)SE5,
+            RELEASE SOFTWARE (fc1)
+        serial_number: FOC1849Z83K
+        uptime: 1216800
+        vendor: Cisco
+    napalm_fqdn: SW8PoE_S+C_Antena.victoria.local
+    napalm_hostname: SW8PoE_S+C_Antena
+    napalm_interface_list:
+    - Vlan1
+    - Vlan99
+    - FastEthernet0/1
+    - FastEthernet0/2
+    - FastEthernet0/3
+    - FastEthernet0/4
+    - FastEthernet0/5
+    - FastEthernet0/6
+    - FastEthernet0/7
+    - FastEthernet0/8
+    - GigabitEthernet0/1
+    - GigabitEthernet0/2
+    napalm_interfaces:
+        FastEthernet0/1:
+            description: RESERVED_END_USER
+            is_enabled: false
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 3C:5E:C3:D2:63:81
+            speed: 10
+        FastEthernet0/2:
+            description: ''
+            is_enabled: false
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 3C:5E:C3:D2:63:82
+            speed: 10
+        FastEthernet0/3:
+            description: ''
+            is_enabled: false
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 3C:5E:C3:D2:63:83
+            speed: 10
+        FastEthernet0/4:
+            description: ''
+            is_enabled: false
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 3C:5E:C3:D2:63:84
+            speed: 10
+        FastEthernet0/5:
+            description: ''
+            is_enabled: false
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 3C:5E:C3:D2:63:85
+            speed: 10
+        FastEthernet0/6:
+            description: ''
+            is_enabled: false
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 3C:5E:C3:D2:63:86
+            speed: 10
+        FastEthernet0/7:
+            description: Guest_Complexo_S_C
+            is_enabled: false
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 3C:5E:C3:D2:63:87
+            speed: 10
+        FastEthernet0/8:
+            description: RESERVED_TRUNK
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 3C:5E:C3:D2:63:88
+            speed: 100
+        GigabitEthernet0/1:
+            description: RESERVED_TRUNK
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 3C:5E:C3:D2:63:89
+            speed: 1000
+        GigabitEthernet0/2:
+            description: RESERVED_TRUNK
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 3C:5E:C3:D2:63:8A
+            speed: 100
+        Vlan1:
+            description: ''
+            is_enabled: false
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 3C:5E:C3:D2:63:C0
+            speed: 1000
+        Vlan99:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 3C:5E:C3:D2:63:C1
+            speed: 1000
+    napalm_interfaces_ip:
+        Vlan99:
+            ipv4:
+                10.40.99.12:
+                    prefix_length: 24
+    napalm_model: WS-C2960C-8PC-L
+    napalm_os_version: C2960C Software (C2960c405-UNIVERSALK9-M), Version 15.0(2)SE5,
+        RELEASE SOFTWARE (fc1)
+    napalm_serial_number: FOC1849Z83K
+    napalm_uptime: 1216800
+    napalm_vendor: Cisco
+changed: false
+failed: false

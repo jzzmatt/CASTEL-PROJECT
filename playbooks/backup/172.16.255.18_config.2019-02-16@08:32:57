@@ -1,0 +1,432 @@
+Building configuration...
+
+Current configuration : 11286 bytes
+!
+! Last configuration change at 09:14:07 WAT Sat Feb 16 2019 by junior.mateus
+! NVRAM config last updated at 16:05:58 WAT Thu Feb 14 2019 by junior.mateus
+! NVRAM config last updated at 16:05:58 WAT Thu Feb 14 2019 by junior.mateus
+version 15.1
+service timestamps debug datetime msec localtime
+service timestamps log datetime msec localtime
+service password-encryption
+!
+hostname CerbabRT_WAN
+!
+boot-start-marker
+boot-end-marker
+!
+!
+logging buffered 100000
+enable secret 5 $1$iVC5$KobNFvLocW15tICJNBl9D1
+!
+aaa new-model
+!
+!
+aaa group server radius GRPE_SRV_RADIUS
+ server name srv-radius2
+!
+aaa authentication login default group GRPE_SRV_RADIUS local
+aaa authentication login My_AUTHENT group GRPE_SRV_RADIUS local
+aaa authentication login use-srvtacacs group tacacs+ local enable
+aaa authentication enable default group tacacs+ enable
+aaa authorization console
+aaa authorization exec use-srvtacacs group tacacs+ local if-authenticated 
+aaa authorization commands 1 default group tacacs+ if-authenticated 
+aaa authorization commands 15 default group tacacs+ local if-authenticated 
+aaa accounting send stop-record authentication failure
+aaa accounting exec default start-stop group tacacs+
+aaa accounting network default start-stop group tacacs+
+aaa accounting connection default start-stop group tacacs+
+aaa accounting system default start-stop group tacacs+
+aaa accounting resource default start-stop group tacacs+
+!
+!
+!
+!
+!
+aaa session-id common
+clock timezone WAT 1 0
+!
+no ipv6 cef
+!
+flow record MYRECORD
+ match ipv4 protocol
+ match ipv4 source address
+ match ipv4 destination address
+ match transport source-port
+ match transport destination-port
+ match interface input
+ match application name
+ collect ipv4 dscp
+ collect interface output
+ collect counter bytes
+ collect counter packets
+!
+!
+flow exporter NETFLOW_ANALYSER
+ destination 10.30.99.252
+ transport udp 9996
+!
+!
+flow monitor MYMONITOR
+ record MYRECORD
+ exporter NETFLOW_ANALYSER
+!
+ip source-route
+ip cef
+!
+!
+!
+!
+!
+ip domain name victoria.local
+ip name-server 10.30.10.1
+ip name-server 10.30.10.10
+login block-for 7 attempts 3 within 60
+login on-failure log
+login on-success log
+multilink bundle-name authenticated
+!
+!
+password encryption aes
+crypto pki token default removal timeout 0
+!
+!
+license udi pid CISCO2911/K9 sn FCZ154170EH
+!
+!
+archive
+ log config
+  logging enable
+  logging size 1000
+  notify syslog contenttype plaintext
+  hidekeys
+username admin privilege 15 password 7 074E024D4C5B49544358
+!
+!
+ip ftp username ciscoBKP
+ip ftp password 7 094F471A1A0A35393B
+ip ssh version 2
+ip scp server enable
+!
+class-map match-all TRANSACTIONAL_DATA
+ description " Match all Critical_Data(e_mail,sql..) "
+ match ip dscp af21 
+class-map match-all Marking_MultiMedia
+ match access-group name MULTIMEDIA_CONFERECING
+class-map match-all Marking_VOIP
+ match protocol rtp
+class-map match-all Marking_TRANSACTIONAL_DATA
+ match access-group name TRANSACTIONAL-DATA
+class-map match-all REALTIME
+ match ip dscp ef 
+class-map match-all IP_ROUTING
+ match ip dscp cs6 
+class-map match-all class-all
+ match any 
+class-map match-all SIGNALING_CALLS
+ match ip dscp cs3 
+class-map match-all STREAMING_VIDEO
+ match ip dscp af41  af42 
+class-map match-all Marking_Signaling
+ match access-group name SiGNALING
+class-map match-all Marking_BULK_DATA
+ match access-group name BULK-DATA
+class-map match-all Marking_SCAVENGER
+ match access-group name SCAVENGER
+class-map match-all SCAVENGER
+ description " MATCH ALL Peer2Peer"
+ match ip dscp cs1 
+class-map match-all BULK_DATA
+ description "Match ALL WEB_TRAFFIC"
+ match ip dscp af11 
+!
+!
+policy-map MAKRING
+ description " RE_MARKING INSIDE DATA & POLICY SCAVENGER"
+ class Marking_TRANSACTIONAL_DATA
+  set dscp af21
+ class Marking_BULK_DATA
+  set dscp af11
+ class Marking_SCAVENGER
+  set dscp cs1
+ class Marking_Signaling
+  set dscp cs3
+ class Marking_MultiMedia
+  set dscp af41
+ class Marking_VOIP
+  set dscp ef
+policy-map BRANCH_DMVPN_POLICY
+ class REALTIME
+  priority percent 18
+ class STREAMING_VIDEO
+  bandwidth percent 8
+ class SIGNALING_CALLS
+  bandwidth percent 5
+ class IP_ROUTING
+  bandwidth percent 5
+ class TRANSACTIONAL_DATA
+  bandwidth percent 11
+ class BULK_DATA
+  bandwidth percent 15
+  random-detect
+ class class-default
+  random-detect
+  bandwidth percent 13
+policy-map Shaper_386_all
+ description [ 386kb, UP&Down= 184 ]
+ class class-default
+  shape average 188416
+  service-policy BRANCH_DMVPN_POLICY
+!
+!
+!
+!
+!
+interface Tunnel2016
+ description **** DMVPN SPOKE TO VICTORIA ****
+ bandwidth 4000
+ ip address 172.16.255.18 255.255.255.240
+ no ip redirects
+ ip mtu 1400
+ ip flow monitor MYMONITOR input
+ ip flow monitor MYMONITOR output
+ ip nhrp authentication vict2016
+ ip nhrp group 4MB_grpe
+ ip nhrp map multicast 10.0.1.2
+ ip nhrp map 172.16.255.30 10.0.1.2
+ ip nhrp network-id 99
+ ip nhrp holdtime 300
+ ip nhrp nhs 172.16.255.30
+ ip tcp adjust-mss 1360
+ no ip split-horizon eigrp 800
+ delay 1000
+ tunnel source GigabitEthernet0/1
+ tunnel mode gre multipoint
+ tunnel key 1000
+!
+interface Embedded-Service-Engine0/0
+ no ip address
+ shutdown
+!
+interface GigabitEthernet0/0
+ no ip address
+ shutdown
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet0/1
+ description LINK MPLS UNITEL
+ ip address 10.0.1.54 255.255.255.252
+ duplex full
+ speed 100
+!
+interface GigabitEthernet0/2
+ description LINK-to-CRSW(LAN)
+ ip address 10.50.35.2 255.255.255.252
+ load-interval 30
+ duplex auto
+ speed auto
+!
+!
+router eigrp 800
+ network 10.50.35.0 0.0.0.3
+ network 172.16.255.0 0.0.0.255
+ redistribute static route-map RM_LAN_CERBAB
+ passive-interface default
+ no passive-interface Tunnel2016
+ no passive-interface GigabitEthernet0/2
+!
+ip forward-protocol nd
+!
+ip http server
+ip http authentication local
+no ip http secure-server
+!
+ip route 10.0.1.0 255.255.255.0 10.0.1.53 name Cerbab->MplsUnitel
+ip route 10.50.0.0 255.255.0.0 10.50.35.1 name CerbabLAN
+!
+ip access-list extended BULK-DATA
+ remark Web Traffic
+ permit tcp any any eq www
+ permit tcp any any eq 443
+ remark FTP
+ permit tcp any any eq ftp-data
+ permit tcp any any eq ftp
+ remark IMAP/SECURE IMAP
+ permit tcp any any eq 143
+ permit tcp any any eq 993
+ remark SMTP
+ permit tcp any any eq smtp
+ remark Secure-SMTP
+ permit tcp any any eq 465
+ permit tcp any any eq 589
+ remark Secure-POP3
+ permit tcp any any eq 995
+ permit tcp any any eq pop3
+ remark PC_BACKUP
+ permit tcp any eq 1914 any
+ remark SSH/SFTP
+ permit tcp any any eq 22
+ip access-list extended MULTIMEDIA_CONFERECING
+ permit udp any any range 16384 32767
+ip access-list extended SCAVENGER
+ remark Kazaa 
+ permit tcp any any eq 1214
+ permit udp any any eq 1214
+ remark MICROSOFT DIRECT X GAMING
+ permit tcp any any range 2300 2400
+ remark Apple ITunes Music SAHRING
+ permit tcp any any eq 3689
+ permit udp any any eq 3689
+ remark BITTORENTS
+ permit tcp any any range 6881 6999
+ remark YAHOO GAMES
+ permit tcp any any eq 11999
+ remark MSN GAMING ZONE
+ permit tcp any any range 28800 29100
+ remark FasTrack
+ remark Gnutella
+ permit udp any any eq 6346
+ permit udp any any eq 6347
+ permit udp any any eq 6348
+ permit tcp any any eq 6346
+ permit tcp any any eq 6347
+ permit tcp any any eq 6348
+ permit tcp any any eq 6349
+ permit tcp any any eq 6355
+ permit tcp any any eq 5634
+ remark Edonkey
+ permit tcp any any eq 4662
+ip access-list extended SiGNALING
+ remark SIP
+ permit tcp any any range 5060 5061
+ permit udp any any range 5060 5061
+ remark SCCP
+ permit tcp any any range 2000 2002
+ip access-list extended TRANSACTIONAL-DATA
+ remark Exchange server 
+ permit tcp any any eq 135
+ remark Kerberos
+ permit tcp any any eq 88
+ permit tcp any any eq 749
+ permit udp any any eq 88
+ permit udp any any eq 749
+ remark Net-Bios
+ permit tcp any any eq 139
+ permit tcp any any eq 137
+ permit udp any any eq netbios-ns
+ permit udp any any eq netbios-dgm
+ remark LDAP
+ permit tcp any any eq 389
+ remark Microsoft_ds (Active Directory)
+ permit tcp any any eq 445
+ permit udp any any eq 445
+ remark Ms_WBT_server or RDP
+ permit tcp any any eq 3389
+ remark SQL
+ permit tcp any any eq 1521
+ remark SNMP
+ permit tcp any any eq 161
+ permit tcp any any eq 162
+ permit udp any any eq snmp
+ remark NTP
+ permit tcp any any eq 37
+ permit udp any any eq time
+ remark Syslogs
+ permit udp any any eq syslog
+ remark NFS (Network File System )
+ permit tcp any any eq 2049
+ permit udp any any eq 2049
+!
+!
+ip prefix-list LAN seq 5 permit 10.50.0.0/16
+ip radius source-interface GigabitEthernet0/2 
+kron occurrence Semanal-BKP at 21:30 Fri recurring
+ policy-list MY_BKP_CFG
+!
+kron policy-list MY_BKP_CFG
+ cli sh startup-config | redirect ftp://10.30.23.1/Cerbab-RT-VSATSTARTUP
+ cli sh running-config | redirect ftp://10.30.23.1/Cerbab-RT-VSATRUNNING
+!
+logging trap debugging
+logging 10.30.10.79
+logging 10.30.99.251
+!
+route-map RM_LAN_CERBAB permit 10
+ match ip address prefix-list LAN
+!
+!
+snmp-server community victoria RW
+snmp-server community victoria_pub RO
+snmp-server community victoria_wr RW
+snmp-server ifindex persist
+snmp-server location DATACENTER VICTORIA
+snmp-server contact support.helpdesk@bihangola.net
+snmp-server host 10.30.99.251 version 2c victoria_pub 
+snmp ifmib ifalias long
+tacacs-server host 10.30.10.10 timeout 5
+tacacs-server directed-request
+tacacs-server key 7 105D5A1A174406595C557C
+!
+radius server srv-radius2
+ address ipv4 10.30.10.36 auth-port 1645 acct-port 1646
+ key 7 0539260B70595D5B495444
+!
+!
+!
+control-plane
+!
+!
+alias exec qos sh auto discovery qos
+alias exec cpu show proc cpu | excl 0.00%_0.00%_0.00%
+alias exec mem show proc mem | excl 0.00%_0.00%_0.00%
+alias exec u undebug all
+alias exec nt terminal no monitor
+alias exec arch sh archive log config all
+alias exec nbar sh ip nbar protocol-discovery stats bit-rate top-n 10
+alias exec flow sh flow monitor MYMONITOR cache format tabl
+banner motd ^C
+####################################################################
+#                                                                  #
+#       ----------      SITE CERBAB CABINDA   -------------        #
+#       ----------       IT DEPARTEMENT       -------------        #
+#                                                                  #
+#       Unauthorized access is prohibit and will be prosecuted     #      
+#  IF Allowed, before Applying any Modification please contact the #
+#                         IT DEPARTEMENT                           #
+#     helpdesk@bihangola.net or suporteit@sabmiller.co.ao          #
+#  _______________________________________________________________ #
+#        GRUPO CUCA BGI ANGOLA    / COCA COLA BOTTLING SA          #
+#                        ( Luanda-ANGOLA )                         #
+#  _______________________________________________________________ #
+#                                                                  #
+####################################################################
+^C
+!
+line con 0
+line aux 0
+line 2
+ no activation-character
+ no exec
+ transport preferred none
+ transport input all
+ transport output pad telnet rlogin lapb-ta mop udptn v120 ssh
+ stopbits 1
+line vty 0 4
+ privilege level 15
+ logging synchronous
+ login authentication use-srvtacacs
+ length 0
+ transport input telnet ssh
+line vty 5 15
+ exec-timeout 15 0
+ privilege level 15
+ logging synchronous
+ login authentication use-srvtacacs
+ length 0
+ transport input ssh
+!
+scheduler allocate 20000 1000
+ntp server 172.17.255.13
+end

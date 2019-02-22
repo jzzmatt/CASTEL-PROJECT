@@ -1,0 +1,261 @@
+Building configuration...
+
+Current configuration : 7483 bytes
+!
+! Last configuration change at 10:38:21 CET Fri Feb 22 2019 by junior.mateus
+!
+version 15.0
+no service pad
+service timestamps debug datetime msec
+service timestamps log datetime msec
+service password-encryption
+service sequence-numbers
+!
+hostname COBswF5
+!
+boot-start-marker
+boot-end-marker
+!
+enable secret 5 $1$Bj04$T.weN2/GH1Q2uHHIVdk69.
+!
+username admin privilege 15 password 7 09076D061B57474252
+aaa new-model
+!
+!
+aaa authentication login use-srvtacacs group tacacs+ local enable
+aaa authentication enable default group tacacs+ enable
+aaa authorization console
+aaa authorization exec use-srvtacacs group tacacs+ local if-authenticated 
+aaa authorization commands 1 default group tacacs+ if-authenticated 
+aaa authorization commands 15 default group tacacs+ local if-authenticated 
+aaa accounting send stop-record authentication failure
+aaa accounting exec default start-stop group tacacs+
+aaa accounting network default start-stop group tacacs+
+aaa accounting connection default start-stop group tacacs+
+aaa accounting system default start-stop group tacacs+
+!
+!
+!
+!
+!
+!
+aaa session-id common
+clock timezone CET 1 0
+system mtu routing 1500
+!
+!
+ip domain-name victoria.local
+!
+!
+crypto pki trustpoint TP-self-signed-1360524032
+ enrollment selfsigned
+ subject-name cn=IOS-Self-Signed-Certificate-1360524032
+ revocation-check none
+ rsakeypair TP-self-signed-1360524032
+!
+!
+crypto pki certificate chain TP-self-signed-1360524032
+ certificate self-signed 01
+  30820240 308201A9 A0030201 02020101 300D0609 2A864886 F70D0101 04050030 
+  31312F30 2D060355 04031326 494F532D 53656C66 2D536967 6E65642D 43657274 
+  69666963 6174652D 31333630 35323430 3332301E 170D3933 30333031 30303030 
+  35355A17 0D323030 31303130 30303030 305A3031 312F302D 06035504 03132649 
+  4F532D53 656C662D 5369676E 65642D43 65727469 66696361 74652D31 33363035 
+  32343033 3230819F 300D0609 2A864886 F70D0101 01050003 818D0030 81890281 
+  8100B95D 4974414C B2548464 EE4C8420 53D752FB BDC59BFE CEABE457 D85704CC 
+  3CAD60F3 08F9E994 B1F78F3D 0EB7AF3C ED7B79E3 231724D9 38515C1D FB9E0FB9 
+  8C470D7F 8CD270A2 8D1D8514 287C22CC 8D099973 93D830F3 1C657018 FAFF69D9 
+  4D34C1FD AA559211 CA4FB13A 1FF19705 964DC1F8 915D8BDC 92A5B7A6 A97084E0 
+  B3290203 010001A3 68306630 0F060355 1D130101 FF040530 030101FF 30130603 
+  551D1104 0C300A82 08434F42 73774635 2E301F06 03551D23 04183016 80146415 
+  AB1A3E27 80BD0023 B012668A C5CCC298 C6C2301D 0603551D 0E041604 146415AB 
+  1A3E2780 BD0023B0 12668AC5 CCC298C6 C2300D06 092A8648 86F70D01 01040500 
+  03818100 B8858B39 92018BA2 06772533 560F504B C73EC987 93DC06B8 790E00A8 
+  020BACFC 66E4F787 90C37134 CBA71B43 3EDBC993 9E2D733B 3C8BBA04 E09857D8 
+  C8B2336D 4DA96FC3 64E977EE F2B2ABE1 8FAF6913 E2E0D565 21AC70F4 86020867 
+  5170155A 5C1D3910 CA45D730 80D0FA5B EF678E3C 46BB173C 5B938D30 29F27B47 7EC16703
+  	quit
+!
+!
+!
+!
+!
+errdisable recovery cause udld
+errdisable recovery cause bpduguard
+errdisable recovery cause security-violation
+errdisable recovery cause channel-misconfig (STP)
+errdisable recovery cause pagp-flap
+errdisable recovery cause dtp-flap
+errdisable recovery cause link-flap
+errdisable recovery cause sfp-config-mismatch
+errdisable recovery cause gbic-invalid
+errdisable recovery cause psecure-violation
+errdisable recovery cause port-mode-failure
+errdisable recovery cause dhcp-rate-limit
+errdisable recovery cause pppoe-ia-rate-limit
+errdisable recovery cause mac-limit
+errdisable recovery cause vmps
+errdisable recovery cause storm-control
+errdisable recovery cause inline-power
+errdisable recovery cause loopback
+errdisable recovery cause small-frame
+errdisable recovery cause psp
+!
+spanning-tree mode rapid-pvst
+spanning-tree loopguard default
+spanning-tree portfast default
+spanning-tree portfast bpduguard default
+spanning-tree portfast bpdufilter default
+spanning-tree extend system-id
+spanning-tree uplinkfast
+spanning-tree backbonefast
+!
+vlan internal allocation policy ascending
+!
+ip ftp username ciscoBKP
+ip ftp password 7 00071A150754292D3F
+ip ssh version 2
+ip scp server enable
+!
+!
+!
+!
+interface FastEthernet0/1
+ description RESERVED_END_USER
+ switchport access vlan 106
+ switchport mode access
+ switchport voice vlan 3
+ switchport port-security maximum 5
+ switchport port-security
+ switchport port-security aging time 5
+ switchport port-security violation restrict
+ switchport port-security aging type inactivity
+ priority-queue out 
+ mls qos trust cos
+ spanning-tree portfast
+!
+interface FastEthernet0/2
+ description Printer
+ switchport access vlan 16
+ switchport mode access
+ switchport voice vlan 3
+ switchport port-security maximum 5
+ switchport port-security
+ switchport port-security aging time 5
+ switchport port-security violation restrict
+ switchport port-security aging type inactivity
+ priority-queue out 
+ mls qos trust cos
+ spanning-tree portfast
+!
+interface FastEthernet0/3
+ description RESERVED_END_USER
+ switchport access vlan 106
+ switchport mode access
+ switchport voice vlan 3
+ switchport port-security maximum 5
+ switchport port-security
+ switchport port-security aging time 5
+ switchport port-security violation restrict
+ switchport port-security aging type inactivity
+ priority-queue out 
+ mls qos trust cos
+ spanning-tree portfast
+!
+interface FastEthernet0/4
+ description RESERVED_END_USER
+ switchport access vlan 106
+ switchport mode access
+ switchport voice vlan 3
+ switchport port-security maximum 5
+ switchport port-security
+ switchport port-security aging time 5
+ switchport port-security violation restrict
+ switchport port-security aging type inactivity
+ priority-queue out 
+ mls qos trust cos
+ spanning-tree portfast
+!
+interface FastEthernet0/5
+ description RESERVED_END_USER
+ switchport access vlan 106
+ switchport mode access
+ switchport voice vlan 3
+ switchport port-security maximum 5
+ switchport port-security
+ switchport port-security aging time 5
+ switchport port-security violation restrict
+ switchport port-security aging type inactivity
+ priority-queue out 
+ mls qos trust cos
+ spanning-tree portfast
+!
+interface FastEthernet0/6
+ description RESERVED_CCTV
+ switchport access vlan 19
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/7
+ description RESERVED_CCTV
+ switchport access vlan 19
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/8
+ description RESERVED_PRINTER
+ switchport access vlan 16
+ switchport mode access
+ spanning-tree portfast
+!
+interface GigabitEthernet0/1
+ description RESERVED_TO_TRUNK
+ switchport trunk native vlan 99
+ switchport mode trunk
+!
+interface Vlan1
+ no ip address
+ no ip route-cache
+ shutdown
+!
+interface Vlan99
+ ip address 10.40.99.8 255.255.255.0
+ no ip route-cache
+!
+ip default-gateway 10.40.99.254
+ip http server
+ip http authentication aaa login-authentication use-srvtacacs
+ip http authentication aaa exec-authorization use-srvtacacs
+ip http authentication aaa command-authorization 15 default
+no ip http secure-server
+snmp-server community victoria RO
+tacacs-server host 10.30.10.10 timeout 5
+tacacs-server directed-request
+tacacs-server key 7 095F1D0A0B5603405B5D52
+!
+!
+!
+!
+line con 0
+ exec-timeout 15 0
+ privilege level 15
+ logging synchronous
+ login authentication use-srvtacacs
+ length 0
+line vty 0 4
+ exec-timeout 15 0
+ privilege level 15
+ logging synchronous
+ login authentication use-srvtacacs
+ length 0
+ transport input telnet ssh
+line vty 5 15
+ exec-timeout 15 0
+ privilege level 15
+ logging synchronous
+ login authentication use-srvtacacs
+ length 0
+ transport input ssh
+!
+ntp server 10.40.99.254
+end

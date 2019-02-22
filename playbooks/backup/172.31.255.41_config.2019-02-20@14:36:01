@@ -1,0 +1,494 @@
+Building configuration...
+
+Current configuration : 13975 bytes
+!
+! Last configuration change at 15:28:33 WAT Wed Feb 20 2019 by junior.mateus
+version 15.1
+service timestamps debug datetime msec
+service timestamps log datetime msec
+service password-encryption
+!
+hostname RT-Funda-CCbl
+!
+boot-start-marker
+boot-end-marker
+!
+!
+!
+aaa new-model
+!
+!
+aaa authentication login use-srvtacacs group tacacs+ local enable
+aaa authentication enable default group tacacs+ enable
+aaa authorization console
+aaa authorization exec use-srvtacacs group tacacs+ local if-authenticated 
+aaa authorization commands 1 default group tacacs+ if-authenticated 
+aaa authorization commands 15 default group tacacs+ local if-authenticated 
+aaa accounting send stop-record authentication failure
+aaa accounting exec default start-stop group tacacs+
+aaa accounting network default start-stop group tacacs+
+aaa accounting connection default start-stop group tacacs+
+aaa accounting system default start-stop group tacacs+
+aaa accounting resource default start-stop group tacacs+
+!
+!
+!
+!
+!
+aaa session-id common
+clock timezone WAT 1 0
+!
+no ipv6 cef
+!
+flow record MYRECORD
+ match ipv4 protocol
+ match ipv4 source address
+ match ipv4 destination address
+ match transport source-port
+ match transport destination-port
+ match interface input
+ match application name
+ collect ipv4 dscp
+ collect interface output
+ collect counter bytes
+ collect counter packets
+!
+!
+flow exporter MY_IT360_Export
+ destination 10.30.10.6
+ transport udp 2055
+!
+!
+flow monitor MYMONITOR
+ record MYRECORD
+!
+ip source-route
+ip cef
+!
+!
+!
+ip dhcp relay information trust-all
+no ip dhcp use vrf connected
+ip dhcp excluded-address 10.121.170.1 10.121.170.100
+ip dhcp excluded-address 10.130.99.50 10.130.99.254
+ip dhcp excluded-address 10.130.101.30 10.130.101.254
+ip dhcp excluded-address 192.168.170.1
+ip dhcp excluded-address 10.130.100.200 10.130.100.254
+ip dhcp excluded-address 10.130.101.200 10.130.101.254
+!
+ip dhcp pool Voice
+ network 192.168.170.0 255.255.255.0
+ default-router 192.168.170.1 
+ option 150 ip 192.168.162.41 
+ lease 7
+!
+ip dhcp pool WLC-AP-MGT
+ network 10.130.99.0 255.255.255.0
+ default-router 10.130.99.254 
+!
+ip dhcp pool VLAN_Wireless_Users
+ utilization mark high 80 log
+ utilization mark low 50 log
+ network 10.130.100.0 255.255.255.0
+ network 10.130.101.0 255.255.255.0 secondary
+ default-router 10.130.100.254 
+ dns-server 10.121.170.30 10.121.162.58 
+ domain-name sabmiller.co.ao
+ option 252 ascii "http://srv-tmg.victoria.local:8080/wpad.dat "
+ lease 3
+!
+!
+ip domain name victoria.local
+ip name-server 10.30.10.1
+ip name-server 10.30.10.10
+login block-for 7 attempts 3 within 60
+login on-failure log
+login on-success log
+multilink bundle-name authenticated
+!
+!
+password encryption aes
+crypto pki token default removal timeout 0
+!
+!
+license udi pid CISCO2911/K9 sn FCZ154521BE
+license boot module c2900 technology-package securityk9 disable
+!
+!
+archive
+ log config
+  logging enable
+  logging size 1000
+  notify syslog contenttype plaintext
+  hidekeys
+ path ftp://10.30.23.1/$h-$t
+ write-memory
+username admin privilege 15 password 7 1252261410075E547B79
+!
+!
+ip ftp username ciscoBKP
+ip ftp password 7 094F471A1A0A35393B
+ip ssh version 2
+ip scp server enable
+!
+class-map match-any Match_StreamingV
+ match protocol youtube
+ match protocol http url "dropbox"
+ match protocol http host "*dropbox.com"
+ match protocol http host "*googledrive.com"
+ match protocol http host "*drive.goolge.com"
+ match protocol http host "*video.goolge.com"
+ match ip dscp cs4 
+class-map match-any Match_CriticalData
+ match protocol sqlserv
+ match protocol sql*net
+ match protocol sqlexec
+ match protocol sqlnet
+ match protocol microsoftds
+ match protocol kerberos
+ match protocol ldap
+ match protocol rdp
+ match protocol cifs
+ match protocol nfs
+ match protocol snmp
+ match protocol syslog
+ match protocol sap
+ match protocol http url "gmail"
+ match protocol http url "yahoo"
+ match protocol http url "outlook"
+ match access-group name Acl_qos_CriticaData
+ match protocol exchange
+ match protocol smtp
+ match protocol pop3
+ match protocol imap
+ match protocol secure-ldap
+ match protocol ntp
+ match protocol http url "portal.microsoftonline.com"
+ match protocol http host "*microsoftonline.com"
+ match protocol http host "*lync.com"
+ match protocol http host "*onmicrosoft.com"
+ match protocol http url "lync.com"
+ match protocol http url "portal.office.com"
+ match protocol http url "home.office.com"
+ match protocol http host "*.office365.com"
+ match protocol http host "*.office.com"
+ match protocol http host "*.office.net"
+ match protocol http host "*.microsoft.com"
+ match ip dscp cs6 
+ match ip dscp af21  af22 
+ match ip dscp cs2 
+class-map match-any Match_BESTEffort
+ match class-map class-default
+class-map match-any Match_Signal
+ match protocol h323
+ match protocol sip
+ match protocol skinny
+ match protocol mgcp
+ match protocol skype
+ match ip dscp cs3 
+class-map match-any Match_Scavenger
+ match protocol bittorrent
+ match protocol fasttrack
+ match protocol gnutella
+ match protocol gopher
+ match protocol edonkey
+ match protocol kazaa2
+ match protocol winmx
+ match protocol directconnect
+class-map match-any Match_Voice
+ match protocol rtp
+ match protocol citrix
+ match protocol http url "webex"
+ match ip dscp ef 
+!
+!
+policy-map CB_tunnel
+ class Match_Voice
+  priority percent 33
+ class Match_Signal
+  bandwidth percent 5
+ class Match_CriticalData
+  bandwidth percent 25
+  random-detect dscp-based
+ class Match_StreamingV
+  bandwidth percent 10
+  random-detect
+ class Match_Scavenger
+  bandwidth percent 1
+ class Match_BESTEffort
+  bandwidth percent 25
+  fair-queue
+  random-detect
+policy-map Qos_4MB
+ class class-default
+  shape average 3800000
+  service-policy CB_tunnel
+!
+!
+!
+!
+!
+interface Loopback0
+ ip address 2.2.2.4 255.255.255.255
+!
+interface Tunnel122
+ description TUNNEL ITA P2P FUNDA->VICTORIA
+ bandwidth 4000
+ ip address 172.22.22.2 255.255.255.252
+ ip mtu 1475
+ ip nbar protocol-discovery
+ ip flow monitor MYMONITOR input
+ ip flow monitor MYMONITOR output
+ ip flow ingress
+ ip flow egress
+ ip tcp adjust-mss 1400
+ load-interval 30
+ delay 1500210
+ shutdown
+ tunnel source GigabitEthernet0/0
+ tunnel destination 196.216.60.236
+ tunnel path-mtu-discovery
+ service-policy output Qos_4MB
+!
+interface Tunnel2015
+ description *** DMVPN SPOKE TO VICTORIA  LINK ITA***
+ bandwidth 4000
+ ip address 172.16.24.1 255.255.255.248
+ no ip redirects
+ ip mtu 1400
+ ip nhrp authentication vict2015
+ ip nhrp map multicast 196.216.60.236
+ ip nhrp map 172.16.24.6 196.216.60.236
+ ip nhrp network-id 98
+ ip nhrp holdtime 300
+ ip nhrp nhs 172.16.24.6
+ ip tcp adjust-mss 1360
+ no ip split-horizon eigrp 800
+ delay 4000
+ tunnel source GigabitEthernet0/0
+ tunnel mode gre multipoint
+ tunnel key 1008
+!
+interface Embedded-Service-Engine0/0
+ no ip address
+ shutdown
+!
+interface GigabitEthernet0/0
+ description link P2P DMVPN ITA
+ ip address 196.216.62.104 255.255.255.254
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet0/1
+ ip address 10.15.35.1 255.255.255.252
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet0/2
+ description LINK-TO-TERRAVERDE
+ bandwidth 80000
+ ip address 172.31.255.41 255.255.255.252
+ no ip redirects
+ no ip unreachables
+ no ip proxy-arp
+ ip nbar protocol-discovery
+ ip flow monitor MYMONITOR input
+ ip flow monitor MYMONITOR output
+ ip virtual-reassembly in
+ load-interval 30
+ duplex auto
+ speed auto
+!
+!
+router eigrp 800
+ variance 4
+ network 10.15.35.0 0.0.0.3
+ network 172.16.24.0 0.0.0.15
+ network 172.31.255.40 0.0.0.3
+ passive-interface default
+ no passive-interface Tunnel2015
+ no passive-interface GigabitEthernet0/2
+ no passive-interface GigabitEthernet0/1
+!
+ip forward-protocol nd
+!
+ip http server
+ip http authentication aaa login-authentication use-srvtacacs
+ip http authentication aaa exec-authorization use-srvtacacs
+ip http authentication aaa command-authorization 15 default
+no ip http secure-server
+ip flow-export destination 10.30.10.6 2055
+!
+ip nat inside source static udp 10.121.170.4 10000 interface GigabitEthernet0/0 10000
+ip nat inside source static udp 10.121.170.4 4500 interface GigabitEthernet0/0 4500
+ip nat inside source static udp 10.121.170.4 500 interface GigabitEthernet0/0 500
+ip nat inside source static udp 10.121.170.4 51 interface GigabitEthernet0/0 51
+ip nat inside source static udp 10.121.170.4 50 interface GigabitEthernet0/0 50
+ip nat inside source static esp 10.121.170.4 interface GigabitEthernet0/0
+ip route 196.216.60.236 255.255.255.254 196.216.62.105 name P2P_FUNDA->VICTORIA
+!
+ip access-list extended ACL_VLAN204->LAN
+ permit ip any host 10.130.204.6
+ deny   ip any 10.0.0.0 0.255.255.255
+ deny   ip any 192.0.0.0 0.255.255.255
+ permit ip 10.130.204.0 0.0.0.7 any
+ip access-list extended Acl_qos_CriticaData
+ remark Mail_Protocols
+ permit tcp any any eq 465
+ permit tcp any any eq 995
+ permit tcp any any eq 993
+ permit tcp any any eq 587
+ remark MS LynC_ONline
+ permit udp any any eq 3478
+ permit udp any any range 50000 59999
+ip access-list extended PBR->LAN_to_DATACENTER
+ deny   ip any 10.0.0.0 0.255.255.255
+ deny   ip any 192.168.0.0 0.0.255.255
+ deny   ip any 172.31.255.0 0.0.0.255
+ permit ip any any
+!
+kron occurrence Semanal-BKP at 21:30 Fri recurring
+ policy-list MY_BKP_CFG
+!
+kron policy-list MY_BKP_CFG
+ cli sh startup-config | redirect ftp://10.30.23.1/RT-Funda-CCblSTARTUP
+ cli sh running-config | redirect ftp://10.30.23.1/RT-Funda-CCblRUNNING
+!
+logging trap debugging
+logging 10.30.10.79
+access-list 55 permit 10.30.10.6
+access-list 55 permit 10.30.10.50
+!
+route-map PBR->LAN permit 10
+ description *** Redirect Outgoing LAN traffic to DATACENTER ***
+ match ip address PBR->LAN_to_DATACENTER
+ set ip next-hop 172.31.255.42
+!
+route-map PBR->LAN permit 20
+!
+!
+snmp-server community Funda RO 55
+snmp-server community Funda_admin RW 55
+snmp-server community victoria_pub RO
+snmp-server community victoria_wr RW
+snmp-server ifindex persist
+snmp-server location DATACENTER VICTORIA
+snmp-server contact support.helpdesk@bihangola.net
+snmp-server enable traps snmp authentication linkdown linkup coldstart warmstart
+snmp-server enable traps vrrp
+snmp-server enable traps transceiver all
+snmp-server enable traps ds1
+snmp-server enable traps call-home message-send-fail server-fail
+snmp-server enable traps tty
+snmp-server enable traps eigrp
+snmp-server enable traps ospf state-change
+snmp-server enable traps ospf errors
+snmp-server enable traps ospf retransmit
+snmp-server enable traps ospf lsa
+snmp-server enable traps ospf cisco-specific state-change nssa-trans-change
+snmp-server enable traps ospf cisco-specific state-change shamlink interface
+snmp-server enable traps ospf cisco-specific state-change shamlink neighbor
+snmp-server enable traps ospf cisco-specific errors
+snmp-server enable traps ospf cisco-specific retransmit
+snmp-server enable traps ospf cisco-specific lsa
+snmp-server enable traps license
+snmp-server enable traps envmon
+snmp-server enable traps ethernet cfm cc mep-up mep-down cross-connect loop config
+snmp-server enable traps ethernet cfm crosscheck mep-missing mep-unknown service-up
+snmp-server enable traps flash insertion removal
+snmp-server enable traps c3g
+snmp-server enable traps ds3
+snmp-server enable traps adslline
+snmp-server enable traps vdsl2line
+snmp-server enable traps icsudsu
+snmp-server enable traps isdn call-information
+snmp-server enable traps isdn layer2
+snmp-server enable traps isdn chan-not-avail
+snmp-server enable traps isdn ietf
+snmp-server enable traps ds0-busyout
+snmp-server enable traps ds1-loopback
+snmp-server enable traps energywise
+snmp-server enable traps vstack
+snmp-server enable traps mac-notification
+snmp-server enable traps bgp
+snmp-server enable traps isis
+snmp-server enable traps rf
+snmp-server enable traps aaa_server
+snmp-server enable traps atm subif
+snmp-server enable traps cef resource-failure peer-state-change peer-fib-state-change inconsistency
+snmp-server enable traps memory bufferpeak
+snmp-server enable traps cnpd
+snmp-server enable traps config-copy
+snmp-server enable traps config
+snmp-server enable traps config-ctid
+snmp-server enable traps entity
+snmp-server enable traps fru-ctrl
+snmp-server enable traps resource-policy
+snmp-server enable traps event-manager
+snmp-server enable traps frame-relay multilink bundle-mismatch
+snmp-server enable traps frame-relay
+snmp-server enable traps frame-relay subif
+snmp-server enable traps hsrp
+snmp-server enable traps ipmulticast
+snmp-server enable traps msdp
+snmp-server enable traps mvpn
+snmp-server enable traps nhrp nhs
+snmp-server enable traps nhrp nhc
+snmp-server enable traps nhrp nhp
+snmp-server enable traps nhrp quota-exceeded
+snmp-server enable traps pim neighbor-change rp-mapping-change invalid-pim-message
+snmp-server enable traps pppoe
+snmp-server enable traps cpu threshold
+snmp-server enable traps rsvp
+snmp-server enable traps syslog
+snmp-server enable traps l2tun session
+snmp-server enable traps l2tun pseudowire status
+snmp-server enable traps vtp
+snmp-server enable traps vrfmib vrf-up vrf-down vnet-trunk-up vnet-trunk-down
+snmp-server host 10.30.99.251 version 2c victoria_pub 
+snmp ifmib ifalias long
+tacacs-server host 10.30.10.10
+tacacs-server key 7 0017400516081F545F701A
+radius-server host 10.30.10.18
+!
+!
+!
+control-plane
+!
+!
+alias exec arch sh archive log config all
+alias exec flow sh flow monitor MYMONITOR cache format tabl
+alias exec nbar sh ip nbar protocol-discovery stats bit-rate top-n 10
+!
+line con 0
+ exec-timeout 15 0
+ privilege level 15
+ logging synchronous
+ login authentication use-srvtacacs
+ length 0
+line aux 0
+line 2
+ no activation-character
+ no exec
+ transport preferred none
+ transport input all
+ transport output pad telnet rlogin lapb-ta mop udptn v120 ssh
+ stopbits 1
+line vty 0 4
+ exec-timeout 15 0
+ privilege level 15
+ logging synchronous
+ login authentication use-srvtacacs
+ length 0
+ transport input telnet ssh
+line vty 5 15
+ exec-timeout 15 0
+ privilege level 15
+ logging synchronous
+ login authentication use-srvtacacs
+ length 0
+ transport input ssh
+!
+scheduler allocate 20000 1000
+ntp server 172.31.255.42
+end

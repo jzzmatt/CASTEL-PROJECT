@@ -1,0 +1,127 @@
+get_facts:
+    napalm_facts:
+        fqdn: COBswF5.victoria.local
+        hostname: COBswF5
+        interface_list:
+        - Vlan1
+        - Vlan99
+        - FastEthernet0/1
+        - FastEthernet0/2
+        - FastEthernet0/3
+        - FastEthernet0/4
+        - FastEthernet0/5
+        - FastEthernet0/6
+        - FastEthernet0/7
+        - FastEthernet0/8
+        - GigabitEthernet0/1
+        model: WS-C2960-8TC-S
+        os_version: C2960 Software (C2960-LANLITEK9-M), Version 15.0(2)SE5, RELEASE
+            SOFTWARE (fc1)
+        serial_number: FOC1324V2M4
+        uptime: 17400
+        vendor: Cisco
+    napalm_fqdn: COBswF5.victoria.local
+    napalm_hostname: COBswF5
+    napalm_interface_list:
+    - Vlan1
+    - Vlan99
+    - FastEthernet0/1
+    - FastEthernet0/2
+    - FastEthernet0/3
+    - FastEthernet0/4
+    - FastEthernet0/5
+    - FastEthernet0/6
+    - FastEthernet0/7
+    - FastEthernet0/8
+    - GigabitEthernet0/1
+    napalm_interfaces:
+        FastEthernet0/1:
+            description: RESERVED_END_USER
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:51:17:F3:01
+            speed: 100
+        FastEthernet0/2:
+            description: Printer
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:51:17:F3:02
+            speed: 10
+        FastEthernet0/3:
+            description: RESERVED_END_USER
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:51:17:F3:03
+            speed: 10
+        FastEthernet0/4:
+            description: RESERVED_END_USER
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:51:17:F3:04
+            speed: 100
+        FastEthernet0/5:
+            description: RESERVED_END_USER
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:51:17:F3:05
+            speed: 10
+        FastEthernet0/6:
+            description: RESERVED_CCTV
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:51:17:F3:06
+            speed: 10
+        FastEthernet0/7:
+            description: RESERVED_CCTV
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:51:17:F3:07
+            speed: 100
+        FastEthernet0/8:
+            description: RESERVED_PRINTER
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:51:17:F3:08
+            speed: 100
+        GigabitEthernet0/1:
+            description: RESERVED_TO_TRUNK
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:51:17:F3:09
+            speed: 1000
+        Vlan1:
+            description: ''
+            is_enabled: false
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:51:17:F3:40
+            speed: 1000
+        Vlan99:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:51:17:F3:41
+            speed: 1000
+    napalm_interfaces_ip:
+        Vlan99:
+            ipv4:
+                10.40.99.8:
+                    prefix_length: 24
+    napalm_model: WS-C2960-8TC-S
+    napalm_os_version: C2960 Software (C2960-LANLITEK9-M), Version 15.0(2)SE5, RELEASE
+        SOFTWARE (fc1)
+    napalm_serial_number: FOC1324V2M4
+    napalm_uptime: 17400
+    napalm_vendor: Cisco
+changed: false
+failed: false

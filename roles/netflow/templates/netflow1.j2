@@ -1,0 +1,23 @@
+{% if groups['wan_unitel'] is defined and inventory_hostname in groups['wan_unitel'] %}
+{% set netflow_intf="Tunnel2016" %}
+{% endif %}
+!
+flow export {{ netflow.name }}
+  destination {{ netflow.ip }}
+  transport udp {{ netflow.port }}
+!
+class-map match-all class-all
+  match any
+!
+flow monitor type performance-monitor {{ netflow.monitor_name }}
+record default-rtp
+export {{ netflow.name }}
+
+policy-map type performance-monitor {{ netflow.policy }} 
+ class class-all
+   flow monitor {{ netflow.monitor_name }}
+!
+interface {{ netflow_intf }}
+  service-policy type performance-monitor input {{ netflow.policy }} 
+  service-policy type performance-monitor output {{ netflow.policy }}
+

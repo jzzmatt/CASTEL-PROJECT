@@ -1,0 +1,689 @@
+Building configuration...
+
+Current configuration : 21567 bytes
+!
+! Last configuration change at 16:03:13 UTC Fri Feb 22 2019 by junior.mateus
+! NVRAM config last updated at 10:09:17 UTC Wed Feb 6 2019 by odorico.domingos
+!
+version 12.2
+no service pad
+service timestamps debug datetime msec
+service timestamps log datetime msec
+service password-encryption
+service sequence-numbers
+!
+hostname VIDswZQ
+!
+boot-start-marker
+boot-end-marker
+!
+logging buffered 1000000
+!
+username admin privilege 15 password 7 034F6D02021D34401C59485056
+!
+!
+aaa new-model
+!
+!
+aaa authentication login use-srvtacacs group tacacs+ local enable
+aaa authentication enable default group tacacs+ enable
+aaa authorization console
+aaa authorization exec use-srvtacacs group tacacs+ local if-authenticated 
+aaa authorization commands 1 default group tacacs+ if-authenticated 
+aaa authorization commands 15 default group tacacs+ local if-authenticated 
+aaa accounting send stop-record authentication failure
+aaa accounting exec default start-stop group tacacs+
+aaa accounting network default start-stop group tacacs+
+aaa accounting connection default start-stop group tacacs+
+aaa accounting system default start-stop group tacacs+
+aaa accounting resource default start-stop group tacacs+
+!
+!
+!
+aaa session-id common
+system mtu routing 1500
+udld enable
+
+!
+!
+no ip domain-lookup
+ip domain-name victoria.local
+ip host srv-radius2 10.30.10.36
+!
+mls qos map cos-dscp 0 8 16 24 32 46 48 56
+mls qos srr-queue input bandwidth 70 30
+mls qos srr-queue input threshold 1 80 90
+mls qos srr-queue input priority-queue 2 bandwidth 30
+mls qos srr-queue input cos-map queue 1 threshold 2 3
+mls qos srr-queue input cos-map queue 1 threshold 3 6 7
+mls qos srr-queue input cos-map queue 2 threshold 1 4
+mls qos srr-queue input dscp-map queue 1 threshold 2 24
+mls qos srr-queue input dscp-map queue 1 threshold 3 48 49 50 51 52 53 54 55
+mls qos srr-queue input dscp-map queue 1 threshold 3 56 57 58 59 60 61 62 63
+mls qos srr-queue input dscp-map queue 2 threshold 3 32 33 40 41 42 43 44 45
+mls qos srr-queue input dscp-map queue 2 threshold 3 46 47
+mls qos srr-queue output cos-map queue 1 threshold 3 4 5
+mls qos srr-queue output cos-map queue 2 threshold 1 2
+mls qos srr-queue output cos-map queue 2 threshold 2 3
+mls qos srr-queue output cos-map queue 2 threshold 3 6 7
+mls qos srr-queue output cos-map queue 3 threshold 3 0
+mls qos srr-queue output cos-map queue 4 threshold 3 1
+mls qos srr-queue output dscp-map queue 1 threshold 3 32 33 40 41 42 43 44 45
+mls qos srr-queue output dscp-map queue 1 threshold 3 46 47
+mls qos srr-queue output dscp-map queue 2 threshold 1 16 17 18 19 20 21 22 23
+mls qos srr-queue output dscp-map queue 2 threshold 1 26 27 28 29 30 31 34 35
+mls qos srr-queue output dscp-map queue 2 threshold 1 36 37 38 39
+mls qos srr-queue output dscp-map queue 2 threshold 2 24
+mls qos srr-queue output dscp-map queue 2 threshold 3 48 49 50 51 52 53 54 55
+mls qos srr-queue output dscp-map queue 2 threshold 3 56 57 58 59 60 61 62 63
+mls qos srr-queue output dscp-map queue 3 threshold 3 0 1 2 3 4 5 6 7
+mls qos srr-queue output dscp-map queue 4 threshold 1 8 9 11 13 15
+mls qos srr-queue output dscp-map queue 4 threshold 2 10 12 14
+mls qos queue-set output 1 threshold 1 100 100 50 200
+mls qos queue-set output 1 threshold 2 125 125 100 400
+mls qos queue-set output 1 threshold 3 100 100 100 400
+mls qos queue-set output 1 threshold 4 60 150 50 200
+mls qos queue-set output 1 buffers 15 25 40 20
+mls qos
+!
+crypto pki trustpoint HTTPS_SS_CERT_KEYPAIR
+ enrollment selfsigned
+ serial-number
+ revocation-check none
+ rsakeypair HTTPS_SS_CERT_KEYPAIR
+!
+!
+crypto pki certificate chain HTTPS_SS_CERT_KEYPAIR
+ certificate self-signed 01
+  30820256 308201BF A0030201 02020101 300D0609 2A864886 F70D0101 04050030 
+  3C311130 0F060355 04031308 56494473 775A512E 3127300E 06035504 05130743 
+  41303942 30303015 06092A86 4886F70D 01090216 08564944 73775A51 2E301E17 
+  0D393330 33303130 30333330 355A170D 32303031 30313030 30303030 5A303C31 
+  11300F06 03550403 13085649 4473775A 512E3127 300E0603 55040513 07434130 
+  39423030 30150609 2A864886 F70D0109 02160856 49447377 5A512E30 819F300D 
+  06092A86 4886F70D 01010105 0003818D 00308189 02818100 D51BF7BD 0C23B8C1 
+  729603F3 6166BAFF 5C3AF9E6 CAFC0798 A64F999E E8A87D6C C76B490D DA5F205D 
+  18899AE8 3977A229 C0F5C218 7421A6FC A1B395DE EC6A7202 3FAC2D51 99127DDE 
+  DB7854CC 34CAC4AF E01A600A 90851018 38E85990 18B584D9 CBCF5CCF D1E7FE1F 
+  8FC3D073 71B142B9 C0303FC5 A9D95001 E461308E 826A86DD 02030100 01A36830 
+  66300F06 03551D13 0101FF04 05300301 01FF3013 0603551D 11040C30 0A820856 
+  49447377 5A512E30 1F060355 1D230418 30168014 6A84DB32 66FF6CAF 63184F92 
+  5594896F 5E91881C 301D0603 551D0E04 1604146A 84DB3266 FF6CAF63 184F9255 
+  94896F5E 91881C30 0D06092A 864886F7 0D010104 05000381 81003D76 8B6E3FB6 
+  E7BF6520 8D1A01B1 BC26C3E8 21FD165C A6B669D3 A8000AD1 6B4AB2EA 1D6DFF29 
+  C83E31B1 4D8E212A B867BCFB 7F8012AE E8529DDD B90F17F1 004A6288 B14639B7 
+  9A55E65A 7CA90D03 2CA943C1 EFDFC9F9 48B3E1D8 2415CEEF EE24EDC7 9276C9A8 
+  95840A83 8F6FA4AE C3112CA0 1D7C5B50 91AAFA9C 5037BBB8 F41D
+  quit
+!
+!
+!
+errdisable recovery cause udld
+errdisable recovery cause bpduguard
+errdisable recovery cause security-violation
+errdisable recovery cause channel-misconfig (STP)
+errdisable recovery cause pagp-flap
+errdisable recovery cause dtp-flap
+errdisable recovery cause link-flap
+errdisable recovery cause sfp-config-mismatch
+errdisable recovery cause gbic-invalid
+errdisable recovery cause psecure-violation
+errdisable recovery cause port-mode-failure
+errdisable recovery cause dhcp-rate-limit
+errdisable recovery cause pppoe-ia-rate-limit
+errdisable recovery cause mac-limit
+errdisable recovery cause vmps
+errdisable recovery cause storm-control
+errdisable recovery cause inline-power
+errdisable recovery cause arp-inspection
+errdisable recovery cause loopback
+errdisable recovery cause small-frame
+errdisable recovery interval 30
+auto qos srnd4
+archive
+ log config
+  logging enable
+  logging size 1000
+  notify syslog contenttype plaintext
+  hidekeys
+!
+spanning-tree mode rapid-pvst
+spanning-tree loopguard default
+spanning-tree portfast default
+spanning-tree portfast bpduguard default
+spanning-tree portfast bpdufilter default
+spanning-tree extend system-id
+spanning-tree uplinkfast
+spanning-tree backbonefast
+!
+vlan internal allocation policy ascending
+!
+ip ssh version 2
+ip scp server enable
+!
+class-map match-all AUTOQOS_MULTIENHANCED_CONF_CLASS
+ match access-group name AUTOQOS-ACL-MULTIENHANCED-CONF
+class-map match-any AUTOQOS_VOIP_DATA_CLASS
+ match ip dscp ef 
+class-map match-all AUTOQOS_DEFAULT_CLASS
+ match access-group name AUTOQOS-ACL-DEFAULT
+class-map match-all AUTOQOS_TRANSACTION_CLASS
+ match access-group name AUTOQOS-ACL-TRANSACTIONAL-DATA
+class-map match-all AUTOQOS_VOIP_SIGNAL_CLASS
+ match ip dscp cs3 
+class-map match-all AUTOQOS_SIGNALING_CLASS
+ match access-group name AUTOQOS-ACL-SIGNALING
+class-map match-all AUTOQOS_BULK_DATA_CLASS
+ match access-group name AUTOQOS-ACL-BULK-DATA
+class-map match-all AUTOQOS_SCAVANGER_CLASS
+ match access-group name AUTOQOS-ACL-SCAVANGER
+!
+!
+policy-map AUTOQOS-SRND4-SOFTPHONE-POLICY
+ class AUTOQOS_VOIP_DATA_CLASS
+  set dscp ef
+  police 128000 8000 exceed-action policed-dscp-transmit
+ class AUTOQOS_MULTIENHANCED_CONF_CLASS
+  set dscp af41
+  police 5000000 8000 exceed-action drop
+ class AUTOQOS_BULK_DATA_CLASS
+  set dscp af11
+  police 10000000 8000 exceed-action policed-dscp-transmit
+ class AUTOQOS_TRANSACTION_CLASS
+  set dscp af21
+  police 10000000 8000 exceed-action policed-dscp-transmit
+ class AUTOQOS_SCAVANGER_CLASS
+  set dscp cs1
+  police 10000000 8000 exceed-action drop
+ class AUTOQOS_SIGNALING_CLASS
+  set dscp cs3
+  police 32000 8000 exceed-action drop
+ class AUTOQOS_DEFAULT_CLASS
+  set dscp default
+  police 10000000 8000 exceed-action policed-dscp-transmit
+!
+!
+!
+interface FastEthernet0/1
+ description SORG_VPN
+ switchport access vlan 259
+ switchport mode access
+!
+interface FastEthernet0/2
+ description SORG_VPN
+ switchport access vlan 259
+ switchport mode access
+!
+interface FastEthernet0/3
+ switchport access vlan 7
+ switchport mode access
+ switchport voice vlan 3
+ switchport port-security maximum 11
+ switchport port-security
+ switchport port-security aging time 5
+ switchport port-security violation restrict
+ switchport port-security aging type inactivity
+ srr-queue bandwidth share 1 30 35 5
+ priority-queue out 
+ mls qos trust device cisco-phone
+ mls qos trust cos
+ auto qos voip cisco-phone 
+ spanning-tree portfast
+ service-policy input AUTOQOS-SRND4-SOFTPHONE-POLICY
+!
+interface FastEthernet0/4
+ switchport access vlan 7
+ switchport mode access
+ switchport voice vlan 3
+ switchport port-security maximum 11
+ switchport port-security
+ switchport port-security aging time 5
+ switchport port-security violation restrict
+ switchport port-security aging type inactivity
+ srr-queue bandwidth share 1 30 35 5
+ priority-queue out 
+ mls qos trust device cisco-phone
+ mls qos trust cos
+ spanning-tree portfast
+ service-policy input AUTOQOS-SRND4-SOFTPHONE-POLICY
+!
+interface FastEthernet0/5
+ switchport access vlan 7
+ switchport mode access
+ switchport voice vlan 3
+ switchport port-security maximum 11
+ switchport port-security
+ switchport port-security aging time 5
+ switchport port-security violation restrict
+ switchport port-security aging type inactivity
+ srr-queue bandwidth share 1 30 35 5
+ priority-queue out 
+ mls qos trust device cisco-phone
+ mls qos trust cos
+ spanning-tree portfast
+ service-policy input AUTOQOS-SRND4-SOFTPHONE-POLICY
+!
+interface FastEthernet0/6
+ switchport access vlan 7
+ switchport mode access
+ switchport voice vlan 3
+ switchport port-security maximum 11
+ switchport port-security
+ switchport port-security aging time 5
+ switchport port-security violation restrict
+ switchport port-security aging type inactivity
+ srr-queue bandwidth share 1 30 35 5
+ priority-queue out 
+ mls qos trust device cisco-phone
+ mls qos trust cos
+ spanning-tree portfast
+ service-policy input AUTOQOS-SRND4-SOFTPHONE-POLICY
+!
+interface FastEthernet0/7
+ description LAP
+ switchport access vlan 103
+ switchport mode access
+ switchport voice vlan 3
+ switchport port-security maximum 11
+ switchport port-security
+ switchport port-security aging time 5
+ switchport port-security violation restrict
+ switchport port-security aging type inactivity
+ srr-queue bandwidth share 1 30 35 5
+ priority-queue out 
+ mls qos trust device cisco-phone
+ mls qos trust cos
+ spanning-tree portfast
+ service-policy input AUTOQOS-SRND4-SOFTPHONE-POLICY
+!
+interface FastEthernet0/8
+ description AP_Regist(Vict2ndWC)
+ switchport trunk native vlan 95
+ switchport trunk allowed vlan 95,101
+ switchport mode trunk
+ spanning-tree portfast
+!
+interface FastEthernet0/9
+ description RESERVED SIL_Industrial
+ switchport access vlan 7
+ switchport mode access
+!
+interface FastEthernet0/10
+ switchport access vlan 7
+ switchport mode access
+ switchport voice vlan 3
+ switchport port-security maximum 11
+ switchport port-security
+ switchport port-security aging time 5
+ switchport port-security violation restrict
+ switchport port-security aging type inactivity
+ srr-queue bandwidth share 1 30 35 5
+ priority-queue out 
+ mls qos trust device cisco-phone
+ mls qos trust cos
+ auto qos voip cisco-phone 
+ spanning-tree portfast
+ service-policy input AUTOQOS-SRND4-SOFTPHONE-POLICY
+!
+interface FastEthernet0/11
+ switchport access vlan 7
+ switchport mode access
+ switchport voice vlan 3
+ switchport port-security maximum 11
+ switchport port-security
+ switchport port-security aging time 5
+ switchport port-security violation restrict
+ switchport port-security aging type inactivity
+ srr-queue bandwidth share 1 30 35 5
+ priority-queue out 
+ mls qos trust device cisco-phone
+ mls qos trust cos
+ spanning-tree portfast
+ service-policy input AUTOQOS-SRND4-SOFTPHONE-POLICY
+!
+interface FastEthernet0/12
+ switchport access vlan 7
+ switchport mode access
+ switchport voice vlan 3
+ switchport port-security maximum 11
+ switchport port-security
+ switchport port-security aging time 5
+ switchport port-security violation restrict
+ switchport port-security aging type inactivity
+ srr-queue bandwidth share 1 30 35 5
+ priority-queue out 
+ mls qos trust device cisco-phone
+ mls qos trust cos
+ spanning-tree portfast
+ service-policy input AUTOQOS-SRND4-SOFTPHONE-POLICY
+!
+interface FastEthernet0/13
+ switchport access vlan 20
+ switchport mode access
+ switchport voice vlan 3
+ switchport port-security maximum 11
+ switchport port-security
+ switchport port-security aging time 5
+ switchport port-security violation restrict
+ switchport port-security aging type inactivity
+ srr-queue bandwidth share 1 30 35 5
+ priority-queue out 
+ mls qos trust device cisco-phone
+ mls qos trust cos
+ auto qos voip cisco-phone 
+ spanning-tree portfast
+ service-policy input AUTOQOS-SRND4-SOFTPHONE-POLICY
+!
+interface FastEthernet0/14
+ description CCTV-Vidrul
+ switchport access vlan 19
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/15
+ switchport access vlan 20
+ switchport mode access
+ switchport voice vlan 3
+ switchport port-security maximum 11
+ switchport port-security
+ switchport port-security aging time 5
+ switchport port-security violation restrict
+ switchport port-security aging type inactivity
+ shutdown
+ srr-queue bandwidth share 1 30 35 5
+ priority-queue out 
+ mls qos trust device cisco-phone
+ mls qos trust cos
+ auto qos voip cisco-phone 
+ spanning-tree portfast
+ service-policy input AUTOQOS-SRND4-SOFTPHONE-POLICY
+!
+interface FastEthernet0/16
+ switchport access vlan 20
+ switchport mode access
+ switchport voice vlan 3
+ switchport port-security maximum 11
+ switchport port-security
+ switchport port-security aging time 5
+ switchport port-security violation restrict
+ switchport port-security aging type inactivity
+ srr-queue bandwidth share 1 30 35 5
+ priority-queue out 
+ mls qos trust device cisco-phone
+ mls qos trust cos
+ auto qos voip cisco-phone 
+ spanning-tree portfast
+ service-policy input AUTOQOS-SRND4-SOFTPHONE-POLICY
+!
+interface FastEthernet0/17
+ switchport access vlan 20
+ switchport mode access
+ switchport voice vlan 3
+ switchport port-security maximum 11
+ switchport port-security
+ switchport port-security aging time 5
+ switchport port-security violation restrict
+ switchport port-security aging type inactivity
+ srr-queue bandwidth share 1 30 35 5
+ priority-queue out 
+ mls qos trust device cisco-phone
+ mls qos trust cos
+ auto qos voip cisco-phone 
+ spanning-tree portfast
+ service-policy input AUTOQOS-SRND4-SOFTPHONE-POLICY
+!
+interface FastEthernet0/18
+ description CCTV-Vidrul
+ switchport access vlan 19
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/19
+ switchport access vlan 20
+ switchport mode access
+ switchport voice vlan 3
+ switchport port-security maximum 11
+ switchport port-security
+ switchport port-security aging time 5
+ switchport port-security violation restrict
+ switchport port-security aging type inactivity
+ srr-queue bandwidth share 1 30 35 5
+ priority-queue out 
+ mls qos trust device cisco-phone
+ mls qos trust cos
+ auto qos voip cisco-phone 
+ spanning-tree portfast
+ service-policy input AUTOQOS-SRND4-SOFTPHONE-POLICY
+!
+interface FastEthernet0/20
+ switchport access vlan 20
+ switchport mode access
+ switchport voice vlan 3
+ switchport port-security maximum 11
+ switchport port-security
+ switchport port-security aging time 5
+ switchport port-security violation restrict
+ switchport port-security aging type inactivity
+ srr-queue bandwidth share 1 30 35 5
+ priority-queue out 
+ mls qos trust device cisco-phone
+ mls qos trust cos
+ auto qos voip cisco-phone 
+ spanning-tree portfast
+ service-policy input AUTOQOS-SRND4-SOFTPHONE-POLICY
+!
+interface FastEthernet0/21
+ switchport access vlan 20
+ switchport mode access
+ switchport voice vlan 3
+ switchport port-security maximum 11
+ switchport port-security
+ switchport port-security aging time 5
+ switchport port-security violation restrict
+ switchport port-security aging type inactivity
+ srr-queue bandwidth share 1 30 35 5
+ priority-queue out 
+ mls qos trust device cisco-phone
+ mls qos trust cos
+ auto qos voip cisco-phone 
+ spanning-tree portfast
+ service-policy input AUTOQOS-SRND4-SOFTPHONE-POLICY
+!
+interface FastEthernet0/22
+ description RESERVED INDUSTRIAL_FORNO
+ switchport access vlan 259
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/23
+ switchport access vlan 20
+ switchport mode access
+ switchport voice vlan 3
+ switchport port-security maximum 11
+ switchport port-security
+ switchport port-security aging time 5
+ switchport port-security violation restrict
+ switchport port-security aging type inactivity
+ srr-queue bandwidth share 1 30 35 5
+ priority-queue out 
+ mls qos trust device cisco-phone
+ mls qos trust cos
+ auto qos voip cisco-phone 
+ spanning-tree portfast
+ service-policy input AUTOQOS-SRND4-SOFTPHONE-POLICY
+!
+interface FastEthernet0/24
+ switchport trunk native vlan 99
+ switchport trunk allowed vlan 1-3,5,7,9,10,16,19-21,30,32,35,40,41,95,98-103
+ switchport trunk allowed vlan add 192,199,211
+ switchport mode trunk
+ srr-queue bandwidth share 1 30 35 5
+ priority-queue out 
+ mls qos trust dscp
+ auto qos trust dscp
+!
+interface GigabitEthernet0/1
+ switchport trunk native vlan 99
+ switchport trunk allowed vlan 1-3,5,7,9,10,16,19-21,30,32,35,40,41,95,98-103
+ switchport trunk allowed vlan add 192,199,211,259
+ switchport mode trunk
+ srr-queue bandwidth share 1 30 35 5
+ priority-queue out 
+ mls qos trust dscp
+ auto qos trust dscp
+!
+interface GigabitEthernet0/2
+ switchport trunk native vlan 99
+ switchport trunk allowed vlan 1-3,5,7,9,10,16,19-21,30,32,35,40,41,95,98-103
+ switchport trunk allowed vlan add 192,199,211
+ switchport mode trunk
+ shutdown
+ srr-queue bandwidth share 1 30 35 5
+ priority-queue out 
+ mls qos trust dscp
+ auto qos trust dscp
+!
+interface Vlan1
+ no ip address
+ no ip route-cache
+ shutdown
+!
+interface Vlan99
+ ip address 10.70.99.21 255.255.255.0
+ no ip route-cache
+!
+ip http server
+ip http authentication aaa login-authentication use-srvtacacs
+ip http authentication aaa exec-authorization use-srvtacacs
+ip http authentication aaa command-authorization 15 default
+no ip http secure-server
+!
+ip access-list extended AUTOQOS-ACL-BULK-DATA
+ remark Web Traffic
+ permit tcp any any eq www
+ permit tcp any any eq 443
+ permit tcp any any eq ftp-data
+ permit tcp any any eq ftp
+ permit tcp any any eq 4434
+ permit tcp any eq 4434 any
+ip access-list extended AUTOQOS-ACL-DEFAULT
+ permit ip any any
+ remark Best Effort
+ permit tcp any any
+ip access-list extended AUTOQOS-ACL-MULTIENHANCED-CONF
+ remark IP/VC or SOFTPHONE
+ permit udp any any range 16348 32767
+ip access-list extended AUTOQOS-ACL-SCAVANGER
+ remark Kazaa 
+ permit tcp any any eq 1214
+ permit udp any any eq 1214
+ remark MICROSOFT DIRECT X GAMING
+ permit tcp any any range 2300 2400
+ permit udp any any range 2300 2400
+ remark Apple ITunes Music SAHRING
+ permit tcp any any eq 3689
+ permit udp any any eq 3689
+ remark BITTORENTS
+ permit tcp any any range 6881 6999
+ remark YAHOO GAMES
+ permit tcp any any eq 11999
+ remark MSN GAMING ZONE
+ permit tcp any any range 28800 29100
+ remark FasTrack
+ remark Gnutella
+ permit udp any any eq 6346
+ permit udp any any eq 6347
+ permit udp any any eq 6348
+ permit tcp any any eq 6346
+ permit tcp any any eq 6347
+ permit tcp any any eq 6348
+ permit tcp any any eq 6349
+ permit tcp any any eq 6355
+ permit tcp any any eq 5634
+ remark Edonkey
+ permit tcp any any eq 4662
+ip access-list extended AUTOQOS-ACL-SIGNALING
+ remark SoftPhone SCCP
+ permit tcp any any range 2000 2002
+ remark SIP
+ permit tcp any any range 5060 5061
+ permit udp any any range 5060 5061
+ip access-list extended AUTOQOS-ACL-TRANSACTIONAL-DATA
+ remark Exchange server 
+ permit tcp any any eq 135
+ remark SMTP
+ permit tcp any any eq smtp
+ remark Secure-SMTP
+ permit tcp any any eq 589
+ permit tcp any any eq 993
+ remark Secure-POP3
+ permit tcp any any eq 995
+ remark Kerberos
+ permit tcp any any eq 88
+ permit tcp any any eq 749
+ permit udp any any eq 88
+ permit udp any any eq 749
+ remark Net-Bios
+ permit tcp any any eq 139
+ permit tcp any any eq 137
+ permit udp any any eq netbios-ns
+ permit udp any any eq netbios-dgm
+ remark LDAP
+ permit tcp any any eq 389
+ remark Microsoft_ds (Active Directory)
+ permit tcp any any eq 445
+ permit udp any any eq 445
+ remark Ms_WBT_server or RDP
+ permit tcp any any eq 3389
+ remark SQL
+ permit tcp any any eq 1521
+ remark SNMP
+ permit tcp any any eq 161
+ permit tcp any any eq 162
+ permit udp any any eq snmp
+ remark NTP
+ permit tcp any any eq 37
+ permit udp any any eq time
+ remark Syslogs
+ permit udp any any eq syslog
+ remark NFS (Network File System )
+ permit tcp any any eq 2049
+ permit udp any any eq 2049
+ip access-list extended AUTOQOS_VOIP_DATA_CLASS
+ remark RTP (VOICE)
+ permit udp any any range 16384 32767
+access-list 55 remark SNMP Traffic
+access-list 55 permit 10.70.1.50
+access-list 55 permit 10.70.99.0 0.0.0.255
+access-list 55 deny   any log
+snmp-server community VIDRUL RO 55
+snmp-server community VIDRUL_admin RW 55
+tacacs-server host 10.30.10.10 timeout 5
+tacacs-server directed-request
+tacacs-server key 7 0215575819551B731C1F5F
+alias exec arch sh archive log config all
+!
+line con 0
+ exec-timeout 15 0
+ privilege level 15
+ logging synchronous
+ login authentication use-srvtacacs
+ length 0
+line vty 0 4
+ exec-timeout 15 0
+ privilege level 15
+ logging synchronous
+ login authentication use-srvtacacs
+ length 0
+ transport input telnet ssh
+line vty 5 15
+ exec-timeout 15 0
+ privilege level 15
+ logging synchronous
+ login authentication use-srvtacacs
+ length 0
+ transport input ssh
+!
+ntp clock-period 36029344
+ntp server 10.70.35.1
+end

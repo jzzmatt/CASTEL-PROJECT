@@ -1,0 +1,136 @@
+get_facts:
+    napalm_facts:
+        fqdn: SW_fnd_8PoE_RH.victoria.local
+        hostname: SW_fnd_8PoE_RH
+        interface_list:
+        - Vlan1
+        - Vlan199
+        - FastEthernet0/1
+        - FastEthernet0/2
+        - FastEthernet0/3
+        - FastEthernet0/4
+        - FastEthernet0/5
+        - FastEthernet0/6
+        - FastEthernet0/7
+        - FastEthernet0/8
+        - GigabitEthernet0/1
+        - GigabitEthernet0/2
+        model: WS-C3560C-8PC-S
+        os_version: C3560C Software (C3560c405-UNIVERSALK9-M), Version 15.0(2)SE5,
+            RELEASE SOFTWARE (fc1)
+        serial_number: FOC1837Z466
+        uptime: 6250800
+        vendor: Cisco
+    napalm_fqdn: SW_fnd_8PoE_RH.victoria.local
+    napalm_hostname: SW_fnd_8PoE_RH
+    napalm_interface_list:
+    - Vlan1
+    - Vlan199
+    - FastEthernet0/1
+    - FastEthernet0/2
+    - FastEthernet0/3
+    - FastEthernet0/4
+    - FastEthernet0/5
+    - FastEthernet0/6
+    - FastEthernet0/7
+    - FastEthernet0/8
+    - GigabitEthernet0/1
+    - GigabitEthernet0/2
+    napalm_interfaces:
+        FastEthernet0/1:
+            description: RESERVED-END USERS
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 34:6F:90:6C:50:81
+            speed: 10
+        FastEthernet0/2:
+            description: Reserved_Printer
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 34:6F:90:6C:50:82
+            speed: 100
+        FastEthernet0/3:
+            description: RESERVED-END USERS
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 34:6F:90:6C:50:83
+            speed: 100
+        FastEthernet0/4:
+            description: RESERVED-END USERS
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 34:6F:90:6C:50:84
+            speed: 100
+        FastEthernet0/5:
+            description: RESERVED-END USERS
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 34:6F:90:6C:50:85
+            speed: 10
+        FastEthernet0/6:
+            description: RESERVED-END USERS
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 34:6F:90:6C:50:86
+            speed: 100
+        FastEthernet0/7:
+            description: RESERVED-END USERS
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 34:6F:90:6C:50:87
+            speed: 100
+        FastEthernet0/8:
+            description: Reserved Printer
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 34:6F:90:6C:50:88
+            speed: 10
+        GigabitEthernet0/1:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 34:6F:90:6C:50:89
+            speed: 100
+        GigabitEthernet0/2:
+            description: ''
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 34:6F:90:6C:50:8A
+            speed: 10
+        Vlan1:
+            description: ''
+            is_enabled: false
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 34:6F:90:6C:50:C0
+            speed: 1000
+        Vlan199:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 34:6F:90:6C:50:C1
+            speed: 1000
+    napalm_interfaces_ip:
+        Vlan199:
+            ipv4:
+                10.15.99.30:
+                    prefix_length: 24
+    napalm_model: WS-C3560C-8PC-S
+    napalm_os_version: C3560C Software (C3560c405-UNIVERSALK9-M), Version 15.0(2)SE5,
+        RELEASE SOFTWARE (fc1)
+    napalm_serial_number: FOC1837Z466
+    napalm_uptime: 6250800
+    napalm_vendor: Cisco
+changed: false
+failed: false

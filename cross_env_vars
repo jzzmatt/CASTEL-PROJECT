@@ -1,0 +1,52 @@
+---
+ansible_python_interpreter: "/usr/bin/env python"
+platform: cisco_ios_ssh
+build_dir: "CONFIG"
+final_setup: "FINAL_CONFIG"
+temp_cfg: "TEMP_CONFIG"
+dir_facts: "FACTS"
+
+secret:
+   username: "junior.mateus"
+   password: "Checkk2009"
+
+ios_provider:
+    username: "{{ secret.username }}"
+    password: "{{ secret.password }}"
+    authorize: true 
+    auth_pass: "{{ secret.password }}"
+    host: "{{ inventory_hostname }}"
+
+dns_server:
+      ip:
+         - 10.30.10.10
+         - 10.30.10.1 
+         - 10.30.48.1 
+         - 10.30.48.2 
+
+      name: "victoria.local"
+
+
+snmp_server:
+       ip: ["10.30.99.251"]
+       local: "DATACENTER VICTORIA"
+       contact: "support.helpdesk@bihangola.net"
+       pub: "victoria_pub"
+       wr: "victoria_wr"
+       
+loggin:
+    ip: ["10.30.99.251"]
+    traplevel: 7
+    severity: 7
+    size: 100000
+    monlevel: 7
+    consolevel: 7
+
+
+tacacs:
+   method: "use-srvtacacs"
+   ip: ["10.30.10.10"]
+   key: "s3cr3t2016"
+   timeout: 5
+
+...

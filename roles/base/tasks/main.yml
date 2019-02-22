@@ -1,0 +1,7 @@
+---
+- name: ADD BASIC FILE & ASSEMBLY
+  template: src=common.j2 dest={{ inventory_dir }}/{{ build_dir }}/00-common.conf 
+  run_once: true
+  tags: ['base']
+
+...

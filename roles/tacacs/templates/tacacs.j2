@@ -1,0 +1,22 @@
+aaa new-model
+aaa authentication login {{ tacacs.method }} group tacacs+ local enable
+!
+line vty 0 4
+  login authentication {{ tacacs.method }}
+!
+{% for srv in tacacs.ip %}
+tacacs-server host {{ srv }} timeout {{ tacacs.timeout }}
+{% endfor %}
+tacacs-server key {{ tacacs.key }}
+tacacs-server directed-request
+aaa authentication enable default group tacacs+ enable
+aaa authorization console
+aaa authorization exec {{ tacacs.method }} group tacacs+ local if-authenticated  
+aa authorization commands 1 default group tacacs+ if-authenticated
+aaa authorization commands 15 default group tacacs+ local if-authenticated 
+aaa accounting send stop-record authentication failure 
+aaa accounting exec default start-stop group tacacs+
+aaa accounting network default start-stop group tacacs+
+aaa accounting connection default start-stop group tacacs+
+aaa accounting system default start-stop group tacacs+
+aaa accounting resource default start-stop group tacacs+

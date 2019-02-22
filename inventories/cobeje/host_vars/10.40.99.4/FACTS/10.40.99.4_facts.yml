@@ -1,0 +1,280 @@
+get_facts:
+    napalm_facts:
+        fqdn: COBswF2.victoria.local
+        hostname: COBswF2
+        interface_list:
+        - Vlan1
+        - Vlan99
+        - FastEthernet0/1
+        - FastEthernet0/2
+        - FastEthernet0/3
+        - FastEthernet0/4
+        - FastEthernet0/5
+        - FastEthernet0/6
+        - FastEthernet0/7
+        - FastEthernet0/8
+        - FastEthernet0/9
+        - FastEthernet0/10
+        - FastEthernet0/11
+        - FastEthernet0/12
+        - FastEthernet0/13
+        - FastEthernet0/14
+        - FastEthernet0/15
+        - FastEthernet0/16
+        - FastEthernet0/17
+        - FastEthernet0/18
+        - FastEthernet0/19
+        - FastEthernet0/20
+        - FastEthernet0/21
+        - FastEthernet0/22
+        - FastEthernet0/23
+        - FastEthernet0/24
+        - GigabitEthernet0/1
+        - GigabitEthernet0/2
+        model: WS-C2960-24PC-L
+        os_version: C2960 Software (C2960-LANBASEK9-M), Version 12.2(55)SE9, RELEASE
+            SOFTWARE (fc1)
+        serial_number: FOC1329W6AQ
+        uptime: 17400
+        vendor: Cisco
+    napalm_fqdn: COBswF2.victoria.local
+    napalm_hostname: COBswF2
+    napalm_interface_list:
+    - Vlan1
+    - Vlan99
+    - FastEthernet0/1
+    - FastEthernet0/2
+    - FastEthernet0/3
+    - FastEthernet0/4
+    - FastEthernet0/5
+    - FastEthernet0/6
+    - FastEthernet0/7
+    - FastEthernet0/8
+    - FastEthernet0/9
+    - FastEthernet0/10
+    - FastEthernet0/11
+    - FastEthernet0/12
+    - FastEthernet0/13
+    - FastEthernet0/14
+    - FastEthernet0/15
+    - FastEthernet0/16
+    - FastEthernet0/17
+    - FastEthernet0/18
+    - FastEthernet0/19
+    - FastEthernet0/20
+    - FastEthernet0/21
+    - FastEthernet0/22
+    - FastEthernet0/23
+    - FastEthernet0/24
+    - GigabitEthernet0/1
+    - GigabitEthernet0/2
+    napalm_interfaces:
+        FastEthernet0/1:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:98:94:9C:81
+            speed: 10
+        FastEthernet0/10:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:98:94:9C:8A
+            speed: 100
+        FastEthernet0/11:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:98:94:9C:8B
+            speed: 100
+        FastEthernet0/12:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:98:94:9C:8C
+            speed: 100
+        FastEthernet0/13:
+            description: ''
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:98:94:9C:8D
+            speed: 10
+        FastEthernet0/14:
+            description: ''
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:98:94:9C:8E
+            speed: 10
+        FastEthernet0/15:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:98:94:9C:8F
+            speed: 100
+        FastEthernet0/16:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:98:94:9C:90
+            speed: 100
+        FastEthernet0/17:
+            description: RESERVED CCTV
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:98:94:9C:91
+            speed: 10
+        FastEthernet0/18:
+            description: ''
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:98:94:9C:92
+            speed: 10
+        FastEthernet0/19:
+            description: LINK-TO-PRINTER
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:98:94:9C:93
+            speed: 100
+        FastEthernet0/2:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:98:94:9C:82
+            speed: 100
+        FastEthernet0/20:
+            description: LINK-TO-PRINTER
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:98:94:9C:94
+            speed: 10
+        FastEthernet0/21:
+            description: RESERVED CCTV
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:98:94:9C:95
+            speed: 10
+        FastEthernet0/22:
+            description: RESERVED CCTV
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:98:94:9C:96
+            speed: 100
+        FastEthernet0/23:
+            description: ''
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:98:94:9C:97
+            speed: 10
+        FastEthernet0/24:
+            description: LINK-TO-AP
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:98:94:9C:98
+            speed: 10
+        FastEthernet0/3:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:98:94:9C:83
+            speed: 100
+        FastEthernet0/4:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:98:94:9C:84
+            speed: 100
+        FastEthernet0/5:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:98:94:9C:85
+            speed: 100
+        FastEthernet0/6:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:98:94:9C:86
+            speed: 100
+        FastEthernet0/7:
+            description: ''
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:98:94:9C:87
+            speed: 10
+        FastEthernet0/8:
+            description: ''
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:98:94:9C:88
+            speed: 10
+        FastEthernet0/9:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:98:94:9C:89
+            speed: 100
+        GigabitEthernet0/1:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:98:94:9C:99
+            speed: 1000
+        GigabitEthernet0/2:
+            description: ''
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:98:94:9C:9A
+            speed: 10
+        Vlan1:
+            description: ''
+            is_enabled: false
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:98:94:9C:C0
+            speed: 1000
+        Vlan99:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:98:94:9C:C1
+            speed: 1000
+    napalm_interfaces_ip:
+        Vlan99:
+            ipv4:
+                10.40.99.4:
+                    prefix_length: 24
+    napalm_model: WS-C2960-24PC-L
+    napalm_os_version: C2960 Software (C2960-LANBASEK9-M), Version 12.2(55)SE9, RELEASE
+        SOFTWARE (fc1)
+    napalm_serial_number: FOC1329W6AQ
+    napalm_uptime: 17400
+    napalm_vendor: Cisco
+changed: false
+failed: false

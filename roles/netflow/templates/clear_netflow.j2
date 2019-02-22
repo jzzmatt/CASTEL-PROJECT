@@ -1,0 +1,22 @@
+{% for intf in get_facts.napalm_facts.interface_list%}
+interface {{ intf }}
+  no ip flow monitor MYMONITOR input
+  no ip flow monitor MYMONITOR output
+  no ip nbar protocol-discovery
+{% endfor %}
+!
+{% if "flow monitor MYMONITOR" in showflow %}
+no flow monitor MYMONITOR
+no flow record MYRECORD
+{% endif %}
+!
+{% if "flow exporter MY_IT360_Export" in showflow %}
+no flow exporter MY_IT360_Export
+{% endif %}
+!
+{% if "exporter IT360_NETFLOWANYLAYSER" in showflow %}
+no flow exporter IT360_NETFLOWANYLAYSER
+{% endif %}
+
+
+

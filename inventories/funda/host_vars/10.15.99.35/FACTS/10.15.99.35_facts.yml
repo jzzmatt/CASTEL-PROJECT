@@ -1,0 +1,136 @@
+get_facts:
+    napalm_facts:
+        fqdn: SW8PoE_Fnd_P.Medico.victoria.local
+        hostname: SW8PoE_Fnd_P.Medico
+        interface_list:
+        - Vlan1
+        - Vlan199
+        - GigabitEthernet0/1
+        - GigabitEthernet0/2
+        - GigabitEthernet0/3
+        - GigabitEthernet0/4
+        - GigabitEthernet0/5
+        - GigabitEthernet0/6
+        - GigabitEthernet0/7
+        - GigabitEthernet0/8
+        - GigabitEthernet0/9
+        - GigabitEthernet0/10
+        model: WS-C3560CG-8PC-S
+        os_version: C3560C Software (C3560c405ex-UNIVERSALK9-M), Version 15.0(2)SE5,
+            RELEASE SOFTWARE (fc1)
+        serial_number: FOC1910Y168
+        uptime: 10397820
+        vendor: Cisco
+    napalm_fqdn: SW8PoE_Fnd_P.Medico.victoria.local
+    napalm_hostname: SW8PoE_Fnd_P.Medico
+    napalm_interface_list:
+    - Vlan1
+    - Vlan199
+    - GigabitEthernet0/1
+    - GigabitEthernet0/2
+    - GigabitEthernet0/3
+    - GigabitEthernet0/4
+    - GigabitEthernet0/5
+    - GigabitEthernet0/6
+    - GigabitEthernet0/7
+    - GigabitEthernet0/8
+    - GigabitEthernet0/9
+    - GigabitEthernet0/10
+    napalm_interfaces:
+        GigabitEthernet0/1:
+            description: RESERVED-END USERS
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 40:A6:E8:6F:2F:81
+            speed: 100
+        GigabitEthernet0/10:
+            description: Reserved_Fast_Trunk
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 40:A6:E8:6F:2F:8A
+            speed: 100
+        GigabitEthernet0/2:
+            description: RESERVED-END USERS
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 40:A6:E8:6F:2F:82
+            speed: 100
+        GigabitEthernet0/3:
+            description: RESERVED-END USERS
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 40:A6:E8:6F:2F:83
+            speed: 10
+        GigabitEthernet0/4:
+            description: RESERVED-END USERS
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 40:A6:E8:6F:2F:84
+            speed: 10
+        GigabitEthernet0/5:
+            description: RESERVED-END USERS
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 40:A6:E8:6F:2F:85
+            speed: 10
+        GigabitEthernet0/6:
+            description: RESERVED-END USERS
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 40:A6:E8:6F:2F:86
+            speed: 100
+        GigabitEthernet0/7:
+            description: RESERVED-END USERS
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 40:A6:E8:6F:2F:87
+            speed: 10
+        GigabitEthernet0/8:
+            description: Reserved_Fast_Trunk
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 40:A6:E8:6F:2F:88
+            speed: 1000
+        GigabitEthernet0/9:
+            description: Reserved_Fast_Trunk
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 40:A6:E8:6F:2F:89
+            speed: 1000
+        Vlan1:
+            description: ''
+            is_enabled: false
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 40:A6:E8:6F:2F:C0
+            speed: 1000
+        Vlan199:
+            description: A.Pecas sw_Trunk
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 40:A6:E8:6F:2F:C1
+            speed: 1000
+    napalm_interfaces_ip:
+        Vlan199:
+            ipv4:
+                10.15.99.35:
+                    prefix_length: 24
+    napalm_model: WS-C3560CG-8PC-S
+    napalm_os_version: C3560C Software (C3560c405ex-UNIVERSALK9-M), Version 15.0(2)SE5,
+        RELEASE SOFTWARE (fc1)
+    napalm_serial_number: FOC1910Y168
+    napalm_uptime: 10397820
+    napalm_vendor: Cisco
+changed: false
+failed: false

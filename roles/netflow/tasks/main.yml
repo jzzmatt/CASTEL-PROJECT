@@ -1,0 +1,61 @@
+---
+- name: SHOW PREVIOUS NETFLOW CONFIG  
+  ios_command:
+      authorize: yes 
+      provider: "{{ ios_provider }}"
+      commands:
+          - show run | sec flow
+  when: (groups['wan_rt'] is defined) and (inventory_hostname in groups['wan_rt'])
+  register: resultflow
+
+- set_fact:
+    showflow: "{{ resultflow.stdout_lines|join() }}"
+  when: (groups['wan_rt'] is defined) and (inventory_hostname in groups['wan_rt'])
+
+- name: DISPLAY PREVIOUS NETFLOW 
+  debug: var=showflow
+  tags: ['showflow']  
+  when: (groups['wan_rt'] is defined) and (inventory_hostname in groups['wan_rt'])
+
+- name: ERASE PREVIOUS NETFLOW CONFIG 
+  ignore_errors: True 
+  ios_config:
+      authorize: yes 
+      provider: "{{ ios_provider }}"
+      diff_against: running 
+      src: clear_netflow.j2
+  tags: ['erase']
+  when: (groups['wan_rt'] is defined) and (inventory_hostname in groups['wan_rt'])
+
+- name: ADD NETFLOW FILE & ASSEMBLY 
+  template: src=netflow1.j2 dest={{ inventory_dir}}/{{ build_dir }}/06-netflow.conf 
+  run_once: true 
+  tags: ['netflow1_file']
+  when: (groups['wan_va'] is defined) and (inventory_hostname in groups['wan_va'])
+
+- name: SETUP NETFLOW NEW VERSION
+  ios_config:
+      authorize: yes 
+      provider: "{{ ios_provider }}"
+      diff_against: running 
+      src: netflow1.j2  
+  when: (groups['wan_va'] is defined) and (inventory_hostname in groups['wan_va'])
+  tags: ['netflow1']
+
+- name: ADD NETFLOW old FILE & ASSEMBLY
+  template: src=netflow2.j2 dest={{ inventory_dir }}/{{ build_dir }}/06-netflow.conf
+  run_once: true 
+  tags: ['netflow2_file']
+  when: (groups['wan_rt'] is defined) and (inventory_hostname in groups['wan_rt']) and (inventory_hostname not in groups['wan_va'])
+
+- name: SETUP NETFLOW OLD VERSION 
+  ios_config:
+      authorize: yes 
+      provider: "{{ ios_provider }}"
+      diff_against: running 
+      src: netflow2.j2 
+  when: (groups['wan_rt'] is defined) and (inventory_hostname in groups['wan_rt']) and (inventory_hostname not in groups['wan_va'])
+  tags: ['netflow2']
+
+
+...

@@ -1,0 +1,368 @@
+Building configuration...
+
+Current configuration : 10518 bytes
+!
+! Last configuration change at 10:31:44 CET Fri Feb 22 2019 by junior.mateus
+!
+version 15.0
+no service pad
+service timestamps debug datetime msec
+service timestamps log datetime msec
+service password-encryption
+!
+hostname Sw-PORTARIA1
+!
+boot-start-marker
+boot-end-marker
+!
+enable password 7 086A6F410B4B55474B
+!
+aaa new-model
+!
+!
+aaa authentication login use-srvtacacs group tacacs+ local enable
+aaa authentication enable default group tacacs+ enable
+aaa authorization console
+aaa authorization exec use-srvtacacs group tacacs+ local if-authenticated 
+aaa authorization commands 1 default group tacacs+ if-authenticated 
+aaa authorization commands 15 default group tacacs+ local if-authenticated 
+aaa accounting send stop-record authentication failure
+aaa accounting exec default start-stop group tacacs+
+aaa accounting network default start-stop group tacacs+
+aaa accounting connection default start-stop group tacacs+
+aaa accounting system default start-stop group tacacs+
+!
+!
+!
+!
+!
+!
+aaa session-id common
+clock timezone CET 1 0
+system mtu routing 1500
+!
+!
+ip domain-name victoria.local
+!
+!
+crypto pki trustpoint TP-self-signed-3265217408
+ enrollment selfsigned
+ subject-name cn=IOS-Self-Signed-Certificate-3265217408
+ revocation-check none
+ rsakeypair TP-self-signed-3265217408
+!
+!
+crypto pki certificate chain TP-self-signed-3265217408
+ certificate self-signed 01
+  30820245 308201AE A0030201 02020101 300D0609 2A864886 F70D0101 04050030 
+  31312F30 2D060355 04031326 494F532D 53656C66 2D536967 6E65642D 43657274 
+  69666963 6174652D 33323635 32313734 3038301E 170D3933 30333031 30303031 
+  30355A17 0D323030 31303130 30303030 305A3031 312F302D 06035504 03132649 
+  4F532D53 656C662D 5369676E 65642D43 65727469 66696361 74652D33 32363532 
+  31373430 3830819F 300D0609 2A864886 F70D0101 01050003 818D0030 81890281 
+  8100D7B8 923B35B1 C102590F 811413D3 2B007D92 952BD198 B8B74D36 3A674BC4 
+  E359294D E5C50DCB A10786F8 9852DBC5 C9709060 ED543690 C62CC9D2 7C2D0CB4 
+  01FBD01F 1EA22A81 3CCF6421 F11714AD 76ACEF9C 0E723C1A 87DCD572 F6A09C35 
+  48939406 3A0B5ADB FE1898F9 2DF2A4B0 D367D61E CD39E9C4 916DB68F 049DA4B9 
+  179D0203 010001A3 6D306B30 0F060355 1D130101 FF040530 030101FF 30180603 
+  551D1104 11300F82 0D53772D 504F5254 41524941 312E301F 0603551D 23041830 
+  16801435 5BBC1023 5B1A0A8F A12EA276 8ACE2CBB E1DF5830 1D060355 1D0E0416 
+  0414355B BC10235B 1A0A8FA1 2EA2768A CE2CBBE1 DF58300D 06092A86 4886F70D 
+  01010405 00038181 0055CF54 267CB99E 86486142 3470EEB6 BDA9030D 5A2CB083 
+  90D9E284 0FB307D4 6FD41FFA 64DD8A15 199EAEAC 0A23A5E3 1033AA35 66D6447F 
+  C0EC7BF5 2476DCD2 BE5590D6 36882030 66739202 9D61F48F 7F4E8D6C 61DA6C20 
+  0942EE50 E0B364AE 0537A47B 5D896232 EA56858B 82028B08 926A1B2F BE206883 
+  F00C24C1 E4459CD7 69
+  	quit
+!
+!
+!
+!
+!
+errdisable recovery cause udld
+errdisable recovery cause bpduguard
+errdisable recovery cause security-violation
+errdisable recovery cause channel-misconfig (STP)
+errdisable recovery cause pagp-flap
+errdisable recovery cause dtp-flap
+errdisable recovery cause link-flap
+errdisable recovery cause sfp-config-mismatch
+errdisable recovery cause gbic-invalid
+errdisable recovery cause psecure-violation
+errdisable recovery cause port-mode-failure
+errdisable recovery cause dhcp-rate-limit
+errdisable recovery cause pppoe-ia-rate-limit
+errdisable recovery cause mac-limit
+errdisable recovery cause vmps
+errdisable recovery cause storm-control
+errdisable recovery cause inline-power
+errdisable recovery cause loopback
+errdisable recovery cause small-frame
+errdisable recovery cause psp
+!
+spanning-tree mode rapid-pvst
+spanning-tree loopguard default
+spanning-tree portfast default
+spanning-tree portfast bpduguard default
+spanning-tree portfast bpdufilter default
+spanning-tree extend system-id
+spanning-tree uplinkfast
+spanning-tree backbonefast
+!
+vlan internal allocation policy ascending
+!
+ip ftp username ciscoBKP
+ip ftp password 7 01100F175804242411
+ip ssh version 2
+ip scp server enable
+!
+!
+!
+!
+interface FastEthernet0/1
+ switchport access vlan 3
+ switchport mode access
+!
+interface FastEthernet0/2
+ switchport access vlan 3
+ switchport mode access
+!
+interface FastEthernet0/3
+ switchport access vlan 106
+ switchport mode access
+ switchport port-security maximum 5
+ switchport port-security
+ switchport port-security aging time 5
+ switchport port-security violation restrict
+ switchport port-security aging type inactivity
+ spanning-tree portfast
+!
+interface FastEthernet0/4
+ switchport access vlan 106
+ switchport mode access
+ switchport port-security maximum 5
+ switchport port-security
+ switchport port-security aging time 5
+ switchport port-security violation restrict
+ switchport port-security aging type inactivity
+ spanning-tree portfast
+!
+interface FastEthernet0/5
+ switchport access vlan 106
+ switchport mode access
+ switchport port-security maximum 5
+ switchport port-security
+ switchport port-security aging time 5
+ switchport port-security violation restrict
+ switchport port-security aging type inactivity
+ spanning-tree portfast
+!
+interface FastEthernet0/6
+ switchport access vlan 106
+ switchport mode access
+ switchport port-security maximum 5
+ switchport port-security
+ switchport port-security aging time 5
+ switchport port-security violation restrict
+ switchport port-security aging type inactivity
+ spanning-tree portfast
+!
+interface FastEthernet0/7
+ switchport access vlan 19
+ switchport mode access
+!
+interface FastEthernet0/8
+ switchport access vlan 19
+ switchport mode access
+!
+interface FastEthernet0/9
+ switchport access vlan 106
+ switchport mode access
+ switchport port-security maximum 5
+ switchport port-security
+ switchport port-security aging time 5
+ switchport port-security violation restrict
+ switchport port-security aging type inactivity
+ spanning-tree portfast
+!
+interface FastEthernet0/10
+ switchport access vlan 106
+ switchport mode access
+ switchport port-security maximum 5
+ switchport port-security
+ switchport port-security aging time 5
+ switchport port-security violation restrict
+ switchport port-security aging type inactivity
+ spanning-tree portfast
+!
+interface FastEthernet0/11
+ switchport access vlan 106
+ switchport mode access
+ switchport port-security maximum 5
+ switchport port-security
+ switchport port-security aging time 5
+ switchport port-security violation restrict
+ switchport port-security aging type inactivity
+ spanning-tree portfast
+!
+interface FastEthernet0/12
+ switchport access vlan 106
+ switchport mode access
+ switchport port-security maximum 5
+ switchport port-security
+ switchport port-security aging time 5
+ switchport port-security violation restrict
+ switchport port-security aging type inactivity
+ spanning-tree portfast
+!
+interface FastEthernet0/13
+ switchport access vlan 106
+ switchport mode access
+ switchport port-security maximum 5
+ switchport port-security
+ switchport port-security aging time 5
+ switchport port-security violation restrict
+ switchport port-security aging type inactivity
+ spanning-tree portfast
+!
+interface FastEthernet0/14
+ switchport access vlan 106
+ switchport mode access
+ switchport port-security maximum 5
+ switchport port-security
+ switchport port-security aging time 5
+ switchport port-security violation restrict
+ switchport port-security aging type inactivity
+ spanning-tree portfast
+!
+interface FastEthernet0/15
+ switchport access vlan 106
+ switchport mode access
+ switchport port-security maximum 5
+ switchport port-security
+ switchport port-security aging time 5
+ switchport port-security violation restrict
+ switchport port-security aging type inactivity
+ spanning-tree portfast
+!
+interface FastEthernet0/16
+ switchport access vlan 106
+ switchport mode access
+ switchport port-security maximum 5
+ switchport port-security
+ switchport port-security aging time 5
+ switchport port-security violation restrict
+ switchport port-security aging type inactivity
+ spanning-tree portfast
+!
+interface FastEthernet0/17
+ switchport access vlan 106
+ switchport mode access
+ switchport port-security maximum 5
+ switchport port-security
+ switchport port-security aging time 5
+ switchport port-security violation restrict
+ switchport port-security aging type inactivity
+ spanning-tree portfast
+!
+interface FastEthernet0/18
+ switchport access vlan 106
+ switchport mode access
+ switchport port-security maximum 5
+ switchport port-security
+ switchport port-security aging time 5
+ switchport port-security violation restrict
+ switchport port-security aging type inactivity
+ spanning-tree portfast
+!
+interface FastEthernet0/19
+ switchport access vlan 106
+ switchport mode access
+ switchport port-security maximum 5
+ switchport port-security
+ switchport port-security aging time 5
+ switchport port-security violation restrict
+ switchport port-security aging type inactivity
+ spanning-tree portfast
+!
+interface FastEthernet0/20
+ switchport access vlan 106
+ switchport mode access
+ switchport port-security maximum 5
+ switchport port-security
+ switchport port-security aging time 5
+ switchport port-security violation restrict
+ switchport port-security aging type inactivity
+ spanning-tree portfast
+!
+interface FastEthernet0/21
+ switchport access vlan 16
+ switchport mode access
+!
+interface FastEthernet0/22
+ switchport access vlan 16
+ switchport mode access
+!
+interface FastEthernet0/23
+ switchport access vlan 99
+ switchport mode access
+!
+interface FastEthernet0/24
+ switchport access vlan 99
+ switchport mode access
+!
+interface GigabitEthernet0/1
+ switchport trunk native vlan 99
+ switchport mode trunk
+ priority-queue out 
+!
+interface GigabitEthernet0/2
+ priority-queue out 
+!
+interface Vlan1
+ no ip address
+ no ip route-cache
+!
+interface Vlan99
+ ip address 10.40.99.28 255.255.255.0
+ no ip route-cache
+!
+ip default-gateway 10.40.99.254
+ip http server
+ip http authentication aaa login-authentication use-srvtacacs
+ip http authentication aaa exec-authorization use-srvtacacs
+ip http authentication aaa command-authorization 15 default
+no ip http secure-server
+tacacs-server host 10.30.10.10
+tacacs-server key 7 044858051D72581C594853
+!
+radius server srv-radius2
+ key 7 113B39014607185E547B78
+!
+!
+!
+!
+line con 0
+ exec-timeout 15 0
+ privilege level 15
+ password 7 10052A160745425B55
+ logging synchronous
+ login authentication use-srvtacacs
+ length 0
+line vty 0 4
+ exec-timeout 15 0
+ privilege level 15
+ logging synchronous
+ login authentication use-srvtacacs
+ length 0
+ transport input telnet ssh
+line vty 5 15
+ exec-timeout 15 0
+ privilege level 15
+ logging synchronous
+ login authentication use-srvtacacs
+ length 0
+ transport input ssh
+!
+ntp server 10.40.99.254
+end

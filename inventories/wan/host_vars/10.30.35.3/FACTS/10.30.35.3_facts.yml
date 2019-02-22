@@ -1,0 +1,73 @@
+get_facts:
+    napalm_facts:
+        fqdn: RT_WAN02_VICT.victoria.local
+        hostname: RT_WAN02_VICT
+        interface_list:
+        - Embedded-Service-Engine0/0
+        - GigabitEthernet0/0
+        - GigabitEthernet0/1
+        - GigabitEthernet0/1.35
+        - GigabitEthernet0/2
+        model: CISCO2921/K9
+        os_version: C2900 Software (C2900-UNIVERSALK9-M), Version 15.1(4)M4, RELEASE
+            SOFTWARE (fc1)
+        serial_number: FGL161713ES
+        uptime: 20732940
+        vendor: Cisco
+    napalm_fqdn: RT_WAN02_VICT.victoria.local
+    napalm_hostname: RT_WAN02_VICT
+    napalm_interface_list:
+    - Embedded-Service-Engine0/0
+    - GigabitEthernet0/0
+    - GigabitEthernet0/1
+    - GigabitEthernet0/1.35
+    - GigabitEthernet0/2
+    napalm_interfaces:
+        Embedded-Service-Engine0/0:
+            description: ''
+            is_enabled: false
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:00:00:00:00:00
+            speed: 10
+        GigabitEthernet0/0:
+            description: ''
+            is_enabled: false
+            is_up: false
+            last_flapped: -1.0
+            mac_address: A4:4C:11:82:1A:50
+            speed: 1000
+        GigabitEthernet0/1:
+            description: TRUNK CORE DC (FIBRA)
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: A4:4C:11:82:1A:51
+            speed: 1000
+        GigabitEthernet0/1.35:
+            description: VLAN Wan-> CORE CENTRAL
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: A4:4C:11:82:1A:51
+            speed: 1000
+        GigabitEthernet0/2:
+            description: ''
+            is_enabled: false
+            is_up: false
+            last_flapped: -1.0
+            mac_address: A4:4C:11:82:1A:52
+            speed: 1000
+    napalm_interfaces_ip:
+        GigabitEthernet0/1.35:
+            ipv4:
+                10.30.35.3:
+                    prefix_length: 29
+    napalm_model: CISCO2921/K9
+    napalm_os_version: C2900 Software (C2900-UNIVERSALK9-M), Version 15.1(4)M4, RELEASE
+        SOFTWARE (fc1)
+    napalm_serial_number: FGL161713ES
+    napalm_uptime: 20732940
+    napalm_vendor: Cisco
+changed: false
+failed: false
