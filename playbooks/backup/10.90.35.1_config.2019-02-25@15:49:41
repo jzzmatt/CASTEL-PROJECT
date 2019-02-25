@@ -1,0 +1,788 @@
+Building configuration...
+
+
+Current configuration : 21058 bytes
+!
+! Last configuration change at 17:15:37 GMT Mon Feb 25 2019 by junior.mateus
+! NVRAM config last updated at 10:57:04 GMT Sat Feb 16 2019 by junior.mateus
+! NVRAM config last updated at 10:57:04 GMT Sat Feb 16 2019 by junior.mateus
+version 15.1
+service tcp-keepalives-in
+service tcp-keepalives-out
+service timestamps debug datetime msec
+service timestamps log datetime msec
+service password-encryption
+service linenumber
+service compress-config
+service sequence-numbers
+!
+hostname CCCSBA_RT_Wan
+!
+boot-start-marker
+boot-end-marker
+!
+!
+logging buffered 100000
+enable secret 5 $1$HNC1$gAQLMd2h3PWIhSssUMBUK.
+enable password 7 0158250758343500234D1C594856
+!
+aaa new-model
+!
+!
+aaa authentication login use-srvtacacs group tacacs+ local enable
+aaa authentication enable default group tacacs+ enable
+aaa authorization console
+aaa authorization exec use-srvtacacs group tacacs+ local if-authenticated 
+aaa authorization commands 1 default group tacacs+ if-authenticated 
+aaa authorization commands 15 default group tacacs+ local if-authenticated 
+aaa accounting send stop-record authentication failure
+aaa accounting exec default start-stop group tacacs+
+aaa accounting network default start-stop group tacacs+
+aaa accounting connection default start-stop group tacacs+
+aaa accounting system default start-stop group tacacs+
+aaa accounting resource default start-stop group tacacs+
+!
+!
+!
+!
+!
+aaa session-id common
+!
+clock timezone GMT 1 0
+!
+no ipv6 cef
+!
+flow record MYRECORD
+ match ipv4 protocol
+ match ipv4 source address
+ match ipv4 destination address
+ match transport source-port
+ match transport destination-port
+ match interface input
+ match application name
+ collect ipv4 dscp
+ collect interface output
+ collect counter bytes
+ collect counter packets
+!
+!
+flow exporter NETFLOW_ANALYSER
+ destination 10.30.99.252
+ transport udp 9996
+!
+!
+flow monitor MYMONITOR
+ record MYRECORD
+ exporter NETFLOW_ANALYSER
+!
+ip source-route
+ip cef
+!
+!
+!
+no ip dhcp use vrf connected
+ip dhcp excluded-address 10.121.178.1 10.121.178.50
+!
+!
+ip domain name victoria.local
+ip name-server 10.30.10.1
+ip name-server 10.30.10.10
+ip wccp 61 redirect-list WAAS
+ip wccp 62 redirect-list WAAS
+login block-for 7 attempts 3 within 60
+login on-failure log
+login on-success log
+!
+multilink bundle-name authenticated
+!
+!
+!
+!
+!
+crypto pki token default removal timeout 0
+!
+!
+voice-card 0
+!
+!
+!
+!
+!
+!
+!
+license udi pid CISCO2921/K9 sn FGL153812PF
+hw-module pvdm 0/0
+!
+hw-module sm 1
+!
+!
+!
+archive
+ log config
+  logging enable
+  logging size 1000
+  notify syslog contenttype plaintext
+  hidekeys
+ path ftp://10.30.23.1/$h-$t
+ write-memory
+vtp domain NGOLA
+vtp mode transparent
+vtp version 2
+username rotas privilege 15 secret 5 $1$y1dO$3K/BV4Ko57TOSv/zcLxWY1
+username admin privilege 15 password 7 1559280F0715182B2A3267724254
+!
+redundancy
+!
+!
+!
+!
+vlan 22
+ name OUTSIDE_CHKP
+!
+vlan 250 
+!
+ip ftp username ciscoBKP
+ip ftp password 7 060506324F412B3235
+ip ssh version 2
+ip scp server enable
+!
+class-map match-all TRANSACTIONAL_DATA
+ description " Match all Critical_Data(e_mail,sql..) "
+ match ip dscp af21 
+class-map match-all Marking_MultiMedia
+ match access-group name MULTIMEDIA_CONFERECING
+class-map match-all Marking_VOIP
+ match protocol rtp
+class-map match-all Marking_TRANSACTIONAL_DATA
+ match access-group name TRANSACTIONAL-DATA
+class-map match-all REALTIME
+ match ip dscp ef 
+class-map match-all IP_ROUTING
+ match ip dscp cs6 
+class-map match-all class-all
+ match any 
+class-map match-all SIGNALING_CALLS
+ match ip dscp cs3 
+class-map match-all STREAMING_VIDEO
+ match ip dscp af41  af42 
+class-map match-all Marking_Signaling
+ match access-group name SiGNALING
+class-map match-all Marking_BULK_DATA
+ match access-group name BULK-DATA
+class-map match-all Marking_SCAVENGER
+ match access-group name SCAVENGER
+class-map match-all SCAVENGER
+ description " MATCH ALL Peer2Peer"
+ match ip dscp cs1 
+class-map match-all BULK_DATA
+ description "Match ALL WEB_TRAFFIC"
+ match ip dscp af11 
+!
+!
+policy-map MAKRING
+ description " RE_MARKING INSIDE DATA & POLICY SCAVENGER"
+ class Marking_TRANSACTIONAL_DATA
+  set dscp af21
+ class Marking_BULK_DATA
+  set dscp af11
+ class Marking_SCAVENGER
+  set dscp cs1
+ class Marking_Signaling
+  set dscp cs3
+ class Marking_MultiMedia
+  set dscp af41
+ class Marking_VOIP
+  set dscp ef
+policy-map BRANCH_DMVPN_POLICY
+ class REALTIME
+  priority percent 10
+ class SIGNALING_CALLS
+  bandwidth percent 5
+ class IP_ROUTING
+  bandwidth percent 5
+ class TRANSACTIONAL_DATA
+  bandwidth percent 11
+ class BULK_DATA
+  bandwidth percent 15
+  random-detect
+ class class-default
+  random-detect
+  bandwidth percent 29
+policy-map Shaper_386_all
+ description [ 386kb, UP&Down= 184 ]
+ class class-default
+  shape average 188416
+  service-policy BRANCH_DMVPN_POLICY
+!
+! 
+!
+!
+!
+!
+!
+!
+interface Loopback255
+ ip address 172.30.255.253 255.255.255.255
+!
+interface Tunnel104
+ description TUNNEL VSAT Catumbel->HubeNERA_VIANA
+ ip address 172.17.255.38 255.255.255.252
+ ip mtu 1300
+ ip tcp adjust-mss 1260
+ load-interval 30
+ qos pre-classify
+ tunnel source 10.10.4.254
+ tunnel destination 10.10.162.254
+ tunnel path-mtu-discovery
+!
+interface Tunnel162
+ ip address 172.31.255.253 255.255.255.252
+ ip mtu 1440
+ tunnel source 10.12.252.147
+ tunnel destination 10.12.252.146
+!
+interface Tunnel2016
+ description **** DMVPN SPOKE TO VICTORIA ****
+ bandwidth 10000
+ ip address 172.16.255.19 255.255.255.240
+ no ip redirects
+ ip mtu 1400
+ ip nbar protocol-discovery
+ ip flow monitor MYMONITOR input
+ ip flow monitor MYMONITOR output
+ ip nhrp authentication vict2016
+ ip nhrp group 10MB_grpe
+ ip nhrp map multicast 10.0.1.2
+ ip nhrp map 172.16.255.30 10.0.1.2
+ ip nhrp network-id 99
+ ip nhrp holdtime 300
+ ip nhrp nhs 172.16.255.30
+ ip tcp adjust-mss 1360
+ no ip split-horizon eigrp 800
+ delay 1000
+ tunnel source GigabitEthernet0/2
+ tunnel mode gre multipoint
+ tunnel key 1000
+!
+interface Tunnel20000
+ description *** TUNNEL ACS TO LUBGANGO ***
+ ip address 172.27.1.5 255.255.255.0
+ no ip redirects
+ ip wccp 61 redirect out
+ ip wccp 62 redirect in
+ ip nhrp authentication YvaPrQY7
+ ip nhrp map 172.27.1.1 10.252.19.14
+ ip nhrp map multicast 10.252.19.14
+ ip nhrp network-id 3
+ ip nhrp holdtime 300
+ ip nhrp nhs 172.27.1.1
+ ip tcp adjust-mss 1300
+ tunnel source 10.12.252.147
+ tunnel mode gre multipoint
+ tunnel key 0
+ tunnel path-mtu-discovery
+!
+interface Embedded-Service-Engine0/0
+ no ip address
+ shutdown
+!
+interface GigabitEthernet0/0
+ no ip address
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet0/0.1
+ description **** Catumbela LAN ****
+ encapsulation dot1Q 1 native
+ ip helper-address 192.168.10.7
+ ip helper-address 10.121.176.46
+ ip helper-address 10.121.176.48
+ ip helper-address 10.121.176.50
+ ip helper-address 10.121.176.52
+ ip helper-address 10.121.176.53
+ ip helper-address 10.121.176.55
+ ip helper-address 10.121.176.56
+ ip helper-address 10.121.176.62
+ ip directed-broadcast
+ ip virtual-reassembly in
+ ip policy route-map Internet
+!
+interface GigabitEthernet0/0.250
+ encapsulation dot1Q 250
+ ip address 192.168.1.1 255.255.255.0
+!
+interface GigabitEthernet0/1
+ description ***** WAN VSAT ACS *****
+ mac-address 001f.9e56.4940
+ ip address 10.12.252.147 255.255.255.240
+ ip route-cache policy
+ duplex full
+ speed 100
+!
+interface GigabitEthernet0/2
+ description LINK MPLS UNITEL
+ ip address 10.0.1.50 255.255.255.252
+ duplex full
+ speed 100
+!
+interface FastEthernet0/2/0
+ description LINK FIREWALL CCCSOBA
+ ip address 10.90.35.1 255.255.255.252
+ duplex auto
+ speed auto
+!
+interface FastEthernet0/2/1
+ description LINK CHECKPOINT (OUTSIDE)
+ no ip address
+ shutdown
+ duplex auto
+ speed auto
+!
+interface FastEthernet0/1/0
+ switchport mode trunk
+ switchport voice vlan 250
+ no ip address
+!
+interface FastEthernet0/1/1
+ switchport mode trunk
+ switchport voice vlan 250
+ no ip address
+!
+interface FastEthernet0/1/2
+ switchport mode trunk
+ switchport voice vlan 250
+ no ip address
+!
+interface FastEthernet0/1/3
+ switchport mode trunk
+ switchport voice vlan 250
+ no ip address
+!
+interface FastEthernet0/1/4
+ switchport mode trunk
+ switchport voice vlan 250
+ no ip address
+!
+interface FastEthernet0/1/5
+ switchport mode trunk
+ switchport voice vlan 250
+ no ip address
+!
+interface FastEthernet0/1/6
+ switchport mode trunk
+ switchport voice vlan 250
+ no ip address
+!
+interface FastEthernet0/1/7
+ switchport access vlan 22
+ no ip address
+ spanning-tree portfast
+!
+interface FastEthernet0/1/8
+ switchport mode trunk
+ switchport voice vlan 250
+ no ip address
+!
+interface SM1/0
+ ip address 172.31.1.1 255.255.255.252
+ ip wccp redirect exclude in
+ service-module ip address 172.31.1.2 255.255.255.252
+ !Application: Restarted at Wed Oct  3 08:04:14 2018
+ service-module ip default-gateway 172.31.1.1
+ no keepalive
+!
+interface SM1/1
+ no ip address
+ shutdown
+!
+interface Vlan1
+ no ip address
+!
+interface Vlan22
+ ip address 10.90.22.1 255.255.255.252
+!
+!
+router eigrp 800
+ network 10.90.35.0 0.0.0.3
+ network 172.16.255.0 0.0.0.255
+ passive-interface default
+ no passive-interface Tunnel2016
+ no passive-interface FastEthernet0/2/0
+!
+router bgp 65505
+ bgp log-neighbor-changes
+ bgp bestpath as-path multipath-relax
+ neighbor 172.27.0.1 remote-as 65500
+ neighbor 172.27.0.1 shutdown
+ neighbor 172.27.0.1 ebgp-multihop 6
+ neighbor 172.27.0.1 disable-connected-check
+ neighbor 172.27.0.1 fall-over
+ neighbor 172.27.1.1 remote-as 65500
+ neighbor 172.27.1.1 ebgp-multihop 6
+ neighbor 172.27.1.1 disable-connected-check
+ neighbor 172.27.1.1 update-source Tunnel20000
+ neighbor 172.27.1.1 fall-over
+ !
+ address-family ipv4
+  network 172.30.255.253 mask 255.255.255.255
+  network 172.31.1.0 mask 255.255.255.252
+  network 192.168.1.0
+  redistribute static
+  redistribute eigrp 800 route-map EIGRP_MAP_LANCCSOBA
+  neighbor 172.27.0.1 activate
+  neighbor 172.27.0.1 soft-reconfiguration inbound
+  neighbor 172.27.0.1 prefix-list INTERNAL_NETWORKS in
+  neighbor 172.27.0.1 distribute-list LOCAL_NETWORKS out
+  neighbor 172.27.0.1 route-map MT in
+  neighbor 172.27.1.1 activate
+ exit-address-family
+!
+ip forward-protocol nd
+!
+ip http server
+ip http authentication aaa login-authentication use-srvtacacs
+ip http authentication aaa exec-authorization use-srvtacacs
+ip http authentication aaa command-authorization 15 default
+no ip http secure-server
+!
+ip route 10.0.1.0 255.255.255.0 10.0.1.49 name CCCSBA->MplsUnitel
+ip route 10.5.111.16 255.255.255.252 10.5.111.1
+ip route 10.10.176.0 255.255.255.0 10.10.4.1
+ip route 10.121.164.0 255.255.255.0 Tunnel162
+ip route 10.252.19.12 255.255.255.252 10.12.252.145
+ip route 172.31.1.0 255.255.255.252 Null0
+!
+ip access-list standard CCC_SOBA_LAN
+ permit 10.90.0.0 0.0.255.255
+ permit 10.2.0.0 0.0.255.255
+ip access-list standard LOCAL_NETWORKS
+ permit 172.30.255.253
+ permit 10.121.178.0 0.0.0.255
+ permit 192.168.1.0 0.0.0.255
+ permit 172.31.1.0 0.0.0.3
+ permit 10.90.0.0 0.0.255.255
+ permit 10.2.0.0 0.0.255.255
+!
+ip access-list extended BULK-DATA
+ remark Web Traffic
+ permit tcp any any eq www
+ permit tcp any any eq 443
+ remark FTP
+ permit tcp any any eq ftp-data
+ permit tcp any any eq ftp
+ remark IMAP/SECURE IMAP
+ permit tcp any any eq 143
+ permit tcp any any eq 993
+ remark SMTP
+ permit tcp any any eq smtp
+ remark Secure-SMTP
+ permit tcp any any eq 465
+ permit tcp any any eq 589
+ remark Secure-POP3
+ permit tcp any any eq 995
+ permit tcp any any eq pop3
+ remark PC_BACKUP
+ permit tcp any eq 1914 any
+ remark SSH/SFTP
+ permit tcp any any eq 22
+ip access-list extended MULTIMEDIA_CONFERECING
+ permit udp any any range 16384 32767
+ip access-list extended Output_QoS_HIGH
+ permit ip 10.121.178.0 0.0.0.255 host 10.121.179.200
+ permit ip 10.121.178.0 0.0.0.255 host 10.121.179.210
+ permit ip 10.121.178.0 0.0.0.255 host 10.121.179.212
+ permit ip 10.121.178.0 0.0.0.255 host 10.121.179.214
+ permit ip 10.121.178.0 0.0.0.255 host 10.121.179.216
+ip access-list extended Output_QoS_MEDIUM
+ permit ip 192.168.1.0 0.0.0.255 host 192.168.10.1
+ permit ip 192.168.1.0 0.0.0.255 host 10.121.179.240
+ permit udp 10.121.178.0 0.0.0.255 10.121.179.192 0.0.0.63 eq domain
+ permit udp 10.121.178.0 0.0.0.255 10.121.179.192 0.0.0.63 eq snmp
+ip access-list extended SCAVENGER
+ remark Kazaa 
+ permit tcp any any eq 1214
+ permit udp any any eq 1214
+ remark MICROSOFT DIRECT X GAMING
+ permit tcp any any range 2300 2400
+ remark Apple ITunes Music SAHRING
+ permit tcp any any eq 3689
+ permit udp any any eq 3689
+ remark BITTORENTS
+ permit tcp any any range 6881 6999
+ remark YAHOO GAMES
+ permit tcp any any eq 11999
+ remark MSN GAMING ZONE
+ permit tcp any any range 28800 29100
+ remark FasTrack
+ remark Gnutella
+ permit udp any any eq 6346
+ permit udp any any eq 6347
+ permit udp any any eq 6348
+ permit tcp any any eq 6346
+ permit tcp any any eq 6347
+ permit tcp any any eq 6348
+ permit tcp any any eq 6349
+ permit tcp any any eq 6355
+ permit tcp any any eq 5634
+ remark Edonkey
+ permit tcp any any eq 4662
+ip access-list extended SiGNALING
+ remark SIP
+ permit tcp any any range 5060 5061
+ permit udp any any range 5060 5061
+ remark SCCP
+ permit tcp any any range 2000 2002
+ip access-list extended TRANSACTIONAL-DATA
+ remark Exchange server 
+ permit tcp any any eq 135
+ remark Kerberos
+ permit tcp any any eq 88
+ permit tcp any any eq 749
+ permit udp any any eq 88
+ permit udp any any eq 749
+ remark Net-Bios
+ permit tcp any any eq 139
+ permit tcp any any eq 137
+ permit udp any any eq netbios-ns
+ permit udp any any eq netbios-dgm
+ remark LDAP
+ permit tcp any any eq 389
+ remark Microsoft_ds (Active Directory)
+ permit tcp any any eq 445
+ permit udp any any eq 445
+ remark Ms_WBT_server or RDP
+ permit tcp any any eq 3389
+ remark SQL
+ permit tcp any any eq 1521
+ remark SNMP
+ permit tcp any any eq 161
+ permit tcp any any eq 162
+ permit udp any any eq snmp
+ remark NTP
+ permit tcp any any eq 37
+ permit udp any any eq time
+ remark Syslogs
+ permit udp any any eq syslog
+ remark NFS (Network File System )
+ permit tcp any any eq 2049
+ permit udp any any eq 2049
+ip access-list extended WAAS
+ deny   tcp any eq telnet any
+ deny   tcp any any eq telnet
+ deny   tcp any eq bgp any
+ deny   tcp any any eq bgp
+ permit tcp any any
+ip access-list extended inside->internet
+ permit ip 10.121.178.0 0.0.0.255 any
+ip access-list extended outside->inside
+ permit udp any any eq bootpc
+ permit udp any eq bootpc any
+ permit udp any any eq bootps
+ permit udp any eq bootps any
+ permit icmp any any echo
+ permit icmp any any echo-reply
+ permit icmp any any traceroute
+ permit icmp any any time-exceeded
+ permit icmp any any unreachable
+ permit udp any any eq domain
+ permit udp any eq domain any
+ permit tcp any any eq www
+ permit tcp any any eq 443
+ permit tcp any eq www any
+ permit tcp any eq 443 any
+ permit ahp any any
+ permit esp any any
+ permit udp any eq isakmp any
+ permit udp any any eq isakmp
+ permit udp any eq non500-isakmp any
+ permit udp any any eq non500-isakmp
+ permit udp any any eq 10000
+ permit gre any any
+ permit tcp any eq ftp any
+ permit tcp any eq ftp-data any
+ permit tcp any any established
+ip access-list extended to_Internet
+ deny   ip 10.121.178.0 0.0.0.255 10.121.162.0 0.0.0.255
+ deny   ip 10.121.178.0 0.0.0.255 10.121.164.0 0.0.0.255
+ deny   ip 10.121.178.0 0.0.0.255 10.121.176.0 0.0.3.255
+ permit ip 10.121.178.0 0.0.0.255 any
+!
+!
+ip prefix-list EIGRP_STAT_ADV seq 5 permit 10.90.0.0/16
+ip prefix-list EIGRP_STAT_ADV seq 10 permit 10.2.0.0/16
+ip prefix-list EIGRP_STAT_ADV seq 15 permit 10.121.178.0/24
+!
+ip prefix-list INTERNAL_NETWORKS seq 10 permit 10.121.0.0/16 le 32
+ip prefix-list INTERNAL_NETWORKS seq 20 permit 192.168.0.0/16 le 32
+ip prefix-list INTERNAL_NETWORKS seq 30 permit 172.30.255.0/24 le 32
+ip prefix-list INTERNAL_NETWORKS seq 40 permit 172.31.0.0/16 le 32
+ip prefix-list INTERNAL_NETWORKS seq 50 permit 10.90.0.0/16 le 32
+ip prefix-list INTERNAL_NETWORKS seq 60 permit 10.2.0.0/16 le 32
+ip radius source-interface Tunnel104 
+kron occurrence Semanal-BKP at 21:30 Fri recurring
+ policy-list MY_BKP_CFG
+!
+kron policy-list MY_BKP_CFG
+ cli sh startup-config | redirect ftp://10.30.23.1/CCCSOBA_RT_VSAT-VICTSTARTUP
+ cli sh running-config | redirect ftp://10.30.23.1/CCCSOBA_RT_VSAT-VICTRUNNING
+!
+logging trap debugging
+logging facility syslog
+logging host 10.30.10.50 transport udp port 513
+logging 10.30.99.251
+access-list 43 permit 10.121.176.0 0.0.3.255
+access-list 145 permit udp any eq bootpc any
+access-list 145 permit udp any any eq bootps
+access-list 145 permit udp any any eq ntp
+access-list 145 permit udp any eq ntp any
+access-list 145 permit ip 10.0.0.0 0.255.255.255 10.0.0.0 0.255.255.255
+access-list 145 permit ip 10.0.0.0 0.255.255.255 192.168.0.0 0.0.255.255
+access-list 145 permit ip 10.0.0.0 0.255.255.255 172.16.0.0 0.15.255.255
+access-list 145 permit ip 192.168.1.0 0.0.0.255 host 10.121.179.240
+access-list 145 deny   ip any any log
+access-list 183 deny   tcp any any eq telnet
+access-list 183 deny   tcp any eq telnet any
+access-list 183 deny   tcp any any eq bgp
+access-list 183 deny   tcp any eq bgp any
+access-list 183 permit tcp any any
+!
+!
+!
+!
+route-map MT permit 10
+ set local-preference 120
+!
+route-map CCC_SOBA_LAN permit 10
+ match ip address CCC_SOBA_LAN
+!
+route-map Internet permit 10
+ match ip address to_Internet
+ set ip next-hop 10.121.178.253
+!
+route-map EIGRP_MAP_LANCCSOBA permit 10
+ match ip address prefix-list EIGRP_STAT_ADV
+!
+route-map QoS permit 1
+ match ip address Output_QoS_HIGH
+ set ip precedence internet
+ set ip tos max-throughput
+!
+route-map QoS permit 2
+ match ip address Output_QoS_MEDIUM
+ set ip precedence flash-override
+ set ip tos max-throughput
+!
+!
+snmp-server community NGola-TI RO 43
+snmp-server community NGola-TI.wr RO 43
+snmp-server community victoria RW
+snmp-server community victoria_pub RO
+snmp-server community victoria_wr RW
+snmp-server ifindex persist
+snmp-server location DATACENTER VICTORIA
+snmp-server contact support.helpdesk@bihangola.net
+snmp-server enable traps tty
+snmp-server host 10.121.176.44 version 2c NGola-TI 
+snmp-server host 10.121.179.220 version 2c NGola-TI 
+snmp-server host 10.30.99.251 version 2c victoria_pub 
+snmp ifmib ifalias long
+tacacs-server host 10.30.10.10 timeout 5
+tacacs-server directed-request
+tacacs-server key 7 03170808145C351E1E584F
+!
+radius server srv-radius2
+ address ipv4 10.30.10.36 auth-port 1645 acct-port 1646
+ key 7 0234245F5A131C731C1F5A
+!
+!
+!
+control-plane
+!
+!
+!
+!
+mgcp profile default
+!
+!
+!
+!
+!
+gatekeeper
+ shutdown
+!
+!
+alias exec qos sh auto discovery qos
+alias exec cpu show proc cpu | excl 0.00%_0.00%_0.00%
+alias exec mem show proc mem | excl 0.00%_0.00%_0.00%
+alias exec u undebug all
+alias exec nt terminal no monitor
+alias exec arch sh archive log config all
+alias exec nbar sh ip nbar protocol-discovery stats bit-rate top-n 10
+alias exec flow sh flow monitor MYMONITOR cache format tabl
+banner motd ^C
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * **
+*                                                                            *
+*                        _   _ _____ _____ _       ___                       *
+*                       | \ | |  __ \  _  | |     / _ \                      *
+*                       |  \| | |  \/ | | | |    / /_\ \                     *
+*                       |     | | __| | | | |    |  _  |                     *
+*                       | |\  | |_\ \ \_/ / |____| | | |                     *
+*                       \_| \_/\____/\___/\_____/\_| |_/                     *
+*                               C A T U M B E L A                            *
+*                                                                            *
+*                        A C E S S O   R E S T R I C T O                     *
+*                                                                            *
+*                                                                            *
+* Todas as tentativas de acesso serao registadas. Qualquer tipo de tentativa *
+*                                                                            *
+*              de acesso ilegal sera alvo de investigacao criminal.          *
+*                                                                            *
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * **
+^C
+!
+line con 0
+ exec-timeout 15 0
+ privilege level 15
+ logging synchronous
+ login authentication use-srvtacacs
+ length 0
+ transport output telnet
+line aux 0
+ exec-timeout 5 0
+ password 7 142341191E24070B36
+ logging synchronous
+ transport input telnet
+line 2
+ no activation-character
+ no exec
+ transport preferred none
+ transport input all
+ transport output pad telnet rlogin lapb-ta mop udptn v120 ssh
+ stopbits 1
+line 67
+ no activation-character
+ no exec
+ transport preferred none
+ transport input all
+ transport output pad telnet rlogin lapb-ta mop udptn v120 ssh
+ stopbits 1
+line vty 0 4
+ exec-timeout 15 0
+ privilege level 15
+ logging synchronous
+ login authentication use-srvtacacs
+ length 0
+ transport input telnet ssh
+ transport output all
+line vty 5 15
+ exec-timeout 15 0
+ privilege level 15
+ logging synchronous
+ login authentication use-srvtacacs
+ length 0
+ transport input ssh
+!
+scheduler allocate 20000 1000
+ntp source Loopback255
+ntp server 172.30.255.254 source Loopback255
+end

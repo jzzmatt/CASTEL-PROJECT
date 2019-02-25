@@ -1,0 +1,307 @@
+get_facts:
+    napalm_facts:
+        fqdn: SW-CCC24POE-FABR.victoria.local
+        hostname: SW-CCC24POE-FABR
+        interface_list:
+        - Vlan1
+        - Vlan199
+        - FastEthernet0
+        - GigabitEthernet1/0/1
+        - GigabitEthernet1/0/2
+        - GigabitEthernet1/0/3
+        - GigabitEthernet1/0/4
+        - GigabitEthernet1/0/5
+        - GigabitEthernet1/0/6
+        - GigabitEthernet1/0/7
+        - GigabitEthernet1/0/8
+        - GigabitEthernet1/0/9
+        - GigabitEthernet1/0/10
+        - GigabitEthernet1/0/11
+        - GigabitEthernet1/0/12
+        - GigabitEthernet1/0/13
+        - GigabitEthernet1/0/14
+        - GigabitEthernet1/0/15
+        - GigabitEthernet1/0/16
+        - GigabitEthernet1/0/17
+        - GigabitEthernet1/0/18
+        - GigabitEthernet1/0/19
+        - GigabitEthernet1/0/20
+        - GigabitEthernet1/0/21
+        - GigabitEthernet1/0/22
+        - GigabitEthernet1/0/23
+        - GigabitEthernet1/0/24
+        - GigabitEthernet1/0/25
+        - GigabitEthernet1/0/26
+        - GigabitEthernet1/0/27
+        - GigabitEthernet1/0/28
+        model: WS-C2960S-24PS-L
+        os_version: C2960S Software (C2960S-UNIVERSALK9-M), Version 12.2(55)SE5, RELEASE
+            SOFTWARE (fc1)
+        serial_number: FOC1638X1GA
+        uptime: 1026540
+        vendor: Cisco
+    napalm_fqdn: SW-CCC24POE-FABR.victoria.local
+    napalm_hostname: SW-CCC24POE-FABR
+    napalm_interface_list:
+    - Vlan1
+    - Vlan199
+    - FastEthernet0
+    - GigabitEthernet1/0/1
+    - GigabitEthernet1/0/2
+    - GigabitEthernet1/0/3
+    - GigabitEthernet1/0/4
+    - GigabitEthernet1/0/5
+    - GigabitEthernet1/0/6
+    - GigabitEthernet1/0/7
+    - GigabitEthernet1/0/8
+    - GigabitEthernet1/0/9
+    - GigabitEthernet1/0/10
+    - GigabitEthernet1/0/11
+    - GigabitEthernet1/0/12
+    - GigabitEthernet1/0/13
+    - GigabitEthernet1/0/14
+    - GigabitEthernet1/0/15
+    - GigabitEthernet1/0/16
+    - GigabitEthernet1/0/17
+    - GigabitEthernet1/0/18
+    - GigabitEthernet1/0/19
+    - GigabitEthernet1/0/20
+    - GigabitEthernet1/0/21
+    - GigabitEthernet1/0/22
+    - GigabitEthernet1/0/23
+    - GigabitEthernet1/0/24
+    - GigabitEthernet1/0/25
+    - GigabitEthernet1/0/26
+    - GigabitEthernet1/0/27
+    - GigabitEthernet1/0/28
+    napalm_interfaces:
+        FastEthernet0:
+            description: ''
+            is_enabled: false
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 34:A8:4E:92:5E:37
+            speed: 100
+        GigabitEthernet1/0/1:
+            description: Reserved Rede ANTIGA
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 34:A8:4E:92:5E:01
+            speed: 1000
+        GigabitEthernet1/0/10:
+            description: Reserved End Users CCC
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 34:A8:4E:92:5E:0A
+            speed: 10
+        GigabitEthernet1/0/11:
+            description: Reserved End Users CCC
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 34:A8:4E:92:5E:0B
+            speed: 100
+        GigabitEthernet1/0/12:
+            description: Reserved CCTV
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 34:A8:4E:92:5E:0C
+            speed: 10
+        GigabitEthernet1/0/13:
+            description: Reserved To Trunk
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 34:A8:4E:92:5E:0D
+            speed: 1000
+        GigabitEthernet1/0/14:
+            description: Reserved End Users CCC
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 34:A8:4E:92:5E:0E
+            speed: 100
+        GigabitEthernet1/0/15:
+            description: Reserved End Users CCC
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 34:A8:4E:92:5E:0F
+            speed: 100
+        GigabitEthernet1/0/16:
+            description: Reserved End Users CCC
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 34:A8:4E:92:5E:10
+            speed: 10
+        GigabitEthernet1/0/17:
+            description: Reserved End Users CCC
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 34:A8:4E:92:5E:11
+            speed: 10
+        GigabitEthernet1/0/18:
+            description: Reserved End Users CCC
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 34:A8:4E:92:5E:12
+            speed: 1000
+        GigabitEthernet1/0/19:
+            description: Reserved End Users CCC
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 34:A8:4E:92:5E:13
+            speed: 10
+        GigabitEthernet1/0/2:
+            description: Reserved Rede ANTIGA
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 34:A8:4E:92:5E:02
+            speed: 10
+        GigabitEthernet1/0/20:
+            description: Reserved End Users CCC
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 34:A8:4E:92:5E:14
+            speed: 100
+        GigabitEthernet1/0/21:
+            description: Reserved End Users CCC
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 34:A8:4E:92:5E:15
+            speed: 10
+        GigabitEthernet1/0/22:
+            description: Reserved End Users CCC
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 34:A8:4E:92:5E:16
+            speed: 100
+        GigabitEthernet1/0/23:
+            description: APLWAPP HREAP
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 34:A8:4E:92:5E:17
+            speed: 100
+        GigabitEthernet1/0/24:
+            description: Reserved CCTV
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 34:A8:4E:92:5E:18
+            speed: 100
+        GigabitEthernet1/0/25:
+            description: RESERVED FAST TRUNK
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 34:A8:4E:92:5E:19
+            speed: 1000
+        GigabitEthernet1/0/26:
+            description: RESERVED FAST TRUNK
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 34:A8:4E:92:5E:1A
+            speed: 10
+        GigabitEthernet1/0/27:
+            description: RESERVED FAST TRUNK
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 34:A8:4E:92:5E:1B
+            speed: 10
+        GigabitEthernet1/0/28:
+            description: RESERVED FAST TRUNK
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 34:A8:4E:92:5E:1C
+            speed: 10
+        GigabitEthernet1/0/3:
+            description: Reserved End Users CCC
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 34:A8:4E:92:5E:03
+            speed: 100
+        GigabitEthernet1/0/4:
+            description: Reserved End Users CCC
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 34:A8:4E:92:5E:04
+            speed: 1000
+        GigabitEthernet1/0/5:
+            description: Reserved End Users CCC
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 34:A8:4E:92:5E:05
+            speed: 100
+        GigabitEthernet1/0/6:
+            description: Reserved End Users CCC
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 34:A8:4E:92:5E:06
+            speed: 100
+        GigabitEthernet1/0/7:
+            description: Reserved End Users CCC
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 34:A8:4E:92:5E:07
+            speed: 100
+        GigabitEthernet1/0/8:
+            description: Reserved End Users CCC
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 34:A8:4E:92:5E:08
+            speed: 10
+        GigabitEthernet1/0/9:
+            description: Reserved End Users CCC
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 34:A8:4E:92:5E:09
+            speed: 10
+        Vlan1:
+            description: ''
+            is_enabled: false
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 34:A8:4E:92:5E:40
+            speed: 1000
+        Vlan199:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 34:A8:4E:92:5E:41
+            speed: 1000
+    napalm_interfaces_ip:
+        Vlan199:
+            ipv4:
+                10.90.99.18:
+                    prefix_length: 24
+    napalm_model: WS-C2960S-24PS-L
+    napalm_os_version: C2960S Software (C2960S-UNIVERSALK9-M), Version 12.2(55)SE5,
+        RELEASE SOFTWARE (fc1)
+    napalm_serial_number: FOC1638X1GA
+    napalm_uptime: 1026540
+    napalm_vendor: Cisco
+changed: false
+failed: false

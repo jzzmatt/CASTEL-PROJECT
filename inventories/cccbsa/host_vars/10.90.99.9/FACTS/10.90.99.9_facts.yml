@@ -1,0 +1,532 @@
+get_facts:
+    napalm_facts:
+        fqdn: SW-CCC48-SRVROOM.victoria.local
+        hostname: SW-CCC48-SRVROOM
+        interface_list:
+        - Vlan1
+        - Vlan199
+        - FastEthernet0/1
+        - FastEthernet0/2
+        - FastEthernet0/3
+        - FastEthernet0/4
+        - FastEthernet0/5
+        - FastEthernet0/6
+        - FastEthernet0/7
+        - FastEthernet0/8
+        - FastEthernet0/9
+        - FastEthernet0/10
+        - FastEthernet0/11
+        - FastEthernet0/12
+        - FastEthernet0/13
+        - FastEthernet0/14
+        - FastEthernet0/15
+        - FastEthernet0/16
+        - FastEthernet0/17
+        - FastEthernet0/18
+        - FastEthernet0/19
+        - FastEthernet0/20
+        - FastEthernet0/21
+        - FastEthernet0/22
+        - FastEthernet0/23
+        - FastEthernet0/24
+        - FastEthernet0/25
+        - FastEthernet0/26
+        - FastEthernet0/27
+        - FastEthernet0/28
+        - FastEthernet0/29
+        - FastEthernet0/30
+        - FastEthernet0/31
+        - FastEthernet0/32
+        - FastEthernet0/33
+        - FastEthernet0/34
+        - FastEthernet0/35
+        - FastEthernet0/36
+        - FastEthernet0/37
+        - FastEthernet0/38
+        - FastEthernet0/39
+        - FastEthernet0/40
+        - FastEthernet0/41
+        - FastEthernet0/42
+        - FastEthernet0/43
+        - FastEthernet0/44
+        - FastEthernet0/45
+        - FastEthernet0/46
+        - FastEthernet0/47
+        - FastEthernet0/48
+        - GigabitEthernet0/1
+        - GigabitEthernet0/2
+        - GigabitEthernet0/3
+        - GigabitEthernet0/4
+        - Port-channel1
+        - Port-channel2
+        model: WS-C2960-48PST-L
+        os_version: C2960 Software (C2960-LANBASEK9-M), Version 12.2(55)SE9, RELEASE
+            SOFTWARE (fc1)
+        serial_number: FOC1332W3AP
+        uptime: 12543000
+        vendor: Cisco
+    napalm_fqdn: SW-CCC48-SRVROOM.victoria.local
+    napalm_hostname: SW-CCC48-SRVROOM
+    napalm_interface_list:
+    - Vlan1
+    - Vlan199
+    - FastEthernet0/1
+    - FastEthernet0/2
+    - FastEthernet0/3
+    - FastEthernet0/4
+    - FastEthernet0/5
+    - FastEthernet0/6
+    - FastEthernet0/7
+    - FastEthernet0/8
+    - FastEthernet0/9
+    - FastEthernet0/10
+    - FastEthernet0/11
+    - FastEthernet0/12
+    - FastEthernet0/13
+    - FastEthernet0/14
+    - FastEthernet0/15
+    - FastEthernet0/16
+    - FastEthernet0/17
+    - FastEthernet0/18
+    - FastEthernet0/19
+    - FastEthernet0/20
+    - FastEthernet0/21
+    - FastEthernet0/22
+    - FastEthernet0/23
+    - FastEthernet0/24
+    - FastEthernet0/25
+    - FastEthernet0/26
+    - FastEthernet0/27
+    - FastEthernet0/28
+    - FastEthernet0/29
+    - FastEthernet0/30
+    - FastEthernet0/31
+    - FastEthernet0/32
+    - FastEthernet0/33
+    - FastEthernet0/34
+    - FastEthernet0/35
+    - FastEthernet0/36
+    - FastEthernet0/37
+    - FastEthernet0/38
+    - FastEthernet0/39
+    - FastEthernet0/40
+    - FastEthernet0/41
+    - FastEthernet0/42
+    - FastEthernet0/43
+    - FastEthernet0/44
+    - FastEthernet0/45
+    - FastEthernet0/46
+    - FastEthernet0/47
+    - FastEthernet0/48
+    - GigabitEthernet0/1
+    - GigabitEthernet0/2
+    - GigabitEthernet0/3
+    - GigabitEthernet0/4
+    - Port-channel1
+    - Port-channel2
+    napalm_interfaces:
+        FastEthernet0/1:
+            description: RESERVED END USERS + IPT
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:CA:6E:9B:01
+            speed: 100
+        FastEthernet0/10:
+            description: MEMBER ECHANNEL 1 VLAN 13
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:CA:6E:9B:0A
+            speed: 100
+        FastEthernet0/11:
+            description: VLAN STORAGE ISCSI
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:CA:6E:9B:0B
+            speed: 10
+        FastEthernet0/12:
+            description: MEMBER ECHANNEL 1 VLAN 13
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:CA:6E:9B:0C
+            speed: 100
+        FastEthernet0/13:
+            description: POOL SRV SOBA VLAN 10
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:CA:6E:9B:0D
+            speed: 100
+        FastEthernet0/14:
+            description: POOL SRV SOBA VLAN 10
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:CA:6E:9B:0E
+            speed: 10
+        FastEthernet0/15:
+            description: MEMBER ECHANNEL 2 VLAN 6
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:CA:6E:9B:0F
+            speed: 100
+        FastEthernet0/16:
+            description: MEMBER ECHANNEL 2 VLAN 6
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:CA:6E:9B:10
+            speed: 100
+        FastEthernet0/17:
+            description: ''
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:CA:6E:9B:11
+            speed: 10
+        FastEthernet0/18:
+            description: VLAN MGT STORAGE
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:CA:6E:9B:12
+            speed: 100
+        FastEthernet0/19:
+            description: PRINTER
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:CA:6E:9B:13
+            speed: 100
+        FastEthernet0/2:
+            description: RESERVED END USERS + IPT
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:CA:6E:9B:02
+            speed: 100
+        FastEthernet0/20:
+            description: LINK TELEV Tvcabo
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:CA:6E:9B:14
+            speed: 100
+        FastEthernet0/21:
+            description: ''
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:CA:6E:9B:15
+            speed: 10
+        FastEthernet0/22:
+            description: ''
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:CA:6E:9B:16
+            speed: 10
+        FastEthernet0/23:
+            description: ''
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:CA:6E:9B:17
+            speed: 10
+        FastEthernet0/24:
+            description: POOL SRV SOBA VLAN 10
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:CA:6E:9B:18
+            speed: 10
+        FastEthernet0/25:
+            description: RESERVED END USERS + IPT
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:CA:6E:9B:19
+            speed: 100
+        FastEthernet0/26:
+            description: RESERVED END USERS + IPT
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:CA:6E:9B:1A
+            speed: 10
+        FastEthernet0/27:
+            description: RESERVED END USERS + IPT
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:CA:6E:9B:1B
+            speed: 10
+        FastEthernet0/28:
+            description: RESERVED END USERS + IPT
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:CA:6E:9B:1C
+            speed: 10
+        FastEthernet0/29:
+            description: RESERVED END USERS + IPT
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:CA:6E:9B:1D
+            speed: 10
+        FastEthernet0/3:
+            description: RESERVED END USERS + IPT
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:CA:6E:9B:03
+            speed: 10
+        FastEthernet0/30:
+            description: RESERVED END USERS + IPT
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:CA:6E:9B:1E
+            speed: 10
+        FastEthernet0/31:
+            description: RESERVED END USERS + IPT
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:CA:6E:9B:1F
+            speed: 10
+        FastEthernet0/32:
+            description: RESERVED END USERS + IPT
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:CA:6E:9B:20
+            speed: 100
+        FastEthernet0/33:
+            description: RESERVED END USERS + IPT
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:CA:6E:9B:21
+            speed: 10
+        FastEthernet0/34:
+            description: RESERVED END USERS + IPT
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:CA:6E:9B:22
+            speed: 100
+        FastEthernet0/35:
+            description: RESERVED END USERS + IPT
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:CA:6E:9B:23
+            speed: 100
+        FastEthernet0/36:
+            description: RESERVED END USERS + IPT
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:CA:6E:9B:24
+            speed: 10
+        FastEthernet0/37:
+            description: SRV-PROD
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:CA:6E:9B:25
+            speed: 10
+        FastEthernet0/38:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:CA:6E:9B:26
+            speed: 100
+        FastEthernet0/39:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:CA:6E:9B:27
+            speed: 100
+        FastEthernet0/4:
+            description: RESERVED END USERS + IPT
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:CA:6E:9B:04
+            speed: 10
+        FastEthernet0/40:
+            description: Reserved CCTV
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:CA:6E:9B:28
+            speed: 10
+        FastEthernet0/41:
+            description: Reserved CCTV
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:CA:6E:9B:29
+            speed: 10
+        FastEthernet0/42:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:CA:6E:9B:2A
+            speed: 100
+        FastEthernet0/43:
+            description: SERVER ESXI
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:CA:6E:9B:2B
+            speed: 10
+        FastEthernet0/44:
+            description: SERVER ESXI
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:CA:6E:9B:2C
+            speed: 100
+        FastEthernet0/45:
+            description: LINK AP
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:CA:6E:9B:2D
+            speed: 100
+        FastEthernet0/46:
+            description: SERVER ESXI
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:CA:6E:9B:2E
+            speed: 100
+        FastEthernet0/47:
+            description: '*** Lubango Phone ***'
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:CA:6E:9B:2F
+            speed: 100
+        FastEthernet0/48:
+            description: RESERVED FAST TRUNK
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:CA:6E:9B:30
+            speed: 10
+        FastEthernet0/5:
+            description: RESERVED END USERS + IPT
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:CA:6E:9B:05
+            speed: 100
+        FastEthernet0/6:
+            description: RESERVED END USERS + IPT
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:CA:6E:9B:06
+            speed: 10
+        FastEthernet0/7:
+            description: RESERVED END USERS + IPT
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:CA:6E:9B:07
+            speed: 100
+        FastEthernet0/8:
+            description: Reserved CCTV
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:CA:6E:9B:08
+            speed: 10
+        FastEthernet0/9:
+            description: RESERVED END USERS + IPT
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:CA:6E:9B:09
+            speed: 10
+        GigabitEthernet0/1:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:CA:6E:9B:31
+            speed: 1000
+        GigabitEthernet0/2:
+            description: RESERVED FAST TRUNK
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:CA:6E:9B:32
+            speed: 10
+        GigabitEthernet0/3:
+            description: RESERVED FAST TRUNK
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:CA:6E:9B:33
+            speed: 1000
+        GigabitEthernet0/4:
+            description: RESERVED FAST TRUNK
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:CA:6E:9B:34
+            speed: 1000
+        Port-channel1:
+            description: BUNDELL VLAN 13 (ISCSI)
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:CA:6E:9B:0A
+            speed: 200
+        Port-channel2:
+            description: BUNDELL VLAN 6 ( CIFS)
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:CA:6E:9B:0F
+            speed: 200
+        Vlan1:
+            description: ''
+            is_enabled: false
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:CA:6E:9B:40
+            speed: 1000
+        Vlan199:
+            description: Native&Management
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:CA:6E:9B:41
+            speed: 1000
+    napalm_interfaces_ip:
+        Vlan199:
+            ipv4:
+                10.90.99.9:
+                    prefix_length: 24
+    napalm_model: WS-C2960-48PST-L
+    napalm_os_version: C2960 Software (C2960-LANBASEK9-M), Version 12.2(55)SE9, RELEASE
+        SOFTWARE (fc1)
+    napalm_serial_number: FOC1332W3AP
+    napalm_uptime: 12543000
+    napalm_vendor: Cisco
+changed: false
+failed: false

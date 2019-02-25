@@ -1,0 +1,934 @@
+get_facts:
+    napalm_facts:
+        fqdn: CRSW-CCC-SOBA.victoria.local
+        hostname: CRSW-CCC-SOBA
+        interface_list:
+        - Vlan1
+        - Vlan4
+        - Vlan6
+        - Vlan8
+        - Vlan9
+        - Vlan10
+        - Vlan11
+        - Vlan13
+        - Vlan16
+        - Vlan19
+        - Vlan20
+        - Vlan21
+        - Vlan22
+        - Vlan31
+        - Vlan32
+        - Vlan33
+        - Vlan34
+        - Vlan35
+        - Vlan40
+        - Vlan45
+        - Vlan70
+        - Vlan87
+        - Vlan98
+        - Vlan99
+        - Vlan101
+        - Vlan103
+        - Vlan104
+        - Vlan106
+        - Vlan107
+        - Vlan116
+        - Vlan178
+        - Vlan199
+        - Vlan201
+        - Vlan255
+        - GigabitEthernet1/0/1
+        - GigabitEthernet1/0/2
+        - GigabitEthernet1/0/3
+        - GigabitEthernet1/0/4
+        - GigabitEthernet1/0/5
+        - GigabitEthernet1/0/6
+        - GigabitEthernet1/0/7
+        - GigabitEthernet1/0/8
+        - GigabitEthernet1/0/9
+        - GigabitEthernet1/0/10
+        - GigabitEthernet1/0/11
+        - GigabitEthernet1/0/12
+        - GigabitEthernet1/0/13
+        - GigabitEthernet1/0/14
+        - GigabitEthernet1/0/15
+        - GigabitEthernet1/0/16
+        - GigabitEthernet1/0/17
+        - GigabitEthernet1/0/18
+        - GigabitEthernet1/0/19
+        - GigabitEthernet1/0/20
+        - GigabitEthernet1/0/21
+        - GigabitEthernet1/0/22
+        - GigabitEthernet1/0/23
+        - GigabitEthernet1/0/24
+        - GigabitEthernet1/0/25
+        - GigabitEthernet1/0/26
+        - GigabitEthernet1/0/27
+        - GigabitEthernet1/0/28
+        - GigabitEthernet2/0/1
+        - GigabitEthernet2/0/2
+        - GigabitEthernet2/0/3
+        - GigabitEthernet2/0/4
+        - GigabitEthernet2/0/5
+        - GigabitEthernet2/0/6
+        - GigabitEthernet2/0/7
+        - GigabitEthernet2/0/8
+        - GigabitEthernet2/0/9
+        - GigabitEthernet2/0/10
+        - GigabitEthernet2/0/11
+        - GigabitEthernet2/0/12
+        - GigabitEthernet2/0/13
+        - GigabitEthernet2/0/14
+        - GigabitEthernet2/0/15
+        - GigabitEthernet2/0/16
+        - GigabitEthernet2/0/17
+        - GigabitEthernet2/0/18
+        - GigabitEthernet2/0/19
+        - GigabitEthernet2/0/20
+        - GigabitEthernet2/0/21
+        - GigabitEthernet2/0/22
+        - GigabitEthernet2/0/23
+        - GigabitEthernet2/0/24
+        - GigabitEthernet2/0/25
+        - GigabitEthernet2/0/26
+        - GigabitEthernet2/0/27
+        - GigabitEthernet2/0/28
+        model: WS-C3750G-24TS-1U
+        os_version: C3750 Software (C3750-IPSERVICESK9-M), Version 12.2(58)SE2, RELEASE
+            SOFTWARE (fc1)
+        serial_number: FOC1423Z6A0
+        uptime: 12542880
+        vendor: Cisco
+    napalm_fqdn: CRSW-CCC-SOBA.victoria.local
+    napalm_hostname: CRSW-CCC-SOBA
+    napalm_interface_list:
+    - Vlan1
+    - Vlan4
+    - Vlan6
+    - Vlan8
+    - Vlan9
+    - Vlan10
+    - Vlan11
+    - Vlan13
+    - Vlan16
+    - Vlan19
+    - Vlan20
+    - Vlan21
+    - Vlan22
+    - Vlan31
+    - Vlan32
+    - Vlan33
+    - Vlan34
+    - Vlan35
+    - Vlan40
+    - Vlan45
+    - Vlan70
+    - Vlan87
+    - Vlan98
+    - Vlan99
+    - Vlan101
+    - Vlan103
+    - Vlan104
+    - Vlan106
+    - Vlan107
+    - Vlan116
+    - Vlan178
+    - Vlan199
+    - Vlan201
+    - Vlan255
+    - GigabitEthernet1/0/1
+    - GigabitEthernet1/0/2
+    - GigabitEthernet1/0/3
+    - GigabitEthernet1/0/4
+    - GigabitEthernet1/0/5
+    - GigabitEthernet1/0/6
+    - GigabitEthernet1/0/7
+    - GigabitEthernet1/0/8
+    - GigabitEthernet1/0/9
+    - GigabitEthernet1/0/10
+    - GigabitEthernet1/0/11
+    - GigabitEthernet1/0/12
+    - GigabitEthernet1/0/13
+    - GigabitEthernet1/0/14
+    - GigabitEthernet1/0/15
+    - GigabitEthernet1/0/16
+    - GigabitEthernet1/0/17
+    - GigabitEthernet1/0/18
+    - GigabitEthernet1/0/19
+    - GigabitEthernet1/0/20
+    - GigabitEthernet1/0/21
+    - GigabitEthernet1/0/22
+    - GigabitEthernet1/0/23
+    - GigabitEthernet1/0/24
+    - GigabitEthernet1/0/25
+    - GigabitEthernet1/0/26
+    - GigabitEthernet1/0/27
+    - GigabitEthernet1/0/28
+    - GigabitEthernet2/0/1
+    - GigabitEthernet2/0/2
+    - GigabitEthernet2/0/3
+    - GigabitEthernet2/0/4
+    - GigabitEthernet2/0/5
+    - GigabitEthernet2/0/6
+    - GigabitEthernet2/0/7
+    - GigabitEthernet2/0/8
+    - GigabitEthernet2/0/9
+    - GigabitEthernet2/0/10
+    - GigabitEthernet2/0/11
+    - GigabitEthernet2/0/12
+    - GigabitEthernet2/0/13
+    - GigabitEthernet2/0/14
+    - GigabitEthernet2/0/15
+    - GigabitEthernet2/0/16
+    - GigabitEthernet2/0/17
+    - GigabitEthernet2/0/18
+    - GigabitEthernet2/0/19
+    - GigabitEthernet2/0/20
+    - GigabitEthernet2/0/21
+    - GigabitEthernet2/0/22
+    - GigabitEthernet2/0/23
+    - GigabitEthernet2/0/24
+    - GigabitEthernet2/0/25
+    - GigabitEthernet2/0/26
+    - GigabitEthernet2/0/27
+    - GigabitEthernet2/0/28
+    napalm_interfaces:
+        GigabitEthernet1/0/1:
+            description: LINK TRUNK TO ASA FW
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: A8:B1:D4:79:27:81
+            speed: 100
+        GigabitEthernet1/0/10:
+            description: teste rede antiga
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: A8:B1:D4:79:27:8A
+            speed: 100
+        GigabitEthernet1/0/11:
+            description: lint to OUtside ASA
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: A8:B1:D4:79:27:8B
+            speed: 100
+        GigabitEthernet1/0/12:
+            description: 'link to router '
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: A8:B1:D4:79:27:8C
+            speed: 1000
+        GigabitEthernet1/0/13:
+            description: RESERVED WIRELESS CONTROLLER TRUNK
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: A8:B1:D4:79:27:8D
+            speed: 10
+        GigabitEthernet1/0/14:
+            description: LINK ROUTER BORDER 2 (HRSP standBy)
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: A8:B1:D4:79:27:8E
+            speed: 100
+        GigabitEthernet1/0/15:
+            description: Link ****CALL MANAGER EXPRESS****
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: A8:B1:D4:79:27:8F
+            speed: 1000
+        GigabitEthernet1/0/16:
+            description: Reserved Antigo POOL SRV
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: A8:B1:D4:79:27:90
+            speed: 10
+        GigabitEthernet1/0/17:
+            description: Reserved IT360
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: A8:B1:D4:79:27:91
+            speed: 10
+        GigabitEthernet1/0/18:
+            description: Reserved Link to TRUNK ***RT-WEB EDGE ***
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: A8:B1:D4:79:27:92
+            speed: 100
+        GigabitEthernet1/0/19:
+            description: MODEM YACLICK
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: A8:B1:D4:79:27:93
+            speed: 10
+        GigabitEthernet1/0/2:
+            description: Reserved VWMARE
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: A8:B1:D4:79:27:82
+            speed: 1000
+        GigabitEthernet1/0/20:
+            description: 'TRUNK BORDER ROUTER 2 '
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: A8:B1:D4:79:27:94
+            speed: 100
+        GigabitEthernet1/0/21:
+            description: Link-to-MGT ***ASA MGT ****
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: A8:B1:D4:79:27:95
+            speed: 100
+        GigabitEthernet1/0/22:
+            description: LINk TO MODEM TVCABO
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: A8:B1:D4:79:27:96
+            speed: 10
+        GigabitEthernet1/0/23:
+            description: Link-to Inside NIC ASA
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: A8:B1:D4:79:27:97
+            speed: 100
+        GigabitEthernet1/0/24:
+            description: VLAN TRANSIT MULTPLA
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: A8:B1:D4:79:27:98
+            speed: 10
+        GigabitEthernet1/0/25:
+            description: Port-Reserved-FAST-TRUNK
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: A8:B1:D4:79:27:99
+            speed: 1000
+        GigabitEthernet1/0/26:
+            description: Port-Reserved-FAST-TRUNK
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: A8:B1:D4:79:27:9A
+            speed: 10
+        GigabitEthernet1/0/27:
+            description: Port-Reserved-FAST-TRUNK
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: A8:B1:D4:79:27:9B
+            speed: 1000
+        GigabitEthernet1/0/28:
+            description: Port-Reserved-FAST-TRUNK
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: A8:B1:D4:79:27:9C
+            speed: 10
+        GigabitEthernet1/0/3:
+            description: Reserved VWMARE
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: A8:B1:D4:79:27:83
+            speed: 100
+        GigabitEthernet1/0/4:
+            description: Reserved VWMARE
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: A8:B1:D4:79:27:84
+            speed: 1000
+        GigabitEthernet1/0/5:
+            description: Reserved VWMARE
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: A8:B1:D4:79:27:85
+            speed: 1000
+        GigabitEthernet1/0/6:
+            description: Reserved Vmware
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: A8:B1:D4:79:27:86
+            speed: 1000
+        GigabitEthernet1/0/7:
+            description: Reserved Vmware
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: A8:B1:D4:79:27:87
+            speed: 1000
+        GigabitEthernet1/0/8:
+            description: Reserved Vmware
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: A8:B1:D4:79:27:88
+            speed: 1000
+        GigabitEthernet1/0/9:
+            description: '***SW 48 CCC ***'
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: A8:B1:D4:79:27:89
+            speed: 1000
+        GigabitEthernet2/0/1:
+            description: 'CHECKPOINT INSIDE '
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: A8:B1:D4:BA:18:01
+            speed: 1000
+        GigabitEthernet2/0/10:
+            description: LINK TO RT WAN vlan 35
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: A8:B1:D4:BA:18:0A
+            speed: 100
+        GigabitEthernet2/0/11:
+            description: SEVER ESXI
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: A8:B1:D4:BA:18:0B
+            speed: 10
+        GigabitEthernet2/0/12:
+            description: SEVER ESXI
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: A8:B1:D4:BA:18:0C
+            speed: 10
+        GigabitEthernet2/0/13:
+            description: SEVER ESXI
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: A8:B1:D4:BA:18:0D
+            speed: 10
+        GigabitEthernet2/0/14:
+            description: SEVER ESXI
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: A8:B1:D4:BA:18:0E
+            speed: 10
+        GigabitEthernet2/0/15:
+            description: SEVER ESXI
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: A8:B1:D4:BA:18:0F
+            speed: 10
+        GigabitEthernet2/0/16:
+            description: SEVER ESXI
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: A8:B1:D4:BA:18:10
+            speed: 10
+        GigabitEthernet2/0/17:
+            description: SEVER ESXI
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: A8:B1:D4:BA:18:11
+            speed: 10
+        GigabitEthernet2/0/18:
+            description: SEVER ESXI
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: A8:B1:D4:BA:18:12
+            speed: 10
+        GigabitEthernet2/0/19:
+            description: SEVER ESXI
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: A8:B1:D4:BA:18:13
+            speed: 10
+        GigabitEthernet2/0/2:
+            description: 'SEVER ESXI '
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: A8:B1:D4:BA:18:02
+            speed: 10
+        GigabitEthernet2/0/20:
+            description: SEVER ESXI
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: A8:B1:D4:BA:18:14
+            speed: 10
+        GigabitEthernet2/0/21:
+            description: ''
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: A8:B1:D4:BA:18:15
+            speed: 10
+        GigabitEthernet2/0/22:
+            description: WLC CCSOBA
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: A8:B1:D4:BA:18:16
+            speed: 100
+        GigabitEthernet2/0/23:
+            description: WLC CCSOBA
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: A8:B1:D4:BA:18:17
+            speed: 10
+        GigabitEthernet2/0/24:
+            description: ''
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: A8:B1:D4:BA:18:18
+            speed: 10
+        GigabitEthernet2/0/25:
+            description: ''
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: A8:B1:D4:BA:18:19
+            speed: 10
+        GigabitEthernet2/0/26:
+            description: ''
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: A8:B1:D4:BA:18:1A
+            speed: 10
+        GigabitEthernet2/0/27:
+            description: ''
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: A8:B1:D4:BA:18:1B
+            speed: 10
+        GigabitEthernet2/0/28:
+            description: ''
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: A8:B1:D4:BA:18:1C
+            speed: 10
+        GigabitEthernet2/0/3:
+            description: 'SEVER ESXI '
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: A8:B1:D4:BA:18:03
+            speed: 10
+        GigabitEthernet2/0/4:
+            description: 'SEVER ESXI '
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: A8:B1:D4:BA:18:04
+            speed: 1000
+        GigabitEthernet2/0/5:
+            description: 'SEVER ESXI '
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: A8:B1:D4:BA:18:05
+            speed: 1000
+        GigabitEthernet2/0/6:
+            description: 'SEVER ESXI '
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: A8:B1:D4:BA:18:06
+            speed: 10
+        GigabitEthernet2/0/7:
+            description: 'SEVER ESXI '
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: A8:B1:D4:BA:18:07
+            speed: 10
+        GigabitEthernet2/0/8:
+            description: 'SEVER ESXI '
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: A8:B1:D4:BA:18:08
+            speed: 10
+        GigabitEthernet2/0/9:
+            description: 'SEVER ESXI '
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: A8:B1:D4:BA:18:09
+            speed: 10
+        Vlan1:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: A8:B1:D4:BA:18:40
+            speed: 1000
+        Vlan10:
+            description: SRV_Production
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: A8:B1:D4:BA:18:45
+            speed: 1000
+        Vlan101:
+            description: Wifi Users Windows Domain
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: A8:B1:D4:BA:18:58
+            speed: 1000
+        Vlan103:
+            description: Wifi Guest Users
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: A8:B1:D4:BA:18:59
+            speed: 1000
+        Vlan104:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: A8:B1:D4:BA:18:5A
+            speed: 1000
+        Vlan106:
+            description: DHCP End Users SOBA
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: A8:B1:D4:BA:18:5B
+            speed: 1000
+        Vlan107:
+            description: DHCP END Users CCC
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: A8:B1:D4:BA:18:5C
+            speed: 1000
+        Vlan11:
+            description: New-Prod-SRV
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: A8:B1:D4:BA:18:46
+            speed: 1000
+        Vlan116:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: A8:B1:D4:BA:18:5D
+            speed: 1000
+        Vlan13:
+            description: Storage Netapp ISCSI
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: A8:B1:D4:BA:18:47
+            speed: 1000
+        Vlan16:
+            description: VLAN DHCP PRINTER
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: A8:B1:D4:BA:18:48
+            speed: 1000
+        Vlan178:
+            description: DHCP_Antigo_CCC
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: A8:B1:D4:BA:18:5E
+            speed: 1000
+        Vlan19:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: A8:B1:D4:BA:18:49
+            speed: 1000
+        Vlan199:
+            description: New_Management_VLAN
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: A8:B1:D4:BA:18:5F
+            speed: 1000
+        Vlan20:
+            description: Rede Antigo (End_Users)
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: A8:B1:D4:BA:18:4A
+            speed: 1000
+        Vlan201:
+            description: vlan LAYER 2 INDUSTRIAL LAN
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: A8:B1:D4:BA:18:60
+            speed: 1000
+        Vlan21:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: A8:B1:D4:BA:18:4B
+            speed: 1000
+        Vlan22:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: A8:B1:D4:BA:18:4C
+            speed: 1000
+        Vlan255:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: A8:B1:D4:BA:18:61
+            speed: 1000
+        Vlan31:
+            description: ISP TVCABO
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: A8:B1:D4:BA:18:4D
+            speed: 1000
+        Vlan32:
+            description: Link-to-Inside NIC ASA
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: A8:B1:D4:BA:18:4E
+            speed: 1000
+        Vlan33:
+            description: Reserved ISP BACKUP
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: A8:B1:D4:BA:18:4F
+            speed: 1000
+        Vlan34:
+            description: RESERVED ISP Primary
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: A8:B1:D4:BA:18:50
+            speed: 1000
+        Vlan35:
+            description: LINK WAN
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: A8:B1:D4:BA:18:51
+            speed: 1000
+        Vlan4:
+            description: Voz Temporary CCC lubango
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: A8:B1:D4:BA:18:41
+            speed: 1000
+        Vlan40:
+            description: Link to NIC inside TMG
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: A8:B1:D4:BA:18:52
+            speed: 1000
+        Vlan45:
+            description: VLAN CHECKPOINT INSIDE
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: A8:B1:D4:BA:18:53
+            speed: 1000
+        Vlan6:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: A8:B1:D4:BA:18:42
+            speed: 1000
+        Vlan70:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: A8:B1:D4:BA:18:54
+            speed: 1000
+        Vlan8:
+            description: Rede Antiga CCC
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: A8:B1:D4:BA:18:43
+            speed: 1000
+        Vlan87:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: A8:B1:D4:BA:18:55
+            speed: 1000
+        Vlan9:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: A8:B1:D4:BA:18:44
+            speed: 1000
+        Vlan98:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: A8:B1:D4:BA:18:56
+            speed: 1000
+        Vlan99:
+            description: Management & Native
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: A8:B1:D4:BA:18:57
+            speed: 1000
+    napalm_interfaces_ip:
+        Vlan10:
+            ipv4:
+                10.2.10.1:
+                    prefix_length: 24
+        Vlan101:
+            ipv4:
+                10.90.101.254:
+                    prefix_length: 24
+        Vlan103:
+            ipv4:
+                10.90.103.254:
+                    prefix_length: 23
+        Vlan104:
+            ipv4:
+                10.90.104.254:
+                    prefix_length: 24
+        Vlan106:
+            ipv4:
+                10.90.106.254:
+                    prefix_length: 24
+        Vlan107:
+            ipv4:
+                10.90.107.254:
+                    prefix_length: 24
+        Vlan11:
+            ipv4:
+                10.90.10.254:
+                    prefix_length: 24
+        Vlan116:
+            ipv4:
+                10.90.116.6:
+                    prefix_length: 29
+        Vlan13:
+            ipv4:
+                10.90.13.254:
+                    prefix_length: 24
+        Vlan16:
+            ipv4:
+                10.90.16.254:
+                    prefix_length: 24
+        Vlan19:
+            ipv4:
+                10.90.19.254:
+                    prefix_length: 24
+        Vlan199:
+            ipv4:
+                10.90.99.254:
+                    prefix_length: 24
+        Vlan20:
+            ipv4:
+                10.2.1.253:
+                    prefix_length: 24
+        Vlan22:
+            ipv4:
+                10.90.22.254:
+                    prefix_length: 30
+        Vlan255:
+            ipv4:
+                10.90.255.1:
+                    prefix_length: 30
+        Vlan32:
+            ipv4:
+                10.90.32.1:
+                    prefix_length: 29
+        Vlan35:
+            ipv4:
+                10.90.35.2:
+                    prefix_length: 30
+        Vlan4:
+            ipv4:
+                10.90.4.254:
+                    prefix_length: 24
+        Vlan40:
+            ipv4:
+                10.90.40.1:
+                    prefix_length: 30
+        Vlan45:
+            ipv4:
+                10.90.45.1:
+                    prefix_length: 30
+        Vlan6:
+            ipv4:
+                10.90.6.254:
+                    prefix_length: 24
+        Vlan87:
+            ipv4:
+                10.90.87.6:
+                    prefix_length: 29
+        Vlan9:
+            ipv4:
+                10.90.9.254:
+                    prefix_length: 24
+        Vlan98:
+            ipv4:
+                10.90.98.254:
+                    prefix_length: 24
+        Vlan99:
+            ipv4:
+                10.2.99.253:
+                    prefix_length: 24
+    napalm_model: WS-C3750G-24TS-1U
+    napalm_os_version: C3750 Software (C3750-IPSERVICESK9-M), Version 12.2(58)SE2,
+        RELEASE SOFTWARE (fc1)
+    napalm_serial_number: FOC1423Z6A0
+    napalm_uptime: 12542880
+    napalm_vendor: Cisco
+changed: false
+failed: false

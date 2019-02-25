@@ -1,0 +1,307 @@
+get_facts:
+    napalm_facts:
+        fqdn: SW24PoE_SOBA_N.Portaria.victoria.local
+        hostname: SW24PoE_SOBA_N.Portaria
+        interface_list:
+        - Vlan1
+        - Vlan199
+        - FastEthernet0
+        - GigabitEthernet1/0/1
+        - GigabitEthernet1/0/2
+        - GigabitEthernet1/0/3
+        - GigabitEthernet1/0/4
+        - GigabitEthernet1/0/5
+        - GigabitEthernet1/0/6
+        - GigabitEthernet1/0/7
+        - GigabitEthernet1/0/8
+        - GigabitEthernet1/0/9
+        - GigabitEthernet1/0/10
+        - GigabitEthernet1/0/11
+        - GigabitEthernet1/0/12
+        - GigabitEthernet1/0/13
+        - GigabitEthernet1/0/14
+        - GigabitEthernet1/0/15
+        - GigabitEthernet1/0/16
+        - GigabitEthernet1/0/17
+        - GigabitEthernet1/0/18
+        - GigabitEthernet1/0/19
+        - GigabitEthernet1/0/20
+        - GigabitEthernet1/0/21
+        - GigabitEthernet1/0/22
+        - GigabitEthernet1/0/23
+        - GigabitEthernet1/0/24
+        - GigabitEthernet1/0/25
+        - GigabitEthernet1/0/26
+        - GigabitEthernet1/0/27
+        - GigabitEthernet1/0/28
+        model: WS-C2960S-24PS-L
+        os_version: C2960S Software (C2960S-UNIVERSALK9-M), Version 12.2(55)SE8, RELEASE
+            SOFTWARE (fc2)
+        serial_number: FOC1836Z2J9
+        uptime: 56881800
+        vendor: Cisco
+    napalm_fqdn: SW24PoE_SOBA_N.Portaria.victoria.local
+    napalm_hostname: SW24PoE_SOBA_N.Portaria
+    napalm_interface_list:
+    - Vlan1
+    - Vlan199
+    - FastEthernet0
+    - GigabitEthernet1/0/1
+    - GigabitEthernet1/0/2
+    - GigabitEthernet1/0/3
+    - GigabitEthernet1/0/4
+    - GigabitEthernet1/0/5
+    - GigabitEthernet1/0/6
+    - GigabitEthernet1/0/7
+    - GigabitEthernet1/0/8
+    - GigabitEthernet1/0/9
+    - GigabitEthernet1/0/10
+    - GigabitEthernet1/0/11
+    - GigabitEthernet1/0/12
+    - GigabitEthernet1/0/13
+    - GigabitEthernet1/0/14
+    - GigabitEthernet1/0/15
+    - GigabitEthernet1/0/16
+    - GigabitEthernet1/0/17
+    - GigabitEthernet1/0/18
+    - GigabitEthernet1/0/19
+    - GigabitEthernet1/0/20
+    - GigabitEthernet1/0/21
+    - GigabitEthernet1/0/22
+    - GigabitEthernet1/0/23
+    - GigabitEthernet1/0/24
+    - GigabitEthernet1/0/25
+    - GigabitEthernet1/0/26
+    - GigabitEthernet1/0/27
+    - GigabitEthernet1/0/28
+    napalm_interfaces:
+        FastEthernet0:
+            description: ''
+            is_enabled: false
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 68:99:CD:31:29:37
+            speed: 100
+        GigabitEthernet1/0/1:
+            description: Reserved END Users
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 68:99:CD:31:29:01
+            speed: 10
+        GigabitEthernet1/0/10:
+            description: Reserved END Users
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 68:99:CD:31:29:0A
+            speed: 10
+        GigabitEthernet1/0/11:
+            description: Reserved END Users
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 68:99:CD:31:29:0B
+            speed: 10
+        GigabitEthernet1/0/12:
+            description: Reserved END Users
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 68:99:CD:31:29:0C
+            speed: 10
+        GigabitEthernet1/0/13:
+            description: Reserved END Users
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 68:99:CD:31:29:0D
+            speed: 10
+        GigabitEthernet1/0/14:
+            description: Reserved END Users
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 68:99:CD:31:29:0E
+            speed: 10
+        GigabitEthernet1/0/15:
+            description: Reserved END Users
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 68:99:CD:31:29:0F
+            speed: 100
+        GigabitEthernet1/0/16:
+            description: Reserved END Users
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 68:99:CD:31:29:10
+            speed: 10
+        GigabitEthernet1/0/17:
+            description: RESERVED_BIOMETRICO
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 68:99:CD:31:29:11
+            speed: 100
+        GigabitEthernet1/0/18:
+            description: RESERVED_BIOMETRICO
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 68:99:CD:31:29:12
+            speed: 100
+        GigabitEthernet1/0/19:
+            description: Reserved CCTV
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 68:99:CD:31:29:13
+            speed: 10
+        GigabitEthernet1/0/2:
+            description: Reserved END Users
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 68:99:CD:31:29:02
+            speed: 10
+        GigabitEthernet1/0/20:
+            description: Reserved CCTV
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 68:99:CD:31:29:14
+            speed: 10
+        GigabitEthernet1/0/21:
+            description: Reserved CCTV
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 68:99:CD:31:29:15
+            speed: 100
+        GigabitEthernet1/0/22:
+            description: Reserved CCTV
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 68:99:CD:31:29:16
+            speed: 100
+        GigabitEthernet1/0/23:
+            description: For_Future(no Config)
+            is_enabled: false
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 68:99:CD:31:29:17
+            speed: 10
+        GigabitEthernet1/0/24:
+            description: Reserved To Trunk
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 68:99:CD:31:29:18
+            speed: 1000
+        GigabitEthernet1/0/25:
+            description: ''
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 68:99:CD:31:29:19
+            speed: 10
+        GigabitEthernet1/0/26:
+            description: ''
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 68:99:CD:31:29:1A
+            speed: 10
+        GigabitEthernet1/0/27:
+            description: ''
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 68:99:CD:31:29:1B
+            speed: 10
+        GigabitEthernet1/0/28:
+            description: ''
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 68:99:CD:31:29:1C
+            speed: 10
+        GigabitEthernet1/0/3:
+            description: Reserved END Users
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 68:99:CD:31:29:03
+            speed: 1000
+        GigabitEthernet1/0/4:
+            description: Reserved END Users
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 68:99:CD:31:29:04
+            speed: 10
+        GigabitEthernet1/0/5:
+            description: Reserved END Users
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 68:99:CD:31:29:05
+            speed: 100
+        GigabitEthernet1/0/6:
+            description: Reserved END Users
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 68:99:CD:31:29:06
+            speed: 100
+        GigabitEthernet1/0/7:
+            description: Reserved END Users
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 68:99:CD:31:29:07
+            speed: 10
+        GigabitEthernet1/0/8:
+            description: Reserved END Users
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 68:99:CD:31:29:08
+            speed: 100
+        GigabitEthernet1/0/9:
+            description: Reserved END Users
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 68:99:CD:31:29:09
+            speed: 10
+        Vlan1:
+            description: ''
+            is_enabled: false
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 68:99:CD:31:29:40
+            speed: 1000
+        Vlan199:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 68:99:CD:31:29:41
+            speed: 1000
+    napalm_interfaces_ip:
+        Vlan199:
+            ipv4:
+                10.90.99.27:
+                    prefix_length: 24
+    napalm_model: WS-C2960S-24PS-L
+    napalm_os_version: C2960S Software (C2960S-UNIVERSALK9-M), Version 12.2(55)SE8,
+        RELEASE SOFTWARE (fc2)
+    napalm_serial_number: FOC1836Z2J9
+    napalm_uptime: 56881800
+    napalm_vendor: Cisco
+changed: false
+failed: false
