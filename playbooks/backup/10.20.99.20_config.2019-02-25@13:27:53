@@ -1,0 +1,659 @@
+Building configuration...
+
+Current configuration : 19384 bytes
+!
+! Last configuration change at 13:23:54 UTC Mon Feb 25 2019 by junior.mateus
+!
+version 12.2
+no service pad
+service timestamps debug datetime msec
+service timestamps log datetime msec
+service password-encryption
+!
+hostname NCLSW24PoE_Producao
+!
+boot-start-marker
+boot-end-marker
+!
+enable password 7 024D2A54080703731C1E50
+!
+username admin privilege 15 password 7 090760061A041B405B5C5D
+aaa new-model
+!
+!
+aaa authentication login use-srvtacacs group tacacs+ local enable
+aaa authentication enable default group tacacs+ enable
+aaa authorization console
+aaa authorization exec use-srvtacacs group tacacs+ local if-authenticated 
+aaa authorization commands 1 default group tacacs+ if-authenticated 
+aaa authorization commands 15 default group tacacs+ local if-authenticated 
+aaa accounting send stop-record authentication failure 
+aaa accounting exec default start-stop group tacacs+
+aaa accounting network default start-stop group tacacs+
+aaa accounting connection default start-stop group tacacs+
+aaa accounting system default start-stop group tacacs+
+aaa accounting resource default start-stop group tacacs+
+!
+!
+!
+aaa session-id common
+system mtu routing 1500
+ip subnet-zero
+!
+ip domain-name victoria.local
+!
+password encryption aes
+!
+crypto pki trustpoint TP-self-signed-1363108352
+ enrollment selfsigned
+ subject-name cn=IOS-Self-Signed-Certificate-1363108352
+ revocation-check none
+ rsakeypair TP-self-signed-1363108352
+!
+!
+crypto pki certificate chain TP-self-signed-1363108352
+ certificate self-signed 01
+  3082024C 308201B5 A0030201 02020101 300D0609 2A864886 F70D0101 04050030 
+  31312F30 2D060355 04031326 494F532D 53656C66 2D536967 6E65642D 43657274 
+  69666963 6174652D 31333633 31303833 3532301E 170D3136 30333231 30383431 
+  32345A17 0D323030 31303130 30303030 305A3031 312F302D 06035504 03132649 
+  4F532D53 656C662D 5369676E 65642D43 65727469 66696361 74652D31 33363331 
+  30383335 3230819F 300D0609 2A864886 F70D0101 01050003 818D0030 81890281 
+  8100B8B1 906DEE46 66351B6E 5F7576C8 C24DAC4F 964FE2F3 7C5ACF87 89D8F985 
+  6B419E64 28800468 B12078FC 20D76CAF B315CFA3 DA481E1C 6974BDCD A074DFEB 
+  C4495261 5AF5FE10 72871174 ABC18E65 FBF5EE46 8871BE3F 8B83FC13 10D7006B 
+  816E74F1 0B4352DA 9047A4DC 44A3517A CF39567B BF28921E 860B4288 94F29363 
+  6BC10203 010001A3 74307230 0F060355 1D130101 FF040530 030101FF 301F0603 
+  551D1104 18301682 144E434C 53573234 506F455F 50726F64 7563616F 2E301F06 
+  03551D23 04183016 801475A8 19CD97BC 06442EFC 0DD55C5D C881ECC3 77B9301D 
+  0603551D 0E041604 1475A819 CD97BC06 442EFC0D D55C5DC8 81ECC377 B9300D06 
+  092A8648 86F70D01 01040500 03818100 64DD1BF9 45FFE1DE 501FCD61 12C208C4 
+  89CAE56A C4109239 7AF7E71D 0FAD2840 81DF389F 707044A0 8A53AE99 5E5558BD 
+  4B9DDE93 89FEF082 A9C60E6D 89D376E4 D2E5B7C8 923E5D2E 4D48F2EA A4E4B83B 
+  2548DC73 00415DCD 12F15185 39E38D09 F6A7BAE4 D9F9A86C FC62C801 1937E282 
+  1A0C5357 EF6F7E4F 6D01C2C6 25C73BDC
+  quit
+!
+!
+!
+!
+!
+errdisable recovery cause udld
+errdisable recovery cause bpduguard
+errdisable recovery cause security-violation
+errdisable recovery cause pagp-flap
+errdisable recovery cause dtp-flap
+errdisable recovery cause link-flap
+errdisable recovery cause sfp-config-mismatch
+errdisable recovery cause gbic-invalid
+errdisable recovery cause psecure-violation
+errdisable recovery cause port-mode-failure
+errdisable recovery cause dhcp-rate-limit
+errdisable recovery cause mac-limit
+errdisable recovery cause vmps
+errdisable recovery cause storm-control
+errdisable recovery cause inline-power
+errdisable recovery cause loopback
+errdisable recovery cause small-frame
+archive
+ log config
+  logging enable
+  logging size 1000
+  notify syslog contenttype plaintext
+  hidekeys
+ path ftp://10.30.23.1/$h-$t
+ write-memory
+!
+spanning-tree mode rapid-pvst
+spanning-tree loopguard default
+spanning-tree portfast default
+spanning-tree portfast bpduguard default
+spanning-tree portfast bpdufilter default
+spanning-tree extend system-id
+spanning-tree uplinkfast
+spanning-tree backbonefast
+!
+vlan internal allocation policy ascending
+!
+ip ftp username ciscoBKP
+ip ftp password 7 03075218050003677E
+ip ssh version 2
+ip scp server enable
+!
+class-map match-all AUTOQOS_MULTIENHANCED_CONF_CLASS
+ match access-group name AUTOQOS-ACL-MULTIENHANCED-CONF
+class-map match-any AUTOQOS_VOIP_DATA_CLASS
+ match ip dscp ef 
+class-map match-all AUTOQOS_DEFAULT_CLASS
+ match access-group name AUTOQOS-ACL-DEFAULT
+class-map match-all AUTOQOS_TRANSACTION_CLASS
+ match access-group name AUTOQOS-ACL-TRANSACTIONAL-DATA
+class-map match-all AUTOQOS_VOIP_SIGNAL_CLASS
+ match ip dscp cs3 
+class-map match-all AUTOQOS_SIGNALING_CLASS
+ match access-group name AUTOQOS-ACL-SIGNALING
+class-map match-all AUTOQOS_BULK_DATA_CLASS
+ match access-group name AUTOQOS-ACL-BULK-DATA
+class-map match-all AUTOQOS_SCAVANGER_CLASS
+ match access-group name AUTOQOS-ACL-SCAVANGER
+!
+!
+policy-map AUTOQOS-SRND4-SOFTPHONE-POLICY
+ class AUTOQOS_VOIP_DATA_CLASS
+  set dscp ef
+ class AUTOQOS_MULTIENHANCED_CONF_CLASS
+  set dscp af41
+  police 5000000 8000 exceed-action drop
+ class AUTOQOS_BULK_DATA_CLASS
+  set dscp af11
+  police 10000000 8000 exceed-action policed-dscp-transmit
+ class AUTOQOS_TRANSACTION_CLASS
+  set dscp af21
+  police 10000000 8000 exceed-action policed-dscp-transmit
+ class AUTOQOS_SCAVANGER_CLASS
+  set dscp cs1
+  police 10000000 8000 exceed-action drop
+ class AUTOQOS_SIGNALING_CLASS
+  set dscp cs3
+ class AUTOQOS_DEFAULT_CLASS
+  set dscp default
+  police 10000000 8000 exceed-action policed-dscp-transmit
+!
+!
+!
+interface FastEthernet0/1
+ description RESERVED IPT+DATA
+ switchport access vlan 106
+ switchport mode access
+ switchport voice vlan 3
+ switchport port-security maximum 5
+ switchport port-security
+ switchport port-security aging time 5
+ switchport port-security violation restrict
+ switchport port-security aging type inactivity
+ srr-queue bandwidth share 1 30 35 5
+ srr-queue bandwidth shape  10  0  0  0 
+ priority-queue out 
+ mls qos trust device cisco-phone
+ mls qos trust cos
+ spanning-tree portfast
+!
+interface FastEthernet0/2
+ description RESERVED IPT+DATA
+ switchport access vlan 106
+ switchport mode access
+ switchport voice vlan 3
+ switchport port-security maximum 5
+ switchport port-security
+ switchport port-security aging time 5
+ switchport port-security violation restrict
+ switchport port-security aging type inactivity
+ srr-queue bandwidth share 1 30 35 5
+ srr-queue bandwidth shape  10  0  0  0 
+ priority-queue out 
+ mls qos trust device cisco-phone
+ mls qos trust cos
+ spanning-tree portfast
+!
+interface FastEthernet0/3
+ description RESERVED IPT+DATA
+ switchport access vlan 106
+ switchport mode access
+ switchport voice vlan 3
+ switchport port-security maximum 5
+ switchport port-security
+ switchport port-security aging time 5
+ switchport port-security violation restrict
+ switchport port-security aging type inactivity
+ srr-queue bandwidth share 1 30 35 5
+ srr-queue bandwidth shape  10  0  0  0 
+ priority-queue out 
+ mls qos trust device cisco-phone
+ mls qos trust cos
+ spanning-tree portfast
+!
+interface FastEthernet0/4
+ description RESERVED IPT+DATA
+ switchport access vlan 106
+ switchport mode access
+ switchport voice vlan 3
+ switchport port-security maximum 5
+ switchport port-security
+ switchport port-security aging time 5
+ switchport port-security violation restrict
+ switchport port-security aging type inactivity
+ srr-queue bandwidth share 1 30 35 5
+ srr-queue bandwidth shape  10  0  0  0 
+ priority-queue out 
+ mls qos trust device cisco-phone
+ mls qos trust cos
+ spanning-tree portfast
+!
+interface FastEthernet0/5
+ description RESERVED IPT+DATA
+ switchport access vlan 106
+ switchport mode access
+ switchport voice vlan 3
+ switchport port-security maximum 5
+ switchport port-security
+ switchport port-security aging time 5
+ switchport port-security violation restrict
+ switchport port-security aging type inactivity
+ srr-queue bandwidth share 1 30 35 5
+ srr-queue bandwidth shape  10  0  0  0 
+ priority-queue out 
+ mls qos trust device cisco-phone
+ mls qos trust cos
+ spanning-tree portfast
+!
+interface FastEthernet0/6
+ description RESERVED IPT+DATA
+ switchport access vlan 106
+ switchport mode access
+ switchport voice vlan 3
+ switchport port-security maximum 5
+ switchport port-security
+ switchport port-security aging time 5
+ switchport port-security violation restrict
+ switchport port-security aging type inactivity
+ srr-queue bandwidth share 1 30 35 5
+ srr-queue bandwidth shape  10  0  0  0 
+ priority-queue out 
+ mls qos trust device cisco-phone
+ mls qos trust cos
+ spanning-tree portfast
+!
+interface FastEthernet0/7
+ description Vlan_Residencia
+ switchport access vlan 200
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/8
+ description RESERVED IPT+DATA
+ switchport access vlan 106
+ switchport mode access
+ switchport voice vlan 3
+ switchport port-security maximum 5
+ switchport port-security
+ switchport port-security aging time 5
+ switchport port-security violation restrict
+ switchport port-security aging type inactivity
+ srr-queue bandwidth share 1 30 35 5
+ srr-queue bandwidth shape  10  0  0  0 
+ priority-queue out 
+ mls qos trust device cisco-phone
+ mls qos trust cos
+ spanning-tree portfast
+!
+interface FastEthernet0/9
+ description RESERVED IPT+DATA
+ switchport access vlan 106
+ switchport mode access
+ switchport voice vlan 3
+ switchport port-security maximum 5
+ switchport port-security
+ switchport port-security aging time 5
+ switchport port-security violation restrict
+ switchport port-security aging type inactivity
+ srr-queue bandwidth share 1 30 35 5
+ srr-queue bandwidth shape  10  0  0  0 
+ priority-queue out 
+ mls qos trust device cisco-phone
+ mls qos trust cos
+ spanning-tree portfast
+!
+interface FastEthernet0/10
+ description RESERVED IPT+DATA
+ switchport access vlan 106
+ switchport mode access
+ switchport voice vlan 3
+ switchport port-security maximum 5
+ switchport port-security
+ switchport port-security aging time 5
+ switchport port-security violation restrict
+ switchport port-security aging type inactivity
+ srr-queue bandwidth share 1 30 35 5
+ srr-queue bandwidth shape  10  0  0  0 
+ priority-queue out 
+ mls qos trust device cisco-phone
+ mls qos trust cos
+ spanning-tree portfast
+!
+interface FastEthernet0/11
+ description RESERVED IPT+DATA
+ switchport access vlan 106
+ switchport mode access
+ switchport voice vlan 3
+ switchport port-security maximum 5
+ switchport port-security
+ switchport port-security aging time 5
+ switchport port-security violation restrict
+ switchport port-security aging type inactivity
+ srr-queue bandwidth share 1 30 35 5
+ srr-queue bandwidth shape  10  0  0  0 
+ priority-queue out 
+ mls qos trust device cisco-phone
+ mls qos trust cos
+ spanning-tree portfast
+!
+interface FastEthernet0/12
+ description RESERVED IPT+DATA
+ switchport access vlan 106
+ switchport mode access
+ switchport voice vlan 3
+ switchport port-security maximum 5
+ switchport port-security
+ switchport port-security aging time 5
+ switchport port-security violation restrict
+ switchport port-security aging type inactivity
+ srr-queue bandwidth share 1 30 35 5
+ srr-queue bandwidth shape  10  0  0  0 
+ priority-queue out 
+ mls qos trust device cisco-phone
+ mls qos trust cos
+ spanning-tree portfast
+!
+interface FastEthernet0/13
+ description RESERVED IPT+DATA
+ switchport access vlan 106
+ switchport mode access
+ switchport voice vlan 3
+ switchport port-security maximum 5
+ switchport port-security
+ switchport port-security aging time 5
+ switchport port-security violation restrict
+ switchport port-security aging type inactivity
+ srr-queue bandwidth share 1 30 35 5
+ srr-queue bandwidth shape  10  0  0  0 
+ priority-queue out 
+ mls qos trust device cisco-phone
+ mls qos trust cos
+ spanning-tree portfast
+!
+interface FastEthernet0/14
+ description RESERVED IPT+DATA
+ switchport access vlan 106
+ switchport mode access
+ switchport voice vlan 3
+ switchport port-security maximum 5
+ switchport port-security
+ switchport port-security aging time 5
+ switchport port-security violation restrict
+ switchport port-security aging type inactivity
+ srr-queue bandwidth share 1 30 35 5
+ srr-queue bandwidth shape  10  0  0  0 
+ priority-queue out 
+ mls qos trust device cisco-phone
+ mls qos trust cos
+ spanning-tree portfast
+!
+interface FastEthernet0/15
+ description RESERVED IPT+DATA
+ switchport access vlan 106
+ switchport mode access
+ switchport voice vlan 3
+ switchport port-security maximum 5
+ switchport port-security
+ switchport port-security aging time 5
+ switchport port-security violation restrict
+ switchport port-security aging type inactivity
+ srr-queue bandwidth share 1 30 35 5
+ srr-queue bandwidth shape  10  0  0  0 
+ priority-queue out 
+ mls qos trust device cisco-phone
+ mls qos trust cos
+ spanning-tree portfast
+!
+interface FastEthernet0/16
+ description RESERVED IPT+DATA
+ switchport access vlan 106
+ switchport mode access
+ switchport voice vlan 3
+ switchport port-security maximum 5
+ switchport port-security
+ switchport port-security aging time 5
+ switchport port-security violation restrict
+ switchport port-security aging type inactivity
+ srr-queue bandwidth share 1 30 35 5
+ srr-queue bandwidth shape  10  0  0  0 
+ priority-queue out 
+ mls qos trust device cisco-phone
+ mls qos trust cos
+ spanning-tree portfast
+!
+interface FastEthernet0/17
+ description RESERVED IPT+DATA
+ switchport access vlan 106
+ switchport mode access
+ switchport voice vlan 3
+ switchport port-security maximum 5
+ switchport port-security
+ switchport port-security aging time 5
+ switchport port-security violation restrict
+ switchport port-security aging type inactivity
+ srr-queue bandwidth share 1 30 35 5
+ srr-queue bandwidth shape  10  0  0  0 
+ priority-queue out 
+ mls qos trust device cisco-phone
+ mls qos trust cos
+ spanning-tree portfast
+!
+interface FastEthernet0/18
+ description RESERVED IPT+DATA
+ switchport access vlan 106
+ switchport mode access
+ switchport voice vlan 3
+ switchport port-security maximum 5
+ switchport port-security
+ switchport port-security aging time 5
+ switchport port-security violation restrict
+ switchport port-security aging type inactivity
+ srr-queue bandwidth share 1 30 35 5
+ srr-queue bandwidth shape  10  0  0  0 
+ priority-queue out 
+ mls qos trust device cisco-phone
+ mls qos trust cos
+ spanning-tree portfast
+!
+interface FastEthernet0/19
+ description Reserved Printer
+ switchport access vlan 16
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/20
+ description Reserved Printer
+ switchport access vlan 16
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/21
+ description Reserved WireLess
+ switchport access vlan 19
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/22
+ description Reserved CCTV
+ switchport access vlan 19
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/23
+ switchport access vlan 19
+ switchport mode access
+ shutdown
+!
+interface FastEthernet0/24
+ switchport trunk native vlan 99
+ switchport mode trunk
+ srr-queue bandwidth share 1 30 35 5
+ priority-queue out 
+ mls qos trust dscp
+!
+interface GigabitEthernet0/1
+ switchport trunk native vlan 99
+ switchport mode trunk
+ srr-queue bandwidth share 1 30 35 5
+ priority-queue out 
+ mls qos trust dscp
+!
+interface GigabitEthernet0/2
+ switchport trunk native vlan 99
+ switchport mode trunk
+ srr-queue bandwidth share 1 30 35 5
+ priority-queue out 
+ mls qos trust dscp
+!
+interface Vlan1
+ no ip address
+ no ip route-cache
+!
+interface Vlan99
+ description Reserved Managment
+ ip address 10.20.99.20 255.255.255.0
+ no ip route-cache
+!
+ip default-gateway 10.20.99.252
+ip http server
+ip http authentication aaa login-authentication use-srvtacacs
+ip http authentication aaa exec-authorization use-srvtacacs
+ip http authentication aaa command-authorization 15 default
+no ip http secure-server
+!
+ip access-list extended AUTOQOS-ACL-BULK-DATA
+ remark Web Traffic
+ permit tcp any any eq www
+ permit tcp any any eq 443
+ permit tcp any any eq ftp-data
+ permit tcp any any eq ftp
+ permit tcp any any eq 4434
+ permit tcp any eq 4434 any
+ip access-list extended AUTOQOS-ACL-DEFAULT
+ remark Best Effort
+ permit tcp any any
+ip access-list extended AUTOQOS-ACL-MULTIENHANCED-CONF
+ remark IP/VC or SOFTPHONE
+ permit udp any any range 16348 32767
+ip access-list extended AUTOQOS-ACL-SCAVANGER
+ remark Kazaa
+ permit tcp any any eq 1214
+ permit udp any any eq 1214
+ remark MICROSOFT DIRECT X GAMING
+ permit tcp any any range 2300 2400
+ permit udp any any range 2300 2400
+ remark Apple ITunes Music SAHRING
+ permit tcp any any eq 3689
+ permit udp any any eq 3689
+ remark BITTORENTS
+ permit tcp any any range 6881 6999
+ remark YAHOO GAMES
+ permit tcp any any eq 11999
+ remark MSN GAMING ZONE
+ permit tcp any any range 28800 29100
+ remark FasTrack
+ remark Gnutella
+ permit udp any any eq 6346
+ permit udp any any eq 6347
+ permit udp any any eq 6348
+ permit tcp any any eq 6346
+ permit tcp any any eq 6347
+ permit tcp any any eq 6348
+ permit tcp any any eq 6349
+ permit tcp any any eq 6355
+ permit tcp any any eq 5634
+ remark Edonkey
+ permit tcp any any eq 4662
+ip access-list extended AUTOQOS-ACL-SIGNALING
+ remark SoftPhone SCCP
+ permit tcp any any range 2000 2002
+ remark SIP
+ permit tcp any any range 5060 5061
+ permit udp any any range 5060 5061
+ip access-list extended AUTOQOS-ACL-TRANSACTIONAL-DATA
+ remark Exchange server
+ permit tcp any any eq 135
+ remark SMTP
+ permit tcp any any eq smtp
+ remark Secure-SMTP
+ permit tcp any any eq 589
+ permit tcp any any eq 993
+ remark Secure-POP3
+ permit tcp any any eq 995
+ remark Kerberos
+ permit tcp any any eq 88
+ permit tcp any any eq 749
+ permit udp any any eq 88
+ permit udp any any eq 749
+ remark Net-Bios
+ permit tcp any any eq 139
+ permit tcp any any eq 137
+ permit udp any any eq netbios-ns
+ permit udp any any eq netbios-dgm
+ remark LDAP
+ permit tcp any any eq 389
+ remark Microsoft_ds (Active Directory)
+ permit tcp any any eq 445
+ permit udp any any eq 445
+ remark Ms_WBT_server or RDP
+ permit tcp any any eq 3389
+ remark SQL
+ permit tcp any any eq 1521
+ remark SNMP
+ permit tcp any any eq 161
+ permit tcp any any eq 162
+ permit udp any any eq snmp
+ remark NTP
+ permit tcp any any eq 37
+ permit udp any any eq time
+ remark Syslogs
+ permit udp any any eq syslog
+ remark NFS (Network File System )
+ permit tcp any any eq 2049
+ permit udp any any eq 2049
+ip access-list extended AUTOQOS_VOIP_DATA_CLASS
+ remark RTP (VOICE)
+ permit udp any any range 16384 32767
+access-list 55 permit 10.20.5.50
+access-list 55 permit 10.30.10.50
+snmp-server community Nocal RO 55
+snmp-server community Nocal_admin RW 55
+snmp-server community victoria_pub RO
+snmp-server community victoria_wr RW
+snmp-server location DATACENTER VICTORIA
+snmp-server contact support.helpdesk@bihangola.net
+snmp-server host 10.30.99.251 version 2c victoria_pub 
+snmp ifmib ifindex persist
+tacacs-server host 10.30.10.10 timeout 5
+tacacs-server directed-request
+tacacs-server key 7 06155C225E1D1D4B554644
+!
+control-plane
+!
+alias exec arch sh archive log config all
+!
+line con 0
+ exec-timeout 15 0
+ privilege level 15
+ logging synchronous
+ login authentication use-srvtacacs
+ length 0
+line vty 0 4
+ exec-timeout 15 0
+ privilege level 15
+ logging synchronous
+ login authentication use-srvtacacs
+ length 0
+ transport input telnet ssh
+line vty 5 15
+ exec-timeout 15 0
+ privilege level 15
+ logging synchronous
+ login authentication use-srvtacacs
+ length 0
+ transport input ssh
+!
+ntp clock-period 36029222
+ntp server 10.20.99.252
+end

@@ -1,0 +1,254 @@
+Building configuration...
+
+Current configuration : 6030 bytes
+!
+! No configuration change since last restart
+version 15.2
+service timestamps debug datetime msec
+service timestamps log datetime msec
+service password-encryption
+!
+hostname RT-VIDRUL-WAN
+!
+boot-start-marker
+boot-end-marker
+!
+!
+logging buffered 10000
+!
+aaa new-model
+!
+!
+aaa authentication login use-srvtacacs group tacacs+ local enable
+aaa authentication enable default group tacacs+ enable
+aaa authorization console
+aaa authorization exec use-srvtacacs group tacacs+ local if-authenticated 
+aaa authorization commands 1 default group tacacs+ if-authenticated 
+aaa authorization commands 15 default group tacacs+ local if-authenticated 
+aaa accounting send stop-record authentication failure
+aaa accounting exec default start-stop group tacacs+
+aaa accounting network default start-stop group tacacs+
+aaa accounting connection default start-stop group tacacs+
+aaa accounting system default start-stop group tacacs+
+aaa accounting resource default start-stop group tacacs+
+!
+!
+!
+!
+!
+aaa session-id common
+!
+clock timezone WAT 1 0
+!
+no ipv6 cef
+!
+flow record MYRECORD
+ match ipv4 protocol
+ match ipv4 source address
+ match ipv4 destination address
+ match transport source-port
+ match transport destination-port
+ match interface input
+ match application name
+ collect ipv4 dscp
+ collect interface output
+ collect counter bytes
+ collect counter packets
+!
+!
+flow exporter IT360_NETFLOWANYLAYSER
+ destination 10.70.1.50
+ transport udp 9996
+!
+!
+flow exporter MY_IT360_Export
+ destination 10.30.10.6
+ transport udp 2055
+!
+!
+flow monitor MYMONITOR
+ record MYRECORD
+ exporter IT360_NETFLOWANYLAYSER
+!
+!
+!
+!
+no ip dhcp use vrf connected
+!
+!
+no ip domain lookup
+ip domain name victoria.local
+ip name-server 10.30.10.1
+ip name-server 10.30.10.10
+ip cef
+!
+multilink bundle-name authenticated
+!
+crypto pki token default removal timeout 0
+!
+!
+license udi pid CISCO1921/K9 sn FCZ15509188
+!
+!
+archive
+ log config
+  logging enable
+  logging size 1000
+  notify syslog contenttype plaintext
+  hidekeys
+username admin privilege 15 password 7 1456240208567A7A7062
+!
+redundancy
+!
+!
+!
+!
+!
+ip ssh version 2
+ip scp server enable
+! 
+!
+!
+!
+!
+!
+!
+!
+!
+interface Embedded-Service-Engine0/0
+ no ip address
+ shutdown
+!
+interface GigabitEthernet0/0
+ description VLAN 35 Router->ASAFW (E0/2)
+ ip address 10.70.35.1 255.255.255.252
+ ip nbar protocol-discovery
+ ip flow monitor MYMONITOR input
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet0/1
+ description Radio Nera (Vidrul-> TerraVerde)
+ bandwidth 80000
+ ip address 172.31.255.50 255.255.255.252
+ ip nbar protocol-discovery
+ ip flow monitor MYMONITOR input
+ ip flow monitor MYMONITOR output
+ ip flow ingress
+ ip summary-address eigrp 800 10.70.0.0 255.255.0.0
+ load-interval 30
+ duplex auto
+ speed auto
+!
+!
+router eigrp 800
+ network 10.70.35.0 0.0.0.3
+ network 172.31.255.48 0.0.0.3
+!
+ip forward-protocol nd
+!
+ip http server
+ip http authentication aaa login-authentication use-srvtacacs
+ip http authentication aaa exec-authorization use-srvtacacs
+ip http authentication aaa command-authorization 15 default
+no ip http secure-server
+ip flow-export destination 10.30.10.6 2055
+!
+!
+!
+ip prefix-list lanVidrul seq 5 permit 10.70.0.0/16
+ip prefix-list lanVidrul seq 6 permit 172.19.253.4/30
+ip sla 100
+ icmp-echo 172.31.255.18 source-ip 172.31.255.50
+ request-data-size 24
+ tos 30
+ owner OpManager
+ threshold 100
+ timeout 60000
+ip sla schedule 100 life forever start-time 17:48:09 Jul 08 ageout 60
+ip sla 101
+ path-echo 172.31.255.18 source-ip 172.31.255.50
+ tos 30
+ request-data-size 24
+ owner OpManager
+ threshold 100
+ timeout 60000
+ paths-of-statistics-kept 2
+ hops-of-statistics-kept 15
+ip sla schedule 101 life forever start-time 17:44:10 Jul 08 ageout 3600
+access-list 55 permit 10.30.10.6
+access-list 55 remark SNMP Traffic
+access-list 55 permit 10.70.1.50
+access-list 55 permit 10.70.99.0 0.0.0.255
+access-list 55 deny   any log
+!
+!
+!
+!
+route-map eigrp_adv_stat permit 10
+ description redistribute static route
+ match ip address prefix-list lanVidrul
+!
+!
+snmp-server community VIDRUL RO 55
+snmp-server community VIDRUL_admin RW 55
+snmp-server enable traps entity-sensor threshold
+tacacs-server host 10.30.10.10
+tacacs-server key 7 140441081E573E79747965
+!
+!
+!
+control-plane
+!
+!
+alias exec nbar sh ip nbar protocol-discovery stats bit-rate top-n 10
+alias exec flow sh flow monitor MYMONITOR cache format tabl
+banner motd ^C
+####################################################################
+#                                                                  #
+#       ----------      SITE VIDRUL CACUACO   -------------        #
+#       ----------       IT DEPARTEMENT       -------------        #
+#                                                                  #
+#       Unauthorized access is prohibit and will be prosecuted     #      
+#  IF Allowed, before Applying any Modification please contact the #
+#                         IT DEPARTEMENT                           #
+#     helpdesk@bihangola.net or suporteit@sabmiller.co.ao          #
+#  _______________________________________________________________ #
+#        GRUPO CUCA BGI ANGOLA    / COCA COLA BOTTLING SA          #
+#                        ( Luanda-ANGOLA )                         #
+#  _______________________________________________________________ #
+#                                                                  #
+####################################################################^C
+!
+line con 0
+ exec-timeout 15 0
+ privilege level 15
+ logging synchronous
+ login authentication use-srvtacacs
+ length 0
+line aux 0
+line 2
+ no activation-character
+ no exec
+ transport preferred none
+ transport input all
+ transport output pad telnet rlogin lapb-ta mop udptn v120 ssh
+ stopbits 1
+line vty 0 4
+ exec-timeout 15 0
+ privilege level 15
+ logging synchronous
+ login authentication use-srvtacacs
+ length 0
+ transport input telnet ssh
+line vty 5 15
+ exec-timeout 15 0
+ privilege level 15
+ logging synchronous
+ login authentication use-srvtacacs
+ length 0
+ transport input ssh
+!
+scheduler allocate 20000 1000
+ntp server 10.30.35.1
+end

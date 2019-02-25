@@ -1,0 +1,285 @@
+Building configuration...
+
+Current configuration : 7939 bytes
+!
+! Last configuration change at 14:23:52 WAT Mon Feb 25 2019 by junior.mateus
+! NVRAM config last updated at 10:25:47 WAT Wed Nov 14 2018 by odorico.domingos
+!
+version 12.2
+no service pad
+service timestamps debug uptime
+service timestamps log uptime
+service password-encryption
+!
+hostname NCL-SW-CONDOMINIO
+!
+boot-start-marker
+boot-end-marker
+!
+enable secret 5 $1$6JEx$tSFhF5jjrEGEDN4HUILTP.
+!
+username admin privilege 15 password 7 134E391D080D08787B7471
+!
+!
+aaa new-model
+!
+!
+aaa authentication login use-srvtacacs group tacacs+ local enable
+aaa authentication enable default group tacacs+ enable
+aaa authorization console
+aaa authorization exec use-srvtacacs group tacacs+ local if-authenticated 
+aaa authorization commands 1 default group tacacs+ if-authenticated 
+aaa authorization commands 15 default group tacacs+ local if-authenticated 
+aaa accounting send stop-record authentication failure
+aaa accounting exec default start-stop group tacacs+
+aaa accounting network default start-stop group tacacs+
+aaa accounting connection default start-stop group tacacs+
+aaa accounting system default start-stop group tacacs+
+aaa accounting resource default start-stop group tacacs+
+!
+!
+!
+aaa session-id common
+clock timezone WAT 1
+system mtu routing 1500
+!
+!
+no ip domain-lookup
+ip domain-name victoria.local
+!
+!
+crypto pki trustpoint TP-self-signed-4140087808
+ enrollment selfsigned
+ subject-name cn=IOS-Self-Signed-Certificate-4140087808
+ revocation-check none
+ rsakeypair TP-self-signed-4140087808
+!
+!
+crypto pki certificate chain TP-self-signed-4140087808
+ certificate self-signed 01
+  3082025D 308201C6 A0030201 02020101 300D0609 2A864886 F70D0101 04050030 
+  31312F30 2D060355 04031326 494F532D 53656C66 2D536967 6E65642D 43657274 
+  69666963 6174652D 34313430 30383738 3038301E 170D3933 30333031 30303032 
+  32315A17 0D323030 31303130 30303030 305A3031 312F302D 06035504 03132649 
+  4F532D53 656C662D 5369676E 65642D43 65727469 66696361 74652D34 31343030 
+  38373830 3830819F 300D0609 2A864886 F70D0101 01050003 818D0030 81890281 
+  8100BB6E F2FD967E C8F0C1C5 8E2E12DA 48712389 84C71F45 24BDE32C 3352D146 
+  75133FA6 646C2605 CD693133 6EEAB9F9 5D30878A 83691C2F 218A438E FCF45526 
+  D8922B6A 3DB97818 07E13818 7B32D2B9 3728FB1D B9B6530B A4922F77 03492BA7 
+  7E7D295E AF170EF8 5FE862F0 4CE13D93 299D7A33 8A50586F E1F54172 6C7B4D2E 
+  F77B0203 010001A3 81843081 81300F06 03551D13 0101FF04 05300301 01FF302E 
+  0603551D 11042730 2582234E 434C2D53 572D434F 4E444F4D 494E494F 2E6E6F63 
+  616C6C75 616E6461 2E6C6F63 616C301F 0603551D 23041830 16801460 17B9FA3A 
+  290610F0 0A31D83B 6ECA729B 47352030 1D060355 1D0E0416 04146017 B9FA3A29 
+  0610F00A 31D83B6E CA729B47 3520300D 06092A86 4886F70D 01010405 00038181 
+  0023A136 72E42F30 87B2B69E 027E67A8 12B00584 8496F299 78D096E7 DFF545F3 
+  9188E63E 9E454618 003D7DF1 375546BC 3EF4008A 598D230D 742C3F99 6AA80BEE 
+  0BB8F1FB 73852959 0BD69C87 7DCA3661 E2FE7F57 70F5687F AFA49073 42C947BA 
+  F91999AF A4BCFA5F 3415D142 D8BBC755 4C018EBD 450547B8 0879A8E8 EA7BB9ED EC
+  quit
+!
+!
+!
+!
+spanning-tree mode rapid-pvst
+spanning-tree loopguard default
+spanning-tree portfast bpduguard default
+spanning-tree portfast bpdufilter default
+spanning-tree extend system-id
+spanning-tree uplinkfast
+spanning-tree backbonefast
+!
+vlan internal allocation policy ascending
+!
+ip ftp username ciscoBKP
+ip ftp password 7 121A0C0411042E2F1A
+ip ssh version 2
+ip scp server enable
+!
+!
+interface GigabitEthernet0/1
+ description RESERVED-CLIENT-RESIDENCE
+ switchport access vlan 200
+ switchport mode access
+ spanning-tree portfast
+!
+interface GigabitEthernet0/2
+ description RESERVED-CLIENT-RESIDENCE
+ switchport access vlan 200
+ switchport mode access
+ spanning-tree portfast
+!
+interface GigabitEthernet0/3
+ description RESERVED-CLIENT-RESIDENCE
+ switchport access vlan 200
+ switchport mode access
+ spanning-tree portfast
+!
+interface GigabitEthernet0/4
+ description RESERVED-CLIENT-RESIDENCE
+ switchport access vlan 200
+ switchport mode access
+ spanning-tree portfast
+!
+interface GigabitEthernet0/5
+ description RESERVED-CLIENT-RESIDENCE
+ switchport access vlan 200
+ switchport mode access
+ spanning-tree portfast
+!
+interface GigabitEthernet0/6
+ description RESERVED-CLIENT-RESIDENCE
+ switchport access vlan 200
+ switchport mode access
+ spanning-tree portfast
+!
+interface GigabitEthernet0/7
+ description RESERVED-CLIENT-RESIDENCE
+ switchport access vlan 200
+ switchport mode access
+!
+interface GigabitEthernet0/8
+ description RESERVED-CLIENT-RESIDENCE
+ switchport access vlan 200
+ switchport mode access
+ spanning-tree portfast
+!
+interface GigabitEthernet0/9
+ description RESERVED-CLIENT-RESIDENCE
+ switchport access vlan 200
+ switchport mode access
+ spanning-tree portfast
+!
+interface GigabitEthernet0/10
+ description RESERVED-CLIENT-RESIDENCE
+ switchport access vlan 200
+ switchport mode access
+ spanning-tree portfast
+!
+interface GigabitEthernet0/11
+ description RESERVED-CLIENT-RESIDENCE
+ switchport access vlan 200
+ switchport mode access
+ spanning-tree portfast
+!
+interface GigabitEthernet0/12
+ description RESERVED-CLIENT-RESIDENCE
+ switchport access vlan 200
+ switchport mode access
+ spanning-tree portfast
+!
+interface GigabitEthernet0/13
+ description RESERVED-CLIENT-RESIDENCE
+ switchport access vlan 200
+ switchport mode access
+ spanning-tree portfast
+!
+interface GigabitEthernet0/14
+ description RESERVED-CLIENT-RESIDENCE
+ switchport access vlan 200
+ switchport mode access
+ spanning-tree portfast
+!
+interface GigabitEthernet0/15
+ description RESERVED-CLIENT-RESIDENCE
+ switchport access vlan 200
+ switchport mode access
+ spanning-tree portfast
+!
+interface GigabitEthernet0/16
+ description RESERVED-CLIENT-RESIDENCE
+ switchport access vlan 200
+ switchport mode access
+ spanning-tree portfast
+!
+interface GigabitEthernet0/17
+ description RESERVED-CLIENT-RESIDENCE
+ switchport access vlan 200
+ switchport mode access
+ spanning-tree portfast
+!
+interface GigabitEthernet0/18
+ description RESERVED-CLIENT-RESIDENCE
+ switchport access vlan 200
+ switchport mode access
+ spanning-tree portfast
+!
+interface GigabitEthernet0/19
+ description RESERVED-CLIENT-RESIDENCE
+ switchport access vlan 200
+ switchport mode access
+ spanning-tree portfast
+!
+interface GigabitEthernet0/20
+ description RESERVED-CLIENT-RESIDENCE
+ switchport access vlan 200
+ switchport mode access
+ spanning-tree portfast
+!
+interface GigabitEthernet0/21
+ description LINK-TRUNK
+ switchport trunk native vlan 99
+ switchport mode trunk
+!
+interface GigabitEthernet0/22
+ description LINK-TRUNK
+ switchport trunk native vlan 99
+ switchport mode trunk
+!
+interface GigabitEthernet0/23
+ description LINK-TRUNK
+ switchport trunk native vlan 99
+ switchport mode trunk
+!
+interface GigabitEthernet0/24
+ description LINK-TRUNK
+ switchport trunk native vlan 99
+ switchport mode trunk
+!
+interface Vlan1
+ no ip address
+ no ip route-cache
+!
+interface Vlan99
+ ip address 10.20.99.6 255.255.255.0
+ no ip route-cache
+!
+ip http server
+ip http authentication aaa login-authentication use-srvtacacs
+ip http authentication aaa exec-authorization use-srvtacacs
+ip http authentication aaa command-authorization 15 default
+no ip http secure-server
+snmp-server community victoria_pub RO
+snmp-server community victoria_wr RW
+snmp-server location DATACENTER VICTORIA
+snmp-server contact support.helpdesk@bihangola.net
+snmp-server host 10.30.99.251 version 2c victoria_pub 
+snmp ifmib ifindex persist
+tacacs-server host 10.30.10.10 timeout 5
+tacacs-server directed-request
+tacacs-server key 7 0017400516081F545F701A
+!
+line con 0
+ exec-timeout 15 0
+ privilege level 15
+ logging synchronous
+ login authentication use-srvtacacs
+ length 0
+line vty 0 4
+ exec-timeout 15 0
+ privilege level 15
+ logging synchronous
+ login authentication use-srvtacacs
+ length 0
+ transport input telnet ssh
+line vty 5 15
+ exec-timeout 15 0
+ privilege level 15
+ logging synchronous
+ login authentication use-srvtacacs
+ length 0
+ transport input ssh
+!
+ntp clock-period 36029547
+ntp server 10.20.99.252
+end

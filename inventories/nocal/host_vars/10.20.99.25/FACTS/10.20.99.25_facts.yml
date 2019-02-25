@@ -1,0 +1,280 @@
+get_facts:
+    napalm_facts:
+        fqdn: NCLswDT.victoria.local
+        hostname: NCLswDT
+        interface_list:
+        - Vlan1
+        - Vlan99
+        - FastEthernet0/1
+        - FastEthernet0/2
+        - FastEthernet0/3
+        - FastEthernet0/4
+        - FastEthernet0/5
+        - FastEthernet0/6
+        - FastEthernet0/7
+        - FastEthernet0/8
+        - FastEthernet0/9
+        - FastEthernet0/10
+        - FastEthernet0/11
+        - FastEthernet0/12
+        - FastEthernet0/13
+        - FastEthernet0/14
+        - FastEthernet0/15
+        - FastEthernet0/16
+        - FastEthernet0/17
+        - FastEthernet0/18
+        - FastEthernet0/19
+        - FastEthernet0/20
+        - FastEthernet0/21
+        - FastEthernet0/22
+        - FastEthernet0/23
+        - FastEthernet0/24
+        - GigabitEthernet0/1
+        - GigabitEthernet0/2
+        model: WS-C2960-24PC-L
+        os_version: C2960 Software (C2960-LANBASEK9-M), Version 12.2(55)SE9, RELEASE
+            SOFTWARE (fc1)
+        serial_number: FOC1442X3AL
+        uptime: 14799120
+        vendor: Cisco
+    napalm_fqdn: NCLswDT.victoria.local
+    napalm_hostname: NCLswDT
+    napalm_interface_list:
+    - Vlan1
+    - Vlan99
+    - FastEthernet0/1
+    - FastEthernet0/2
+    - FastEthernet0/3
+    - FastEthernet0/4
+    - FastEthernet0/5
+    - FastEthernet0/6
+    - FastEthernet0/7
+    - FastEthernet0/8
+    - FastEthernet0/9
+    - FastEthernet0/10
+    - FastEthernet0/11
+    - FastEthernet0/12
+    - FastEthernet0/13
+    - FastEthernet0/14
+    - FastEthernet0/15
+    - FastEthernet0/16
+    - FastEthernet0/17
+    - FastEthernet0/18
+    - FastEthernet0/19
+    - FastEthernet0/20
+    - FastEthernet0/21
+    - FastEthernet0/22
+    - FastEthernet0/23
+    - FastEthernet0/24
+    - GigabitEthernet0/1
+    - GigabitEthernet0/2
+    napalm_interfaces:
+        FastEthernet0/1:
+            description: RESERVED IPT+DATA
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: EC:C8:82:4E:C9:81
+            speed: 100
+        FastEthernet0/10:
+            description: RESERVED IPT+DATA
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: EC:C8:82:4E:C9:8A
+            speed: 100
+        FastEthernet0/11:
+            description: RESERVED IPT+DATA
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: EC:C8:82:4E:C9:8B
+            speed: 100
+        FastEthernet0/12:
+            description: RESERVED IPT+DATA
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: EC:C8:82:4E:C9:8C
+            speed: 100
+        FastEthernet0/13:
+            description: RESERVED IPT+DATA
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: EC:C8:82:4E:C9:8D
+            speed: 10
+        FastEthernet0/14:
+            description: RESERVED IPT+DATA
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: EC:C8:82:4E:C9:8E
+            speed: 100
+        FastEthernet0/15:
+            description: RESERVED IPT+DATA
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: EC:C8:82:4E:C9:8F
+            speed: 10
+        FastEthernet0/16:
+            description: RESERVED IPT+DATA
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: EC:C8:82:4E:C9:90
+            speed: 10
+        FastEthernet0/17:
+            description: RESERVED IPT+DATA
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: EC:C8:82:4E:C9:91
+            speed: 10
+        FastEthernet0/18:
+            description: RESERVED IPT+DATA
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: EC:C8:82:4E:C9:92
+            speed: 100
+        FastEthernet0/19:
+            description: RESERVED IPT+DATA
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: EC:C8:82:4E:C9:93
+            speed: 10
+        FastEthernet0/2:
+            description: RESERVED IPT+DATA
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: EC:C8:82:4E:C9:82
+            speed: 100
+        FastEthernet0/20:
+            description: RESERVED IPT+DATA
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: EC:C8:82:4E:C9:94
+            speed: 100
+        FastEthernet0/21:
+            description: RESERVED CCTV(POE)
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: EC:C8:82:4E:C9:95
+            speed: 10
+        FastEthernet0/22:
+            description: RESERVED CCTV(POE)
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: EC:C8:82:4E:C9:96
+            speed: 100
+        FastEthernet0/23:
+            description: ''
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: EC:C8:82:4E:C9:97
+            speed: 10
+        FastEthernet0/24:
+            description: Reserved AP_DT(WC_10.30.99.50)
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: EC:C8:82:4E:C9:98
+            speed: 100
+        FastEthernet0/3:
+            description: RESERVED IPT+DATA
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: EC:C8:82:4E:C9:83
+            speed: 100
+        FastEthernet0/4:
+            description: RESERVED IPT+DATA
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: EC:C8:82:4E:C9:84
+            speed: 100
+        FastEthernet0/5:
+            description: RESERVED IPT+DATA
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: EC:C8:82:4E:C9:85
+            speed: 100
+        FastEthernet0/6:
+            description: RESERVED IPT+DATA
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: EC:C8:82:4E:C9:86
+            speed: 100
+        FastEthernet0/7:
+            description: RESERVED IPT+DATA
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: EC:C8:82:4E:C9:87
+            speed: 10
+        FastEthernet0/8:
+            description: RESERVED IPT+DATA
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: EC:C8:82:4E:C9:88
+            speed: 10
+        FastEthernet0/9:
+            description: RESERVED IPT+DATA
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: EC:C8:82:4E:C9:89
+            speed: 100
+        GigabitEthernet0/1:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: EC:C8:82:4E:C9:99
+            speed: 100
+        GigabitEthernet0/2:
+            description: ''
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: EC:C8:82:4E:C9:9A
+            speed: 10
+        Vlan1:
+            description: ''
+            is_enabled: false
+            is_up: false
+            last_flapped: -1.0
+            mac_address: EC:C8:82:4E:C9:C0
+            speed: 1000
+        Vlan99:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: EC:C8:82:4E:C9:C1
+            speed: 1000
+    napalm_interfaces_ip:
+        Vlan99:
+            ipv4:
+                10.20.99.25:
+                    prefix_length: 24
+    napalm_model: WS-C2960-24PC-L
+    napalm_os_version: C2960 Software (C2960-LANBASEK9-M), Version 12.2(55)SE9, RELEASE
+        SOFTWARE (fc1)
+    napalm_serial_number: FOC1442X3AL
+    napalm_uptime: 14799120
+    napalm_vendor: Cisco
+changed: false
+failed: false

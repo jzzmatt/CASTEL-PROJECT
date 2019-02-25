@@ -1,0 +1,514 @@
+get_facts:
+    napalm_facts:
+        fqdn: NCLswConta.victoria.local
+        hostname: NCLswConta
+        interface_list:
+        - Vlan1
+        - Vlan99
+        - FastEthernet0/1
+        - FastEthernet0/2
+        - FastEthernet0/3
+        - FastEthernet0/4
+        - FastEthernet0/5
+        - FastEthernet0/6
+        - FastEthernet0/7
+        - FastEthernet0/8
+        - FastEthernet0/9
+        - FastEthernet0/10
+        - FastEthernet0/11
+        - FastEthernet0/12
+        - FastEthernet0/13
+        - FastEthernet0/14
+        - FastEthernet0/15
+        - FastEthernet0/16
+        - FastEthernet0/17
+        - FastEthernet0/18
+        - FastEthernet0/19
+        - FastEthernet0/20
+        - FastEthernet0/21
+        - FastEthernet0/22
+        - FastEthernet0/23
+        - FastEthernet0/24
+        - FastEthernet0/25
+        - FastEthernet0/26
+        - FastEthernet0/27
+        - FastEthernet0/28
+        - FastEthernet0/29
+        - FastEthernet0/30
+        - FastEthernet0/31
+        - FastEthernet0/32
+        - FastEthernet0/33
+        - FastEthernet0/34
+        - FastEthernet0/35
+        - FastEthernet0/36
+        - FastEthernet0/37
+        - FastEthernet0/38
+        - FastEthernet0/39
+        - FastEthernet0/40
+        - FastEthernet0/41
+        - FastEthernet0/42
+        - FastEthernet0/43
+        - FastEthernet0/44
+        - FastEthernet0/45
+        - FastEthernet0/46
+        - FastEthernet0/47
+        - FastEthernet0/48
+        - GigabitEthernet0/1
+        - GigabitEthernet0/2
+        - GigabitEthernet0/3
+        - GigabitEthernet0/4
+        model: WS-C2960-48PST-L
+        os_version: C2960 Software (C2960-LANBASEK9-M), Version 12.2(55)SE9, RELEASE
+            SOFTWARE (fc1)
+        serial_number: FOC1329W315
+        uptime: 44850780
+        vendor: Cisco
+    napalm_fqdn: NCLswConta.victoria.local
+    napalm_hostname: NCLswConta
+    napalm_interface_list:
+    - Vlan1
+    - Vlan99
+    - FastEthernet0/1
+    - FastEthernet0/2
+    - FastEthernet0/3
+    - FastEthernet0/4
+    - FastEthernet0/5
+    - FastEthernet0/6
+    - FastEthernet0/7
+    - FastEthernet0/8
+    - FastEthernet0/9
+    - FastEthernet0/10
+    - FastEthernet0/11
+    - FastEthernet0/12
+    - FastEthernet0/13
+    - FastEthernet0/14
+    - FastEthernet0/15
+    - FastEthernet0/16
+    - FastEthernet0/17
+    - FastEthernet0/18
+    - FastEthernet0/19
+    - FastEthernet0/20
+    - FastEthernet0/21
+    - FastEthernet0/22
+    - FastEthernet0/23
+    - FastEthernet0/24
+    - FastEthernet0/25
+    - FastEthernet0/26
+    - FastEthernet0/27
+    - FastEthernet0/28
+    - FastEthernet0/29
+    - FastEthernet0/30
+    - FastEthernet0/31
+    - FastEthernet0/32
+    - FastEthernet0/33
+    - FastEthernet0/34
+    - FastEthernet0/35
+    - FastEthernet0/36
+    - FastEthernet0/37
+    - FastEthernet0/38
+    - FastEthernet0/39
+    - FastEthernet0/40
+    - FastEthernet0/41
+    - FastEthernet0/42
+    - FastEthernet0/43
+    - FastEthernet0/44
+    - FastEthernet0/45
+    - FastEthernet0/46
+    - FastEthernet0/47
+    - FastEthernet0/48
+    - GigabitEthernet0/1
+    - GigabitEthernet0/2
+    - GigabitEthernet0/3
+    - GigabitEthernet0/4
+    napalm_interfaces:
+        FastEthernet0/1:
+            description: End Users + IPT
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:98:75:02:81
+            speed: 100
+        FastEthernet0/10:
+            description: End Users + IPT
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:98:75:02:8A
+            speed: 10
+        FastEthernet0/11:
+            description: End Users + IPT
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:98:75:02:8B
+            speed: 100
+        FastEthernet0/12:
+            description: End Users + IPT
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:98:75:02:8C
+            speed: 10
+        FastEthernet0/13:
+            description: End Users + IPT
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:98:75:02:8D
+            speed: 10
+        FastEthernet0/14:
+            description: End Users + IPT
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:98:75:02:8E
+            speed: 10
+        FastEthernet0/15:
+            description: End Users + IPT
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:98:75:02:8F
+            speed: 100
+        FastEthernet0/16:
+            description: End Users + IPT
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:98:75:02:90
+            speed: 100
+        FastEthernet0/17:
+            description: End Users + IPT
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:98:75:02:91
+            speed: 10
+        FastEthernet0/18:
+            description: End Users + IPT
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:98:75:02:92
+            speed: 100
+        FastEthernet0/19:
+            description: End Users + IPT
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:98:75:02:93
+            speed: 100
+        FastEthernet0/2:
+            description: End Users + IPT
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:98:75:02:82
+            speed: 100
+        FastEthernet0/20:
+            description: End Users + IPT
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:98:75:02:94
+            speed: 10
+        FastEthernet0/21:
+            description: End Users + IPT
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:98:75:02:95
+            speed: 100
+        FastEthernet0/22:
+            description: End Users + IPT
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:98:75:02:96
+            speed: 10
+        FastEthernet0/23:
+            description: End Users + IPT
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:98:75:02:97
+            speed: 100
+        FastEthernet0/24:
+            description: End Users + IPT
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:98:75:02:98
+            speed: 100
+        FastEthernet0/25:
+            description: End Users + IPT
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:98:75:02:99
+            speed: 100
+        FastEthernet0/26:
+            description: ''
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:98:75:02:9A
+            speed: 100
+        FastEthernet0/27:
+            description: RESERVED_VLAN_RESIDENCIA
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:98:75:02:9B
+            speed: 100
+        FastEthernet0/28:
+            description: ''
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:98:75:02:9C
+            speed: 100
+        FastEthernet0/29:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:98:75:02:9D
+            speed: 100
+        FastEthernet0/3:
+            description: End Users + IPT
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:98:75:02:83
+            speed: 100
+        FastEthernet0/30:
+            description: ''
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:98:75:02:9E
+            speed: 100
+        FastEthernet0/31:
+            description: ''
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:98:75:02:9F
+            speed: 10
+        FastEthernet0/32:
+            description: ''
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:98:75:02:A0
+            speed: 100
+        FastEthernet0/33:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:98:75:02:A1
+            speed: 100
+        FastEthernet0/34:
+            description: End Users + IPT
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:98:75:02:A2
+            speed: 100
+        FastEthernet0/35:
+            description: ''
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:98:75:02:A3
+            speed: 100
+        FastEthernet0/36:
+            description: Reserved CCTV
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:98:75:02:A4
+            speed: 100
+        FastEthernet0/37:
+            description: Reserved CCTV
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:98:75:02:A5
+            speed: 100
+        FastEthernet0/38:
+            description: Reserved CCTV
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:98:75:02:A6
+            speed: 100
+        FastEthernet0/39:
+            description: Reserved CCTV
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:98:75:02:A7
+            speed: 10
+        FastEthernet0/4:
+            description: End Users + IPT
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:98:75:02:84
+            speed: 100
+        FastEthernet0/40:
+            description: Reserved CCTV
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:98:75:02:A8
+            speed: 10
+        FastEthernet0/41:
+            description: ''
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:98:75:02:A9
+            speed: 100
+        FastEthernet0/42:
+            description: ''
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:98:75:02:AA
+            speed: 10
+        FastEthernet0/43:
+            description: ''
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:98:75:02:AB
+            speed: 10
+        FastEthernet0/44:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:98:75:02:AC
+            speed: 100
+        FastEthernet0/45:
+            description: ''
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:98:75:02:AD
+            speed: 10
+        FastEthernet0/46:
+            description: ''
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:98:75:02:AE
+            speed: 10
+        FastEthernet0/47:
+            description: ''
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:98:75:02:AF
+            speed: 10
+        FastEthernet0/48:
+            description: Reserved AP_Piso2(WC_10.30.99.50)
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:98:75:02:B0
+            speed: 100
+        FastEthernet0/5:
+            description: End Users + IPT
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:98:75:02:85
+            speed: 10
+        FastEthernet0/6:
+            description: End Users + IPT
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:98:75:02:86
+            speed: 10
+        FastEthernet0/7:
+            description: End Users + IPT
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:98:75:02:87
+            speed: 100
+        FastEthernet0/8:
+            description: End Users + IPT
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:98:75:02:88
+            speed: 100
+        FastEthernet0/9:
+            description: End Users + IPT
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:98:75:02:89
+            speed: 10
+        GigabitEthernet0/1:
+            description: FAST TRUNK
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:98:75:02:B1
+            speed: 1000
+        GigabitEthernet0/2:
+            description: FAST TRUNK
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:98:75:02:B2
+            speed: 10
+        GigabitEthernet0/3:
+            description: FAST TRUNK
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:98:75:02:B3
+            speed: 10
+        GigabitEthernet0/4:
+            description: FAST TRUNK
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:98:75:02:B4
+            speed: 10
+        Vlan1:
+            description: ''
+            is_enabled: false
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:98:75:02:C0
+            speed: 1000
+        Vlan99:
+            description: Management and Native VLAN
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:98:75:02:C1
+            speed: 1000
+    napalm_interfaces_ip:
+        Vlan99:
+            ipv4:
+                10.20.99.28:
+                    prefix_length: 24
+    napalm_model: WS-C2960-48PST-L
+    napalm_os_version: C2960 Software (C2960-LANBASEK9-M), Version 12.2(55)SE9, RELEASE
+        SOFTWARE (fc1)
+    napalm_serial_number: FOC1329W315
+    napalm_uptime: 44850780
+    napalm_vendor: Cisco
+changed: false
+failed: false

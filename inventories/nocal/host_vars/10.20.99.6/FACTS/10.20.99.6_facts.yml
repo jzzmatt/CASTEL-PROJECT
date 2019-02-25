@@ -1,0 +1,262 @@
+get_facts:
+    napalm_facts:
+        fqdn: NCL-SW-CONDOMINIO.victoria.local
+        hostname: NCL-SW-CONDOMINIO
+        interface_list:
+        - Vlan1
+        - Vlan99
+        - GigabitEthernet0/1
+        - GigabitEthernet0/2
+        - GigabitEthernet0/3
+        - GigabitEthernet0/4
+        - GigabitEthernet0/5
+        - GigabitEthernet0/6
+        - GigabitEthernet0/7
+        - GigabitEthernet0/8
+        - GigabitEthernet0/9
+        - GigabitEthernet0/10
+        - GigabitEthernet0/11
+        - GigabitEthernet0/12
+        - GigabitEthernet0/13
+        - GigabitEthernet0/14
+        - GigabitEthernet0/15
+        - GigabitEthernet0/16
+        - GigabitEthernet0/17
+        - GigabitEthernet0/18
+        - GigabitEthernet0/19
+        - GigabitEthernet0/20
+        - GigabitEthernet0/21
+        - GigabitEthernet0/22
+        - GigabitEthernet0/23
+        - GigabitEthernet0/24
+        model: WS-C2960G-24TC-L
+        os_version: C2960 Software (C2960-LANBASEK9-M), Version 12.2(55)SE9, RELEASE
+            SOFTWARE (fc1)
+        serial_number: FOC1152ZA5H
+        uptime: 9566220
+        vendor: Cisco
+    napalm_fqdn: NCL-SW-CONDOMINIO.victoria.local
+    napalm_hostname: NCL-SW-CONDOMINIO
+    napalm_interface_list:
+    - Vlan1
+    - Vlan99
+    - GigabitEthernet0/1
+    - GigabitEthernet0/2
+    - GigabitEthernet0/3
+    - GigabitEthernet0/4
+    - GigabitEthernet0/5
+    - GigabitEthernet0/6
+    - GigabitEthernet0/7
+    - GigabitEthernet0/8
+    - GigabitEthernet0/9
+    - GigabitEthernet0/10
+    - GigabitEthernet0/11
+    - GigabitEthernet0/12
+    - GigabitEthernet0/13
+    - GigabitEthernet0/14
+    - GigabitEthernet0/15
+    - GigabitEthernet0/16
+    - GigabitEthernet0/17
+    - GigabitEthernet0/18
+    - GigabitEthernet0/19
+    - GigabitEthernet0/20
+    - GigabitEthernet0/21
+    - GigabitEthernet0/22
+    - GigabitEthernet0/23
+    - GigabitEthernet0/24
+    napalm_interfaces:
+        GigabitEthernet0/1:
+            description: RESERVED-CLIENT-RESIDENCE
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:1E:F6:C4:BA:01
+            speed: 10
+        GigabitEthernet0/10:
+            description: RESERVED-CLIENT-RESIDENCE
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:1E:F6:C4:BA:0A
+            speed: 10
+        GigabitEthernet0/11:
+            description: RESERVED-CLIENT-RESIDENCE
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:1E:F6:C4:BA:0B
+            speed: 100
+        GigabitEthernet0/12:
+            description: RESERVED-CLIENT-RESIDENCE
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:1E:F6:C4:BA:0C
+            speed: 100
+        GigabitEthernet0/13:
+            description: RESERVED-CLIENT-RESIDENCE
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:1E:F6:C4:BA:0D
+            speed: 10
+        GigabitEthernet0/14:
+            description: RESERVED-CLIENT-RESIDENCE
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:1E:F6:C4:BA:0E
+            speed: 10
+        GigabitEthernet0/15:
+            description: RESERVED-CLIENT-RESIDENCE
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:1E:F6:C4:BA:0F
+            speed: 10
+        GigabitEthernet0/16:
+            description: RESERVED-CLIENT-RESIDENCE
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:1E:F6:C4:BA:10
+            speed: 10
+        GigabitEthernet0/17:
+            description: RESERVED-CLIENT-RESIDENCE
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:1E:F6:C4:BA:11
+            speed: 10
+        GigabitEthernet0/18:
+            description: RESERVED-CLIENT-RESIDENCE
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:1E:F6:C4:BA:12
+            speed: 10
+        GigabitEthernet0/19:
+            description: RESERVED-CLIENT-RESIDENCE
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:1E:F6:C4:BA:13
+            speed: 10
+        GigabitEthernet0/2:
+            description: RESERVED-CLIENT-RESIDENCE
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:1E:F6:C4:BA:02
+            speed: 1000
+        GigabitEthernet0/20:
+            description: RESERVED-CLIENT-RESIDENCE
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:1E:F6:C4:BA:14
+            speed: 10
+        GigabitEthernet0/21:
+            description: LINK-TRUNK
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:1E:F6:C4:BA:15
+            speed: 10
+        GigabitEthernet0/22:
+            description: LINK-TRUNK
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:1E:F6:C4:BA:16
+            speed: 10
+        GigabitEthernet0/23:
+            description: LINK-TRUNK
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:1E:F6:C4:BA:17
+            speed: 10
+        GigabitEthernet0/24:
+            description: LINK-TRUNK
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:1E:F6:C4:BA:18
+            speed: 1000
+        GigabitEthernet0/3:
+            description: RESERVED-CLIENT-RESIDENCE
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:1E:F6:C4:BA:03
+            speed: 10
+        GigabitEthernet0/4:
+            description: RESERVED-CLIENT-RESIDENCE
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:1E:F6:C4:BA:04
+            speed: 100
+        GigabitEthernet0/5:
+            description: RESERVED-CLIENT-RESIDENCE
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:1E:F6:C4:BA:05
+            speed: 10
+        GigabitEthernet0/6:
+            description: RESERVED-CLIENT-RESIDENCE
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:1E:F6:C4:BA:06
+            speed: 10
+        GigabitEthernet0/7:
+            description: RESERVED-CLIENT-RESIDENCE
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:1E:F6:C4:BA:07
+            speed: 100
+        GigabitEthernet0/8:
+            description: RESERVED-CLIENT-RESIDENCE
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:1E:F6:C4:BA:08
+            speed: 100
+        GigabitEthernet0/9:
+            description: RESERVED-CLIENT-RESIDENCE
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:1E:F6:C4:BA:09
+            speed: 10
+        Vlan1:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:1E:F6:C4:BA:40
+            speed: 1000
+        Vlan99:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:1E:F6:C4:BA:41
+            speed: 1000
+    napalm_interfaces_ip:
+        Vlan99:
+            ipv4:
+                10.20.99.6:
+                    prefix_length: 24
+    napalm_model: WS-C2960G-24TC-L
+    napalm_os_version: C2960 Software (C2960-LANBASEK9-M), Version 12.2(55)SE9, RELEASE
+        SOFTWARE (fc1)
+    napalm_serial_number: FOC1152ZA5H
+    napalm_uptime: 9566220
+    napalm_vendor: Cisco
+changed: false
+failed: false

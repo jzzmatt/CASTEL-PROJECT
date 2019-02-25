@@ -1,0 +1,68 @@
+---
+- name: SETUP CISCO ASA FIREWALL
+  hosts: asa_firewall
+  gather_facts: no 
+  connection: local 
+
+
+  tasks:
+#      - name: SETUP AAA 
+#        asa_config:
+#            authorize: yes 
+#            auth_pass: "{{ secret.password }}"
+#            provider: "{{ ios_provider }}"
+#            lines:
+#                - aaa-server "{{ aaa.group }}" protocol tacacs+
+#                - aaa-server "{{ aaa.group }}" (inside) host "{{ aaa.srv }}" key "{{ aaa.key }}"
+#                - aaa auhtorization command "{{ aaa.group }}" LOCAL
+#                - aaa accounting enable console "{{ aaa.group }}"
+#                - aaa accounting serial console "{{ aaa.group }}"
+#                - aaa accounting ssh console "{{ aaa.group }}"
+#                - aaa accounting telnet console "{{ aaa.group }}"
+
+
+
+      - name: SETUP ASA SNMP & LOG 
+        asa_config:
+            authorize: yes 
+        # auth_pass: "{{ secret.password }}"
+            provider: "{{ ios_provider }}"
+            lines:
+                - snmp-server community "{{ snmp_server.pub }}"
+                - snmp-server host inside 10.30.99.251 community "{{ snmp_server.pub }}"
+                - snmp-server location "{{ snmp_server.local  }}"
+                - snmp-server contact "{{ snmp_server.contact }}"
+                - logging enable
+                - logging host inside 10.30.99.252
+
+      - name: SETUP ACL 
+        asa_config:
+            authorize: yes 
+        #    auth_pass: "{{ secret.password }}"
+            provider: "{{ ios_provider }}"
+            lines: 
+                 - access-list netflow-export extended permit ip any any
+            match: strict
+
+      - name: SETUP NETFLOW 
+        asa_config:
+            authorize: yes 
+        #    auth_pass: "{{ secret.password }}"
+            provider: "{{ ios_provider }}"
+            lines:
+                - match access-list netflow-export
+                - flow-export destination inside 10.30.99.252 9996 
+            parents: ['class netflow-export-class']
+
+      - name: SETUP POLICY MAP 
+        asa_config:
+            authorize: yes 
+        #    auth_pass: "{{ secret.password }}"
+            provider: "{{ ios_provider }}"
+            lines:
+                - class netflow-export-class
+                - flow-export destination inside 10.30.99.252 9996
+            parents: ['policy-map global_policy']
+          
+
+...

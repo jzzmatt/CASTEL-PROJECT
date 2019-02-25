@@ -1,0 +1,231 @@
+get_facts:
+    napalm_facts:
+        fqdn: Modus-CRSW1.victoria.local
+        hostname: Modus-CRSW1
+        interface_list:
+        - Vlan1
+        - Vlan3
+        - Vlan10
+        - Vlan20
+        - Vlan21
+        - Vlan95
+        - Vlan99
+        - Vlan101
+        - Vlan106
+        - Vlan305
+        - FastEthernet0/1
+        - FastEthernet0/2
+        - FastEthernet0/3
+        - FastEthernet0/4
+        - FastEthernet0/5
+        - FastEthernet0/6
+        - FastEthernet0/7
+        - FastEthernet0/8
+        - GigabitEthernet0/1
+        model: WS-C3560-8PC
+        os_version: C3560 Software (C3560-IPSERVICESK9-M), Version 12.2(55)SE9, RELEASE
+            SOFTWARE (fc1)
+        serial_number: FOC1525V22H
+        uptime: 4495020
+        vendor: Cisco
+    napalm_fqdn: Modus-CRSW1.victoria.local
+    napalm_hostname: Modus-CRSW1
+    napalm_interface_list:
+    - Vlan1
+    - Vlan3
+    - Vlan10
+    - Vlan20
+    - Vlan21
+    - Vlan95
+    - Vlan99
+    - Vlan101
+    - Vlan106
+    - Vlan305
+    - FastEthernet0/1
+    - FastEthernet0/2
+    - FastEthernet0/3
+    - FastEthernet0/4
+    - FastEthernet0/5
+    - FastEthernet0/6
+    - FastEthernet0/7
+    - FastEthernet0/8
+    - GigabitEthernet0/1
+    napalm_interfaces:
+        FastEthernet0/1:
+            description: 'Connected to WLC '
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: B8:62:1F:18:DB:82
+            speed: 10
+        FastEthernet0/2:
+            description: 'LINK TO SW 1st FLOOR '
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: B8:62:1F:18:DB:83
+            speed: 10
+        FastEthernet0/3:
+            description: RESERVED AP-CAPWAP_Philippe Frederic
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: B8:62:1F:18:DB:84
+            speed: 100
+        FastEthernet0/4:
+            description: Reserved trunk
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: B8:62:1F:18:DB:85
+            speed: 100
+        FastEthernet0/5:
+            description: Reserved trunk
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: B8:62:1F:18:DB:86
+            speed: 100
+        FastEthernet0/6:
+            description: Sala 6 andar
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: B8:62:1F:18:DB:87
+            speed: 100
+        FastEthernet0/7:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: B8:62:1F:18:DB:88
+            speed: 100
+        FastEthernet0/8:
+            description: ''
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: B8:62:1F:18:DB:89
+            speed: 10
+        GigabitEthernet0/1:
+            description: Reserved trunk
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: B8:62:1F:18:DB:81
+            speed: 1000
+        Vlan1:
+            description: Native&Management
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: B8:62:1F:18:DB:C0
+            speed: 1000
+        Vlan10:
+            description: RESERVED-SERVER PRIMAVERA
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: B8:62:1F:18:DB:C2
+            speed: 1000
+        Vlan101:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: B8:62:1F:18:DB:C7
+            speed: 1000
+        Vlan106:
+            description: END USER WIRELESS
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: B8:62:1F:18:DB:C8
+            speed: 1000
+        Vlan20:
+            description: END USER WIRED
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: B8:62:1F:18:DB:C3
+            speed: 1000
+        Vlan21:
+            description: LINK to Router EDGE
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: B8:62:1F:18:DB:C4
+            speed: 1000
+        Vlan3:
+            description: VOIZE VLAN
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: B8:62:1F:18:DB:C1
+            speed: 1000
+        Vlan305:
+            description: FIBRA TVCABO P2P DATACENTER
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: B8:62:1F:18:DB:C9
+            speed: 1000
+        Vlan95:
+            description: VLAN AP REGISTRATION
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: B8:62:1F:18:DB:C5
+            speed: 1000
+        Vlan99:
+            description: Management_LAN
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: B8:62:1F:18:DB:C6
+            speed: 1000
+    napalm_interfaces_ip:
+        Vlan1:
+            ipv4:
+                192.168.99.253:
+                    prefix_length: 24
+        Vlan101:
+            ipv4:
+                10.31.101.254:
+                    prefix_length: 24
+        Vlan106:
+            ipv4:
+                10.31.106.254:
+                    prefix_length: 24
+        Vlan20:
+            ipv4:
+                192.168.20.254:
+                    prefix_length: 24
+        Vlan21:
+            ipv4:
+                10.31.21.2:
+                    prefix_length: 30
+        Vlan3:
+            ipv4:
+                10.31.3.254:
+                    prefix_length: 24
+        Vlan305:
+            ipv4:
+                172.31.255.54:
+                    prefix_length: 30
+        Vlan95:
+            ipv4:
+                10.31.95.254:
+                    prefix_length: 24
+        Vlan99:
+            ipv4:
+                10.31.99.254:
+                    prefix_length: 24
+    napalm_model: WS-C3560-8PC
+    napalm_os_version: C3560 Software (C3560-IPSERVICESK9-M), Version 12.2(55)SE9,
+        RELEASE SOFTWARE (fc1)
+    napalm_serial_number: FOC1525V22H
+    napalm_uptime: 4495020
+    napalm_vendor: Cisco
+changed: false
+failed: false

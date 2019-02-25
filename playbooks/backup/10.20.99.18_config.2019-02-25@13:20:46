@@ -1,0 +1,245 @@
+Building configuration...
+
+Current configuration : 6323 bytes
+!
+version 12.2
+no service pad
+service timestamps debug datetime msec
+service timestamps log datetime msec
+service password-encryption
+!
+hostname NCLsw24POE_ARMG
+!
+boot-start-marker
+boot-end-marker
+!
+!
+username admin privilege 15 secret 5 $1$AdJj$3MJU69FuhHqtFeaDRZ.bo.
+aaa new-model
+!
+!
+aaa authentication login use-srvtacacs group tacacs+ local enable
+aaa authentication enable default group tacacs+ enable
+aaa authorization console
+aaa authorization exec use-srvtacacs group tacacs+ local if-authenticated 
+aaa authorization commands 1 default group tacacs+ if-authenticated 
+aaa authorization commands 15 default group tacacs+ local if-authenticated 
+aaa accounting send stop-record authentication failure 
+aaa accounting exec default start-stop group tacacs+
+aaa accounting network default start-stop group tacacs+
+aaa accounting connection default start-stop group tacacs+
+aaa accounting system default start-stop group tacacs+
+aaa accounting resource default start-stop group tacacs+
+!
+!
+!
+aaa session-id common
+system mtu routing 1500
+ip subnet-zero
+!
+ip domain-name victoria.local
+!
+!
+crypto pki trustpoint TP-self-signed-1363089536
+ enrollment selfsigned
+ subject-name cn=IOS-Self-Signed-Certificate-1363089536
+ revocation-check none
+ rsakeypair TP-self-signed-1363089536
+!
+!
+crypto pki certificate chain TP-self-signed-1363089536
+ certificate self-signed 01
+  30820248 308201B1 A0030201 02020101 300D0609 2A864886 F70D0101 04050030 
+  31312F30 2D060355 04031326 494F532D 53656C66 2D536967 6E65642D 43657274 
+  69666963 6174652D 31333633 30383935 3336301E 170D3933 30333031 30303031 
+  30305A17 0D323030 31303130 30303030 305A3031 312F302D 06035504 03132649 
+  4F532D53 656C662D 5369676E 65642D43 65727469 66696361 74652D31 33363330 
+  38393533 3630819F 300D0609 2A864886 F70D0101 01050003 818D0030 81890281 
+  8100A10F 69B93576 AFC40149 02B7BA18 58E5C2F2 9352740F FA02F1EC BA6D8DA4 
+  751A307E 48FDBA3F B46032AD 514D1DDD 7CF0E7F1 A2AF0F8E F0C4AB52 E840FBC8 
+  93403E4B 4945DC4D A0FDCED9 32F3FAF2 09316BBD F4F3DA57 FE0FD7AC 943CDE7C 
+  4B395F9E 0628E2BA 5B4C3D1A 7BF6E1FB 2C57DFB6 9AA434D9 AC71C7F7 6C463F5F 
+  55870203 010001A3 70306E30 0F060355 1D130101 FF040530 030101FF 301B0603 
+  551D1104 14301282 104E434C 73773234 504F455F 41524D47 2E301F06 03551D23 
+  04183016 801473DB 2C132A35 9A63B661 2689A37B D22846DC 8403301D 0603551D 
+  0E041604 1473DB2C 132A359A 63B66126 89A37BD2 2846DC84 03300D06 092A8648 
+  86F70D01 01040500 03818100 53EB1DD7 43B8D235 EC8CBF43 C64C39D5 40137848 
+  BA63442F F431C74D 5D9BE57F 19DDB257 18D41AFB 0E0ECF18 FB33F1F1 3DC38D0B 
+  5C8F9D23 0DC2A013 63B6860E FC697612 538E3216 2A0BAE13 F997182B E5B48E3D 
+  693BD6C2 4902076D 7929C1B7 EB205E31 5BAC19FE E93D58F2 D8DBECE9 2C6E7229 
+  A932009B 2D46A980 6A33B1BE
+  quit
+!
+!
+!
+!
+!
+spanning-tree mode pvst
+spanning-tree extend system-id
+!
+vlan internal allocation policy ascending
+!
+ip ssh version 2
+ip scp server enable
+!
+!
+interface FastEthernet0/1
+ description RESERVED END USERS
+ switchport access vlan 16
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/2
+ description RESERVED END USERS
+ switchport access vlan 16
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/3
+ description RESERVED END USERS
+ switchport access vlan 106
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/4
+ description RESERVED END USERS
+ switchport access vlan 106
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/5
+ description RESERVED END USERS
+ switchport access vlan 106
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/6
+ description RESERVED END USERS
+ switchport access vlan 106
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/7
+ description RESERVED END USERS
+ switchport access vlan 106
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/8
+ description RESERVED END USERS
+ switchport access vlan 106
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/9
+ description RESERVED END USERS
+ switchport access vlan 106
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/10
+ description RESERVED END USERS
+ switchport access vlan 106
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/11
+ description RESERVED END USERS
+ switchport access vlan 106
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/12
+ description RESERVED END USERS
+ switchport access vlan 106
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/13
+ description RESERVED END USERS
+ switchport access vlan 106
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/14
+ description RESERVED END USERS
+ switchport access vlan 106
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/15
+!
+interface FastEthernet0/16
+!
+interface FastEthernet0/17
+!
+interface FastEthernet0/18
+!
+interface FastEthernet0/19
+!
+interface FastEthernet0/20
+!
+interface FastEthernet0/21
+!
+interface FastEthernet0/22
+!
+interface FastEthernet0/23
+!
+interface FastEthernet0/24
+!
+interface GigabitEthernet0/1
+ description RESERVED TRUNK PORT
+ switchport trunk native vlan 99
+ switchport mode trunk
+ switchport nonegotiate
+!
+interface GigabitEthernet0/2
+ description RESERVED TRUNK PORT
+ switchport trunk native vlan 99
+ switchport mode trunk
+ switchport nonegotiate
+!
+interface Vlan1
+ no ip address
+ no ip route-cache
+ shutdown
+!
+interface Vlan99
+ description Management
+ ip address 10.20.99.18 255.255.255.0
+ no ip route-cache
+!
+ip http server
+ip http authentication aaa login-authentication use-srvtacacs
+ip http authentication aaa exec-authorization use-srvtacacs
+ip http authentication aaa command-authorization 15 default
+no ip http secure-server
+tacacs-server host 10.30.10.10 timeout 5
+tacacs-server directed-request
+tacacs-server key 7 06155C225E1D1D4B554644
+!
+control-plane
+!
+!
+line con 0
+ exec-timeout 15 0
+ privilege level 15
+ logging synchronous
+ login authentication use-srvtacacs
+ length 0
+line vty 0 4
+ exec-timeout 15 0
+ privilege level 15
+ logging synchronous
+ login authentication use-srvtacacs
+ length 0
+ transport input telnet ssh
+line vty 5 15
+ exec-timeout 15 0
+ privilege level 15
+ logging synchronous
+ login authentication use-srvtacacs
+ length 0
+ transport input ssh
+!
+end

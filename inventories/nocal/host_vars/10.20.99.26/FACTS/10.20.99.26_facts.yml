@@ -1,0 +1,280 @@
+get_facts:
+    napalm_facts:
+        fqdn: NCLSW_Controle_de_Ponto.victoria.local
+        hostname: NCLSW_Controle_de_Ponto
+        interface_list:
+        - Vlan1
+        - Vlan99
+        - FastEthernet0/1
+        - FastEthernet0/2
+        - FastEthernet0/3
+        - FastEthernet0/4
+        - FastEthernet0/5
+        - FastEthernet0/6
+        - FastEthernet0/7
+        - FastEthernet0/8
+        - FastEthernet0/9
+        - FastEthernet0/10
+        - FastEthernet0/11
+        - FastEthernet0/12
+        - FastEthernet0/13
+        - FastEthernet0/14
+        - FastEthernet0/15
+        - FastEthernet0/16
+        - FastEthernet0/17
+        - FastEthernet0/18
+        - FastEthernet0/19
+        - FastEthernet0/20
+        - FastEthernet0/21
+        - FastEthernet0/22
+        - FastEthernet0/23
+        - FastEthernet0/24
+        - GigabitEthernet0/1
+        - GigabitEthernet0/2
+        model: WS-C2960-24LT-L
+        os_version: C2960 Software (C2960-LANBASEK9-M), Version 12.2(55)SE9, RELEASE
+            SOFTWARE (fc1)
+        serial_number: FOC1332Z2AU
+        uptime: 1723560
+        vendor: Cisco
+    napalm_fqdn: NCLSW_Controle_de_Ponto.victoria.local
+    napalm_hostname: NCLSW_Controle_de_Ponto
+    napalm_interface_list:
+    - Vlan1
+    - Vlan99
+    - FastEthernet0/1
+    - FastEthernet0/2
+    - FastEthernet0/3
+    - FastEthernet0/4
+    - FastEthernet0/5
+    - FastEthernet0/6
+    - FastEthernet0/7
+    - FastEthernet0/8
+    - FastEthernet0/9
+    - FastEthernet0/10
+    - FastEthernet0/11
+    - FastEthernet0/12
+    - FastEthernet0/13
+    - FastEthernet0/14
+    - FastEthernet0/15
+    - FastEthernet0/16
+    - FastEthernet0/17
+    - FastEthernet0/18
+    - FastEthernet0/19
+    - FastEthernet0/20
+    - FastEthernet0/21
+    - FastEthernet0/22
+    - FastEthernet0/23
+    - FastEthernet0/24
+    - GigabitEthernet0/1
+    - GigabitEthernet0/2
+    napalm_interfaces:
+        FastEthernet0/1:
+            description: reserved_CCTV
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:CA:5A:99:81
+            speed: 100
+        FastEthernet0/10:
+            description: LINK-Reserved for END Users and IPT
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:CA:5A:99:8A
+            speed: 10
+        FastEthernet0/11:
+            description: LINK-Reserved for END Users and IPT
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:CA:5A:99:8B
+            speed: 100
+        FastEthernet0/12:
+            description: LINK-Reserved for END Users and IPT
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:CA:5A:99:8C
+            speed: 10
+        FastEthernet0/13:
+            description: LINK-Reserved for END Users and IPT
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:CA:5A:99:8D
+            speed: 10
+        FastEthernet0/14:
+            description: LINK-Reserved for END Users and IPT
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:CA:5A:99:8E
+            speed: 10
+        FastEthernet0/15:
+            description: LINK-Reserved for END Users and IPT
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:CA:5A:99:8F
+            speed: 100
+        FastEthernet0/16:
+            description: LINK-Reserved for END Users and IPT
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:CA:5A:99:90
+            speed: 10
+        FastEthernet0/17:
+            description: LINK-Reserved for END Users and IPT
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:CA:5A:99:91
+            speed: 10
+        FastEthernet0/18:
+            description: LINK-Reserved for END Users and IPT
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:CA:5A:99:92
+            speed: 10
+        FastEthernet0/19:
+            description: LINK-Reserved for END Users and IPT
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:CA:5A:99:93
+            speed: 10
+        FastEthernet0/2:
+            description: reserved_CCTV
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:CA:5A:99:82
+            speed: 100
+        FastEthernet0/20:
+            description: LINK-Reserved for END Users and IPT
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:CA:5A:99:94
+            speed: 10
+        FastEthernet0/21:
+            description: LINK-Reserved for END Users and IPT
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:CA:5A:99:95
+            speed: 10
+        FastEthernet0/22:
+            description: LINK-Reserved for END Users and IPT
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:CA:5A:99:96
+            speed: 10
+        FastEthernet0/23:
+            description: LINK-Reserved for END Users and IPT
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:CA:5A:99:97
+            speed: 10
+        FastEthernet0/24:
+            description: reserved_Printer
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:CA:5A:99:98
+            speed: 10
+        FastEthernet0/3:
+            description: reserved_CCTV
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:CA:5A:99:83
+            speed: 100
+        FastEthernet0/4:
+            description: reserved_CCTV
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:CA:5A:99:84
+            speed: 100
+        FastEthernet0/5:
+            description: reserved_CCTV
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:CA:5A:99:85
+            speed: 100
+        FastEthernet0/6:
+            description: reserved_CCTV
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:CA:5A:99:86
+            speed: 100
+        FastEthernet0/7:
+            description: LINK-Reserved for END Users and IPT
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:CA:5A:99:87
+            speed: 100
+        FastEthernet0/8:
+            description: LINK-Reserved for END Users and IPT
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:CA:5A:99:88
+            speed: 10
+        FastEthernet0/9:
+            description: LINK-Reserved for END Users and IPT
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:CA:5A:99:89
+            speed: 10
+        GigabitEthernet0/1:
+            description: TRUNK
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:CA:5A:99:99
+            speed: 100
+        GigabitEthernet0/2:
+            description: TRUNK
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:CA:5A:99:9A
+            speed: 1000
+        Vlan1:
+            description: ''
+            is_enabled: false
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:CA:5A:99:C0
+            speed: 1000
+        Vlan99:
+            description: Native&Management
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:CA:5A:99:C1
+            speed: 1000
+    napalm_interfaces_ip:
+        Vlan99:
+            ipv4:
+                10.20.99.26:
+                    prefix_length: 24
+    napalm_model: WS-C2960-24LT-L
+    napalm_os_version: C2960 Software (C2960-LANBASEK9-M), Version 12.2(55)SE9, RELEASE
+        SOFTWARE (fc1)
+    napalm_serial_number: FOC1332Z2AU
+    napalm_uptime: 1723560
+    napalm_vendor: Cisco
+changed: false
+failed: false

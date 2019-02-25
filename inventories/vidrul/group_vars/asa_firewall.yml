@@ -1,0 +1,6 @@
+---
+aaa:
+    group: "GRPE-SRV-TACACS"
+    srv: "10.30.10.10"
+    key: "s3cr3t2016" 
+...

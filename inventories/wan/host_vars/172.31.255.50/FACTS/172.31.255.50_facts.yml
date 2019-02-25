@@ -1,0 +1,59 @@
+get_facts:
+    napalm_facts:
+        fqdn: RT-VIDRUL-WAN.victoria.local
+        hostname: RT-VIDRUL-WAN
+        interface_list:
+        - Embedded-Service-Engine0/0
+        - GigabitEthernet0/0
+        - GigabitEthernet0/1
+        model: CISCO1921/K9
+        os_version: C1900 Software (C1900-UNIVERSALK9-M), Version 15.2(1)T1, RELEASE
+            SOFTWARE (fc1)
+        serial_number: FCZ15509188
+        uptime: 2225580
+        vendor: Cisco
+    napalm_fqdn: RT-VIDRUL-WAN.victoria.local
+    napalm_hostname: RT-VIDRUL-WAN
+    napalm_interface_list:
+    - Embedded-Service-Engine0/0
+    - GigabitEthernet0/0
+    - GigabitEthernet0/1
+    napalm_interfaces:
+        Embedded-Service-Engine0/0:
+            description: ''
+            is_enabled: false
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:00:00:00:00:00
+            speed: 10
+        GigabitEthernet0/0:
+            description: VLAN 35 Router->ASAFW (E0/2)
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 70:CA:9B:5F:DD:A0
+            speed: 1000
+        GigabitEthernet0/1:
+            description: Radio Nera (Vidrul-> TerraVerde)
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 70:CA:9B:5F:DD:A1
+            speed: 80
+    napalm_interfaces_ip:
+        GigabitEthernet0/0:
+            ipv4:
+                10.70.35.1:
+                    prefix_length: 30
+        GigabitEthernet0/1:
+            ipv4:
+                172.31.255.50:
+                    prefix_length: 30
+    napalm_model: CISCO1921/K9
+    napalm_os_version: C1900 Software (C1900-UNIVERSALK9-M), Version 15.2(1)T1, RELEASE
+        SOFTWARE (fc1)
+    napalm_serial_number: FCZ15509188
+    napalm_uptime: 2225580
+    napalm_vendor: Cisco
+changed: false
+failed: false
