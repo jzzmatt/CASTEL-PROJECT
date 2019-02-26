@@ -11391,3 +11391,1454 @@ See the timeout setting options in the Network Debug and Troubleshooting Guide.
 2019-02-26 13:46:37,255 p=23009 u=root |  shutdown complete
 2019-02-26 13:46:37,291 p=23003 u=root |  shutdown complete
 2019-02-26 13:46:37,315 p=23002 u=root |  shutdown complete
+2019-02-26 14:25:27,192 p=23991 u=root |  PLAY [DEPLOY CONFIG TO SITES] ********************************************************************************************************
+2019-02-26 14:25:27,251 p=23991 u=root |  TASK [CLEANUP DIRECTORY] *************************************************************************************************************
+2019-02-26 14:25:35,275 p=23991 u=root |  failed: [10.80.99.252] (item=/root/CASTEL/inventories/nocebo/CONFIG) => {"changed": false, "item": "/root/CASTEL/inventories/nocebo/CONFIG", "msg": "rmtree failed: [Errno 2] No such file or directory: '/root/CASTEL/inventories/nocebo/CONFIG/03-snmp.conf'"}
+2019-02-26 14:25:35,286 p=23991 u=root |  ok: [10.80.99.247] => (item=/root/CASTEL/inventories/nocebo/CONFIG)
+2019-02-26 14:25:35,301 p=23991 u=root |  changed: [10.80.99.242] => (item=/root/CASTEL/inventories/nocebo/CONFIG)
+2019-02-26 14:25:35,302 p=23991 u=root |  ok: [10.80.99.249] => (item=/root/CASTEL/inventories/nocebo/CONFIG)
+2019-02-26 14:25:35,303 p=23991 u=root |  ok: [10.80.99.254] => (item=/root/CASTEL/inventories/nocebo/CONFIG)
+2019-02-26 14:25:35,304 p=23991 u=root |  ok: [10.80.99.252] => (item=/root/CASTEL/inventories/nocebo/host_vars/10.80.99.252/FINAL_CONFIG)
+2019-02-26 14:25:35,320 p=23991 u=root |  ok: [10.80.99.242] => (item=/root/CASTEL/inventories/nocebo/host_vars/10.80.99.242/FINAL_CONFIG)
+2019-02-26 14:25:35,322 p=23991 u=root |  ok: [10.80.99.249] => (item=/root/CASTEL/inventories/nocebo/host_vars/10.80.99.249/FINAL_CONFIG)
+2019-02-26 14:25:35,322 p=23991 u=root |  ok: [10.80.99.247] => (item=/root/CASTEL/inventories/nocebo/host_vars/10.80.99.247/FINAL_CONFIG)
+2019-02-26 14:25:35,323 p=23991 u=root |  ok: [10.80.99.254] => (item=/root/CASTEL/inventories/nocebo/host_vars/10.80.99.254/FINAL_CONFIG)
+2019-02-26 14:25:35,324 p=23991 u=root |  ok: [10.80.99.249] => (item=/root/CASTEL/inventories/nocebo/host_vars/10.80.99.249/TEMP_CONFIG)
+2019-02-26 14:25:35,325 p=23991 u=root |  ok: [10.80.99.254] => (item=/root/CASTEL/inventories/nocebo/host_vars/10.80.99.254/TEMP_CONFIG)
+2019-02-26 14:25:35,340 p=23991 u=root |  ok: [10.80.99.252] => (item=/root/CASTEL/inventories/nocebo/host_vars/10.80.99.252/TEMP_CONFIG)
+2019-02-26 14:25:35,341 p=23991 u=root |  ok: [10.80.99.242] => (item=/root/CASTEL/inventories/nocebo/host_vars/10.80.99.242/TEMP_CONFIG)
+2019-02-26 14:25:35,341 p=23991 u=root |  ok: [10.80.99.247] => (item=/root/CASTEL/inventories/nocebo/host_vars/10.80.99.247/TEMP_CONFIG)
+2019-02-26 14:25:35,342 p=23991 u=root |  ok: [10.80.99.254] => (item=/root/CASTEL/inventories/nocebo/host_vars/10.80.99.254/FACTS)
+2019-02-26 14:25:35,447 p=23991 u=root |  ok: [10.80.99.249] => (item=/root/CASTEL/inventories/nocebo/host_vars/10.80.99.249/FACTS)
+2019-02-26 14:25:35,535 p=23991 u=root |  ok: [10.80.99.252] => (item=/root/CASTEL/inventories/nocebo/host_vars/10.80.99.252/FACTS)
+2019-02-26 14:25:35,649 p=23991 u=root |  ok: [10.80.99.242] => (item=/root/CASTEL/inventories/nocebo/host_vars/10.80.99.242/FACTS)
+2019-02-26 14:25:35,779 p=23991 u=root |  ok: [10.80.99.247] => (item=/root/CASTEL/inventories/nocebo/host_vars/10.80.99.247/FACTS)
+2019-02-26 14:25:43,722 p=23991 u=root |  ok: [10.80.99.245] => (item=/root/CASTEL/inventories/nocebo/CONFIG)
+2019-02-26 14:25:43,756 p=23991 u=root |  ok: [10.80.99.246] => (item=/root/CASTEL/inventories/nocebo/CONFIG)
+2019-02-26 14:25:43,757 p=23991 u=root |  ok: [10.80.99.248] => (item=/root/CASTEL/inventories/nocebo/CONFIG)
+2019-02-26 14:25:43,758 p=23991 u=root |  ok: [10.80.99.241] => (item=/root/CASTEL/inventories/nocebo/CONFIG)
+2019-02-26 14:25:43,759 p=23991 u=root |  ok: [10.80.99.244] => (item=/root/CASTEL/inventories/nocebo/CONFIG)
+2019-02-26 14:25:43,759 p=23991 u=root |  ok: [10.80.99.245] => (item=/root/CASTEL/inventories/nocebo/host_vars/10.80.99.245/FINAL_CONFIG)
+2019-02-26 14:25:43,760 p=23991 u=root |  ok: [10.80.99.246] => (item=/root/CASTEL/inventories/nocebo/host_vars/10.80.99.246/FINAL_CONFIG)
+2019-02-26 14:25:43,789 p=23991 u=root |  ok: [10.80.99.248] => (item=/root/CASTEL/inventories/nocebo/host_vars/10.80.99.248/FINAL_CONFIG)
+2019-02-26 14:25:43,790 p=23991 u=root |  ok: [10.80.99.241] => (item=/root/CASTEL/inventories/nocebo/host_vars/10.80.99.241/FINAL_CONFIG)
+2019-02-26 14:25:43,791 p=23991 u=root |  ok: [10.80.99.244] => (item=/root/CASTEL/inventories/nocebo/host_vars/10.80.99.244/FINAL_CONFIG)
+2019-02-26 14:25:43,792 p=23991 u=root |  ok: [10.80.99.245] => (item=/root/CASTEL/inventories/nocebo/host_vars/10.80.99.245/TEMP_CONFIG)
+2019-02-26 14:25:43,792 p=23991 u=root |  ok: [10.80.99.248] => (item=/root/CASTEL/inventories/nocebo/host_vars/10.80.99.248/TEMP_CONFIG)
+2019-02-26 14:25:43,823 p=23991 u=root |  ok: [10.80.99.246] => (item=/root/CASTEL/inventories/nocebo/host_vars/10.80.99.246/TEMP_CONFIG)
+2019-02-26 14:25:43,824 p=23991 u=root |  ok: [10.80.99.241] => (item=/root/CASTEL/inventories/nocebo/host_vars/10.80.99.241/TEMP_CONFIG)
+2019-02-26 14:25:43,825 p=23991 u=root |  ok: [10.80.99.244] => (item=/root/CASTEL/inventories/nocebo/host_vars/10.80.99.244/TEMP_CONFIG)
+2019-02-26 14:25:43,826 p=23991 u=root |  ok: [10.80.99.245] => (item=/root/CASTEL/inventories/nocebo/host_vars/10.80.99.245/FACTS)
+2019-02-26 14:25:43,856 p=23991 u=root |  ok: [10.80.99.246] => (item=/root/CASTEL/inventories/nocebo/host_vars/10.80.99.246/FACTS)
+2019-02-26 14:25:43,881 p=23991 u=root |  ok: [10.80.99.248] => (item=/root/CASTEL/inventories/nocebo/host_vars/10.80.99.248/FACTS)
+2019-02-26 14:25:44,033 p=23991 u=root |  ok: [10.80.99.241] => (item=/root/CASTEL/inventories/nocebo/host_vars/10.80.99.241/FACTS)
+2019-02-26 14:25:44,118 p=23991 u=root |  ok: [10.80.99.244] => (item=/root/CASTEL/inventories/nocebo/host_vars/10.80.99.244/FACTS)
+2019-02-26 14:25:44,506 p=23991 u=root |  ok: [10.80.99.250] => (item=/root/CASTEL/inventories/nocebo/CONFIG)
+2019-02-26 14:25:44,924 p=23991 u=root |  ok: [10.80.99.250] => (item=/root/CASTEL/inventories/nocebo/host_vars/10.80.99.250/FINAL_CONFIG)
+2019-02-26 14:25:45,302 p=23991 u=root |  ok: [10.80.99.250] => (item=/root/CASTEL/inventories/nocebo/host_vars/10.80.99.250/TEMP_CONFIG)
+2019-02-26 14:25:45,625 p=23991 u=root |  ok: [10.80.99.250] => (item=/root/CASTEL/inventories/nocebo/host_vars/10.80.99.250/FACTS)
+2019-02-26 14:25:45,647 p=23991 u=root |  TASK [CREATE DIRECTORY] **************************************************************************************************************
+2019-02-26 14:25:53,756 p=23991 u=root |  changed: [10.80.99.254] => (item=/root/CASTEL/inventories/nocebo/CONFIG)
+2019-02-26 14:25:53,772 p=23991 u=root |  ok: [10.80.99.249] => (item=/root/CASTEL/inventories/nocebo/CONFIG)
+2019-02-26 14:25:53,773 p=23991 u=root |  ok: [10.80.99.247] => (item=/root/CASTEL/inventories/nocebo/CONFIG)
+2019-02-26 14:25:53,774 p=23991 u=root |  ok: [10.80.99.242] => (item=/root/CASTEL/inventories/nocebo/CONFIG)
+2019-02-26 14:25:53,775 p=23991 u=root |  ok: [10.80.99.245] => (item=/root/CASTEL/inventories/nocebo/CONFIG)
+2019-02-26 14:25:53,776 p=23991 u=root |  changed: [10.80.99.254] => (item=/root/CASTEL/inventories/nocebo/host_vars/10.80.99.254/FINAL_CONFIG)
+2019-02-26 14:25:53,811 p=23991 u=root |  changed: [10.80.99.249] => (item=/root/CASTEL/inventories/nocebo/host_vars/10.80.99.249/FINAL_CONFIG)
+2019-02-26 14:25:53,812 p=23991 u=root |  changed: [10.80.99.247] => (item=/root/CASTEL/inventories/nocebo/host_vars/10.80.99.247/FINAL_CONFIG)
+2019-02-26 14:25:53,813 p=23991 u=root |  changed: [10.80.99.242] => (item=/root/CASTEL/inventories/nocebo/host_vars/10.80.99.242/FINAL_CONFIG)
+2019-02-26 14:25:53,814 p=23991 u=root |  changed: [10.80.99.245] => (item=/root/CASTEL/inventories/nocebo/host_vars/10.80.99.245/FINAL_CONFIG)
+2019-02-26 14:25:53,815 p=23991 u=root |  changed: [10.80.99.254] => (item=/root/CASTEL/inventories/nocebo/host_vars/10.80.99.254/TEMP_CONFIG)
+2019-02-26 14:25:53,815 p=23991 u=root |  changed: [10.80.99.249] => (item=/root/CASTEL/inventories/nocebo/host_vars/10.80.99.249/TEMP_CONFIG)
+2019-02-26 14:25:53,816 p=23991 u=root |  changed: [10.80.99.247] => (item=/root/CASTEL/inventories/nocebo/host_vars/10.80.99.247/TEMP_CONFIG)
+2019-02-26 14:25:53,846 p=23991 u=root |  changed: [10.80.99.242] => (item=/root/CASTEL/inventories/nocebo/host_vars/10.80.99.242/TEMP_CONFIG)
+2019-02-26 14:25:53,847 p=23991 u=root |  changed: [10.80.99.245] => (item=/root/CASTEL/inventories/nocebo/host_vars/10.80.99.245/TEMP_CONFIG)
+2019-02-26 14:25:53,849 p=23991 u=root |  changed: [10.80.99.254] => (item=/root/CASTEL/inventories/nocebo/host_vars/10.80.99.254/FACTS)
+2019-02-26 14:25:53,987 p=23991 u=root |  changed: [10.80.99.249] => (item=/root/CASTEL/inventories/nocebo/host_vars/10.80.99.249/FACTS)
+2019-02-26 14:25:54,143 p=23991 u=root |  changed: [10.80.99.247] => (item=/root/CASTEL/inventories/nocebo/host_vars/10.80.99.247/FACTS)
+2019-02-26 14:25:54,306 p=23991 u=root |  changed: [10.80.99.242] => (item=/root/CASTEL/inventories/nocebo/host_vars/10.80.99.242/FACTS)
+2019-02-26 14:25:54,441 p=23991 u=root |  changed: [10.80.99.245] => (item=/root/CASTEL/inventories/nocebo/host_vars/10.80.99.245/FACTS)
+2019-02-26 14:25:56,179 p=23991 u=root |  ok: [10.80.99.246] => (item=/root/CASTEL/inventories/nocebo/CONFIG)
+2019-02-26 14:25:56,503 p=23991 u=root |  ok: [10.80.99.248] => (item=/root/CASTEL/inventories/nocebo/CONFIG)
+2019-02-26 14:25:56,601 p=23991 u=root |  ok: [10.80.99.241] => (item=/root/CASTEL/inventories/nocebo/CONFIG)
+2019-02-26 14:25:56,718 p=23991 u=root |  ok: [10.80.99.244] => (item=/root/CASTEL/inventories/nocebo/CONFIG)
+2019-02-26 14:25:56,967 p=23991 u=root |  ok: [10.80.99.250] => (item=/root/CASTEL/inventories/nocebo/CONFIG)
+2019-02-26 14:25:57,818 p=23991 u=root |  changed: [10.80.99.246] => (item=/root/CASTEL/inventories/nocebo/host_vars/10.80.99.246/FINAL_CONFIG)
+2019-02-26 14:25:58,035 p=23991 u=root |  changed: [10.80.99.248] => (item=/root/CASTEL/inventories/nocebo/host_vars/10.80.99.248/FINAL_CONFIG)
+2019-02-26 14:25:58,137 p=23991 u=root |  changed: [10.80.99.241] => (item=/root/CASTEL/inventories/nocebo/host_vars/10.80.99.241/FINAL_CONFIG)
+2019-02-26 14:25:58,255 p=23991 u=root |  changed: [10.80.99.244] => (item=/root/CASTEL/inventories/nocebo/host_vars/10.80.99.244/FINAL_CONFIG)
+2019-02-26 14:25:58,592 p=23991 u=root |  changed: [10.80.99.250] => (item=/root/CASTEL/inventories/nocebo/host_vars/10.80.99.250/FINAL_CONFIG)
+2019-02-26 14:25:59,435 p=23991 u=root |  changed: [10.80.99.246] => (item=/root/CASTEL/inventories/nocebo/host_vars/10.80.99.246/TEMP_CONFIG)
+2019-02-26 14:25:59,666 p=23991 u=root |  changed: [10.80.99.248] => (item=/root/CASTEL/inventories/nocebo/host_vars/10.80.99.248/TEMP_CONFIG)
+2019-02-26 14:25:59,742 p=23991 u=root |  changed: [10.80.99.241] => (item=/root/CASTEL/inventories/nocebo/host_vars/10.80.99.241/TEMP_CONFIG)
+2019-02-26 14:25:59,925 p=23991 u=root |  changed: [10.80.99.244] => (item=/root/CASTEL/inventories/nocebo/host_vars/10.80.99.244/TEMP_CONFIG)
+2019-02-26 14:26:00,532 p=23991 u=root |  changed: [10.80.99.250] => (item=/root/CASTEL/inventories/nocebo/host_vars/10.80.99.250/TEMP_CONFIG)
+2019-02-26 14:26:01,495 p=23991 u=root |  changed: [10.80.99.246] => (item=/root/CASTEL/inventories/nocebo/host_vars/10.80.99.246/FACTS)
+2019-02-26 14:26:01,776 p=23991 u=root |  changed: [10.80.99.248] => (item=/root/CASTEL/inventories/nocebo/host_vars/10.80.99.248/FACTS)
+2019-02-26 14:26:01,850 p=23991 u=root |  changed: [10.80.99.241] => (item=/root/CASTEL/inventories/nocebo/host_vars/10.80.99.241/FACTS)
+2019-02-26 14:26:01,903 p=23991 u=root |  changed: [10.80.99.244] => (item=/root/CASTEL/inventories/nocebo/host_vars/10.80.99.244/FACTS)
+2019-02-26 14:26:01,978 p=23991 u=root |  changed: [10.80.99.250] => (item=/root/CASTEL/inventories/nocebo/host_vars/10.80.99.250/FACTS)
+2019-02-26 14:26:02,003 p=23991 u=root |  TASK [file] **************************************************************************************************************************
+2019-02-26 14:26:04,159 p=23991 u=root |  changed: [10.80.99.254]
+2019-02-26 14:26:04,308 p=23991 u=root |  changed: [10.80.99.249]
+2019-02-26 14:26:04,493 p=23991 u=root |  changed: [10.80.99.247]
+2019-02-26 14:26:04,737 p=23991 u=root |  changed: [10.80.99.242]
+2019-02-26 14:26:04,890 p=23991 u=root |  changed: [10.80.99.245]
+2019-02-26 14:26:06,413 p=23991 u=root |  changed: [10.80.99.246]
+2019-02-26 14:26:06,610 p=23991 u=root |  changed: [10.80.99.248]
+2019-02-26 14:26:06,697 p=23991 u=root |  changed: [10.80.99.241]
+2019-02-26 14:26:06,808 p=23991 u=root |  changed: [10.80.99.244]
+2019-02-26 14:26:06,825 p=23991 u=root |  changed: [10.80.99.250]
+2019-02-26 14:26:06,852 p=23991 u=root |  TASK [GET FACTS DEVICE "10.80.99.254"] ***********************************************************************************************
+2019-02-26 14:26:28,338 p=23991 u=root |  ok: [10.80.99.254]
+2019-02-26 14:26:35,282 p=23991 u=root |  ok: [10.80.99.242]
+2019-02-26 14:26:35,337 p=23991 u=root |  ok: [10.80.99.245]
+2019-02-26 14:26:35,463 p=23991 u=root |  ok: [10.80.99.247]
+2019-02-26 14:26:40,110 p=23991 u=root |  fatal: [10.80.99.246]: FAILED! => {"changed": false, "msg": "cannot connect to device: Authentication failure: unable to connect cisco_ios 10.80.99.246:22\nAuthentication failed."}
+2019-02-26 14:26:47,241 p=23991 u=root |  fatal: [10.80.99.244]: FAILED! => {"changed": false, "msg": "cannot connect to device: Authentication failure: unable to connect cisco_ios 10.80.99.244:22\nAuthentication failed."}
+2019-02-26 14:26:48,283 p=23991 u=root |  ok: [10.80.99.249]
+2019-02-26 14:26:49,375 p=23991 u=root |  fatal: [10.80.99.248]: FAILED! => {"changed": false, "msg": "cannot connect to device: Authentication failure: unable to connect cisco_ios 10.80.99.248:22\nAuthentication failed."}
+2019-02-26 14:27:20,682 p=23991 u=root |  ok: [10.80.99.250]
+2019-02-26 14:28:19,498 p=23991 u=root |  fatal: [10.80.99.241]: FAILED! => {"changed": false, "msg": "cannot connect to device: Cannot connect to 10.80.99.241"}
+2019-02-26 14:28:19,564 p=23991 u=root |  TASK [MAKE SURE TO DELETE PREVIOUS FACTS FILE] ***************************************************************************************
+2019-02-26 14:28:21,402 p=23991 u=root |  ok: [10.80.99.254]
+2019-02-26 14:28:21,596 p=23991 u=root |  ok: [10.80.99.249]
+2019-02-26 14:28:21,681 p=23991 u=root |  ok: [10.80.99.247]
+2019-02-26 14:28:21,839 p=23991 u=root |  ok: [10.80.99.242]
+2019-02-26 14:28:21,892 p=23991 u=root |  ok: [10.80.99.245]
+2019-02-26 14:28:22,149 p=23991 u=root |  ok: [10.80.99.250]
+2019-02-26 14:28:22,192 p=23991 u=root |  TASK [COPY OUTPOUT TO YAML FORMAT] ***************************************************************************************************
+2019-02-26 14:28:27,703 p=23991 u=root |  changed: [10.80.99.242]
+2019-02-26 14:28:27,705 p=23991 u=root |  changed: [10.80.99.245]
+2019-02-26 14:28:27,706 p=23991 u=root |  changed: [10.80.99.249]
+2019-02-26 14:28:27,732 p=23991 u=root |  changed: [10.80.99.254]
+2019-02-26 14:28:27,733 p=23991 u=root |  changed: [10.80.99.247]
+2019-02-26 14:28:28,355 p=23991 u=root |  changed: [10.80.99.250]
+2019-02-26 14:28:28,403 p=23991 u=root |  TASK [lineinfile] ********************************************************************************************************************
+2019-02-26 14:28:31,178 p=23991 u=root |  changed: [10.80.99.245]
+2019-02-26 14:28:31,181 p=23991 u=root |  changed: [10.80.99.247]
+2019-02-26 14:28:31,182 p=23991 u=root |  changed: [10.80.99.249]
+2019-02-26 14:28:31,204 p=23991 u=root |  changed: [10.80.99.242]
+2019-02-26 14:28:31,212 p=23991 u=root |  changed: [10.80.99.254]
+2019-02-26 14:28:31,534 p=23991 u=root |  changed: [10.80.99.250]
+2019-02-26 14:28:31,557 p=23991 u=root |  PLAY [IOS USE TEMPLATE] **************************************************************************************************************
+2019-02-26 14:28:31,607 p=23991 u=root |  TASK [TAKE BACKUP BEFORE CHANGES] ****************************************************************************************************
+2019-02-26 14:28:45,729 p=26910 u=root |  network_os is set to ios
+2019-02-26 14:28:46,104 p=26912 u=root |  network_os is set to ios
+2019-02-26 14:28:46,396 p=26914 u=root |  network_os is set to ios
+2019-02-26 14:28:46,456 p=26915 u=root |  network_os is set to ios
+2019-02-26 14:28:46,716 p=26916 u=root |  network_os is set to ios
+2019-02-26 14:28:46,719 p=26939 u=root | paramiko [10.80.99.254] starting thread (client mode): 0x22554650L
+2019-02-26 14:28:46,725 p=26939 u=root | paramiko [10.80.99.254] Local version/idstring: SSH-2.0-paramiko_2.4.1
+2019-02-26 14:28:46,726 p=26939 u=root | paramiko [10.80.99.254] Remote version/idstring: SSH-2.0-Cisco-1.25
+2019-02-26 14:28:46,726 p=26939 u=root | paramiko [10.80.99.254] Connected (version 2.0, client Cisco-1.25)
+2019-02-26 14:28:46,746 p=26939 u=root | paramiko [10.80.99.254] kex algos:[u'diffie-hellman-group1-sha1'] server key:[u'ssh-rsa'] client encrypt:[u'aes128-cbc', u'3des-cbc', u'aes192-cbc', u'aes256-cbc'] server encrypt:[u'aes128-cbc', u'3des-cbc', u'aes192-cbc', u'aes256-cbc'] client mac:[u'hmac-sha1', u'hmac-sha1-96', u'hmac-md5', u'hmac-md5-96'] server mac:[u'hmac-sha1', u'hmac-sha1-96', u'hmac-md5', u'hmac-md5-96'] client compress:[u'none'] server compress:[u'none'] client lang:[u''] server lang:[u''] kex follows?False
+2019-02-26 14:28:46,747 p=26939 u=root | paramiko [10.80.99.254] Kex agreed: diffie-hellman-group1-sha1
+2019-02-26 14:28:46,747 p=26939 u=root | paramiko [10.80.99.254] HostKey agreed: ssh-rsa
+2019-02-26 14:28:46,747 p=26939 u=root | paramiko [10.80.99.254] Cipher agreed: aes128-cbc
+2019-02-26 14:28:46,748 p=26939 u=root | paramiko [10.80.99.254] MAC agreed: hmac-sha1
+2019-02-26 14:28:46,748 p=26939 u=root | paramiko [10.80.99.254] Compression agreed: none
+2019-02-26 14:28:47,055 p=26942 u=root | paramiko [10.80.99.249] starting thread (client mode): 0x3502d650L
+2019-02-26 14:28:47,059 p=26942 u=root | paramiko [10.80.99.249] Local version/idstring: SSH-2.0-paramiko_2.4.1
+2019-02-26 14:28:47,073 p=26942 u=root | paramiko [10.80.99.249] Remote version/idstring: SSH-2.0-Cisco-1.25
+2019-02-26 14:28:47,074 p=26942 u=root | paramiko [10.80.99.249] Connected (version 2.0, client Cisco-1.25)
+2019-02-26 14:28:47,075 p=26942 u=root | paramiko [10.80.99.249] kex algos:[u'diffie-hellman-group1-sha1'] server key:[u'ssh-rsa'] client encrypt:[u'aes128-cbc', u'3des-cbc', u'aes192-cbc', u'aes256-cbc'] server encrypt:[u'aes128-cbc', u'3des-cbc', u'aes192-cbc', u'aes256-cbc'] client mac:[u'hmac-sha1', u'hmac-sha1-96', u'hmac-md5', u'hmac-md5-96'] server mac:[u'hmac-sha1', u'hmac-sha1-96', u'hmac-md5', u'hmac-md5-96'] client compress:[u'none'] server compress:[u'none'] client lang:[u''] server lang:[u''] kex follows?False
+2019-02-26 14:28:47,076 p=26942 u=root | paramiko [10.80.99.249] Kex agreed: diffie-hellman-group1-sha1
+2019-02-26 14:28:47,076 p=26942 u=root | paramiko [10.80.99.249] HostKey agreed: ssh-rsa
+2019-02-26 14:28:47,076 p=26942 u=root | paramiko [10.80.99.249] Cipher agreed: aes128-cbc
+2019-02-26 14:28:47,077 p=26942 u=root | paramiko [10.80.99.249] MAC agreed: hmac-sha1
+2019-02-26 14:28:47,077 p=26942 u=root | paramiko [10.80.99.249] Compression agreed: none
+2019-02-26 14:28:47,189 p=26939 u=root | paramiko [10.80.99.254] kex engine KexGroup1 specified hash_algo <built-in function openssl_sha1>
+2019-02-26 14:28:47,191 p=26939 u=root | paramiko [10.80.99.254] Switch to new keys ...
+2019-02-26 14:28:47,294 p=26948 u=root | paramiko [10.80.99.242] starting thread (client mode): 0x89aa0650L
+2019-02-26 14:28:47,296 p=26948 u=root | paramiko [10.80.99.242] Local version/idstring: SSH-2.0-paramiko_2.4.1
+2019-02-26 14:28:47,299 p=26948 u=root | paramiko [10.80.99.242] Remote version/idstring: SSH-2.0-Cisco-1.25
+2019-02-26 14:28:47,300 p=26948 u=root | paramiko [10.80.99.242] Connected (version 2.0, client Cisco-1.25)
+2019-02-26 14:28:47,314 p=26948 u=root | paramiko [10.80.99.242] kex algos:[u'diffie-hellman-group1-sha1'] server key:[u'ssh-rsa'] client encrypt:[u'aes128-cbc', u'3des-cbc', u'aes192-cbc', u'aes256-cbc'] server encrypt:[u'aes128-cbc', u'3des-cbc', u'aes192-cbc', u'aes256-cbc'] client mac:[u'hmac-sha1', u'hmac-sha1-96', u'hmac-md5', u'hmac-md5-96'] server mac:[u'hmac-sha1', u'hmac-sha1-96', u'hmac-md5', u'hmac-md5-96'] client compress:[u'none'] server compress:[u'none'] client lang:[u''] server lang:[u''] kex follows?False
+2019-02-26 14:28:47,315 p=26948 u=root | paramiko [10.80.99.242] Kex agreed: diffie-hellman-group1-sha1
+2019-02-26 14:28:47,315 p=26948 u=root | paramiko [10.80.99.242] HostKey agreed: ssh-rsa
+2019-02-26 14:28:47,315 p=26948 u=root | paramiko [10.80.99.242] Cipher agreed: aes128-cbc
+2019-02-26 14:28:47,315 p=26948 u=root | paramiko [10.80.99.242] MAC agreed: hmac-sha1
+2019-02-26 14:28:47,316 p=26948 u=root | paramiko [10.80.99.242] Compression agreed: none
+2019-02-26 14:28:47,413 p=26939 u=root | paramiko [10.80.99.254] userauth is OK
+2019-02-26 14:28:47,492 p=26951 u=root | paramiko [10.80.99.245] starting thread (client mode): 0x65b79650L
+2019-02-26 14:28:47,494 p=26951 u=root | paramiko [10.80.99.245] Local version/idstring: SSH-2.0-paramiko_2.4.1
+2019-02-26 14:28:47,496 p=26951 u=root | paramiko [10.80.99.245] Remote version/idstring: SSH-2.0-Cisco-1.25
+2019-02-26 14:28:47,497 p=26951 u=root | paramiko [10.80.99.245] Connected (version 2.0, client Cisco-1.25)
+2019-02-26 14:28:47,507 p=26951 u=root | paramiko [10.80.99.245] kex algos:[u'diffie-hellman-group1-sha1'] server key:[u'ssh-rsa'] client encrypt:[u'aes128-cbc', u'3des-cbc', u'aes192-cbc', u'aes256-cbc'] server encrypt:[u'aes128-cbc', u'3des-cbc', u'aes192-cbc', u'aes256-cbc'] client mac:[u'hmac-sha1', u'hmac-sha1-96', u'hmac-md5', u'hmac-md5-96'] server mac:[u'hmac-sha1', u'hmac-sha1-96', u'hmac-md5', u'hmac-md5-96'] client compress:[u'none'] server compress:[u'none'] client lang:[u''] server lang:[u''] kex follows?False
+2019-02-26 14:28:47,507 p=26951 u=root | paramiko [10.80.99.245] Kex agreed: diffie-hellman-group1-sha1
+2019-02-26 14:28:47,508 p=26951 u=root | paramiko [10.80.99.245] HostKey agreed: ssh-rsa
+2019-02-26 14:28:47,508 p=26951 u=root | paramiko [10.80.99.245] Cipher agreed: aes128-cbc
+2019-02-26 14:28:47,508 p=26951 u=root | paramiko [10.80.99.245] MAC agreed: hmac-sha1
+2019-02-26 14:28:47,508 p=26951 u=root | paramiko [10.80.99.245] Compression agreed: none
+2019-02-26 14:28:47,540 p=26942 u=root | paramiko [10.80.99.249] kex engine KexGroup1 specified hash_algo <built-in function openssl_sha1>
+2019-02-26 14:28:47,544 p=26942 u=root | paramiko [10.80.99.249] Switch to new keys ...
+2019-02-26 14:28:47,688 p=26948 u=root | paramiko [10.80.99.242] kex engine KexGroup1 specified hash_algo <built-in function openssl_sha1>
+2019-02-26 14:28:47,692 p=26948 u=root | paramiko [10.80.99.242] Switch to new keys ...
+2019-02-26 14:28:47,775 p=26942 u=root | paramiko [10.80.99.249] userauth is OK
+2019-02-26 14:28:47,916 p=26948 u=root | paramiko [10.80.99.242] userauth is OK
+2019-02-26 14:28:47,946 p=26951 u=root | paramiko [10.80.99.245] kex engine KexGroup1 specified hash_algo <built-in function openssl_sha1>
+2019-02-26 14:28:47,950 p=26951 u=root | paramiko [10.80.99.245] Switch to new keys ...
+2019-02-26 14:28:48,172 p=26951 u=root | paramiko [10.80.99.245] userauth is OK
+2019-02-26 14:28:48,574 p=26939 u=root | paramiko [10.80.99.254] Authentication (password) successful!
+2019-02-26 14:28:48,596 p=26939 u=root | paramiko [10.80.99.254] [chan 0] Max packet in: 32768 bytes
+2019-02-26 14:28:48,613 p=26939 u=root | paramiko [10.80.99.254] [chan 0] Max packet out: 4096 bytes
+2019-02-26 14:28:48,614 p=26939 u=root | paramiko [10.80.99.254] Secsh channel 0 opened.
+2019-02-26 14:28:48,666 p=26939 u=root | paramiko [10.80.99.254] [chan 0] Sesch channel 0 request ok
+2019-02-26 14:28:48,679 p=26939 u=root | paramiko [10.80.99.254] [chan 0] Sesch channel 0 request ok
+2019-02-26 14:28:48,889 p=26942 u=root | paramiko [10.80.99.249] Authentication (password) successful!
+2019-02-26 14:28:48,903 p=26942 u=root | paramiko [10.80.99.249] [chan 0] Max packet in: 32768 bytes
+2019-02-26 14:28:48,916 p=26942 u=root | paramiko [10.80.99.249] [chan 0] Max packet out: 4096 bytes
+2019-02-26 14:28:48,917 p=26942 u=root | paramiko [10.80.99.249] Secsh channel 0 opened.
+2019-02-26 14:28:48,936 p=26942 u=root | paramiko [10.80.99.249] [chan 0] Sesch channel 0 request ok
+2019-02-26 14:28:48,952 p=26942 u=root | paramiko [10.80.99.249] [chan 0] Sesch channel 0 request ok
+2019-02-26 14:28:49,044 p=26948 u=root | paramiko [10.80.99.242] Authentication (password) successful!
+2019-02-26 14:28:49,065 p=26948 u=root | paramiko [10.80.99.242] [chan 0] Max packet in: 32768 bytes
+2019-02-26 14:28:49,078 p=26948 u=root | paramiko [10.80.99.242] [chan 0] Max packet out: 4096 bytes
+2019-02-26 14:28:49,078 p=26948 u=root | paramiko [10.80.99.242] Secsh channel 0 opened.
+2019-02-26 14:28:49,095 p=26948 u=root | paramiko [10.80.99.242] [chan 0] Sesch channel 0 request ok
+2019-02-26 14:28:49,107 p=26948 u=root | paramiko [10.80.99.242] [chan 0] Sesch channel 0 request ok
+2019-02-26 14:28:49,310 p=26951 u=root | paramiko [10.80.99.245] Authentication (password) successful!
+2019-02-26 14:28:49,324 p=26951 u=root | paramiko [10.80.99.245] [chan 0] Max packet in: 32768 bytes
+2019-02-26 14:28:49,342 p=26951 u=root | paramiko [10.80.99.245] [chan 0] Max packet out: 4096 bytes
+2019-02-26 14:28:49,343 p=26951 u=root | paramiko [10.80.99.245] Secsh channel 0 opened.
+2019-02-26 14:28:49,370 p=26951 u=root | paramiko [10.80.99.245] [chan 0] Sesch channel 0 request ok
+2019-02-26 14:28:49,388 p=26951 u=root | paramiko [10.80.99.245] [chan 0] Sesch channel 0 request ok
+2019-02-26 14:28:50,177 p=26942 u=root | paramiko [10.80.99.249] [chan 0] EOF received (0)
+2019-02-26 14:28:50,178 p=26942 u=root | paramiko [10.80.99.249] [chan 0] EOF sent (0)
+2019-02-26 14:28:50,178 p=26942 u=root | paramiko [10.80.99.249] Ignoring message for dead channel 0
+2019-02-26 14:28:50,179 p=26942 u=root | paramiko [10.80.99.249] EOF in transport thread
+2019-02-26 14:28:52,799 p=23991 u=root |  fatal: [10.80.99.249]: FAILED! => {"changed": false, "msg": "Socket is closed"}
+2019-02-26 14:28:54,442 p=23991 u=root |  ok: [10.80.99.242]
+2019-02-26 14:28:54,510 p=23991 u=root |  ok: [10.80.99.245]
+2019-02-26 14:28:56,004 p=23991 u=root |  ok: [10.80.99.254]
+2019-02-26 14:28:56,062 p=27038 u=root |  network_os is set to ios
+2019-02-26 14:28:56,422 p=27057 u=root | paramiko [10.80.99.250] starting thread (client mode): 0x14d6b650L
+2019-02-26 14:28:56,423 p=27057 u=root | paramiko [10.80.99.250] Local version/idstring: SSH-2.0-paramiko_2.4.1
+2019-02-26 14:28:56,433 p=27057 u=root | paramiko [10.80.99.250] Remote version/idstring: SSH-2.0-Cisco-1.25
+2019-02-26 14:28:56,434 p=27057 u=root | paramiko [10.80.99.250] Connected (version 2.0, client Cisco-1.25)
+2019-02-26 14:28:56,436 p=27057 u=root | paramiko [10.80.99.250] kex algos:[u'diffie-hellman-group-exchange-sha1', u'diffie-hellman-group14-sha1', u'diffie-hellman-group1-sha1'] server key:[u'ssh-rsa'] client encrypt:[u'aes128-cbc', u'3des-cbc', u'aes192-cbc', u'aes256-cbc'] server encrypt:[u'aes128-cbc', u'3des-cbc', u'aes192-cbc', u'aes256-cbc'] client mac:[u'hmac-sha1', u'hmac-sha1-96', u'hmac-md5', u'hmac-md5-96'] server mac:[u'hmac-sha1', u'hmac-sha1-96', u'hmac-md5', u'hmac-md5-96'] client compress:[u'none'] server compress:[u'none'] client lang:[u''] server lang:[u''] kex follows?False
+2019-02-26 14:28:56,436 p=27057 u=root | paramiko [10.80.99.250] Kex agreed: diffie-hellman-group-exchange-sha1
+2019-02-26 14:28:56,436 p=27057 u=root | paramiko [10.80.99.250] HostKey agreed: ssh-rsa
+2019-02-26 14:28:56,436 p=27057 u=root | paramiko [10.80.99.250] Cipher agreed: aes128-cbc
+2019-02-26 14:28:56,436 p=27057 u=root | paramiko [10.80.99.250] MAC agreed: hmac-sha1
+2019-02-26 14:28:56,436 p=27057 u=root | paramiko [10.80.99.250] Compression agreed: none
+2019-02-26 14:28:56,657 p=27057 u=root | paramiko [10.80.99.250] Got server p (2048 bits)
+2019-02-26 14:28:57,265 p=27057 u=root | paramiko [10.80.99.250] kex engine KexGex specified hash_algo <built-in function openssl_sha1>
+2019-02-26 14:28:57,268 p=27057 u=root | paramiko [10.80.99.250] Switch to new keys ...
+2019-02-26 14:28:57,378 p=23991 u=root |  fatal: [10.80.99.247]: FAILED! => {"msg": "timed out"}
+2019-02-26 14:28:57,383 p=26914 u=root |  shutdown complete
+2019-02-26 14:28:57,487 p=27057 u=root | paramiko [10.80.99.250] userauth is OK
+2019-02-26 14:29:04,506 p=27057 u=root | paramiko [10.80.99.250] Authentication (password) failed.
+2019-02-26 14:29:04,610 p=27038 u=root |  shutdown complete
+2019-02-26 14:29:04,657 p=23991 u=root |  fatal: [10.80.99.250]: FAILED! => {"msg": "Authentication failed."}
+2019-02-26 14:29:04,707 p=27057 u=root | paramiko [10.80.99.250] EOF in transport thread
+2019-02-26 14:29:04,814 p=23991 u=root |  TASK [base : ADD BASIC FILE & ASSEMBLY] **********************************************************************************************
+2019-02-26 14:29:05,640 p=23991 u=root |  changed: [10.80.99.254]
+2019-02-26 14:29:05,694 p=23991 u=root |  TASK [tacacs : ADD TACACS FILE & ASSEMBLY] *******************************************************************************************
+2019-02-26 14:29:06,311 p=23991 u=root |  changed: [10.80.99.254]
+2019-02-26 14:29:06,358 p=23991 u=root |  TASK [tacacs : SETUP AAA TACACS] *****************************************************************************************************
+2019-02-26 14:29:20,545 p=23991 u=root |  [DEPRECATION WARNING]: Param 'force' is deprecated. See the module docs for more information. This feature will be removed in version
+ 2.6. Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2019-02-26 14:29:20,547 p=23991 u=root |  changed: [10.80.99.242]
+2019-02-26 14:29:22,689 p=26912 u=root |  persistent connection idle timeout triggered, timeout value is 30 secs.
+See the timeout setting options in the Network Debug and Troubleshooting Guide.
+2019-02-26 14:29:22,791 p=26912 u=root |  shutdown complete
+2019-02-26 14:29:25,358 p=23991 u=root |  changed: [10.80.99.245]
+2019-02-26 14:29:27,023 p=23991 u=root |  changed: [10.80.99.254]
+2019-02-26 14:29:27,100 p=23991 u=root |  TASK [snmp : ADD SNMP FILE & ASSEMBLY] ***********************************************************************************************
+2019-02-26 14:29:27,780 p=23991 u=root |  changed: [10.80.99.254]
+2019-02-26 14:29:27,839 p=23991 u=root |  TASK [snmp : SETUP HOST  SNMP] *******************************************************************************************************
+2019-02-26 14:29:45,200 p=23991 u=root |  changed: [10.80.99.242]
+2019-02-26 14:29:45,222 p=23991 u=root |  changed: [10.80.99.245]
+2019-02-26 14:29:47,139 p=23991 u=root |  changed: [10.80.99.254]
+2019-02-26 14:29:47,222 p=23991 u=root |  TASK [loggin : ADD LOGGIN FILE & ASSEMBLY] *******************************************************************************************
+2019-02-26 14:29:47,967 p=23991 u=root |  changed: [10.80.99.254]
+2019-02-26 14:29:48,018 p=23991 u=root |  TASK [loggin : SETUP LOGGIN] *********************************************************************************************************
+2019-02-26 14:29:59,073 p=23991 u=root |  changed: [10.80.99.242]
+2019-02-26 14:29:59,086 p=23991 u=root |  changed: [10.80.99.245]
+2019-02-26 14:30:00,328 p=23991 u=root |  changed: [10.80.99.254]
+2019-02-26 14:30:00,408 p=23991 u=root |  TASK [netflow : SHOW PREVIOUS NETFLOW CONFIG] ****************************************************************************************
+2019-02-26 14:30:00,538 p=23991 u=root |  skipping: [10.80.99.254]
+2019-02-26 14:30:00,615 p=23991 u=root |  skipping: [10.80.99.242]
+2019-02-26 14:30:00,667 p=23991 u=root |  skipping: [10.80.99.245]
+2019-02-26 14:30:00,720 p=23991 u=root |  TASK [netflow : set_fact] ************************************************************************************************************
+2019-02-26 14:30:00,929 p=23991 u=root |  skipping: [10.80.99.254]
+2019-02-26 14:30:00,931 p=23991 u=root |  skipping: [10.80.99.242]
+2019-02-26 14:30:00,968 p=23991 u=root |  skipping: [10.80.99.245]
+2019-02-26 14:30:01,031 p=23991 u=root |  TASK [netflow : DISPLAY PREVIOUS NETFLOW] ********************************************************************************************
+2019-02-26 14:30:01,200 p=23991 u=root |  skipping: [10.80.99.254]
+2019-02-26 14:30:01,202 p=23991 u=root |  skipping: [10.80.99.242]
+2019-02-26 14:30:01,237 p=23991 u=root |  skipping: [10.80.99.245]
+2019-02-26 14:30:01,306 p=23991 u=root |  TASK [netflow : ERASE PREVIOUS NETFLOW CONFIG] ***************************************************************************************
+2019-02-26 14:30:01,396 p=23991 u=root |  skipping: [10.80.99.254]
+2019-02-26 14:30:01,466 p=23991 u=root |  skipping: [10.80.99.242]
+2019-02-26 14:30:01,505 p=23991 u=root |  skipping: [10.80.99.245]
+2019-02-26 14:30:01,549 p=23991 u=root |  TASK [netflow : ADD NETFLOW FILE & ASSEMBLY] *****************************************************************************************
+2019-02-26 14:30:01,596 p=23991 u=root |  skipping: [10.80.99.254]
+2019-02-26 14:30:01,664 p=23991 u=root |  TASK [netflow : SETUP NETFLOW NEW VERSION] *******************************************************************************************
+2019-02-26 14:30:01,829 p=23991 u=root |  skipping: [10.80.99.254]
+2019-02-26 14:30:01,831 p=23991 u=root |  skipping: [10.80.99.242]
+2019-02-26 14:30:01,868 p=23991 u=root |  skipping: [10.80.99.245]
+2019-02-26 14:30:01,927 p=23991 u=root |  TASK [netflow : ADD NETFLOW old FILE & ASSEMBLY] *************************************************************************************
+2019-02-26 14:30:01,983 p=23991 u=root |  skipping: [10.80.99.254]
+2019-02-26 14:30:02,038 p=23991 u=root |  TASK [netflow : SETUP NETFLOW OLD VERSION] *******************************************************************************************
+2019-02-26 14:30:02,240 p=23991 u=root |  skipping: [10.80.99.254]
+2019-02-26 14:30:02,243 p=23991 u=root |  skipping: [10.80.99.242]
+2019-02-26 14:30:02,444 p=23991 u=root |  skipping: [10.80.99.245]
+2019-02-26 14:30:02,487 p=23991 u=root |  TASK [SAVE CONFIG] *******************************************************************************************************************
+2019-02-26 14:30:21,508 p=23991 u=root |  ok: [10.80.99.242]
+2019-02-26 14:30:22,771 p=23991 u=root |  ok: [10.80.99.245]
+2019-02-26 14:30:25,293 p=26910 u=root |  command timeout triggered, timeout value is 10 secs.
+See the timeout setting options in the Network Debug and Troubleshooting Guide.
+2019-02-26 14:30:25,355 p=23991 u=root |  fatal: [10.80.99.254]: FAILED! => {"changed": false, "msg": "command timeout triggered, timeout value is 10 secs.\nSee the timeout setting options in the Network Debug and Troubleshooting Guide."}
+2019-02-26 14:30:25,359 p=26951 u=root | paramiko [10.80.99.245] [chan 0] EOF sent (0)
+2019-02-26 14:30:25,367 p=26951 u=root | paramiko [10.80.99.245] EOF in transport thread
+2019-02-26 14:30:25,369 p=26939 u=root | paramiko [10.80.99.254] [chan 0] EOF sent (0)
+2019-02-26 14:30:25,420 p=26939 u=root | paramiko [10.80.99.254] EOF in transport thread
+2019-02-26 14:30:25,436 p=26948 u=root | paramiko [10.80.99.242] [chan 0] EOF sent (0)
+2019-02-26 14:30:25,450 p=26948 u=root | paramiko [10.80.99.242] EOF in transport thread
+2019-02-26 14:30:25,455 p=23991 u=root |  	to retry, use: --limit @/root/CASTEL/site.retry
+
+2019-02-26 14:30:25,456 p=23991 u=root |  PLAY RECAP ***************************************************************************************************************************
+2019-02-26 14:30:25,456 p=23991 u=root |  10.80.99.241               : ok=3    changed=2    unreachable=0    failed=1   
+2019-02-26 14:30:25,457 p=23991 u=root |  10.80.99.242               : ok=12   changed=8    unreachable=0    failed=0   
+2019-02-26 14:30:25,457 p=23991 u=root |  10.80.99.244               : ok=3    changed=2    unreachable=0    failed=1   
+2019-02-26 14:30:25,458 p=23991 u=root |  10.80.99.245               : ok=12   changed=7    unreachable=0    failed=0   
+2019-02-26 14:30:25,458 p=23991 u=root |  10.80.99.246               : ok=3    changed=2    unreachable=0    failed=1   
+2019-02-26 14:30:25,459 p=23991 u=root |  10.80.99.247               : ok=7    changed=4    unreachable=0    failed=1   
+2019-02-26 14:30:25,459 p=23991 u=root |  10.80.99.248               : ok=3    changed=2    unreachable=0    failed=1   
+2019-02-26 14:30:25,460 p=23991 u=root |  10.80.99.249               : ok=7    changed=4    unreachable=0    failed=1   
+2019-02-26 14:30:25,460 p=23991 u=root |  10.80.99.250               : ok=7    changed=4    unreachable=0    failed=1   
+2019-02-26 14:30:25,461 p=23991 u=root |  10.80.99.252               : ok=0    changed=0    unreachable=0    failed=1   
+2019-02-26 14:30:25,461 p=23991 u=root |  10.80.99.254               : ok=15   changed=11   unreachable=0    failed=1   
+2019-02-26 14:30:25,471 p=26916 u=root |  shutdown complete
+2019-02-26 14:30:25,537 p=26910 u=root |  shutdown complete
+2019-02-26 14:30:25,554 p=26915 u=root |  shutdown complete
+2019-02-26 14:31:01,375 p=27619 u=root |  PLAY [DEPLOY CONFIG TO SITES] ********************************************************************************************************
+2019-02-26 14:31:01,418 p=27619 u=root |  PLAY [IOS USE TEMPLATE] **************************************************************************************************************
+2019-02-26 14:31:01,823 p=27619 u=root |  TASK [TAKE BACKUP BEFORE CHANGES] ****************************************************************************************************
+2019-02-26 14:31:15,902 p=27629 u=root |  network_os is set to ios
+2019-02-26 14:31:16,842 p=27657 u=root | paramiko [10.80.99.254] starting thread (client mode): 0xa5fa0650L
+2019-02-26 14:31:16,843 p=27657 u=root | paramiko [10.80.99.254] Local version/idstring: SSH-2.0-paramiko_2.4.1
+2019-02-26 14:31:16,846 p=27657 u=root | paramiko [10.80.99.254] Remote version/idstring: SSH-2.0-Cisco-1.25
+2019-02-26 14:31:16,849 p=27657 u=root | paramiko [10.80.99.254] Connected (version 2.0, client Cisco-1.25)
+2019-02-26 14:31:16,872 p=27657 u=root | paramiko [10.80.99.254] kex algos:[u'diffie-hellman-group1-sha1'] server key:[u'ssh-rsa'] client encrypt:[u'aes128-cbc', u'3des-cbc', u'aes192-cbc', u'aes256-cbc'] server encrypt:[u'aes128-cbc', u'3des-cbc', u'aes192-cbc', u'aes256-cbc'] client mac:[u'hmac-sha1', u'hmac-sha1-96', u'hmac-md5', u'hmac-md5-96'] server mac:[u'hmac-sha1', u'hmac-sha1-96', u'hmac-md5', u'hmac-md5-96'] client compress:[u'none'] server compress:[u'none'] client lang:[u''] server lang:[u''] kex follows?False
+2019-02-26 14:31:16,872 p=27657 u=root | paramiko [10.80.99.254] Kex agreed: diffie-hellman-group1-sha1
+2019-02-26 14:31:16,872 p=27657 u=root | paramiko [10.80.99.254] HostKey agreed: ssh-rsa
+2019-02-26 14:31:16,872 p=27657 u=root | paramiko [10.80.99.254] Cipher agreed: aes128-cbc
+2019-02-26 14:31:16,873 p=27657 u=root | paramiko [10.80.99.254] MAC agreed: hmac-sha1
+2019-02-26 14:31:16,873 p=27657 u=root | paramiko [10.80.99.254] Compression agreed: none
+2019-02-26 14:31:17,299 p=27657 u=root | paramiko [10.80.99.254] kex engine KexGroup1 specified hash_algo <built-in function openssl_sha1>
+2019-02-26 14:31:17,300 p=27657 u=root | paramiko [10.80.99.254] Switch to new keys ...
+2019-02-26 14:31:17,441 p=27633 u=root |  network_os is set to ios
+2019-02-26 14:31:17,518 p=27657 u=root | paramiko [10.80.99.254] userauth is OK
+2019-02-26 14:31:18,005 p=27637 u=root |  network_os is set to ios
+2019-02-26 14:31:17,993 p=27638 u=root |  network_os is set to ios
+2019-02-26 14:31:18,200 p=27639 u=root |  network_os is set to ios
+2019-02-26 14:31:18,246 p=27663 u=root | paramiko [10.80.99.249] starting thread (client mode): 0x47375650L
+2019-02-26 14:31:18,247 p=27663 u=root | paramiko [10.80.99.249] Local version/idstring: SSH-2.0-paramiko_2.4.1
+2019-02-26 14:31:18,247 p=27663 u=root | paramiko [10.80.99.249] Remote version/idstring: SSH-2.0-Cisco-1.25
+2019-02-26 14:31:18,248 p=27663 u=root | paramiko [10.80.99.249] Connected (version 2.0, client Cisco-1.25)
+2019-02-26 14:31:18,263 p=27663 u=root | paramiko [10.80.99.249] kex algos:[u'diffie-hellman-group1-sha1'] server key:[u'ssh-rsa'] client encrypt:[u'aes128-cbc', u'3des-cbc', u'aes192-cbc', u'aes256-cbc'] server encrypt:[u'aes128-cbc', u'3des-cbc', u'aes192-cbc', u'aes256-cbc'] client mac:[u'hmac-sha1', u'hmac-sha1-96', u'hmac-md5', u'hmac-md5-96'] server mac:[u'hmac-sha1', u'hmac-sha1-96', u'hmac-md5', u'hmac-md5-96'] client compress:[u'none'] server compress:[u'none'] client lang:[u''] server lang:[u''] kex follows?False
+2019-02-26 14:31:18,263 p=27663 u=root | paramiko [10.80.99.249] Kex agreed: diffie-hellman-group1-sha1
+2019-02-26 14:31:18,264 p=27663 u=root | paramiko [10.80.99.249] HostKey agreed: ssh-rsa
+2019-02-26 14:31:18,264 p=27663 u=root | paramiko [10.80.99.249] Cipher agreed: aes128-cbc
+2019-02-26 14:31:18,264 p=27663 u=root | paramiko [10.80.99.249] MAC agreed: hmac-sha1
+2019-02-26 14:31:18,264 p=27663 u=root | paramiko [10.80.99.249] Compression agreed: none
+2019-02-26 14:31:18,716 p=27663 u=root | paramiko [10.80.99.249] kex engine KexGroup1 specified hash_algo <built-in function openssl_sha1>
+2019-02-26 14:31:18,719 p=27674 u=root | paramiko [10.80.99.246] starting thread (client mode): 0x9607a650L
+2019-02-26 14:31:18,720 p=27674 u=root | paramiko [10.80.99.246] Local version/idstring: SSH-2.0-paramiko_2.4.1
+2019-02-26 14:31:18,721 p=27663 u=root | paramiko [10.80.99.249] Switch to new keys ...
+2019-02-26 14:31:18,721 p=27674 u=root | paramiko [10.80.99.246] Remote version/idstring: SSH-2.0-Cisco-1.25
+2019-02-26 14:31:18,722 p=27674 u=root | paramiko [10.80.99.246] Connected (version 2.0, client Cisco-1.25)
+2019-02-26 14:31:18,732 p=27674 u=root | paramiko [10.80.99.246] kex algos:[u'diffie-hellman-group1-sha1'] server key:[u'ssh-rsa'] client encrypt:[u'aes128-cbc', u'3des-cbc', u'aes192-cbc', u'aes256-cbc'] server encrypt:[u'aes128-cbc', u'3des-cbc', u'aes192-cbc', u'aes256-cbc'] client mac:[u'hmac-sha1', u'hmac-sha1-96', u'hmac-md5', u'hmac-md5-96'] server mac:[u'hmac-sha1', u'hmac-sha1-96', u'hmac-md5', u'hmac-md5-96'] client compress:[u'none'] server compress:[u'none'] client lang:[u''] server lang:[u''] kex follows?False
+2019-02-26 14:31:18,732 p=27674 u=root | paramiko [10.80.99.246] Kex agreed: diffie-hellman-group1-sha1
+2019-02-26 14:31:18,733 p=27674 u=root | paramiko [10.80.99.246] HostKey agreed: ssh-rsa
+2019-02-26 14:31:18,733 p=27674 u=root | paramiko [10.80.99.246] Cipher agreed: aes128-cbc
+2019-02-26 14:31:18,733 p=27674 u=root | paramiko [10.80.99.246] MAC agreed: hmac-sha1
+2019-02-26 14:31:18,733 p=27674 u=root | paramiko [10.80.99.246] Compression agreed: none
+2019-02-26 14:31:18,769 p=27657 u=root | paramiko [10.80.99.254] Authentication (password) successful!
+2019-02-26 14:31:18,779 p=27657 u=root | paramiko [10.80.99.254] [chan 0] Max packet in: 32768 bytes
+2019-02-26 14:31:18,791 p=27657 u=root | paramiko [10.80.99.254] [chan 0] Max packet out: 4096 bytes
+2019-02-26 14:31:18,791 p=27657 u=root | paramiko [10.80.99.254] Secsh channel 0 opened.
+2019-02-26 14:31:18,807 p=27657 u=root | paramiko [10.80.99.254] [chan 0] Sesch channel 0 request ok
+2019-02-26 14:31:18,820 p=27657 u=root | paramiko [10.80.99.254] [chan 0] Sesch channel 0 request ok
+2019-02-26 14:31:18,934 p=27663 u=root | paramiko [10.80.99.249] userauth is OK
+2019-02-26 14:31:19,117 p=27674 u=root | paramiko [10.80.99.246] kex engine KexGroup1 specified hash_algo <built-in function openssl_sha1>
+2019-02-26 14:31:19,124 p=27674 u=root | paramiko [10.80.99.246] Switch to new keys ...
+2019-02-26 14:31:19,344 p=27674 u=root | paramiko [10.80.99.246] userauth is OK
+2019-02-26 14:31:20,159 p=27663 u=root | paramiko [10.80.99.249] Authentication (password) successful!
+2019-02-26 14:31:20,160 p=27663 u=root | paramiko [10.80.99.249] [chan 0] Max packet in: 32768 bytes
+2019-02-26 14:31:20,198 p=27663 u=root | paramiko [10.80.99.249] [chan 0] Max packet out: 4096 bytes
+2019-02-26 14:31:20,199 p=27663 u=root | paramiko [10.80.99.249] Secsh channel 0 opened.
+2019-02-26 14:31:20,237 p=27663 u=root | paramiko [10.80.99.249] [chan 0] Sesch channel 0 request ok
+2019-02-26 14:31:20,250 p=27663 u=root | paramiko [10.80.99.249] [chan 0] Sesch channel 0 request ok
+2019-02-26 14:31:20,553 p=27674 u=root | paramiko [10.80.99.246] Authentication (password) successful!
+2019-02-26 14:31:20,563 p=27674 u=root | paramiko [10.80.99.246] [chan 0] Max packet in: 32768 bytes
+2019-02-26 14:31:20,575 p=27674 u=root | paramiko [10.80.99.246] [chan 0] Max packet out: 4096 bytes
+2019-02-26 14:31:20,576 p=27674 u=root | paramiko [10.80.99.246] Secsh channel 0 opened.
+2019-02-26 14:31:20,591 p=27674 u=root | paramiko [10.80.99.246] [chan 0] Sesch channel 0 request ok
+2019-02-26 14:31:20,603 p=27674 u=root | paramiko [10.80.99.246] [chan 0] Sesch channel 0 request ok
+2019-02-26 14:31:20,646 p=27669 u=root | paramiko [10.80.99.247] starting thread (client mode): 0x5d5b650L
+2019-02-26 14:31:20,649 p=27669 u=root | paramiko [10.80.99.247] Local version/idstring: SSH-2.0-paramiko_2.4.1
+2019-02-26 14:31:20,651 p=27669 u=root | paramiko [10.80.99.247] Remote version/idstring: SSH-1.99-Cisco-1.25
+2019-02-26 14:31:20,651 p=27669 u=root | paramiko [10.80.99.247] Connected (version 1.99, client Cisco-1.25)
+2019-02-26 14:31:20,663 p=27669 u=root | paramiko [10.80.99.247] kex algos:[u'diffie-hellman-group-exchange-sha1', u'diffie-hellman-group14-sha1', u'diffie-hellman-group1-sha1'] server key:[u'ssh-rsa'] client encrypt:[u'aes128-cbc', u'3des-cbc', u'aes192-cbc', u'aes256-cbc'] server encrypt:[u'aes128-cbc', u'3des-cbc', u'aes192-cbc', u'aes256-cbc'] client mac:[u'hmac-sha1', u'hmac-sha1-96', u'hmac-md5', u'hmac-md5-96'] server mac:[u'hmac-sha1', u'hmac-sha1-96', u'hmac-md5', u'hmac-md5-96'] client compress:[u'none'] server compress:[u'none'] client lang:[u''] server lang:[u''] kex follows?False
+2019-02-26 14:31:20,664 p=27669 u=root | paramiko [10.80.99.247] Kex agreed: diffie-hellman-group-exchange-sha1
+2019-02-26 14:31:20,664 p=27669 u=root | paramiko [10.80.99.247] HostKey agreed: ssh-rsa
+2019-02-26 14:31:20,664 p=27669 u=root | paramiko [10.80.99.247] Cipher agreed: aes128-cbc
+2019-02-26 14:31:20,664 p=27669 u=root | paramiko [10.80.99.247] MAC agreed: hmac-sha1
+2019-02-26 14:31:20,664 p=27669 u=root | paramiko [10.80.99.247] Compression agreed: none
+2019-02-26 14:31:20,882 p=27669 u=root | paramiko [10.80.99.247] Got server p (2048 bits)
+2019-02-26 14:31:21,297 p=27663 u=root | paramiko [10.80.99.249] [chan 0] EOF received (0)
+2019-02-26 14:31:21,298 p=27663 u=root | paramiko [10.80.99.249] [chan 0] EOF sent (0)
+2019-02-26 14:31:21,299 p=27663 u=root | paramiko [10.80.99.249] Ignoring message for dead channel 0
+2019-02-26 14:31:21,299 p=27663 u=root | paramiko [10.80.99.249] EOF in transport thread
+2019-02-26 14:31:21,678 p=27669 u=root | paramiko [10.80.99.247] kex engine KexGex specified hash_algo <built-in function openssl_sha1>
+2019-02-26 14:31:21,680 p=27669 u=root | paramiko [10.80.99.247] Switch to new keys ...
+2019-02-26 14:31:21,897 p=27669 u=root | paramiko [10.80.99.247] userauth is OK
+2019-02-26 14:31:22,914 p=27619 u=root |  fatal: [10.80.99.249]: FAILED! => {"changed": false, "msg": "Socket is closed"}
+2019-02-26 14:31:23,013 p=27669 u=root | paramiko [10.80.99.247] Authentication (password) successful!
+2019-02-26 14:31:23,023 p=27669 u=root | paramiko [10.80.99.247] [chan 0] Max packet in: 32768 bytes
+2019-02-26 14:31:23,037 p=27669 u=root | paramiko [10.80.99.247] [chan 0] Max packet out: 4096 bytes
+2019-02-26 14:31:23,038 p=27669 u=root | paramiko [10.80.99.247] Secsh channel 0 opened.
+2019-02-26 14:31:23,054 p=27669 u=root | paramiko [10.80.99.247] [chan 0] Sesch channel 0 request ok
+2019-02-26 14:31:23,067 p=27669 u=root | paramiko [10.80.99.247] [chan 0] Sesch channel 0 request ok
+2019-02-26 14:31:24,873 p=27619 u=root |  ok: [10.80.99.254]
+2019-02-26 14:31:25,213 p=27619 u=root |  ok: [10.80.99.246]
+2019-02-26 14:31:28,328 p=27619 u=root |  ok: [10.80.99.247]
+2019-02-26 14:31:28,741 p=27638 u=root |  shutdown complete
+2019-02-26 14:31:29,158 p=27619 u=root |  fatal: [10.80.99.252]: FAILED! => {"msg": "timed out"}
+2019-02-26 14:31:33,498 p=27741 u=root |  network_os is set to ios
+2019-02-26 14:31:34,234 p=27797 u=root | paramiko [10.80.99.248] starting thread (client mode): 0x807f3650L
+2019-02-26 14:31:34,235 p=27797 u=root | paramiko [10.80.99.248] Local version/idstring: SSH-2.0-paramiko_2.4.1
+2019-02-26 14:31:34,239 p=27797 u=root | paramiko [10.80.99.248] Remote version/idstring: SSH-2.0-Cisco-1.25
+2019-02-26 14:31:34,239 p=27797 u=root | paramiko [10.80.99.248] Connected (version 2.0, client Cisco-1.25)
+2019-02-26 14:31:34,257 p=27797 u=root | paramiko [10.80.99.248] kex algos:[u'diffie-hellman-group1-sha1'] server key:[u'ssh-rsa'] client encrypt:[u'aes128-cbc', u'3des-cbc', u'aes192-cbc', u'aes256-cbc'] server encrypt:[u'aes128-cbc', u'3des-cbc', u'aes192-cbc', u'aes256-cbc'] client mac:[u'hmac-sha1', u'hmac-sha1-96', u'hmac-md5', u'hmac-md5-96'] server mac:[u'hmac-sha1', u'hmac-sha1-96', u'hmac-md5', u'hmac-md5-96'] client compress:[u'none'] server compress:[u'none'] client lang:[u''] server lang:[u''] kex follows?False
+2019-02-26 14:31:34,257 p=27797 u=root | paramiko [10.80.99.248] Kex agreed: diffie-hellman-group1-sha1
+2019-02-26 14:31:34,257 p=27797 u=root | paramiko [10.80.99.248] HostKey agreed: ssh-rsa
+2019-02-26 14:31:34,258 p=27797 u=root | paramiko [10.80.99.248] Cipher agreed: aes128-cbc
+2019-02-26 14:31:34,258 p=27797 u=root | paramiko [10.80.99.248] MAC agreed: hmac-sha1
+2019-02-26 14:31:34,258 p=27797 u=root | paramiko [10.80.99.248] Compression agreed: none
+2019-02-26 14:31:34,702 p=27797 u=root | paramiko [10.80.99.248] kex engine KexGroup1 specified hash_algo <built-in function openssl_sha1>
+2019-02-26 14:31:34,715 p=27797 u=root | paramiko [10.80.99.248] Switch to new keys ...
+2019-02-26 14:31:34,927 p=27797 u=root | paramiko [10.80.99.248] userauth is OK
+2019-02-26 14:31:36,470 p=27775 u=root |  network_os is set to ios
+2019-02-26 14:31:36,583 p=27777 u=root |  network_os is set to ios
+2019-02-26 14:31:37,842 p=27809 u=root | paramiko [10.80.99.244] starting thread (client mode): 0x4fe9c650L
+2019-02-26 14:31:37,844 p=27809 u=root | paramiko [10.80.99.244] Local version/idstring: SSH-2.0-paramiko_2.4.1
+2019-02-26 14:31:37,848 p=27809 u=root | paramiko [10.80.99.244] Remote version/idstring: SSH-2.0-Cisco-1.25
+2019-02-26 14:31:37,849 p=27809 u=root | paramiko [10.80.99.244] Connected (version 2.0, client Cisco-1.25)
+2019-02-26 14:31:37,859 p=27809 u=root | paramiko [10.80.99.244] kex algos:[u'diffie-hellman-group1-sha1'] server key:[u'ssh-rsa'] client encrypt:[u'aes128-cbc', u'3des-cbc', u'aes192-cbc', u'aes256-cbc'] server encrypt:[u'aes128-cbc', u'3des-cbc', u'aes192-cbc', u'aes256-cbc'] client mac:[u'hmac-sha1', u'hmac-sha1-96', u'hmac-md5', u'hmac-md5-96'] server mac:[u'hmac-sha1', u'hmac-sha1-96', u'hmac-md5', u'hmac-md5-96'] client compress:[u'none'] server compress:[u'none'] client lang:[u''] server lang:[u''] kex follows?False
+2019-02-26 14:31:37,859 p=27809 u=root | paramiko [10.80.99.244] Kex agreed: diffie-hellman-group1-sha1
+2019-02-26 14:31:37,860 p=27809 u=root | paramiko [10.80.99.244] HostKey agreed: ssh-rsa
+2019-02-26 14:31:37,860 p=27809 u=root | paramiko [10.80.99.244] Cipher agreed: aes128-cbc
+2019-02-26 14:31:37,860 p=27809 u=root | paramiko [10.80.99.244] MAC agreed: hmac-sha1
+2019-02-26 14:31:37,860 p=27809 u=root | paramiko [10.80.99.244] Compression agreed: none
+2019-02-26 14:31:38,038 p=27809 u=root | paramiko [10.80.99.244] kex engine KexGroup1 specified hash_algo <built-in function openssl_sha1>
+2019-02-26 14:31:38,045 p=27809 u=root | paramiko [10.80.99.244] Switch to new keys ...
+2019-02-26 14:31:38,259 p=27809 u=root | paramiko [10.80.99.244] userauth is OK
+2019-02-26 14:31:38,547 p=27789 u=root |  network_os is set to ios
+2019-02-26 14:31:38,791 p=27816 u=root | paramiko [10.80.99.250] starting thread (client mode): 0xbc568650L
+2019-02-26 14:31:38,792 p=27816 u=root | paramiko [10.80.99.250] Local version/idstring: SSH-2.0-paramiko_2.4.1
+2019-02-26 14:31:38,802 p=27816 u=root | paramiko [10.80.99.250] Remote version/idstring: SSH-2.0-Cisco-1.25
+2019-02-26 14:31:38,802 p=27816 u=root | paramiko [10.80.99.250] Connected (version 2.0, client Cisco-1.25)
+2019-02-26 14:31:38,806 p=27816 u=root | paramiko [10.80.99.250] kex algos:[u'diffie-hellman-group-exchange-sha1', u'diffie-hellman-group14-sha1', u'diffie-hellman-group1-sha1'] server key:[u'ssh-rsa'] client encrypt:[u'aes128-cbc', u'3des-cbc', u'aes192-cbc', u'aes256-cbc'] server encrypt:[u'aes128-cbc', u'3des-cbc', u'aes192-cbc', u'aes256-cbc'] client mac:[u'hmac-sha1', u'hmac-sha1-96', u'hmac-md5', u'hmac-md5-96'] server mac:[u'hmac-sha1', u'hmac-sha1-96', u'hmac-md5', u'hmac-md5-96'] client compress:[u'none'] server compress:[u'none'] client lang:[u''] server lang:[u''] kex follows?False
+2019-02-26 14:31:38,806 p=27816 u=root | paramiko [10.80.99.250] Kex agreed: diffie-hellman-group-exchange-sha1
+2019-02-26 14:31:38,807 p=27816 u=root | paramiko [10.80.99.250] HostKey agreed: ssh-rsa
+2019-02-26 14:31:38,807 p=27816 u=root | paramiko [10.80.99.250] Cipher agreed: aes128-cbc
+2019-02-26 14:31:38,807 p=27816 u=root | paramiko [10.80.99.250] MAC agreed: hmac-sha1
+2019-02-26 14:31:38,808 p=27816 u=root | paramiko [10.80.99.250] Compression agreed: none
+2019-02-26 14:31:39,026 p=27816 u=root | paramiko [10.80.99.250] Got server p (2048 bits)
+2019-02-26 14:31:39,728 p=27816 u=root | paramiko [10.80.99.250] kex engine KexGex specified hash_algo <built-in function openssl_sha1>
+2019-02-26 14:31:39,733 p=27816 u=root | paramiko [10.80.99.250] Switch to new keys ...
+2019-02-26 14:31:39,950 p=27816 u=root | paramiko [10.80.99.250] userauth is OK
+2019-02-26 14:31:41,957 p=27797 u=root | paramiko [10.80.99.248] Authentication (password) failed.
+2019-02-26 14:31:42,087 p=27741 u=root |  shutdown complete
+2019-02-26 14:31:42,159 p=27797 u=root | paramiko [10.80.99.248] EOF in transport thread
+2019-02-26 14:31:42,192 p=27619 u=root |  fatal: [10.80.99.248]: FAILED! => {"msg": "Authentication failed."}
+2019-02-26 14:31:45,276 p=27809 u=root | paramiko [10.80.99.244] Authentication (password) failed.
+2019-02-26 14:31:45,401 p=27777 u=root |  shutdown complete
+2019-02-26 14:31:45,481 p=27809 u=root | paramiko [10.80.99.244] EOF in transport thread
+2019-02-26 14:31:45,621 p=27619 u=root |  fatal: [10.80.99.244]: FAILED! => {"msg": "Authentication failed."}
+2019-02-26 14:31:46,967 p=27816 u=root | paramiko [10.80.99.250] Authentication (password) failed.
+2019-02-26 14:31:47,079 p=27789 u=root |  shutdown complete
+2019-02-26 14:31:47,139 p=27619 u=root |  fatal: [10.80.99.250]: FAILED! => {"msg": "Authentication failed."}
+2019-02-26 14:31:47,168 p=27816 u=root | paramiko [10.80.99.250] EOF in transport thread
+2019-02-26 14:31:47,866 p=27775 u=root |  shutdown complete
+2019-02-26 14:31:47,940 p=27619 u=root |  fatal: [10.80.99.241]: FAILED! => {"msg": "timed out"}
+2019-02-26 14:31:47,989 p=27619 u=root |  TASK [base : ADD BASIC FILE & ASSEMBLY] **********************************************************************************************
+2019-02-26 14:31:49,297 p=27619 u=root |  ok: [10.80.99.254]
+2019-02-26 14:31:49,315 p=27619 u=root |  TASK [tacacs : ADD TACACS FILE & ASSEMBLY] *******************************************************************************************
+2019-02-26 14:31:50,025 p=27619 u=root |  ok: [10.80.99.254]
+2019-02-26 14:31:50,046 p=27619 u=root |  TASK [tacacs : SETUP AAA TACACS] *****************************************************************************************************
+2019-02-26 14:31:52,679 p=27633 u=root |  persistent connection idle timeout triggered, timeout value is 30 secs.
+See the timeout setting options in the Network Debug and Troubleshooting Guide.
+2019-02-26 14:31:52,781 p=27633 u=root |  shutdown complete
+2019-02-26 14:31:54,446 p=27629 u=root |  persistent connection idle timeout triggered, timeout value is 30 secs.
+See the timeout setting options in the Network Debug and Troubleshooting Guide.
+2019-02-26 14:31:54,547 p=27657 u=root | paramiko [10.80.99.254] [chan 0] EOF sent (0)
+2019-02-26 14:31:54,569 p=27657 u=root | paramiko [10.80.99.254] EOF in transport thread
+2019-02-26 14:31:54,580 p=27629 u=root |  shutdown complete
+2019-02-26 14:31:54,781 p=27639 u=root |  persistent connection idle timeout triggered, timeout value is 30 secs.
+See the timeout setting options in the Network Debug and Troubleshooting Guide.
+2019-02-26 14:31:54,883 p=27674 u=root | paramiko [10.80.99.246] [chan 0] EOF sent (0)
+2019-02-26 14:31:54,894 p=27674 u=root | paramiko [10.80.99.246] EOF in transport thread
+2019-02-26 14:31:54,901 p=27639 u=root |  shutdown complete
+2019-02-26 14:31:58,027 p=27637 u=root |  persistent connection idle timeout triggered, timeout value is 30 secs.
+See the timeout setting options in the Network Debug and Troubleshooting Guide.
+2019-02-26 14:31:58,129 p=27669 u=root | paramiko [10.80.99.247] [chan 0] EOF sent (0)
+2019-02-26 14:31:58,159 p=27669 u=root | paramiko [10.80.99.247] EOF in transport thread
+2019-02-26 14:31:58,162 p=27637 u=root |  shutdown complete
+2019-02-26 14:31:58,953 p=27896 u=root |  network_os is set to ios
+2019-02-26 14:31:58,976 p=27894 u=root |  network_os is set to ios
+2019-02-26 14:31:58,982 p=27895 u=root |  network_os is set to ios
+2019-02-26 14:31:59,448 p=27914 u=root | paramiko [10.80.99.246] starting thread (client mode): 0x7a4c9650L
+2019-02-26 14:31:59,449 p=27914 u=root | paramiko [10.80.99.246] Local version/idstring: SSH-2.0-paramiko_2.4.1
+2019-02-26 14:31:59,455 p=27916 u=root | paramiko [10.80.99.254] starting thread (client mode): 0xac3fa650L
+2019-02-26 14:31:59,456 p=27916 u=root | paramiko [10.80.99.254] Local version/idstring: SSH-2.0-paramiko_2.4.1
+2019-02-26 14:31:59,459 p=27914 u=root | paramiko [10.80.99.246] Remote version/idstring: SSH-2.0-Cisco-1.25
+2019-02-26 14:31:59,459 p=27914 u=root | paramiko [10.80.99.246] Connected (version 2.0, client Cisco-1.25)
+2019-02-26 14:31:59,458 p=27917 u=root | paramiko [10.80.99.247] starting thread (client mode): 0x884ec650L
+2019-02-26 14:31:59,460 p=27917 u=root | paramiko [10.80.99.247] Local version/idstring: SSH-2.0-paramiko_2.4.1
+2019-02-26 14:31:59,461 p=27914 u=root | paramiko [10.80.99.246] kex algos:[u'diffie-hellman-group1-sha1'] server key:[u'ssh-rsa'] client encrypt:[u'aes128-cbc', u'3des-cbc', u'aes192-cbc', u'aes256-cbc'] server encrypt:[u'aes128-cbc', u'3des-cbc', u'aes192-cbc', u'aes256-cbc'] client mac:[u'hmac-sha1', u'hmac-sha1-96', u'hmac-md5', u'hmac-md5-96'] server mac:[u'hmac-sha1', u'hmac-sha1-96', u'hmac-md5', u'hmac-md5-96'] client compress:[u'none'] server compress:[u'none'] client lang:[u''] server lang:[u''] kex follows?False
+2019-02-26 14:31:59,462 p=27914 u=root | paramiko [10.80.99.246] Kex agreed: diffie-hellman-group1-sha1
+2019-02-26 14:31:59,462 p=27914 u=root | paramiko [10.80.99.246] HostKey agreed: ssh-rsa
+2019-02-26 14:31:59,462 p=27914 u=root | paramiko [10.80.99.246] Cipher agreed: aes128-cbc
+2019-02-26 14:31:59,462 p=27914 u=root | paramiko [10.80.99.246] MAC agreed: hmac-sha1
+2019-02-26 14:31:59,463 p=27914 u=root | paramiko [10.80.99.246] Compression agreed: none
+2019-02-26 14:31:59,469 p=27916 u=root | paramiko [10.80.99.254] Remote version/idstring: SSH-2.0-Cisco-1.25
+2019-02-26 14:31:59,469 p=27916 u=root | paramiko [10.80.99.254] Connected (version 2.0, client Cisco-1.25)
+2019-02-26 14:31:59,470 p=27917 u=root | paramiko [10.80.99.247] Remote version/idstring: SSH-1.99-Cisco-1.25
+2019-02-26 14:31:59,471 p=27917 u=root | paramiko [10.80.99.247] Connected (version 1.99, client Cisco-1.25)
+2019-02-26 14:31:59,475 p=27916 u=root | paramiko [10.80.99.254] kex algos:[u'diffie-hellman-group1-sha1'] server key:[u'ssh-rsa'] client encrypt:[u'aes128-cbc', u'3des-cbc', u'aes192-cbc', u'aes256-cbc'] server encrypt:[u'aes128-cbc', u'3des-cbc', u'aes192-cbc', u'aes256-cbc'] client mac:[u'hmac-sha1', u'hmac-sha1-96', u'hmac-md5', u'hmac-md5-96'] server mac:[u'hmac-sha1', u'hmac-sha1-96', u'hmac-md5', u'hmac-md5-96'] client compress:[u'none'] server compress:[u'none'] client lang:[u''] server lang:[u''] kex follows?False
+2019-02-26 14:31:59,476 p=27916 u=root | paramiko [10.80.99.254] Kex agreed: diffie-hellman-group1-sha1
+2019-02-26 14:31:59,476 p=27916 u=root | paramiko [10.80.99.254] HostKey agreed: ssh-rsa
+2019-02-26 14:31:59,476 p=27916 u=root | paramiko [10.80.99.254] Cipher agreed: aes128-cbc
+2019-02-26 14:31:59,476 p=27916 u=root | paramiko [10.80.99.254] MAC agreed: hmac-sha1
+2019-02-26 14:31:59,477 p=27916 u=root | paramiko [10.80.99.254] Compression agreed: none
+2019-02-26 14:31:59,486 p=27917 u=root | paramiko [10.80.99.247] kex algos:[u'diffie-hellman-group-exchange-sha1', u'diffie-hellman-group14-sha1', u'diffie-hellman-group1-sha1'] server key:[u'ssh-rsa'] client encrypt:[u'aes128-cbc', u'3des-cbc', u'aes192-cbc', u'aes256-cbc'] server encrypt:[u'aes128-cbc', u'3des-cbc', u'aes192-cbc', u'aes256-cbc'] client mac:[u'hmac-sha1', u'hmac-sha1-96', u'hmac-md5', u'hmac-md5-96'] server mac:[u'hmac-sha1', u'hmac-sha1-96', u'hmac-md5', u'hmac-md5-96'] client compress:[u'none'] server compress:[u'none'] client lang:[u''] server lang:[u''] kex follows?False
+2019-02-26 14:31:59,487 p=27917 u=root | paramiko [10.80.99.247] Kex agreed: diffie-hellman-group-exchange-sha1
+2019-02-26 14:31:59,487 p=27917 u=root | paramiko [10.80.99.247] HostKey agreed: ssh-rsa
+2019-02-26 14:31:59,487 p=27917 u=root | paramiko [10.80.99.247] Cipher agreed: aes128-cbc
+2019-02-26 14:31:59,487 p=27917 u=root | paramiko [10.80.99.247] MAC agreed: hmac-sha1
+2019-02-26 14:31:59,488 p=27917 u=root | paramiko [10.80.99.247] Compression agreed: none
+2019-02-26 14:31:59,706 p=27917 u=root | paramiko [10.80.99.247] Got server p (2048 bits)
+2019-02-26 14:31:59,847 p=27914 u=root | paramiko [10.80.99.246] kex engine KexGroup1 specified hash_algo <built-in function openssl_sha1>
+2019-02-26 14:31:59,849 p=27914 u=root | paramiko [10.80.99.246] Switch to new keys ...
+2019-02-26 14:31:59,920 p=27916 u=root | paramiko [10.80.99.254] kex engine KexGroup1 specified hash_algo <built-in function openssl_sha1>
+2019-02-26 14:31:59,923 p=27916 u=root | paramiko [10.80.99.254] Switch to new keys ...
+2019-02-26 14:32:00,071 p=27914 u=root | paramiko [10.80.99.246] userauth is OK
+2019-02-26 14:32:00,141 p=27916 u=root | paramiko [10.80.99.254] userauth is OK
+2019-02-26 14:32:00,286 p=27917 u=root | paramiko [10.80.99.247] kex engine KexGex specified hash_algo <built-in function openssl_sha1>
+2019-02-26 14:32:00,289 p=27917 u=root | paramiko [10.80.99.247] Switch to new keys ...
+2019-02-26 14:32:00,510 p=27917 u=root | paramiko [10.80.99.247] userauth is OK
+2019-02-26 14:32:07,090 p=27914 u=root | paramiko [10.80.99.246] Authentication (password) failed.
+2019-02-26 14:32:07,158 p=27916 u=root | paramiko [10.80.99.254] Authentication (password) failed.
+2019-02-26 14:32:07,204 p=27896 u=root |  shutdown complete
+2019-02-26 14:32:07,280 p=27894 u=root |  shutdown complete
+2019-02-26 14:32:07,292 p=27914 u=root | paramiko [10.80.99.246] EOF in transport thread
+2019-02-26 14:32:07,361 p=27916 u=root | paramiko [10.80.99.254] EOF in transport thread
+2019-02-26 14:32:07,386 p=27619 u=root |  fatal: [10.80.99.246]: FAILED! => {"msg": "Authentication failed."}
+2019-02-26 14:32:07,387 p=27619 u=root |  ...ignoring
+2019-02-26 14:32:07,479 p=27619 u=root |  fatal: [10.80.99.254]: FAILED! => {"msg": "Authentication failed."}
+2019-02-26 14:32:07,479 p=27619 u=root |  ...ignoring
+2019-02-26 14:32:07,545 p=27917 u=root | paramiko [10.80.99.247] Authentication (password) failed.
+2019-02-26 14:32:07,648 p=27895 u=root |  shutdown complete
+2019-02-26 14:32:07,658 p=27619 u=root |  fatal: [10.80.99.247]: FAILED! => {"msg": "Authentication failed."}
+2019-02-26 14:32:07,659 p=27619 u=root |  ...ignoring
+2019-02-26 14:32:07,679 p=27619 u=root |  TASK [snmp : ADD SNMP FILE & ASSEMBLY] ***********************************************************************************************
+2019-02-26 14:32:07,748 p=27917 u=root | paramiko [10.80.99.247] EOF in transport thread
+2019-02-26 14:32:08,443 p=27619 u=root |  ok: [10.80.99.254]
+2019-02-26 14:32:08,462 p=27619 u=root |  TASK [snmp : SETUP HOST  SNMP] *******************************************************************************************************
+2019-02-26 14:32:16,431 p=27964 u=root |  network_os is set to ios
+2019-02-26 14:32:16,540 p=27965 u=root |  network_os is set to ios
+2019-02-26 14:32:16,702 p=27966 u=root |  network_os is set to ios
+2019-02-26 14:32:16,947 p=27981 u=root | paramiko [10.80.99.254] starting thread (client mode): 0x3c346650L
+2019-02-26 14:32:16,948 p=27981 u=root | paramiko [10.80.99.254] Local version/idstring: SSH-2.0-paramiko_2.4.1
+2019-02-26 14:32:16,951 p=27981 u=root | paramiko [10.80.99.254] Remote version/idstring: SSH-2.0-Cisco-1.25
+2019-02-26 14:32:16,951 p=27981 u=root | paramiko [10.80.99.254] Connected (version 2.0, client Cisco-1.25)
+2019-02-26 14:32:16,963 p=27981 u=root | paramiko [10.80.99.254] kex algos:[u'diffie-hellman-group1-sha1'] server key:[u'ssh-rsa'] client encrypt:[u'aes128-cbc', u'3des-cbc', u'aes192-cbc', u'aes256-cbc'] server encrypt:[u'aes128-cbc', u'3des-cbc', u'aes192-cbc', u'aes256-cbc'] client mac:[u'hmac-sha1', u'hmac-sha1-96', u'hmac-md5', u'hmac-md5-96'] server mac:[u'hmac-sha1', u'hmac-sha1-96', u'hmac-md5', u'hmac-md5-96'] client compress:[u'none'] server compress:[u'none'] client lang:[u''] server lang:[u''] kex follows?False
+2019-02-26 14:32:16,963 p=27981 u=root | paramiko [10.80.99.254] Kex agreed: diffie-hellman-group1-sha1
+2019-02-26 14:32:16,963 p=27981 u=root | paramiko [10.80.99.254] HostKey agreed: ssh-rsa
+2019-02-26 14:32:16,963 p=27981 u=root | paramiko [10.80.99.254] Cipher agreed: aes128-cbc
+2019-02-26 14:32:16,963 p=27981 u=root | paramiko [10.80.99.254] MAC agreed: hmac-sha1
+2019-02-26 14:32:16,964 p=27981 u=root | paramiko [10.80.99.254] Compression agreed: none
+2019-02-26 14:32:17,033 p=27984 u=root | paramiko [10.80.99.247] starting thread (client mode): 0xb57fb650L
+2019-02-26 14:32:17,033 p=27984 u=root | paramiko [10.80.99.247] Local version/idstring: SSH-2.0-paramiko_2.4.1
+2019-02-26 14:32:17,038 p=27984 u=root | paramiko [10.80.99.247] Remote version/idstring: SSH-1.99-Cisco-1.25
+2019-02-26 14:32:17,038 p=27984 u=root | paramiko [10.80.99.247] Connected (version 1.99, client Cisco-1.25)
+2019-02-26 14:32:17,047 p=27984 u=root | paramiko [10.80.99.247] kex algos:[u'diffie-hellman-group-exchange-sha1', u'diffie-hellman-group14-sha1', u'diffie-hellman-group1-sha1'] server key:[u'ssh-rsa'] client encrypt:[u'aes128-cbc', u'3des-cbc', u'aes192-cbc', u'aes256-cbc'] server encrypt:[u'aes128-cbc', u'3des-cbc', u'aes192-cbc', u'aes256-cbc'] client mac:[u'hmac-sha1', u'hmac-sha1-96', u'hmac-md5', u'hmac-md5-96'] server mac:[u'hmac-sha1', u'hmac-sha1-96', u'hmac-md5', u'hmac-md5-96'] client compress:[u'none'] server compress:[u'none'] client lang:[u''] server lang:[u''] kex follows?False
+2019-02-26 14:32:17,047 p=27984 u=root | paramiko [10.80.99.247] Kex agreed: diffie-hellman-group-exchange-sha1
+2019-02-26 14:32:17,047 p=27984 u=root | paramiko [10.80.99.247] HostKey agreed: ssh-rsa
+2019-02-26 14:32:17,048 p=27984 u=root | paramiko [10.80.99.247] Cipher agreed: aes128-cbc
+2019-02-26 14:32:17,048 p=27984 u=root | paramiko [10.80.99.247] MAC agreed: hmac-sha1
+2019-02-26 14:32:17,048 p=27984 u=root | paramiko [10.80.99.247] Compression agreed: none
+2019-02-26 14:32:17,096 p=27987 u=root | paramiko [10.80.99.246] starting thread (client mode): 0x3a103650L
+2019-02-26 14:32:17,096 p=27987 u=root | paramiko [10.80.99.246] Local version/idstring: SSH-2.0-paramiko_2.4.1
+2019-02-26 14:32:17,110 p=27987 u=root | paramiko [10.80.99.246] Remote version/idstring: SSH-2.0-Cisco-1.25
+2019-02-26 14:32:17,110 p=27987 u=root | paramiko [10.80.99.246] Connected (version 2.0, client Cisco-1.25)
+2019-02-26 14:32:17,112 p=27987 u=root | paramiko [10.80.99.246] kex algos:[u'diffie-hellman-group1-sha1'] server key:[u'ssh-rsa'] client encrypt:[u'aes128-cbc', u'3des-cbc', u'aes192-cbc', u'aes256-cbc'] server encrypt:[u'aes128-cbc', u'3des-cbc', u'aes192-cbc', u'aes256-cbc'] client mac:[u'hmac-sha1', u'hmac-sha1-96', u'hmac-md5', u'hmac-md5-96'] server mac:[u'hmac-sha1', u'hmac-sha1-96', u'hmac-md5', u'hmac-md5-96'] client compress:[u'none'] server compress:[u'none'] client lang:[u''] server lang:[u''] kex follows?False
+2019-02-26 14:32:17,112 p=27987 u=root | paramiko [10.80.99.246] Kex agreed: diffie-hellman-group1-sha1
+2019-02-26 14:32:17,112 p=27987 u=root | paramiko [10.80.99.246] HostKey agreed: ssh-rsa
+2019-02-26 14:32:17,112 p=27987 u=root | paramiko [10.80.99.246] Cipher agreed: aes128-cbc
+2019-02-26 14:32:17,113 p=27987 u=root | paramiko [10.80.99.246] MAC agreed: hmac-sha1
+2019-02-26 14:32:17,113 p=27987 u=root | paramiko [10.80.99.246] Compression agreed: none
+2019-02-26 14:32:17,270 p=27984 u=root | paramiko [10.80.99.247] Got server p (2048 bits)
+2019-02-26 14:32:17,404 p=27981 u=root | paramiko [10.80.99.254] kex engine KexGroup1 specified hash_algo <built-in function openssl_sha1>
+2019-02-26 14:32:17,406 p=27981 u=root | paramiko [10.80.99.254] Switch to new keys ...
+2019-02-26 14:32:17,482 p=27987 u=root | paramiko [10.80.99.246] kex engine KexGroup1 specified hash_algo <built-in function openssl_sha1>
+2019-02-26 14:32:17,484 p=27987 u=root | paramiko [10.80.99.246] Switch to new keys ...
+2019-02-26 14:32:17,626 p=27981 u=root | paramiko [10.80.99.254] userauth is OK
+2019-02-26 14:32:17,708 p=27987 u=root | paramiko [10.80.99.246] userauth is OK
+2019-02-26 14:32:17,853 p=27984 u=root | paramiko [10.80.99.247] kex engine KexGex specified hash_algo <built-in function openssl_sha1>
+2019-02-26 14:32:17,856 p=27984 u=root | paramiko [10.80.99.247] Switch to new keys ...
+2019-02-26 14:32:18,077 p=27984 u=root | paramiko [10.80.99.247] userauth is OK
+2019-02-26 14:32:22,082 p=27984 u=root | paramiko [10.80.99.247] Authentication (password) successful!
+2019-02-26 14:32:22,085 p=27987 u=root | paramiko [10.80.99.246] Authentication (password) successful!
+2019-02-26 14:32:22,084 p=27984 u=root | paramiko [10.80.99.247] [chan 0] Max packet in: 32768 bytes
+2019-02-26 14:32:22,088 p=27981 u=root | paramiko [10.80.99.254] Authentication (password) successful!
+2019-02-26 14:32:22,103 p=27984 u=root | paramiko [10.80.99.247] [chan 0] Max packet out: 4096 bytes
+2019-02-26 14:32:22,103 p=27984 u=root | paramiko [10.80.99.247] Secsh channel 0 opened.
+2019-02-26 14:32:22,102 p=27981 u=root | paramiko [10.80.99.254] [chan 0] Max packet in: 32768 bytes
+2019-02-26 14:32:22,111 p=27987 u=root | paramiko [10.80.99.246] [chan 0] Max packet in: 32768 bytes
+2019-02-26 14:32:22,118 p=27984 u=root | paramiko [10.80.99.247] [chan 0] Sesch channel 0 request ok
+2019-02-26 14:32:22,121 p=27981 u=root | paramiko [10.80.99.254] [chan 0] Max packet out: 4096 bytes
+2019-02-26 14:32:22,121 p=27981 u=root | paramiko [10.80.99.254] Secsh channel 0 opened.
+2019-02-26 14:32:22,124 p=27987 u=root | paramiko [10.80.99.246] [chan 0] Max packet out: 4096 bytes
+2019-02-26 14:32:22,125 p=27987 u=root | paramiko [10.80.99.246] Secsh channel 0 opened.
+2019-02-26 14:32:22,131 p=27984 u=root | paramiko [10.80.99.247] [chan 0] Sesch channel 0 request ok
+2019-02-26 14:32:22,140 p=27987 u=root | paramiko [10.80.99.246] [chan 0] Sesch channel 0 request ok
+2019-02-26 14:32:22,148 p=27981 u=root | paramiko [10.80.99.254] [chan 0] Sesch channel 0 request ok
+2019-02-26 14:32:22,152 p=27987 u=root | paramiko [10.80.99.246] [chan 0] Sesch channel 0 request ok
+2019-02-26 14:32:22,165 p=27981 u=root | paramiko [10.80.99.254] [chan 0] Sesch channel 0 request ok
+2019-02-26 14:32:36,789 p=27619 u=root |  changed: [10.80.99.247]
+2019-02-26 14:32:37,114 p=27619 u=root |  changed: [10.80.99.246]
+2019-02-26 14:32:38,451 p=27619 u=root |  changed: [10.80.99.254]
+2019-02-26 14:32:38,475 p=27619 u=root |  TASK [loggin : ADD LOGGIN FILE & ASSEMBLY] *******************************************************************************************
+2019-02-26 14:32:39,292 p=27619 u=root |  ok: [10.80.99.254]
+2019-02-26 14:32:39,319 p=27619 u=root |  TASK [loggin : SETUP LOGGIN] *********************************************************************************************************
+2019-02-26 14:32:50,241 p=27619 u=root |  changed: [10.80.99.247]
+2019-02-26 14:32:50,560 p=27619 u=root |  changed: [10.80.99.246]
+2019-02-26 14:32:52,347 p=27619 u=root |  changed: [10.80.99.254]
+2019-02-26 14:32:52,373 p=27619 u=root |  TASK [netflow : SHOW PREVIOUS NETFLOW CONFIG] ****************************************************************************************
+2019-02-26 14:32:52,551 p=27619 u=root |  skipping: [10.80.99.254]
+2019-02-26 14:32:52,565 p=27619 u=root |  skipping: [10.80.99.247]
+2019-02-26 14:32:52,617 p=27619 u=root |  skipping: [10.80.99.246]
+2019-02-26 14:32:52,643 p=27619 u=root |  TASK [netflow : set_fact] ************************************************************************************************************
+2019-02-26 14:32:52,771 p=27619 u=root |  skipping: [10.80.99.254]
+2019-02-26 14:32:52,788 p=27619 u=root |  skipping: [10.80.99.247]
+2019-02-26 14:32:52,819 p=27619 u=root |  skipping: [10.80.99.246]
+2019-02-26 14:32:52,840 p=27619 u=root |  TASK [netflow : DISPLAY PREVIOUS NETFLOW] ********************************************************************************************
+2019-02-26 14:32:52,964 p=27619 u=root |  skipping: [10.80.99.254]
+2019-02-26 14:32:52,987 p=27619 u=root |  skipping: [10.80.99.247]
+2019-02-26 14:32:53,017 p=27619 u=root |  skipping: [10.80.99.246]
+2019-02-26 14:32:53,035 p=27619 u=root |  TASK [netflow : ERASE PREVIOUS NETFLOW CONFIG] ***************************************************************************************
+2019-02-26 14:32:53,163 p=27619 u=root |  skipping: [10.80.99.254]
+2019-02-26 14:32:53,166 p=27619 u=root |  skipping: [10.80.99.247]
+2019-02-26 14:32:53,197 p=27619 u=root |  skipping: [10.80.99.246]
+2019-02-26 14:32:53,216 p=27619 u=root |  TASK [netflow : ADD NETFLOW FILE & ASSEMBLY] *****************************************************************************************
+2019-02-26 14:32:53,261 p=27619 u=root |  skipping: [10.80.99.254]
+2019-02-26 14:32:53,281 p=27619 u=root |  TASK [netflow : SETUP NETFLOW NEW VERSION] *******************************************************************************************
+2019-02-26 14:32:53,393 p=27619 u=root |  skipping: [10.80.99.254]
+2019-02-26 14:32:53,412 p=27619 u=root |  skipping: [10.80.99.247]
+2019-02-26 14:32:53,441 p=27619 u=root |  skipping: [10.80.99.246]
+2019-02-26 14:32:53,466 p=27619 u=root |  TASK [netflow : ADD NETFLOW old FILE & ASSEMBLY] *************************************************************************************
+2019-02-26 14:32:53,513 p=27619 u=root |  skipping: [10.80.99.254]
+2019-02-26 14:32:53,531 p=27619 u=root |  TASK [netflow : SETUP NETFLOW OLD VERSION] *******************************************************************************************
+2019-02-26 14:32:53,652 p=27619 u=root |  skipping: [10.80.99.254]
+2019-02-26 14:32:53,675 p=27619 u=root |  skipping: [10.80.99.247]
+2019-02-26 14:32:53,712 p=27619 u=root |  skipping: [10.80.99.246]
+2019-02-26 14:32:53,743 p=27619 u=root |  TASK [SAVE CONFIG] *******************************************************************************************************************
+2019-02-26 14:33:13,796 p=27619 u=root |  ok: [10.80.99.247]
+2019-02-26 14:33:13,936 p=27619 u=root |  ok: [10.80.99.246]
+2019-02-26 14:33:17,211 p=27964 u=root |  command timeout triggered, timeout value is 10 secs.
+See the timeout setting options in the Network Debug and Troubleshooting Guide.
+2019-02-26 14:33:17,330 p=27619 u=root |  fatal: [10.80.99.254]: FAILED! => {"changed": false, "msg": "command timeout triggered, timeout value is 10 secs.\nSee the timeout setting options in the Network Debug and Troubleshooting Guide."}
+2019-02-26 14:33:17,336 p=27984 u=root | paramiko [10.80.99.247] [chan 0] EOF sent (0)
+2019-02-26 14:33:17,376 p=27984 u=root | paramiko [10.80.99.247] EOF in transport thread
+2019-02-26 14:33:17,406 p=27987 u=root | paramiko [10.80.99.246] [chan 0] EOF sent (0)
+2019-02-26 14:33:17,424 p=27987 u=root | paramiko [10.80.99.246] EOF in transport thread
+2019-02-26 14:33:17,441 p=27981 u=root | paramiko [10.80.99.254] [chan 0] EOF sent (0)
+2019-02-26 14:33:17,455 p=27981 u=root | paramiko [10.80.99.254] EOF in transport thread
+2019-02-26 14:33:17,461 p=27619 u=root |  	to retry, use: --limit @/root/CASTEL/site.retry
+
+2019-02-26 14:33:17,461 p=27619 u=root |  PLAY RECAP ***************************************************************************************************************************
+2019-02-26 14:33:17,462 p=27619 u=root |  10.80.99.241               : ok=0    changed=0    unreachable=0    failed=1   
+2019-02-26 14:33:17,462 p=27619 u=root |  10.80.99.244               : ok=0    changed=0    unreachable=0    failed=1   
+2019-02-26 14:33:17,463 p=27619 u=root |  10.80.99.246               : ok=5    changed=2    unreachable=0    failed=0   
+2019-02-26 14:33:17,463 p=27619 u=root |  10.80.99.247               : ok=5    changed=2    unreachable=0    failed=0   
+2019-02-26 14:33:17,464 p=27619 u=root |  10.80.99.248               : ok=0    changed=0    unreachable=0    failed=1   
+2019-02-26 14:33:17,464 p=27619 u=root |  10.80.99.249               : ok=0    changed=0    unreachable=0    failed=1   
+2019-02-26 14:33:17,464 p=27619 u=root |  10.80.99.250               : ok=0    changed=0    unreachable=0    failed=1   
+2019-02-26 14:33:17,465 p=27619 u=root |  10.80.99.252               : ok=0    changed=0    unreachable=0    failed=1   
+2019-02-26 14:33:17,466 p=27619 u=root |  10.80.99.254               : ok=8    changed=2    unreachable=0    failed=1   
+2019-02-26 14:33:17,508 p=27965 u=root |  shutdown complete
+2019-02-26 14:33:17,543 p=27966 u=root |  shutdown complete
+2019-02-26 14:33:17,566 p=27964 u=root |  shutdown complete
+2019-02-26 14:33:30,989 p=28327 u=root |  PLAY [DEPLOY CONFIG TO SITES] ********************************************************************************************************
+2019-02-26 14:33:31,019 p=28327 u=root |  PLAY [IOS USE TEMPLATE] **************************************************************************************************************
+2019-02-26 14:33:31,430 p=28327 u=root |  TASK [TAKE BACKUP BEFORE CHANGES] ****************************************************************************************************
+2019-02-26 14:33:46,527 p=28337 u=root |  network_os is set to ios
+2019-02-26 14:33:47,638 p=28368 u=root | paramiko [10.80.99.254] starting thread (client mode): 0x6ad73650L
+2019-02-26 14:33:47,639 p=28368 u=root | paramiko [10.80.99.254] Local version/idstring: SSH-2.0-paramiko_2.4.1
+2019-02-26 14:33:47,640 p=28368 u=root | paramiko [10.80.99.254] Remote version/idstring: SSH-2.0-Cisco-1.25
+2019-02-26 14:33:47,649 p=28368 u=root | paramiko [10.80.99.254] Connected (version 2.0, client Cisco-1.25)
+2019-02-26 14:33:47,658 p=28368 u=root | paramiko [10.80.99.254] kex algos:[u'diffie-hellman-group1-sha1'] server key:[u'ssh-rsa'] client encrypt:[u'aes128-cbc', u'3des-cbc', u'aes192-cbc', u'aes256-cbc'] server encrypt:[u'aes128-cbc', u'3des-cbc', u'aes192-cbc', u'aes256-cbc'] client mac:[u'hmac-sha1', u'hmac-sha1-96', u'hmac-md5', u'hmac-md5-96'] server mac:[u'hmac-sha1', u'hmac-sha1-96', u'hmac-md5', u'hmac-md5-96'] client compress:[u'none'] server compress:[u'none'] client lang:[u''] server lang:[u''] kex follows?False
+2019-02-26 14:33:47,658 p=28368 u=root | paramiko [10.80.99.254] Kex agreed: diffie-hellman-group1-sha1
+2019-02-26 14:33:47,659 p=28368 u=root | paramiko [10.80.99.254] HostKey agreed: ssh-rsa
+2019-02-26 14:33:47,659 p=28368 u=root | paramiko [10.80.99.254] Cipher agreed: aes128-cbc
+2019-02-26 14:33:47,659 p=28368 u=root | paramiko [10.80.99.254] MAC agreed: hmac-sha1
+2019-02-26 14:33:47,659 p=28368 u=root | paramiko [10.80.99.254] Compression agreed: none
+2019-02-26 14:33:48,088 p=28368 u=root | paramiko [10.80.99.254] kex engine KexGroup1 specified hash_algo <built-in function openssl_sha1>
+2019-02-26 14:33:48,093 p=28342 u=root |  network_os is set to ios
+2019-02-26 14:33:48,126 p=28368 u=root | paramiko [10.80.99.254] Switch to new keys ...
+2019-02-26 14:33:48,170 p=28343 u=root |  network_os is set to ios
+2019-02-26 14:33:48,328 p=28344 u=root |  network_os is set to ios
+2019-02-26 14:33:48,338 p=28368 u=root | paramiko [10.80.99.254] userauth is OK
+2019-02-26 14:33:48,519 p=28347 u=root |  network_os is set to ios
+2019-02-26 14:33:48,985 p=28371 u=root | paramiko [10.80.99.249] starting thread (client mode): 0x5c5c8650L
+2019-02-26 14:33:48,987 p=28371 u=root | paramiko [10.80.99.249] Local version/idstring: SSH-2.0-paramiko_2.4.1
+2019-02-26 14:33:48,987 p=28371 u=root | paramiko [10.80.99.249] Remote version/idstring: SSH-2.0-Cisco-1.25
+2019-02-26 14:33:48,988 p=28371 u=root | paramiko [10.80.99.249] Connected (version 2.0, client Cisco-1.25)
+2019-02-26 14:33:49,004 p=28371 u=root | paramiko [10.80.99.249] kex algos:[u'diffie-hellman-group1-sha1'] server key:[u'ssh-rsa'] client encrypt:[u'aes128-cbc', u'3des-cbc', u'aes192-cbc', u'aes256-cbc'] server encrypt:[u'aes128-cbc', u'3des-cbc', u'aes192-cbc', u'aes256-cbc'] client mac:[u'hmac-sha1', u'hmac-sha1-96', u'hmac-md5', u'hmac-md5-96'] server mac:[u'hmac-sha1', u'hmac-sha1-96', u'hmac-md5', u'hmac-md5-96'] client compress:[u'none'] server compress:[u'none'] client lang:[u''] server lang:[u''] kex follows?False
+2019-02-26 14:33:49,005 p=28371 u=root | paramiko [10.80.99.249] Kex agreed: diffie-hellman-group1-sha1
+2019-02-26 14:33:49,005 p=28371 u=root | paramiko [10.80.99.249] HostKey agreed: ssh-rsa
+2019-02-26 14:33:49,005 p=28371 u=root | paramiko [10.80.99.249] Cipher agreed: aes128-cbc
+2019-02-26 14:33:49,005 p=28371 u=root | paramiko [10.80.99.249] MAC agreed: hmac-sha1
+2019-02-26 14:33:49,006 p=28371 u=root | paramiko [10.80.99.249] Compression agreed: none
+2019-02-26 14:33:49,111 p=28377 u=root | paramiko [10.80.99.248] starting thread (client mode): 0xc5547650L
+2019-02-26 14:33:49,113 p=28377 u=root | paramiko [10.80.99.248] Local version/idstring: SSH-2.0-paramiko_2.4.1
+2019-02-26 14:33:49,116 p=28377 u=root | paramiko [10.80.99.248] Remote version/idstring: SSH-2.0-Cisco-1.25
+2019-02-26 14:33:49,117 p=28377 u=root | paramiko [10.80.99.248] Connected (version 2.0, client Cisco-1.25)
+2019-02-26 14:33:49,128 p=28377 u=root | paramiko [10.80.99.248] kex algos:[u'diffie-hellman-group1-sha1'] server key:[u'ssh-rsa'] client encrypt:[u'aes128-cbc', u'3des-cbc', u'aes192-cbc', u'aes256-cbc'] server encrypt:[u'aes128-cbc', u'3des-cbc', u'aes192-cbc', u'aes256-cbc'] client mac:[u'hmac-sha1', u'hmac-sha1-96', u'hmac-md5', u'hmac-md5-96'] server mac:[u'hmac-sha1', u'hmac-sha1-96', u'hmac-md5', u'hmac-md5-96'] client compress:[u'none'] server compress:[u'none'] client lang:[u''] server lang:[u''] kex follows?False
+2019-02-26 14:33:49,129 p=28377 u=root | paramiko [10.80.99.248] Kex agreed: diffie-hellman-group1-sha1
+2019-02-26 14:33:49,129 p=28377 u=root | paramiko [10.80.99.248] HostKey agreed: ssh-rsa
+2019-02-26 14:33:49,129 p=28377 u=root | paramiko [10.80.99.248] Cipher agreed: aes128-cbc
+2019-02-26 14:33:49,129 p=28377 u=root | paramiko [10.80.99.248] MAC agreed: hmac-sha1
+2019-02-26 14:33:49,129 p=28377 u=root | paramiko [10.80.99.248] Compression agreed: none
+2019-02-26 14:33:49,452 p=28371 u=root | paramiko [10.80.99.249] kex engine KexGroup1 specified hash_algo <built-in function openssl_sha1>
+2019-02-26 14:33:49,454 p=28371 u=root | paramiko [10.80.99.249] Switch to new keys ...
+2019-02-26 14:33:49,562 p=28377 u=root | paramiko [10.80.99.248] kex engine KexGroup1 specified hash_algo <built-in function openssl_sha1>
+2019-02-26 14:33:49,564 p=28377 u=root | paramiko [10.80.99.248] Switch to new keys ...
+2019-02-26 14:33:49,670 p=28371 u=root | paramiko [10.80.99.249] userauth is OK
+2019-02-26 14:33:49,784 p=28377 u=root | paramiko [10.80.99.248] userauth is OK
+2019-02-26 14:33:50,636 p=28368 u=root | paramiko [10.80.99.254] Authentication (password) successful!
+2019-02-26 14:33:50,646 p=28368 u=root | paramiko [10.80.99.254] [chan 0] Max packet in: 32768 bytes
+2019-02-26 14:33:50,659 p=28368 u=root | paramiko [10.80.99.254] [chan 0] Max packet out: 4096 bytes
+2019-02-26 14:33:50,660 p=28368 u=root | paramiko [10.80.99.254] Secsh channel 0 opened.
+2019-02-26 14:33:50,678 p=28368 u=root | paramiko [10.80.99.254] [chan 0] Sesch channel 0 request ok
+2019-02-26 14:33:50,691 p=28368 u=root | paramiko [10.80.99.254] [chan 0] Sesch channel 0 request ok
+2019-02-26 14:33:51,135 p=28371 u=root | paramiko [10.80.99.249] Authentication (password) successful!
+2019-02-26 14:33:51,137 p=28377 u=root | paramiko [10.80.99.248] Authentication (password) successful!
+2019-02-26 14:33:51,144 p=28377 u=root | paramiko [10.80.99.248] [chan 0] Max packet in: 32768 bytes
+2019-02-26 14:33:51,156 p=28371 u=root | paramiko [10.80.99.249] [chan 0] Max packet in: 32768 bytes
+2019-02-26 14:33:51,157 p=28377 u=root | paramiko [10.80.99.248] [chan 0] Max packet out: 4096 bytes
+2019-02-26 14:33:51,157 p=28377 u=root | paramiko [10.80.99.248] Secsh channel 0 opened.
+2019-02-26 14:33:51,171 p=28371 u=root | paramiko [10.80.99.249] [chan 0] Max packet out: 4096 bytes
+2019-02-26 14:33:51,171 p=28371 u=root | paramiko [10.80.99.249] Secsh channel 0 opened.
+2019-02-26 14:33:51,178 p=28377 u=root | paramiko [10.80.99.248] [chan 0] Sesch channel 0 request ok
+2019-02-26 14:33:51,184 p=28371 u=root | paramiko [10.80.99.249] [chan 0] Sesch channel 0 request ok
+2019-02-26 14:33:51,190 p=28377 u=root | paramiko [10.80.99.248] [chan 0] Sesch channel 0 request ok
+2019-02-26 14:33:51,197 p=28371 u=root | paramiko [10.80.99.249] [chan 0] Sesch channel 0 request ok
+2019-02-26 14:33:52,294 p=28371 u=root | paramiko [10.80.99.249] [chan 0] EOF received (0)
+2019-02-26 14:33:52,295 p=28371 u=root | paramiko [10.80.99.249] [chan 0] EOF sent (0)
+2019-02-26 14:33:52,295 p=28371 u=root | paramiko [10.80.99.249] Ignoring message for dead channel 0
+2019-02-26 14:33:52,296 p=28371 u=root | paramiko [10.80.99.249] EOF in transport thread
+2019-02-26 14:33:53,867 p=28327 u=root |  fatal: [10.80.99.249]: FAILED! => {"changed": false, "msg": "Socket is closed"}
+2019-02-26 14:33:55,665 p=28327 u=root |  ok: [10.80.99.248]
+2019-02-26 14:33:57,176 p=28327 u=root |  ok: [10.80.99.254]
+2019-02-26 14:33:59,088 p=28343 u=root |  shutdown complete
+2019-02-26 14:33:59,268 p=28347 u=root |  shutdown complete
+2019-02-26 14:33:59,447 p=28327 u=root |  fatal: [10.80.99.252]: FAILED! => {"msg": "timed out"}
+2019-02-26 14:33:59,626 p=28327 u=root |  fatal: [10.80.99.241]: FAILED! => {"msg": "timed out"}
+2019-02-26 14:34:00,067 p=28447 u=root |  network_os is set to ios
+2019-02-26 14:34:00,365 p=28472 u=root | paramiko [10.80.99.244] starting thread (client mode): 0x71b40650L
+2019-02-26 14:34:00,365 p=28472 u=root | paramiko [10.80.99.244] Local version/idstring: SSH-2.0-paramiko_2.4.1
+2019-02-26 14:34:00,367 p=28472 u=root | paramiko [10.80.99.244] Remote version/idstring: SSH-2.0-Cisco-1.25
+2019-02-26 14:34:00,367 p=28472 u=root | paramiko [10.80.99.244] Connected (version 2.0, client Cisco-1.25)
+2019-02-26 14:34:00,378 p=28472 u=root | paramiko [10.80.99.244] kex algos:[u'diffie-hellman-group1-sha1'] server key:[u'ssh-rsa'] client encrypt:[u'aes128-cbc', u'3des-cbc', u'aes192-cbc', u'aes256-cbc'] server encrypt:[u'aes128-cbc', u'3des-cbc', u'aes192-cbc', u'aes256-cbc'] client mac:[u'hmac-sha1', u'hmac-sha1-96', u'hmac-md5', u'hmac-md5-96'] server mac:[u'hmac-sha1', u'hmac-sha1-96', u'hmac-md5', u'hmac-md5-96'] client compress:[u'none'] server compress:[u'none'] client lang:[u''] server lang:[u''] kex follows?False
+2019-02-26 14:34:00,378 p=28472 u=root | paramiko [10.80.99.244] Kex agreed: diffie-hellman-group1-sha1
+2019-02-26 14:34:00,378 p=28472 u=root | paramiko [10.80.99.244] HostKey agreed: ssh-rsa
+2019-02-26 14:34:00,378 p=28472 u=root | paramiko [10.80.99.244] Cipher agreed: aes128-cbc
+2019-02-26 14:34:00,379 p=28472 u=root | paramiko [10.80.99.244] MAC agreed: hmac-sha1
+2019-02-26 14:34:00,379 p=28472 u=root | paramiko [10.80.99.244] Compression agreed: none
+2019-02-26 14:34:00,733 p=28472 u=root | paramiko [10.80.99.244] kex engine KexGroup1 specified hash_algo <built-in function openssl_sha1>
+2019-02-26 14:34:00,736 p=28472 u=root | paramiko [10.80.99.244] Switch to new keys ...
+2019-02-26 14:34:00,804 p=28457 u=root |  network_os is set to ios
+2019-02-26 14:34:00,949 p=28479 u=root | paramiko [10.80.99.250] starting thread (client mode): 0x2c595650L
+2019-02-26 14:34:00,950 p=28479 u=root | paramiko [10.80.99.250] Local version/idstring: SSH-2.0-paramiko_2.4.1
+2019-02-26 14:34:00,957 p=28472 u=root | paramiko [10.80.99.244] userauth is OK
+2019-02-26 14:34:00,960 p=28479 u=root | paramiko [10.80.99.250] Remote version/idstring: SSH-2.0-Cisco-1.25
+2019-02-26 14:34:00,961 p=28479 u=root | paramiko [10.80.99.250] Connected (version 2.0, client Cisco-1.25)
+2019-02-26 14:34:00,963 p=28479 u=root | paramiko [10.80.99.250] kex algos:[u'diffie-hellman-group-exchange-sha1', u'diffie-hellman-group14-sha1', u'diffie-hellman-group1-sha1'] server key:[u'ssh-rsa'] client encrypt:[u'aes128-cbc', u'3des-cbc', u'aes192-cbc', u'aes256-cbc'] server encrypt:[u'aes128-cbc', u'3des-cbc', u'aes192-cbc', u'aes256-cbc'] client mac:[u'hmac-sha1', u'hmac-sha1-96', u'hmac-md5', u'hmac-md5-96'] server mac:[u'hmac-sha1', u'hmac-sha1-96', u'hmac-md5', u'hmac-md5-96'] client compress:[u'none'] server compress:[u'none'] client lang:[u''] server lang:[u''] kex follows?False
+2019-02-26 14:34:00,963 p=28479 u=root | paramiko [10.80.99.250] Kex agreed: diffie-hellman-group-exchange-sha1
+2019-02-26 14:34:00,963 p=28479 u=root | paramiko [10.80.99.250] HostKey agreed: ssh-rsa
+2019-02-26 14:34:00,963 p=28479 u=root | paramiko [10.80.99.250] Cipher agreed: aes128-cbc
+2019-02-26 14:34:00,963 p=28479 u=root | paramiko [10.80.99.250] MAC agreed: hmac-sha1
+2019-02-26 14:34:00,964 p=28479 u=root | paramiko [10.80.99.250] Compression agreed: none
+2019-02-26 14:34:01,187 p=28479 u=root | paramiko [10.80.99.250] Got server p (2048 bits)
+2019-02-26 14:34:01,779 p=28479 u=root | paramiko [10.80.99.250] kex engine KexGex specified hash_algo <built-in function openssl_sha1>
+2019-02-26 14:34:01,782 p=28479 u=root | paramiko [10.80.99.250] Switch to new keys ...
+2019-02-26 14:34:02,002 p=28479 u=root | paramiko [10.80.99.250] userauth is OK
+2019-02-26 14:34:07,971 p=28472 u=root | paramiko [10.80.99.244] Authentication (password) failed.
+2019-02-26 14:34:08,111 p=28447 u=root |  shutdown complete
+2019-02-26 14:34:08,170 p=28327 u=root |  fatal: [10.80.99.244]: FAILED! => {"msg": "Authentication failed."}
+2019-02-26 14:34:08,172 p=28472 u=root | paramiko [10.80.99.244] EOF in transport thread
+2019-02-26 14:34:09,027 p=28479 u=root | paramiko [10.80.99.250] Authentication (password) failed.
+2019-02-26 14:34:09,132 p=28457 u=root |  shutdown complete
+2019-02-26 14:34:09,190 p=28327 u=root |  fatal: [10.80.99.250]: FAILED! => {"msg": "Authentication failed."}
+2019-02-26 14:34:09,226 p=28327 u=root |  TASK [base : ADD BASIC FILE & ASSEMBLY] **********************************************************************************************
+2019-02-26 14:34:09,228 p=28479 u=root | paramiko [10.80.99.250] EOF in transport thread
+2019-02-26 14:34:10,550 p=28327 u=root |  ok: [10.80.99.254]
+2019-02-26 14:34:10,569 p=28327 u=root |  TASK [tacacs : ADD TACACS FILE & ASSEMBLY] *******************************************************************************************
+2019-02-26 14:34:11,226 p=28327 u=root |  ok: [10.80.99.254]
+2019-02-26 14:34:11,248 p=28327 u=root |  TASK [tacacs : SETUP AAA TACACS] *****************************************************************************************************
+2019-02-26 14:34:19,524 p=28327 u=root |  [DEPRECATION WARNING]: Param 'force' is deprecated. See the module docs for more information. This feature will be removed in version
+ 2.6. Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2019-02-26 14:34:19,525 p=28327 u=root |  changed: [10.80.99.248]
+2019-02-26 14:34:20,943 p=28327 u=root |  changed: [10.80.99.254]
+2019-02-26 14:34:20,966 p=28327 u=root |  TASK [snmp : ADD SNMP FILE & ASSEMBLY] ***********************************************************************************************
+2019-02-26 14:34:21,690 p=28327 u=root |  ok: [10.80.99.254]
+2019-02-26 14:34:21,712 p=28327 u=root |  TASK [snmp : SETUP HOST  SNMP] *******************************************************************************************************
+2019-02-26 14:34:23,743 p=28342 u=root |  persistent connection idle timeout triggered, timeout value is 30 secs.
+See the timeout setting options in the Network Debug and Troubleshooting Guide.
+2019-02-26 14:34:23,844 p=28342 u=root |  shutdown complete
+2019-02-26 14:34:34,566 p=28327 u=root |  changed: [10.80.99.248]
+2019-02-26 14:34:35,781 p=28327 u=root |  changed: [10.80.99.254]
+2019-02-26 14:34:35,817 p=28327 u=root |  TASK [loggin : ADD LOGGIN FILE & ASSEMBLY] *******************************************************************************************
+2019-02-26 14:34:36,532 p=28327 u=root |  ok: [10.80.99.254]
+2019-02-26 14:34:36,550 p=28327 u=root |  TASK [loggin : SETUP LOGGIN] *********************************************************************************************************
+2019-02-26 14:34:52,198 p=28327 u=root |  changed: [10.80.99.248]
+2019-02-26 14:34:54,034 p=28327 u=root |  changed: [10.80.99.254]
+2019-02-26 14:34:54,064 p=28327 u=root |  TASK [netflow : SHOW PREVIOUS NETFLOW CONFIG] ****************************************************************************************
+2019-02-26 14:34:54,175 p=28327 u=root |  skipping: [10.80.99.254]
+2019-02-26 14:34:54,239 p=28327 u=root |  skipping: [10.80.99.248]
+2019-02-26 14:34:54,262 p=28327 u=root |  TASK [netflow : set_fact] ************************************************************************************************************
+2019-02-26 14:34:54,339 p=28327 u=root |  skipping: [10.80.99.254]
+2019-02-26 14:34:54,367 p=28327 u=root |  skipping: [10.80.99.248]
+2019-02-26 14:34:54,389 p=28327 u=root |  TASK [netflow : DISPLAY PREVIOUS NETFLOW] ********************************************************************************************
+2019-02-26 14:34:54,483 p=28327 u=root |  skipping: [10.80.99.254]
+2019-02-26 14:34:54,522 p=28327 u=root |  skipping: [10.80.99.248]
+2019-02-26 14:34:54,547 p=28327 u=root |  TASK [netflow : ERASE PREVIOUS NETFLOW CONFIG] ***************************************************************************************
+2019-02-26 14:34:54,658 p=28327 u=root |  skipping: [10.80.99.254]
+2019-02-26 14:34:54,687 p=28327 u=root |  skipping: [10.80.99.248]
+2019-02-26 14:34:54,712 p=28327 u=root |  TASK [netflow : ADD NETFLOW FILE & ASSEMBLY] *****************************************************************************************
+2019-02-26 14:34:54,774 p=28327 u=root |  skipping: [10.80.99.254]
+2019-02-26 14:34:54,802 p=28327 u=root |  TASK [netflow : SETUP NETFLOW NEW VERSION] *******************************************************************************************
+2019-02-26 14:34:54,922 p=28327 u=root |  skipping: [10.80.99.254]
+2019-02-26 14:34:54,971 p=28327 u=root |  skipping: [10.80.99.248]
+2019-02-26 14:34:55,002 p=28327 u=root |  TASK [netflow : ADD NETFLOW old FILE & ASSEMBLY] *************************************************************************************
+2019-02-26 14:34:55,071 p=28327 u=root |  skipping: [10.80.99.254]
+2019-02-26 14:34:55,103 p=28327 u=root |  TASK [netflow : SETUP NETFLOW OLD VERSION] *******************************************************************************************
+2019-02-26 14:34:55,193 p=28327 u=root |  skipping: [10.80.99.254]
+2019-02-26 14:34:55,226 p=28327 u=root |  skipping: [10.80.99.248]
+2019-02-26 14:34:55,250 p=28327 u=root |  TASK [SAVE CONFIG] *******************************************************************************************************************
+2019-02-26 14:35:13,337 p=28327 u=root |  ok: [10.80.99.248]
+2019-02-26 14:35:16,299 p=28337 u=root |  command timeout triggered, timeout value is 10 secs.
+See the timeout setting options in the Network Debug and Troubleshooting Guide.
+2019-02-26 14:35:16,477 p=28327 u=root |  fatal: [10.80.99.254]: FAILED! => {"changed": false, "msg": "command timeout triggered, timeout value is 10 secs.\nSee the timeout setting options in the Network Debug and Troubleshooting Guide."}
+2019-02-26 14:35:16,492 p=28377 u=root | paramiko [10.80.99.248] [chan 0] EOF sent (0)
+2019-02-26 14:35:16,496 p=28377 u=root | paramiko [10.80.99.248] EOF in transport thread
+2019-02-26 14:35:16,504 p=28368 u=root | paramiko [10.80.99.254] [chan 0] EOF sent (0)
+2019-02-26 14:35:16,517 p=28368 u=root | paramiko [10.80.99.254] EOF in transport thread
+2019-02-26 14:35:16,525 p=28327 u=root |  	to retry, use: --limit @/root/CASTEL/site.retry
+
+2019-02-26 14:35:16,526 p=28327 u=root |  PLAY RECAP ***************************************************************************************************************************
+2019-02-26 14:35:16,527 p=28327 u=root |  10.80.99.241               : ok=0    changed=0    unreachable=0    failed=1   
+2019-02-26 14:35:16,529 p=28327 u=root |  10.80.99.244               : ok=0    changed=0    unreachable=0    failed=1   
+2019-02-26 14:35:16,531 p=28327 u=root |  10.80.99.248               : ok=5    changed=3    unreachable=0    failed=0   
+2019-02-26 14:35:16,533 p=28327 u=root |  10.80.99.249               : ok=0    changed=0    unreachable=0    failed=1   
+2019-02-26 14:35:16,534 p=28327 u=root |  10.80.99.250               : ok=0    changed=0    unreachable=0    failed=1   
+2019-02-26 14:35:16,535 p=28327 u=root |  10.80.99.252               : ok=0    changed=0    unreachable=0    failed=1   
+2019-02-26 14:35:16,537 p=28327 u=root |  10.80.99.254               : ok=8    changed=3    unreachable=0    failed=1   
+2019-02-26 14:35:16,601 p=28344 u=root |  shutdown complete
+2019-02-26 14:35:16,622 p=28337 u=root |  shutdown complete
+2019-02-26 14:35:56,903 p=28903 u=root |  PLAY [DEPLOY CONFIG TO SITES] ********************************************************************************************************
+2019-02-26 14:35:56,937 p=28903 u=root |  PLAY [IOS USE TEMPLATE] **************************************************************************************************************
+2019-02-26 14:35:57,317 p=28903 u=root |  TASK [TAKE BACKUP BEFORE CHANGES] ****************************************************************************************************
+2019-02-26 14:36:11,295 p=28913 u=root |  network_os is set to ios
+2019-02-26 14:36:12,511 p=28944 u=root | paramiko [10.80.99.254] starting thread (client mode): 0x7c487650L
+2019-02-26 14:36:12,513 p=28944 u=root | paramiko [10.80.99.254] Local version/idstring: SSH-2.0-paramiko_2.4.1
+2019-02-26 14:36:12,515 p=28944 u=root | paramiko [10.80.99.254] Remote version/idstring: SSH-2.0-Cisco-1.25
+2019-02-26 14:36:12,517 p=28944 u=root | paramiko [10.80.99.254] Connected (version 2.0, client Cisco-1.25)
+2019-02-26 14:36:12,538 p=28944 u=root | paramiko [10.80.99.254] kex algos:[u'diffie-hellman-group1-sha1'] server key:[u'ssh-rsa'] client encrypt:[u'aes128-cbc', u'3des-cbc', u'aes192-cbc', u'aes256-cbc'] server encrypt:[u'aes128-cbc', u'3des-cbc', u'aes192-cbc', u'aes256-cbc'] client mac:[u'hmac-sha1', u'hmac-sha1-96', u'hmac-md5', u'hmac-md5-96'] server mac:[u'hmac-sha1', u'hmac-sha1-96', u'hmac-md5', u'hmac-md5-96'] client compress:[u'none'] server compress:[u'none'] client lang:[u''] server lang:[u''] kex follows?False
+2019-02-26 14:36:12,538 p=28944 u=root | paramiko [10.80.99.254] Kex agreed: diffie-hellman-group1-sha1
+2019-02-26 14:36:12,538 p=28944 u=root | paramiko [10.80.99.254] HostKey agreed: ssh-rsa
+2019-02-26 14:36:12,538 p=28944 u=root | paramiko [10.80.99.254] Cipher agreed: aes128-cbc
+2019-02-26 14:36:12,538 p=28944 u=root | paramiko [10.80.99.254] MAC agreed: hmac-sha1
+2019-02-26 14:36:12,539 p=28944 u=root | paramiko [10.80.99.254] Compression agreed: none
+2019-02-26 14:36:12,819 p=28918 u=root |  network_os is set to ios
+2019-02-26 14:36:12,952 p=28920 u=root |  network_os is set to ios
+2019-02-26 14:36:12,968 p=28919 u=root |  network_os is set to ios
+2019-02-26 14:36:12,981 p=28944 u=root | paramiko [10.80.99.254] kex engine KexGroup1 specified hash_algo <built-in function openssl_sha1>
+2019-02-26 14:36:12,983 p=28944 u=root | paramiko [10.80.99.254] Switch to new keys ...
+2019-02-26 14:36:13,053 p=28922 u=root |  network_os is set to ios
+2019-02-26 14:36:13,219 p=28944 u=root | paramiko [10.80.99.254] userauth is OK
+2019-02-26 14:36:13,635 p=28947 u=root | paramiko [10.80.99.249] starting thread (client mode): 0x7a3d0650L
+2019-02-26 14:36:13,638 p=28947 u=root | paramiko [10.80.99.249] Local version/idstring: SSH-2.0-paramiko_2.4.1
+2019-02-26 14:36:13,639 p=28947 u=root | paramiko [10.80.99.249] Remote version/idstring: SSH-2.0-Cisco-1.25
+2019-02-26 14:36:13,640 p=28947 u=root | paramiko [10.80.99.249] Connected (version 2.0, client Cisco-1.25)
+2019-02-26 14:36:13,654 p=28947 u=root | paramiko [10.80.99.249] kex algos:[u'diffie-hellman-group1-sha1'] server key:[u'ssh-rsa'] client encrypt:[u'aes128-cbc', u'3des-cbc', u'aes192-cbc', u'aes256-cbc'] server encrypt:[u'aes128-cbc', u'3des-cbc', u'aes192-cbc', u'aes256-cbc'] client mac:[u'hmac-sha1', u'hmac-sha1-96', u'hmac-md5', u'hmac-md5-96'] server mac:[u'hmac-sha1', u'hmac-sha1-96', u'hmac-md5', u'hmac-md5-96'] client compress:[u'none'] server compress:[u'none'] client lang:[u''] server lang:[u''] kex follows?False
+2019-02-26 14:36:13,655 p=28947 u=root | paramiko [10.80.99.249] Kex agreed: diffie-hellman-group1-sha1
+2019-02-26 14:36:13,655 p=28947 u=root | paramiko [10.80.99.249] HostKey agreed: ssh-rsa
+2019-02-26 14:36:13,655 p=28947 u=root | paramiko [10.80.99.249] Cipher agreed: aes128-cbc
+2019-02-26 14:36:13,655 p=28947 u=root | paramiko [10.80.99.249] MAC agreed: hmac-sha1
+2019-02-26 14:36:13,655 p=28947 u=root | paramiko [10.80.99.249] Compression agreed: none
+2019-02-26 14:36:13,766 p=28956 u=root | paramiko [10.80.99.244] starting thread (client mode): 0x8276650L
+2019-02-26 14:36:13,767 p=28956 u=root | paramiko [10.80.99.244] Local version/idstring: SSH-2.0-paramiko_2.4.1
+2019-02-26 14:36:13,777 p=28956 u=root | paramiko [10.80.99.244] Remote version/idstring: SSH-2.0-Cisco-1.25
+2019-02-26 14:36:13,778 p=28956 u=root | paramiko [10.80.99.244] Connected (version 2.0, client Cisco-1.25)
+2019-02-26 14:36:13,780 p=28956 u=root | paramiko [10.80.99.244] kex algos:[u'diffie-hellman-group1-sha1'] server key:[u'ssh-rsa'] client encrypt:[u'aes128-cbc', u'3des-cbc', u'aes192-cbc', u'aes256-cbc'] server encrypt:[u'aes128-cbc', u'3des-cbc', u'aes192-cbc', u'aes256-cbc'] client mac:[u'hmac-sha1', u'hmac-sha1-96', u'hmac-md5', u'hmac-md5-96'] server mac:[u'hmac-sha1', u'hmac-sha1-96', u'hmac-md5', u'hmac-md5-96'] client compress:[u'none'] server compress:[u'none'] client lang:[u''] server lang:[u''] kex follows?False
+2019-02-26 14:36:13,780 p=28956 u=root | paramiko [10.80.99.244] Kex agreed: diffie-hellman-group1-sha1
+2019-02-26 14:36:13,781 p=28956 u=root | paramiko [10.80.99.244] HostKey agreed: ssh-rsa
+2019-02-26 14:36:13,781 p=28956 u=root | paramiko [10.80.99.244] Cipher agreed: aes128-cbc
+2019-02-26 14:36:13,781 p=28956 u=root | paramiko [10.80.99.244] MAC agreed: hmac-sha1
+2019-02-26 14:36:13,781 p=28956 u=root | paramiko [10.80.99.244] Compression agreed: none
+2019-02-26 14:36:13,961 p=28956 u=root | paramiko [10.80.99.244] kex engine KexGroup1 specified hash_algo <built-in function openssl_sha1>
+2019-02-26 14:36:13,963 p=28956 u=root | paramiko [10.80.99.244] Switch to new keys ...
+2019-02-26 14:36:14,113 p=28947 u=root | paramiko [10.80.99.249] kex engine KexGroup1 specified hash_algo <built-in function openssl_sha1>
+2019-02-26 14:36:14,123 p=28947 u=root | paramiko [10.80.99.249] Switch to new keys ...
+2019-02-26 14:36:14,183 p=28956 u=root | paramiko [10.80.99.244] userauth is OK
+2019-02-26 14:36:14,333 p=28947 u=root | paramiko [10.80.99.249] userauth is OK
+2019-02-26 14:36:16,320 p=28944 u=root | paramiko [10.80.99.254] Authentication (password) successful!
+2019-02-26 14:36:16,323 p=28944 u=root | paramiko [10.80.99.254] [chan 0] Max packet in: 32768 bytes
+2019-02-26 14:36:16,323 p=28956 u=root | paramiko [10.80.99.244] Authentication (password) successful!
+2019-02-26 14:36:16,337 p=28944 u=root | paramiko [10.80.99.254] [chan 0] Max packet out: 4096 bytes
+2019-02-26 14:36:16,338 p=28944 u=root | paramiko [10.80.99.254] Secsh channel 0 opened.
+2019-02-26 14:36:16,344 p=28956 u=root | paramiko [10.80.99.244] [chan 0] Max packet in: 32768 bytes
+2019-02-26 14:36:16,355 p=28944 u=root | paramiko [10.80.99.254] [chan 0] Sesch channel 0 request ok
+2019-02-26 14:36:16,361 p=28956 u=root | paramiko [10.80.99.244] [chan 0] Max packet out: 4096 bytes
+2019-02-26 14:36:16,361 p=28956 u=root | paramiko [10.80.99.244] Secsh channel 0 opened.
+2019-02-26 14:36:16,367 p=28944 u=root | paramiko [10.80.99.254] [chan 0] Sesch channel 0 request ok
+2019-02-26 14:36:16,390 p=28956 u=root | paramiko [10.80.99.244] [chan 0] Sesch channel 0 request ok
+2019-02-26 14:36:16,403 p=28956 u=root | paramiko [10.80.99.244] [chan 0] Sesch channel 0 request ok
+2019-02-26 14:36:16,826 p=28947 u=root | paramiko [10.80.99.249] Authentication (password) successful!
+2019-02-26 14:36:16,849 p=28947 u=root | paramiko [10.80.99.249] [chan 0] Max packet in: 32768 bytes
+2019-02-26 14:36:16,863 p=28947 u=root | paramiko [10.80.99.249] [chan 0] Max packet out: 4096 bytes
+2019-02-26 14:36:16,863 p=28947 u=root | paramiko [10.80.99.249] Secsh channel 0 opened.
+2019-02-26 14:36:16,878 p=28947 u=root | paramiko [10.80.99.249] [chan 0] Sesch channel 0 request ok
+2019-02-26 14:36:16,894 p=28947 u=root | paramiko [10.80.99.249] [chan 0] Sesch channel 0 request ok
+2019-02-26 14:36:18,265 p=28947 u=root | paramiko [10.80.99.249] [chan 0] EOF received (0)
+2019-02-26 14:36:18,266 p=28947 u=root | paramiko [10.80.99.249] [chan 0] EOF sent (0)
+2019-02-26 14:36:18,267 p=28947 u=root | paramiko [10.80.99.249] Ignoring message for dead channel 0
+2019-02-26 14:36:18,267 p=28947 u=root | paramiko [10.80.99.249] EOF in transport thread
+2019-02-26 14:36:20,047 p=28903 u=root |  fatal: [10.80.99.249]: FAILED! => {"changed": false, "msg": "Socket is closed"}
+2019-02-26 14:36:22,163 p=28903 u=root |  ok: [10.80.99.244]
+2019-02-26 14:36:22,338 p=29023 u=root |  network_os is set to ios
+2019-02-26 14:36:22,636 p=29036 u=root | paramiko [10.80.99.250] starting thread (client mode): 0x3642650L
+2019-02-26 14:36:22,637 p=29036 u=root | paramiko [10.80.99.250] Local version/idstring: SSH-2.0-paramiko_2.4.1
+2019-02-26 14:36:22,642 p=29036 u=root | paramiko [10.80.99.250] Remote version/idstring: SSH-2.0-Cisco-1.25
+2019-02-26 14:36:22,642 p=29036 u=root | paramiko [10.80.99.250] Connected (version 2.0, client Cisco-1.25)
+2019-02-26 14:36:22,651 p=29036 u=root | paramiko [10.80.99.250] kex algos:[u'diffie-hellman-group-exchange-sha1', u'diffie-hellman-group14-sha1', u'diffie-hellman-group1-sha1'] server key:[u'ssh-rsa'] client encrypt:[u'aes128-cbc', u'3des-cbc', u'aes192-cbc', u'aes256-cbc'] server encrypt:[u'aes128-cbc', u'3des-cbc', u'aes192-cbc', u'aes256-cbc'] client mac:[u'hmac-sha1', u'hmac-sha1-96', u'hmac-md5', u'hmac-md5-96'] server mac:[u'hmac-sha1', u'hmac-sha1-96', u'hmac-md5', u'hmac-md5-96'] client compress:[u'none'] server compress:[u'none'] client lang:[u''] server lang:[u''] kex follows?False
+2019-02-26 14:36:22,652 p=29036 u=root | paramiko [10.80.99.250] Kex agreed: diffie-hellman-group-exchange-sha1
+2019-02-26 14:36:22,652 p=29036 u=root | paramiko [10.80.99.250] HostKey agreed: ssh-rsa
+2019-02-26 14:36:22,652 p=29036 u=root | paramiko [10.80.99.250] Cipher agreed: aes128-cbc
+2019-02-26 14:36:22,652 p=29036 u=root | paramiko [10.80.99.250] MAC agreed: hmac-sha1
+2019-02-26 14:36:22,652 p=29036 u=root | paramiko [10.80.99.250] Compression agreed: none
+2019-02-26 14:36:22,889 p=29036 u=root | paramiko [10.80.99.250] Got server p (2048 bits)
+2019-02-26 14:36:23,184 p=28903 u=root |  ok: [10.80.99.254]
+2019-02-26 14:36:23,502 p=29036 u=root | paramiko [10.80.99.250] kex engine KexGex specified hash_algo <built-in function openssl_sha1>
+2019-02-26 14:36:23,507 p=29036 u=root | paramiko [10.80.99.250] Switch to new keys ...
+2019-02-26 14:36:23,729 p=29036 u=root | paramiko [10.80.99.250] userauth is OK
+2019-02-26 14:36:23,831 p=28919 u=root |  shutdown complete
+2019-02-26 14:36:23,849 p=28920 u=root |  shutdown complete
+2019-02-26 14:36:24,178 p=28903 u=root |  fatal: [10.80.99.241]: FAILED! => {"msg": "timed out"}
+2019-02-26 14:36:24,184 p=28903 u=root |  fatal: [10.80.99.252]: FAILED! => {"msg": "timed out"}
+2019-02-26 14:36:30,744 p=29036 u=root | paramiko [10.80.99.250] Authentication (password) failed.
+2019-02-26 14:36:30,855 p=29023 u=root |  shutdown complete
+2019-02-26 14:36:30,946 p=29036 u=root | paramiko [10.80.99.250] EOF in transport thread
+2019-02-26 14:36:30,952 p=28903 u=root |  fatal: [10.80.99.250]: FAILED! => {"msg": "Authentication failed."}
+2019-02-26 14:36:30,994 p=28903 u=root |  TASK [base : ADD BASIC FILE & ASSEMBLY] **********************************************************************************************
+2019-02-26 14:36:34,052 p=28903 u=root |  ok: [10.80.99.254]
+2019-02-26 14:36:34,064 p=28903 u=root |  TASK [tacacs : ADD TACACS FILE & ASSEMBLY] *******************************************************************************************
+2019-02-26 14:36:35,985 p=28903 u=root |  ok: [10.80.99.254]
+2019-02-26 14:36:36,016 p=28903 u=root |  TASK [tacacs : SETUP AAA TACACS] *****************************************************************************************************
+2019-02-26 14:36:48,036 p=28903 u=root |  An exception occurred during task execution. To see the full traceback, use -vvv. The error was: NOCrtCME(config)#
+2019-02-26 14:36:48,039 p=28903 u=root |  fatal: [10.80.99.244]: FAILED! => {"changed": false, "module_stderr": "Traceback (most recent call last):\n  File \"/root/.ansible/tmp/ansible-tmp-1551191803.97-103187214586332/AnsiballZ_ios_config.py\", line 113, in <module>\n    _ansiballz_main()\n  File \"/root/.ansible/tmp/ansible-tmp-1551191803.97-103187214586332/AnsiballZ_ios_config.py\", line 105, in _ansiballz_main\n    invoke_module(zipped_mod, temp_path, ANSIBALLZ_PARAMS)\n  File \"/root/.ansible/tmp/ansible-tmp-1551191803.97-103187214586332/AnsiballZ_ios_config.py\", line 48, in invoke_module\n    imp.load_module('__main__', mod, module, MOD_DESC)\n  File \"/tmp/ansible_ios_config_payload_GZQp0o/__main__.py\", line 536, in <module>\n  File \"/tmp/ansible_ios_config_payload_GZQp0o/__main__.py\", line 467, in main\n  File \"/tmp/ansible_ios_config_payload_GZQp0o/__main__.py\", line 328, in edit_config_or_macro\n  File \"/tmp/ansible_ios_config_payload_GZQp0o/ansible_ios_config_payload.zip/ansible/module_utils/connection.py\", line 173, in __rpc__\nansible.module_utils.connection.ConnectionError: aa authorization commands 1 default group tacacs+ if-authenticated\r\n% Ambiguous command:  \"aa authorization commands 1 default group tacacs+ if-authenticated\"\r\nNOCrtCME(config)#\n", "module_stdout": "", "msg": "MODULE FAILURE\nSee stdout/stderr for the exact error", "rc": 1}
+2019-02-26 14:36:48,040 p=28903 u=root |  ...ignoring
+2019-02-26 14:36:48,931 p=28903 u=root |  [DEPRECATION WARNING]: Param 'force' is deprecated. See the module docs for more information. This feature will be removed in version
+ 2.6. Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2019-02-26 14:36:48,932 p=28903 u=root |  changed: [10.80.99.254]
+2019-02-26 14:36:48,959 p=28903 u=root |  TASK [snmp : ADD SNMP FILE & ASSEMBLY] ***********************************************************************************************
+2019-02-26 14:36:49,680 p=28903 u=root |  ok: [10.80.99.254]
+2019-02-26 14:36:49,703 p=28903 u=root |  TASK [snmp : SETUP HOST  SNMP] *******************************************************************************************************
+2019-02-26 14:36:49,950 p=28918 u=root |  persistent connection idle timeout triggered, timeout value is 30 secs.
+See the timeout setting options in the Network Debug and Troubleshooting Guide.
+2019-02-26 14:36:50,053 p=28918 u=root |  shutdown complete
+2019-02-26 14:37:14,149 p=28903 u=root |  changed: [10.80.99.254]
+2019-02-26 14:37:14,177 p=28903 u=root |  An exception occurred during task execution. To see the full traceback, use -vvv. The error was: NOCrtCME(config)#
+2019-02-26 14:37:14,179 p=28903 u=root |  fatal: [10.80.99.244]: FAILED! => {"changed": false, "module_stderr": "Traceback (most recent call last):\n  File \"/root/.ansible/tmp/ansible-tmp-1551191814.38-189494933272542/AnsiballZ_ios_config.py\", line 113, in <module>\n    _ansiballz_main()\n  File \"/root/.ansible/tmp/ansible-tmp-1551191814.38-189494933272542/AnsiballZ_ios_config.py\", line 105, in _ansiballz_main\n    invoke_module(zipped_mod, temp_path, ANSIBALLZ_PARAMS)\n  File \"/root/.ansible/tmp/ansible-tmp-1551191814.38-189494933272542/AnsiballZ_ios_config.py\", line 48, in invoke_module\n    imp.load_module('__main__', mod, module, MOD_DESC)\n  File \"/tmp/ansible_ios_config_payload_3V6TH8/__main__.py\", line 536, in <module>\n  File \"/tmp/ansible_ios_config_payload_3V6TH8/__main__.py\", line 467, in main\n  File \"/tmp/ansible_ios_config_payload_3V6TH8/__main__.py\", line 328, in edit_config_or_macro\n  File \"/tmp/ansible_ios_config_payload_3V6TH8/ansible_ios_config_payload.zip/ansible/module_utils/connection.py\", line 173, in __rpc__\nansible.module_utils.connection.ConnectionError: snmp ifmib ifindex persist\r\n                              ^\r\n% Invalid input detected at '^' marker.\r\n\r\nNOCrtCME(config)#\n", "module_stdout": "", "msg": "MODULE FAILURE\nSee stdout/stderr for the exact error", "rc": 1}
+2019-02-26 14:37:14,207 p=28903 u=root |  TASK [loggin : ADD LOGGIN FILE & ASSEMBLY] *******************************************************************************************
+2019-02-26 14:37:15,069 p=28903 u=root |  ok: [10.80.99.254]
+2019-02-26 14:37:15,095 p=28903 u=root |  TASK [loggin : SETUP LOGGIN] *********************************************************************************************************
+2019-02-26 14:37:22,050 p=28903 u=root |  changed: [10.80.99.254]
+2019-02-26 14:37:22,077 p=28903 u=root |  TASK [netflow : SHOW PREVIOUS NETFLOW CONFIG] ****************************************************************************************
+2019-02-26 14:37:22,140 p=28903 u=root |  skipping: [10.80.99.254]
+2019-02-26 14:37:22,163 p=28903 u=root |  TASK [netflow : set_fact] ************************************************************************************************************
+2019-02-26 14:37:22,220 p=28903 u=root |  skipping: [10.80.99.254]
+2019-02-26 14:37:22,248 p=28903 u=root |  TASK [netflow : DISPLAY PREVIOUS NETFLOW] ********************************************************************************************
+2019-02-26 14:37:22,318 p=28903 u=root |  skipping: [10.80.99.254]
+2019-02-26 14:37:22,351 p=28903 u=root |  TASK [netflow : ERASE PREVIOUS NETFLOW CONFIG] ***************************************************************************************
+2019-02-26 14:37:22,416 p=28903 u=root |  skipping: [10.80.99.254]
+2019-02-26 14:37:22,444 p=28903 u=root |  TASK [netflow : ADD NETFLOW FILE & ASSEMBLY] *****************************************************************************************
+2019-02-26 14:37:22,504 p=28903 u=root |  skipping: [10.80.99.254]
+2019-02-26 14:37:22,542 p=28903 u=root |  TASK [netflow : SETUP NETFLOW NEW VERSION] *******************************************************************************************
+2019-02-26 14:37:22,611 p=28903 u=root |  skipping: [10.80.99.254]
+2019-02-26 14:37:22,641 p=28903 u=root |  TASK [netflow : ADD NETFLOW old FILE & ASSEMBLY] *************************************************************************************
+2019-02-26 14:37:22,692 p=28903 u=root |  skipping: [10.80.99.254]
+2019-02-26 14:37:22,708 p=28903 u=root |  TASK [netflow : SETUP NETFLOW OLD VERSION] *******************************************************************************************
+2019-02-26 14:37:22,752 p=28903 u=root |  skipping: [10.80.99.254]
+2019-02-26 14:37:22,772 p=28903 u=root |  TASK [SAVE CONFIG] *******************************************************************************************************************
+2019-02-26 14:37:35,784 p=28913 u=root |  command timeout triggered, timeout value is 10 secs.
+See the timeout setting options in the Network Debug and Troubleshooting Guide.
+2019-02-26 14:37:35,936 p=28903 u=root |  fatal: [10.80.99.254]: FAILED! => {"changed": false, "msg": "command timeout triggered, timeout value is 10 secs.\nSee the timeout setting options in the Network Debug and Troubleshooting Guide."}
+2019-02-26 14:37:35,941 p=28956 u=root | paramiko [10.80.99.244] [chan 0] EOF sent (0)
+2019-02-26 14:37:35,963 p=28956 u=root | paramiko [10.80.99.244] EOF in transport thread
+2019-02-26 14:37:35,978 p=28944 u=root | paramiko [10.80.99.254] [chan 0] EOF sent (0)
+2019-02-26 14:37:36,020 p=28944 u=root | paramiko [10.80.99.254] EOF in transport thread
+2019-02-26 14:37:36,045 p=28903 u=root |  	to retry, use: --limit @/root/CASTEL/site.retry
+
+2019-02-26 14:37:36,046 p=28903 u=root |  PLAY RECAP ***************************************************************************************************************************
+2019-02-26 14:37:36,046 p=28903 u=root |  10.80.99.241               : ok=0    changed=0    unreachable=0    failed=1   
+2019-02-26 14:37:36,047 p=28903 u=root |  10.80.99.244               : ok=2    changed=0    unreachable=0    failed=1   
+2019-02-26 14:37:36,047 p=28903 u=root |  10.80.99.249               : ok=0    changed=0    unreachable=0    failed=1   
+2019-02-26 14:37:36,047 p=28903 u=root |  10.80.99.250               : ok=0    changed=0    unreachable=0    failed=1   
+2019-02-26 14:37:36,048 p=28903 u=root |  10.80.99.252               : ok=0    changed=0    unreachable=0    failed=1   
+2019-02-26 14:37:36,048 p=28903 u=root |  10.80.99.254               : ok=8    changed=3    unreachable=0    failed=1   
+2019-02-26 14:37:36,077 p=28922 u=root |  shutdown complete
+2019-02-26 14:37:36,144 p=28913 u=root |  shutdown complete
+2019-02-26 14:50:28,042 p=29631 u=root |  PLAY [DEPLOY CONFIG TO SITES] ********************************************************************************
+2019-02-26 14:50:28,083 p=29631 u=root |  PLAY [IOS USE TEMPLATE] **************************************************************************************
+2019-02-26 14:50:28,507 p=29631 u=root |  TASK [TAKE BACKUP BEFORE CHANGES] ****************************************************************************
+2019-02-26 14:50:44,408 p=29641 u=root |  network_os is set to ios
+2019-02-26 14:50:45,726 p=29646 u=root |  network_os is set to ios
+2019-02-26 14:50:46,058 p=29672 u=root | paramiko [10.80.99.254] starting thread (client mode): 0x35c63650L
+2019-02-26 14:50:46,064 p=29672 u=root | paramiko [10.80.99.254] Local version/idstring: SSH-2.0-paramiko_2.4.1
+2019-02-26 14:50:46,068 p=29672 u=root | paramiko [10.80.99.254] Remote version/idstring: SSH-2.0-Cisco-1.25
+2019-02-26 14:50:46,069 p=29672 u=root | paramiko [10.80.99.254] Connected (version 2.0, client Cisco-1.25)
+2019-02-26 14:50:46,048 p=29649 u=root |  network_os is set to ios
+2019-02-26 14:50:46,086 p=29672 u=root | paramiko [10.80.99.254] kex algos:[u'diffie-hellman-group1-sha1'] server key:[u'ssh-rsa'] client encrypt:[u'aes128-cbc', u'3des-cbc', u'aes192-cbc', u'aes256-cbc'] server encrypt:[u'aes128-cbc', u'3des-cbc', u'aes192-cbc', u'aes256-cbc'] client mac:[u'hmac-sha1', u'hmac-sha1-96', u'hmac-md5', u'hmac-md5-96'] server mac:[u'hmac-sha1', u'hmac-sha1-96', u'hmac-md5', u'hmac-md5-96'] client compress:[u'none'] server compress:[u'none'] client lang:[u''] server lang:[u''] kex follows?False
+2019-02-26 14:50:46,086 p=29672 u=root | paramiko [10.80.99.254] Kex agreed: diffie-hellman-group1-sha1
+2019-02-26 14:50:46,086 p=29672 u=root | paramiko [10.80.99.254] HostKey agreed: ssh-rsa
+2019-02-26 14:50:46,087 p=29672 u=root | paramiko [10.80.99.254] Cipher agreed: aes128-cbc
+2019-02-26 14:50:46,087 p=29672 u=root | paramiko [10.80.99.254] MAC agreed: hmac-sha1
+2019-02-26 14:50:46,087 p=29672 u=root | paramiko [10.80.99.254] Compression agreed: none
+2019-02-26 14:50:46,147 p=29648 u=root |  network_os is set to ios
+2019-02-26 14:50:46,183 p=29647 u=root |  network_os is set to ios
+2019-02-26 14:50:46,634 p=29672 u=root | paramiko [10.80.99.254] kex engine KexGroup1 specified hash_algo <built-in function openssl_sha1>
+2019-02-26 14:50:46,670 p=29672 u=root | paramiko [10.80.99.254] Switch to new keys ...
+2019-02-26 14:50:46,882 p=29672 u=root | paramiko [10.80.99.254] userauth is OK
+2019-02-26 14:50:47,181 p=29675 u=root | paramiko [10.80.99.249] starting thread (client mode): 0x7ed7d650L
+2019-02-26 14:50:47,184 p=29675 u=root | paramiko [10.80.99.249] Local version/idstring: SSH-2.0-paramiko_2.4.1
+2019-02-26 14:50:47,189 p=29675 u=root | paramiko [10.80.99.249] Remote version/idstring: SSH-2.0-Cisco-1.25
+2019-02-26 14:50:47,189 p=29675 u=root | paramiko [10.80.99.249] Connected (version 2.0, client Cisco-1.25)
+2019-02-26 14:50:47,208 p=29675 u=root | paramiko [10.80.99.249] kex algos:[u'diffie-hellman-group1-sha1'] server key:[u'ssh-rsa'] client encrypt:[u'aes128-cbc', u'3des-cbc', u'aes192-cbc', u'aes256-cbc'] server encrypt:[u'aes128-cbc', u'3des-cbc', u'aes192-cbc', u'aes256-cbc'] client mac:[u'hmac-sha1', u'hmac-sha1-96', u'hmac-md5', u'hmac-md5-96'] server mac:[u'hmac-sha1', u'hmac-sha1-96', u'hmac-md5', u'hmac-md5-96'] client compress:[u'none'] server compress:[u'none'] client lang:[u''] server lang:[u''] kex follows?False
+2019-02-26 14:50:47,208 p=29675 u=root | paramiko [10.80.99.249] Kex agreed: diffie-hellman-group1-sha1
+2019-02-26 14:50:47,208 p=29675 u=root | paramiko [10.80.99.249] HostKey agreed: ssh-rsa
+2019-02-26 14:50:47,208 p=29675 u=root | paramiko [10.80.99.249] Cipher agreed: aes128-cbc
+2019-02-26 14:50:47,209 p=29675 u=root | paramiko [10.80.99.249] MAC agreed: hmac-sha1
+2019-02-26 14:50:47,209 p=29675 u=root | paramiko [10.80.99.249] Compression agreed: none
+2019-02-26 14:50:47,374 p=29680 u=root | paramiko [10.80.99.244] starting thread (client mode): 0xf3610650L
+2019-02-26 14:50:47,375 p=29680 u=root | paramiko [10.80.99.244] Local version/idstring: SSH-2.0-paramiko_2.4.1
+2019-02-26 14:50:47,383 p=29680 u=root | paramiko [10.80.99.244] Remote version/idstring: SSH-2.0-Cisco-1.25
+2019-02-26 14:50:47,384 p=29680 u=root | paramiko [10.80.99.244] Connected (version 2.0, client Cisco-1.25)
+2019-02-26 14:50:47,388 p=29680 u=root | paramiko [10.80.99.244] kex algos:[u'diffie-hellman-group1-sha1'] server key:[u'ssh-rsa'] client encrypt:[u'aes128-cbc', u'3des-cbc', u'aes192-cbc', u'aes256-cbc'] server encrypt:[u'aes128-cbc', u'3des-cbc', u'aes192-cbc', u'aes256-cbc'] client mac:[u'hmac-sha1', u'hmac-sha1-96', u'hmac-md5', u'hmac-md5-96'] server mac:[u'hmac-sha1', u'hmac-sha1-96', u'hmac-md5', u'hmac-md5-96'] client compress:[u'none'] server compress:[u'none'] client lang:[u''] server lang:[u''] kex follows?False
+2019-02-26 14:50:47,388 p=29680 u=root | paramiko [10.80.99.244] Kex agreed: diffie-hellman-group1-sha1
+2019-02-26 14:50:47,388 p=29680 u=root | paramiko [10.80.99.244] HostKey agreed: ssh-rsa
+2019-02-26 14:50:47,388 p=29680 u=root | paramiko [10.80.99.244] Cipher agreed: aes128-cbc
+2019-02-26 14:50:47,389 p=29680 u=root | paramiko [10.80.99.244] MAC agreed: hmac-sha1
+2019-02-26 14:50:47,389 p=29680 u=root | paramiko [10.80.99.244] Compression agreed: none
+2019-02-26 14:50:47,577 p=29680 u=root | paramiko [10.80.99.244] kex engine KexGroup1 specified hash_algo <built-in function openssl_sha1>
+2019-02-26 14:50:47,586 p=29680 u=root | paramiko [10.80.99.244] Switch to new keys ...
+2019-02-26 14:50:47,665 p=29675 u=root | paramiko [10.80.99.249] kex engine KexGroup1 specified hash_algo <built-in function openssl_sha1>
+2019-02-26 14:50:47,672 p=29675 u=root | paramiko [10.80.99.249] Switch to new keys ...
+2019-02-26 14:50:47,799 p=29680 u=root | paramiko [10.80.99.244] userauth is OK
+2019-02-26 14:50:47,885 p=29675 u=root | paramiko [10.80.99.249] userauth is OK
+2019-02-26 14:50:53,908 p=29672 u=root | paramiko [10.80.99.254] Authentication (password) failed.
+2019-02-26 14:50:54,021 p=29641 u=root |  shutdown complete
+2019-02-26 14:50:54,109 p=29672 u=root | paramiko [10.80.99.254] EOF in transport thread
+2019-02-26 14:50:54,448 p=29631 u=root |  fatal: [10.80.99.254]: FAILED! => {"msg": "Authentication failed."}
+2019-02-26 14:50:54,815 p=29680 u=root | paramiko [10.80.99.244] Authentication (password) failed.
+2019-02-26 14:50:54,919 p=29649 u=root |  shutdown complete
+2019-02-26 14:50:54,921 p=29675 u=root | paramiko [10.80.99.249] Authentication (password) failed.
+2019-02-26 14:50:55,017 p=29680 u=root | paramiko [10.80.99.244] EOF in transport thread
+2019-02-26 14:50:55,044 p=29646 u=root |  shutdown complete
+2019-02-26 14:50:55,122 p=29675 u=root | paramiko [10.80.99.249] EOF in transport thread
+2019-02-26 14:50:55,356 p=29631 u=root |  fatal: [10.80.99.244]: FAILED! => {"msg": "Authentication failed."}
+2019-02-26 14:50:55,450 p=29631 u=root |  fatal: [10.80.99.249]: FAILED! => {"msg": "Authentication failed."}
+2019-02-26 14:50:57,472 p=29648 u=root |  shutdown complete
+2019-02-26 14:50:57,484 p=29647 u=root |  shutdown complete
+2019-02-26 14:50:57,799 p=29631 u=root |  fatal: [10.80.99.252]: FAILED! => {"msg": "timed out"}
+2019-02-26 14:50:57,805 p=29631 u=root |  fatal: [10.80.99.241]: FAILED! => {"msg": "timed out"}
+2019-02-26 14:50:57,960 p=29693 u=root |  network_os is set to ios
+2019-02-26 14:50:58,149 p=29702 u=root | paramiko [10.80.99.250] starting thread (client mode): 0x9f3f650L
+2019-02-26 14:50:58,150 p=29702 u=root | paramiko [10.80.99.250] Local version/idstring: SSH-2.0-paramiko_2.4.1
+2019-02-26 14:50:58,161 p=29702 u=root | paramiko [10.80.99.250] Remote version/idstring: SSH-2.0-Cisco-1.25
+2019-02-26 14:50:58,161 p=29702 u=root | paramiko [10.80.99.250] Connected (version 2.0, client Cisco-1.25)
+2019-02-26 14:50:58,163 p=29702 u=root | paramiko [10.80.99.250] kex algos:[u'diffie-hellman-group-exchange-sha1', u'diffie-hellman-group14-sha1', u'diffie-hellman-group1-sha1'] server key:[u'ssh-rsa'] client encrypt:[u'aes128-cbc', u'3des-cbc', u'aes192-cbc', u'aes256-cbc'] server encrypt:[u'aes128-cbc', u'3des-cbc', u'aes192-cbc', u'aes256-cbc'] client mac:[u'hmac-sha1', u'hmac-sha1-96', u'hmac-md5', u'hmac-md5-96'] server mac:[u'hmac-sha1', u'hmac-sha1-96', u'hmac-md5', u'hmac-md5-96'] client compress:[u'none'] server compress:[u'none'] client lang:[u''] server lang:[u''] kex follows?False
+2019-02-26 14:50:58,163 p=29702 u=root | paramiko [10.80.99.250] Kex agreed: diffie-hellman-group-exchange-sha1
+2019-02-26 14:50:58,163 p=29702 u=root | paramiko [10.80.99.250] HostKey agreed: ssh-rsa
+2019-02-26 14:50:58,164 p=29702 u=root | paramiko [10.80.99.250] Cipher agreed: aes128-cbc
+2019-02-26 14:50:58,164 p=29702 u=root | paramiko [10.80.99.250] MAC agreed: hmac-sha1
+2019-02-26 14:50:58,164 p=29702 u=root | paramiko [10.80.99.250] Compression agreed: none
+2019-02-26 14:50:58,386 p=29702 u=root | paramiko [10.80.99.250] Got server p (2048 bits)
+2019-02-26 14:50:59,009 p=29702 u=root | paramiko [10.80.99.250] kex engine KexGex specified hash_algo <built-in function openssl_sha1>
+2019-02-26 14:50:59,012 p=29702 u=root | paramiko [10.80.99.250] Switch to new keys ...
+2019-02-26 14:50:59,236 p=29702 u=root | paramiko [10.80.99.250] userauth is OK
+2019-02-26 14:51:06,262 p=29702 u=root | paramiko [10.80.99.250] Authentication (password) failed.
+2019-02-26 14:51:06,392 p=29693 u=root |  shutdown complete
+2019-02-26 14:51:06,464 p=29702 u=root | paramiko [10.80.99.250] EOF in transport thread
+2019-02-26 14:51:06,464 p=29631 u=root |  fatal: [10.80.99.250]: FAILED! => {"msg": "Authentication failed."}
+2019-02-26 14:51:06,470 p=29631 u=root |  	to retry, use: --limit @/root/CASTEL/site.retry
+
+2019-02-26 14:51:06,471 p=29631 u=root |  PLAY RECAP ***************************************************************************************************
+2019-02-26 14:51:06,472 p=29631 u=root |  10.80.99.241               : ok=0    changed=0    unreachable=0    failed=1   
+2019-02-26 14:51:06,473 p=29631 u=root |  10.80.99.244               : ok=0    changed=0    unreachable=0    failed=1   
+2019-02-26 14:51:06,475 p=29631 u=root |  10.80.99.249               : ok=0    changed=0    unreachable=0    failed=1   
+2019-02-26 14:51:06,475 p=29631 u=root |  10.80.99.250               : ok=0    changed=0    unreachable=0    failed=1   
+2019-02-26 14:51:06,478 p=29631 u=root |  10.80.99.252               : ok=0    changed=0    unreachable=0    failed=1   
+2019-02-26 14:51:06,483 p=29631 u=root |  10.80.99.254               : ok=0    changed=0    unreachable=0    failed=1   
+2019-02-26 14:55:32,445 p=29724 u=root |  PLAY [DEPLOY CONFIG TO SITES] ********************************************************************************
+2019-02-26 14:55:32,514 p=29724 u=root |  PLAY [IOS USE TEMPLATE] **************************************************************************************
+2019-02-26 14:55:32,884 p=29724 u=root |  TASK [TAKE BACKUP BEFORE CHANGES] ****************************************************************************
+2019-02-26 14:55:46,882 p=29734 u=root |  network_os is set to ios
+2019-02-26 14:55:47,898 p=29765 u=root | paramiko [10.80.99.254] starting thread (client mode): 0xaa7cf650L
+2019-02-26 14:55:47,900 p=29765 u=root | paramiko [10.80.99.254] Local version/idstring: SSH-2.0-paramiko_2.4.1
+2019-02-26 14:55:47,902 p=29765 u=root | paramiko [10.80.99.254] Remote version/idstring: SSH-2.0-Cisco-1.25
+2019-02-26 14:55:47,903 p=29765 u=root | paramiko [10.80.99.254] Connected (version 2.0, client Cisco-1.25)
+2019-02-26 14:55:47,951 p=29765 u=root | paramiko [10.80.99.254] kex algos:[u'diffie-hellman-group1-sha1'] server key:[u'ssh-rsa'] client encrypt:[u'aes128-cbc', u'3des-cbc', u'aes192-cbc', u'aes256-cbc'] server encrypt:[u'aes128-cbc', u'3des-cbc', u'aes192-cbc', u'aes256-cbc'] client mac:[u'hmac-sha1', u'hmac-sha1-96', u'hmac-md5', u'hmac-md5-96'] server mac:[u'hmac-sha1', u'hmac-sha1-96', u'hmac-md5', u'hmac-md5-96'] client compress:[u'none'] server compress:[u'none'] client lang:[u''] server lang:[u''] kex follows?False
+2019-02-26 14:55:47,952 p=29765 u=root | paramiko [10.80.99.254] Kex agreed: diffie-hellman-group1-sha1
+2019-02-26 14:55:47,952 p=29765 u=root | paramiko [10.80.99.254] HostKey agreed: ssh-rsa
+2019-02-26 14:55:47,952 p=29765 u=root | paramiko [10.80.99.254] Cipher agreed: aes128-cbc
+2019-02-26 14:55:47,952 p=29765 u=root | paramiko [10.80.99.254] MAC agreed: hmac-sha1
+2019-02-26 14:55:47,952 p=29765 u=root | paramiko [10.80.99.254] Compression agreed: none
+2019-02-26 14:55:48,175 p=29739 u=root |  network_os is set to ios
+2019-02-26 14:55:48,256 p=29740 u=root |  network_os is set to ios
+2019-02-26 14:55:48,343 p=29741 u=root |  network_os is set to ios
+2019-02-26 14:55:48,414 p=29765 u=root | paramiko [10.80.99.254] kex engine KexGroup1 specified hash_algo <built-in function openssl_sha1>
+2019-02-26 14:55:48,416 p=29765 u=root | paramiko [10.80.99.254] Switch to new keys ...
+2019-02-26 14:55:48,637 p=29765 u=root | paramiko [10.80.99.254] userauth is OK
+2019-02-26 14:55:48,939 p=29742 u=root |  network_os is set to ios
+2019-02-26 14:55:49,132 p=29769 u=root | paramiko [10.80.99.249] starting thread (client mode): 0x7d0b4650L
+2019-02-26 14:55:49,134 p=29769 u=root | paramiko [10.80.99.249] Local version/idstring: SSH-2.0-paramiko_2.4.1
+2019-02-26 14:55:49,142 p=29769 u=root | paramiko [10.80.99.249] Remote version/idstring: SSH-2.0-Cisco-1.25
+2019-02-26 14:55:49,143 p=29769 u=root | paramiko [10.80.99.249] Connected (version 2.0, client Cisco-1.25)
+2019-02-26 14:55:49,160 p=29769 u=root | paramiko [10.80.99.249] kex algos:[u'diffie-hellman-group1-sha1'] server key:[u'ssh-rsa'] client encrypt:[u'aes128-cbc', u'3des-cbc', u'aes192-cbc', u'aes256-cbc'] server encrypt:[u'aes128-cbc', u'3des-cbc', u'aes192-cbc', u'aes256-cbc'] client mac:[u'hmac-sha1', u'hmac-sha1-96', u'hmac-md5', u'hmac-md5-96'] server mac:[u'hmac-sha1', u'hmac-sha1-96', u'hmac-md5', u'hmac-md5-96'] client compress:[u'none'] server compress:[u'none'] client lang:[u''] server lang:[u''] kex follows?False
+2019-02-26 14:55:49,160 p=29769 u=root | paramiko [10.80.99.249] Kex agreed: diffie-hellman-group1-sha1
+2019-02-26 14:55:49,160 p=29769 u=root | paramiko [10.80.99.249] HostKey agreed: ssh-rsa
+2019-02-26 14:55:49,161 p=29769 u=root | paramiko [10.80.99.249] Cipher agreed: aes128-cbc
+2019-02-26 14:55:49,161 p=29769 u=root | paramiko [10.80.99.249] MAC agreed: hmac-sha1
+2019-02-26 14:55:49,161 p=29769 u=root | paramiko [10.80.99.249] Compression agreed: none
+2019-02-26 14:55:49,513 p=29779 u=root | paramiko [10.80.99.244] starting thread (client mode): 0x9148e650L
+2019-02-26 14:55:49,515 p=29779 u=root | paramiko [10.80.99.244] Local version/idstring: SSH-2.0-paramiko_2.4.1
+2019-02-26 14:55:49,524 p=29779 u=root | paramiko [10.80.99.244] Remote version/idstring: SSH-2.0-Cisco-1.25
+2019-02-26 14:55:49,525 p=29779 u=root | paramiko [10.80.99.244] Connected (version 2.0, client Cisco-1.25)
+2019-02-26 14:55:49,527 p=29779 u=root | paramiko [10.80.99.244] kex algos:[u'diffie-hellman-group1-sha1'] server key:[u'ssh-rsa'] client encrypt:[u'aes128-cbc', u'3des-cbc', u'aes192-cbc', u'aes256-cbc'] server encrypt:[u'aes128-cbc', u'3des-cbc', u'aes192-cbc', u'aes256-cbc'] client mac:[u'hmac-sha1', u'hmac-sha1-96', u'hmac-md5', u'hmac-md5-96'] server mac:[u'hmac-sha1', u'hmac-sha1-96', u'hmac-md5', u'hmac-md5-96'] client compress:[u'none'] server compress:[u'none'] client lang:[u''] server lang:[u''] kex follows?False
+2019-02-26 14:55:49,527 p=29779 u=root | paramiko [10.80.99.244] Kex agreed: diffie-hellman-group1-sha1
+2019-02-26 14:55:49,528 p=29779 u=root | paramiko [10.80.99.244] HostKey agreed: ssh-rsa
+2019-02-26 14:55:49,528 p=29779 u=root | paramiko [10.80.99.244] Cipher agreed: aes128-cbc
+2019-02-26 14:55:49,528 p=29779 u=root | paramiko [10.80.99.244] MAC agreed: hmac-sha1
+2019-02-26 14:55:49,528 p=29779 u=root | paramiko [10.80.99.244] Compression agreed: none
+2019-02-26 14:55:49,617 p=29769 u=root | paramiko [10.80.99.249] kex engine KexGroup1 specified hash_algo <built-in function openssl_sha1>
+2019-02-26 14:55:49,621 p=29769 u=root | paramiko [10.80.99.249] Switch to new keys ...
+2019-02-26 14:55:49,706 p=29779 u=root | paramiko [10.80.99.244] kex engine KexGroup1 specified hash_algo <built-in function openssl_sha1>
+2019-02-26 14:55:49,709 p=29779 u=root | paramiko [10.80.99.244] Switch to new keys ...
+2019-02-26 14:55:49,845 p=29769 u=root | paramiko [10.80.99.249] userauth is OK
+2019-02-26 14:55:49,931 p=29779 u=root | paramiko [10.80.99.244] userauth is OK
+2019-02-26 14:55:55,665 p=29765 u=root | paramiko [10.80.99.254] Authentication (password) failed.
+2019-02-26 14:55:55,777 p=29734 u=root |  shutdown complete
+2019-02-26 14:55:55,866 p=29765 u=root | paramiko [10.80.99.254] EOF in transport thread
+2019-02-26 14:55:55,993 p=29724 u=root |  fatal: [10.80.99.254]: FAILED! => {"msg": "Authentication failed."}
+2019-02-26 14:55:56,873 p=29769 u=root | paramiko [10.80.99.249] Authentication (password) failed.
+2019-02-26 14:55:56,946 p=29779 u=root | paramiko [10.80.99.244] Authentication (password) failed.
+2019-02-26 14:55:56,986 p=29739 u=root |  shutdown complete
+2019-02-26 14:55:57,051 p=29742 u=root |  shutdown complete
+2019-02-26 14:55:57,075 p=29769 u=root | paramiko [10.80.99.249] EOF in transport thread
+2019-02-26 14:55:57,147 p=29779 u=root | paramiko [10.80.99.244] EOF in transport thread
+2019-02-26 14:55:57,284 p=29724 u=root |  fatal: [10.80.99.249]: FAILED! => {"msg": "Authentication failed."}
+2019-02-26 14:55:57,401 p=29724 u=root |  fatal: [10.80.99.244]: FAILED! => {"msg": "Authentication failed."}
+2019-02-26 14:55:59,248 p=29786 u=root |  network_os is set to ios
+2019-02-26 14:55:59,269 p=29740 u=root |  shutdown complete
+2019-02-26 14:55:59,388 p=29741 u=root |  shutdown complete
+2019-02-26 14:55:59,541 p=29724 u=root |  fatal: [10.80.99.252]: FAILED! => {"msg": "timed out"}
+2019-02-26 14:55:59,690 p=29724 u=root |  fatal: [10.80.99.241]: FAILED! => {"msg": "timed out"}
+2019-02-26 14:55:59,771 p=29795 u=root | paramiko [10.80.99.250] starting thread (client mode): 0x94ff4650L
+2019-02-26 14:55:59,771 p=29795 u=root | paramiko [10.80.99.250] Local version/idstring: SSH-2.0-paramiko_2.4.1
+2019-02-26 14:55:59,782 p=29795 u=root | paramiko [10.80.99.250] Remote version/idstring: SSH-2.0-Cisco-1.25
+2019-02-26 14:55:59,782 p=29795 u=root | paramiko [10.80.99.250] Connected (version 2.0, client Cisco-1.25)
+2019-02-26 14:55:59,784 p=29795 u=root | paramiko [10.80.99.250] kex algos:[u'diffie-hellman-group-exchange-sha1', u'diffie-hellman-group14-sha1', u'diffie-hellman-group1-sha1'] server key:[u'ssh-rsa'] client encrypt:[u'aes128-cbc', u'3des-cbc', u'aes192-cbc', u'aes256-cbc'] server encrypt:[u'aes128-cbc', u'3des-cbc', u'aes192-cbc', u'aes256-cbc'] client mac:[u'hmac-sha1', u'hmac-sha1-96', u'hmac-md5', u'hmac-md5-96'] server mac:[u'hmac-sha1', u'hmac-sha1-96', u'hmac-md5', u'hmac-md5-96'] client compress:[u'none'] server compress:[u'none'] client lang:[u''] server lang:[u''] kex follows?False
+2019-02-26 14:55:59,784 p=29795 u=root | paramiko [10.80.99.250] Kex agreed: diffie-hellman-group-exchange-sha1
+2019-02-26 14:55:59,785 p=29795 u=root | paramiko [10.80.99.250] HostKey agreed: ssh-rsa
+2019-02-26 14:55:59,785 p=29795 u=root | paramiko [10.80.99.250] Cipher agreed: aes128-cbc
+2019-02-26 14:55:59,785 p=29795 u=root | paramiko [10.80.99.250] MAC agreed: hmac-sha1
+2019-02-26 14:55:59,785 p=29795 u=root | paramiko [10.80.99.250] Compression agreed: none
+2019-02-26 14:56:00,011 p=29795 u=root | paramiko [10.80.99.250] Got server p (2048 bits)
+2019-02-26 14:56:00,605 p=29795 u=root | paramiko [10.80.99.250] kex engine KexGex specified hash_algo <built-in function openssl_sha1>
+2019-02-26 14:56:00,608 p=29795 u=root | paramiko [10.80.99.250] Switch to new keys ...
+2019-02-26 14:56:00,824 p=29795 u=root | paramiko [10.80.99.250] userauth is OK
+2019-02-26 14:56:02,485 p=29795 u=root | paramiko [10.80.99.250] Authentication (password) successful!
+2019-02-26 14:56:02,490 p=29795 u=root | paramiko [10.80.99.250] [chan 0] Max packet in: 32768 bytes
+2019-02-26 14:56:02,504 p=29795 u=root | paramiko [10.80.99.250] [chan 0] Max packet out: 4096 bytes
+2019-02-26 14:56:02,505 p=29795 u=root | paramiko [10.80.99.250] Secsh channel 0 opened.
+2019-02-26 14:56:02,520 p=29795 u=root | paramiko [10.80.99.250] [chan 0] Sesch channel 0 request ok
+2019-02-26 14:56:02,536 p=29795 u=root | paramiko [10.80.99.250] [chan 0] Sesch channel 0 request ok
+2019-02-26 14:56:06,340 p=29724 u=root |  ok: [10.80.99.250]
+2019-02-26 14:56:06,369 p=29724 u=root |  TASK [base : ADD BASIC FILE & ASSEMBLY] **********************************************************************
+2019-02-26 14:56:07,545 p=29724 u=root |  ok: [10.80.99.250]
+2019-02-26 14:56:07,563 p=29724 u=root |  TASK [tacacs : ADD TACACS FILE & ASSEMBLY] *******************************************************************
+2019-02-26 14:56:08,247 p=29724 u=root |  ok: [10.80.99.250]
+2019-02-26 14:56:08,270 p=29724 u=root |  TASK [tacacs : SETUP AAA TACACS] *****************************************************************************
+2019-02-26 14:56:13,278 p=29724 u=root |  An exception occurred during task execution. To see the full traceback, use -vvv. The error was: SW_8PoE_Noc_Residenc(config)#
+2019-02-26 14:56:13,280 p=29724 u=root |  fatal: [10.80.99.250]: FAILED! => {"changed": false, "module_stderr": "Traceback (most recent call last):\n  File \"/root/.ansible/tmp/ansible-tmp-1551192970.93-24052426820761/AnsiballZ_ios_config.py\", line 113, in <module>\n    _ansiballz_main()\n  File \"/root/.ansible/tmp/ansible-tmp-1551192970.93-24052426820761/AnsiballZ_ios_config.py\", line 105, in _ansiballz_main\n    invoke_module(zipped_mod, temp_path, ANSIBALLZ_PARAMS)\n  File \"/root/.ansible/tmp/ansible-tmp-1551192970.93-24052426820761/AnsiballZ_ios_config.py\", line 48, in invoke_module\n    imp.load_module('__main__', mod, module, MOD_DESC)\n  File \"/tmp/ansible_ios_config_payload_5qeIvd/__main__.py\", line 536, in <module>\n  File \"/tmp/ansible_ios_config_payload_5qeIvd/__main__.py\", line 467, in main\n  File \"/tmp/ansible_ios_config_payload_5qeIvd/__main__.py\", line 328, in edit_config_or_macro\n  File \"/tmp/ansible_ios_config_payload_5qeIvd/ansible_ios_config_payload.zip/ansible/module_utils/connection.py\", line 173, in __rpc__\nansible.module_utils.connection.ConnectionError: aaa accounting resource default start-stop group tacacs+\r\n                                              ^\r\n% Invalid input detected at '^' marker.\r\n\r\nSW_8PoE_Noc_Residenc(config)#\n", "module_stdout": "", "msg": "MODULE FAILURE\nSee stdout/stderr for the exact error", "rc": 1}
+2019-02-26 14:56:13,281 p=29724 u=root |  ...ignoring
+2019-02-26 14:56:13,303 p=29724 u=root |  TASK [snmp : ADD SNMP FILE & ASSEMBLY] ***********************************************************************
+2019-02-26 14:56:13,985 p=29724 u=root |  ok: [10.80.99.250]
+2019-02-26 14:56:14,010 p=29724 u=root |  TASK [snmp : SETUP HOST  SNMP] *******************************************************************************
+2019-02-26 14:56:19,299 p=29724 u=root |  changed: [10.80.99.250]
+2019-02-26 14:56:19,331 p=29724 u=root |  TASK [loggin : ADD LOGGIN FILE & ASSEMBLY] *******************************************************************
+2019-02-26 14:56:20,070 p=29724 u=root |  ok: [10.80.99.250]
+2019-02-26 14:56:20,093 p=29724 u=root |  TASK [loggin : SETUP LOGGIN] *********************************************************************************
+2019-02-26 14:56:39,195 p=29724 u=root |  changed: [10.80.99.250]
+2019-02-26 14:56:39,224 p=29724 u=root |  TASK [netflow : SHOW PREVIOUS NETFLOW CONFIG] ****************************************************************
+2019-02-26 14:56:39,307 p=29724 u=root |  skipping: [10.80.99.250]
+2019-02-26 14:56:39,337 p=29724 u=root |  TASK [netflow : set_fact] ************************************************************************************
+2019-02-26 14:56:39,393 p=29724 u=root |  skipping: [10.80.99.250]
+2019-02-26 14:56:39,416 p=29724 u=root |  TASK [netflow : DISPLAY PREVIOUS NETFLOW] ********************************************************************
+2019-02-26 14:56:39,470 p=29724 u=root |  skipping: [10.80.99.250]
+2019-02-26 14:56:39,494 p=29724 u=root |  TASK [netflow : ERASE PREVIOUS NETFLOW CONFIG] ***************************************************************
+2019-02-26 14:56:39,545 p=29724 u=root |  skipping: [10.80.99.250]
+2019-02-26 14:56:39,569 p=29724 u=root |  TASK [netflow : ADD NETFLOW FILE & ASSEMBLY] *****************************************************************
+2019-02-26 14:56:39,625 p=29724 u=root |  skipping: [10.80.99.250]
+2019-02-26 14:56:39,650 p=29724 u=root |  TASK [netflow : SETUP NETFLOW NEW VERSION] *******************************************************************
+2019-02-26 14:56:39,701 p=29724 u=root |  skipping: [10.80.99.250]
+2019-02-26 14:56:39,725 p=29724 u=root |  TASK [netflow : ADD NETFLOW old FILE & ASSEMBLY] *************************************************************
+2019-02-26 14:56:39,792 p=29724 u=root |  skipping: [10.80.99.250]
+2019-02-26 14:56:39,818 p=29724 u=root |  TASK [netflow : SETUP NETFLOW OLD VERSION] *******************************************************************
+2019-02-26 14:56:39,876 p=29724 u=root |  skipping: [10.80.99.250]
+2019-02-26 14:56:39,898 p=29724 u=root |  TASK [SAVE CONFIG] *******************************************************************************************
+2019-02-26 14:56:45,342 p=29724 u=root |  ok: [10.80.99.250]
+2019-02-26 14:56:45,357 p=29795 u=root | paramiko [10.80.99.250] [chan 0] EOF sent (0)
+2019-02-26 14:56:45,398 p=29795 u=root | paramiko [10.80.99.250] EOF in transport thread
+2019-02-26 14:56:45,428 p=29724 u=root |  	to retry, use: --limit @/root/CASTEL/site.retry
+
+2019-02-26 14:56:45,429 p=29724 u=root |  PLAY RECAP ***************************************************************************************************
+2019-02-26 14:56:45,430 p=29724 u=root |  10.80.99.241               : ok=0    changed=0    unreachable=0    failed=1   
+2019-02-26 14:56:45,430 p=29724 u=root |  10.80.99.244               : ok=0    changed=0    unreachable=0    failed=1   
+2019-02-26 14:56:45,431 p=29724 u=root |  10.80.99.249               : ok=0    changed=0    unreachable=0    failed=1   
+2019-02-26 14:56:45,431 p=29724 u=root |  10.80.99.250               : ok=9    changed=2    unreachable=0    failed=0   
+2019-02-26 14:56:45,431 p=29724 u=root |  10.80.99.252               : ok=0    changed=0    unreachable=0    failed=1   
+2019-02-26 14:56:45,432 p=29724 u=root |  10.80.99.254               : ok=0    changed=0    unreachable=0    failed=1   
+2019-02-26 14:56:45,526 p=29786 u=root |  shutdown complete
+2019-02-26 14:57:51,925 p=30111 u=root |  PLAY [DEPLOY CONFIG TO SITES] ********************************************************************************
+2019-02-26 14:57:51,946 p=30111 u=root |  PLAY [IOS USE TEMPLATE] **************************************************************************************
+2019-02-26 14:57:52,327 p=30111 u=root |  TASK [TAKE BACKUP BEFORE CHANGES] ****************************************************************************
+2019-02-26 14:58:03,609 p=30121 u=root |  network_os is set to ios
+2019-02-26 14:58:04,281 p=30155 u=root | paramiko [10.80.99.254] starting thread (client mode): 0x68d28650L
+2019-02-26 14:58:04,281 p=30155 u=root | paramiko [10.80.99.254] Local version/idstring: SSH-2.0-paramiko_2.4.1
+2019-02-26 14:58:04,282 p=30155 u=root | paramiko [10.80.99.254] Remote version/idstring: SSH-2.0-Cisco-1.25
+2019-02-26 14:58:04,286 p=30155 u=root | paramiko [10.80.99.254] Connected (version 2.0, client Cisco-1.25)
+2019-02-26 14:58:04,302 p=30155 u=root | paramiko [10.80.99.254] kex algos:[u'diffie-hellman-group1-sha1'] server key:[u'ssh-rsa'] client encrypt:[u'aes128-cbc', u'3des-cbc', u'aes192-cbc', u'aes256-cbc'] server encrypt:[u'aes128-cbc', u'3des-cbc', u'aes192-cbc', u'aes256-cbc'] client mac:[u'hmac-sha1', u'hmac-sha1-96', u'hmac-md5', u'hmac-md5-96'] server mac:[u'hmac-sha1', u'hmac-sha1-96', u'hmac-md5', u'hmac-md5-96'] client compress:[u'none'] server compress:[u'none'] client lang:[u''] server lang:[u''] kex follows?False
+2019-02-26 14:58:04,302 p=30155 u=root | paramiko [10.80.99.254] Kex agreed: diffie-hellman-group1-sha1
+2019-02-26 14:58:04,302 p=30155 u=root | paramiko [10.80.99.254] HostKey agreed: ssh-rsa
+2019-02-26 14:58:04,302 p=30155 u=root | paramiko [10.80.99.254] Cipher agreed: aes128-cbc
+2019-02-26 14:58:04,302 p=30155 u=root | paramiko [10.80.99.254] MAC agreed: hmac-sha1
+2019-02-26 14:58:04,303 p=30155 u=root | paramiko [10.80.99.254] Compression agreed: none
+2019-02-26 14:58:04,378 p=30126 u=root |  network_os is set to ios
+2019-02-26 14:58:04,562 p=30127 u=root |  network_os is set to ios
+2019-02-26 14:58:04,661 p=30128 u=root |  network_os is set to ios
+2019-02-26 14:58:04,739 p=30155 u=root | paramiko [10.80.99.254] kex engine KexGroup1 specified hash_algo <built-in function openssl_sha1>
+2019-02-26 14:58:04,750 p=30155 u=root | paramiko [10.80.99.254] Switch to new keys ...
+2019-02-26 14:58:04,804 p=30130 u=root |  network_os is set to ios
+2019-02-26 14:58:04,980 p=30155 u=root | paramiko [10.80.99.254] userauth is OK
+2019-02-26 14:58:05,025 p=30158 u=root | paramiko [10.80.99.249] starting thread (client mode): 0xdb10650L
+2019-02-26 14:58:05,026 p=30158 u=root | paramiko [10.80.99.249] Local version/idstring: SSH-2.0-paramiko_2.4.1
+2019-02-26 14:58:05,030 p=30158 u=root | paramiko [10.80.99.249] Remote version/idstring: SSH-2.0-Cisco-1.25
+2019-02-26 14:58:05,030 p=30158 u=root | paramiko [10.80.99.249] Connected (version 2.0, client Cisco-1.25)
+2019-02-26 14:58:05,046 p=30158 u=root | paramiko [10.80.99.249] kex algos:[u'diffie-hellman-group1-sha1'] server key:[u'ssh-rsa'] client encrypt:[u'aes128-cbc', u'3des-cbc', u'aes192-cbc', u'aes256-cbc'] server encrypt:[u'aes128-cbc', u'3des-cbc', u'aes192-cbc', u'aes256-cbc'] client mac:[u'hmac-sha1', u'hmac-sha1-96', u'hmac-md5', u'hmac-md5-96'] server mac:[u'hmac-sha1', u'hmac-sha1-96', u'hmac-md5', u'hmac-md5-96'] client compress:[u'none'] server compress:[u'none'] client lang:[u''] server lang:[u''] kex follows?False
+2019-02-26 14:58:05,046 p=30158 u=root | paramiko [10.80.99.249] Kex agreed: diffie-hellman-group1-sha1
+2019-02-26 14:58:05,047 p=30158 u=root | paramiko [10.80.99.249] HostKey agreed: ssh-rsa
+2019-02-26 14:58:05,047 p=30158 u=root | paramiko [10.80.99.249] Cipher agreed: aes128-cbc
+2019-02-26 14:58:05,047 p=30158 u=root | paramiko [10.80.99.249] MAC agreed: hmac-sha1
+2019-02-26 14:58:05,047 p=30158 u=root | paramiko [10.80.99.249] Compression agreed: none
+2019-02-26 14:58:05,245 p=30167 u=root | paramiko [10.80.99.244] starting thread (client mode): 0x1debf650L
+2019-02-26 14:58:05,246 p=30167 u=root | paramiko [10.80.99.244] Local version/idstring: SSH-2.0-paramiko_2.4.1
+2019-02-26 14:58:05,258 p=30167 u=root | paramiko [10.80.99.244] Remote version/idstring: SSH-2.0-Cisco-1.25
+2019-02-26 14:58:05,258 p=30167 u=root | paramiko [10.80.99.244] Connected (version 2.0, client Cisco-1.25)
+2019-02-26 14:58:05,260 p=30167 u=root | paramiko [10.80.99.244] kex algos:[u'diffie-hellman-group1-sha1'] server key:[u'ssh-rsa'] client encrypt:[u'aes128-cbc', u'3des-cbc', u'aes192-cbc', u'aes256-cbc'] server encrypt:[u'aes128-cbc', u'3des-cbc', u'aes192-cbc', u'aes256-cbc'] client mac:[u'hmac-sha1', u'hmac-sha1-96', u'hmac-md5', u'hmac-md5-96'] server mac:[u'hmac-sha1', u'hmac-sha1-96', u'hmac-md5', u'hmac-md5-96'] client compress:[u'none'] server compress:[u'none'] client lang:[u''] server lang:[u''] kex follows?False
+2019-02-26 14:58:05,260 p=30167 u=root | paramiko [10.80.99.244] Kex agreed: diffie-hellman-group1-sha1
+2019-02-26 14:58:05,260 p=30167 u=root | paramiko [10.80.99.244] HostKey agreed: ssh-rsa
+2019-02-26 14:58:05,260 p=30167 u=root | paramiko [10.80.99.244] Cipher agreed: aes128-cbc
+2019-02-26 14:58:05,261 p=30167 u=root | paramiko [10.80.99.244] MAC agreed: hmac-sha1
+2019-02-26 14:58:05,261 p=30167 u=root | paramiko [10.80.99.244] Compression agreed: none
+2019-02-26 14:58:05,445 p=30167 u=root | paramiko [10.80.99.244] kex engine KexGroup1 specified hash_algo <built-in function openssl_sha1>
+2019-02-26 14:58:05,448 p=30167 u=root | paramiko [10.80.99.244] Switch to new keys ...
+2019-02-26 14:58:05,496 p=30158 u=root | paramiko [10.80.99.249] kex engine KexGroup1 specified hash_algo <built-in function openssl_sha1>
+2019-02-26 14:58:05,498 p=30158 u=root | paramiko [10.80.99.249] Switch to new keys ...
+2019-02-26 14:58:05,670 p=30167 u=root | paramiko [10.80.99.244] userauth is OK
+2019-02-26 14:58:05,719 p=30158 u=root | paramiko [10.80.99.249] userauth is OK
+2019-02-26 14:58:12,006 p=30155 u=root | paramiko [10.80.99.254] Authentication (password) failed.
+2019-02-26 14:58:12,143 p=30121 u=root |  shutdown complete
+2019-02-26 14:58:12,207 p=30155 u=root | paramiko [10.80.99.254] EOF in transport thread
+2019-02-26 14:58:12,225 p=30111 u=root |  fatal: [10.80.99.254]: FAILED! => {"msg": "Authentication failed."}
+2019-02-26 14:58:12,689 p=30167 u=root | paramiko [10.80.99.244] Authentication (password) failed.
+2019-02-26 14:58:12,756 p=30158 u=root | paramiko [10.80.99.249] Authentication (password) failed.
+2019-02-26 14:58:12,824 p=30130 u=root |  shutdown complete
+2019-02-26 14:58:12,890 p=30167 u=root | paramiko [10.80.99.244] EOF in transport thread
+2019-02-26 14:58:12,902 p=30126 u=root |  shutdown complete
+2019-02-26 14:58:12,958 p=30158 u=root | paramiko [10.80.99.249] EOF in transport thread
+2019-02-26 14:58:13,008 p=30111 u=root |  fatal: [10.80.99.244]: FAILED! => {"msg": "Authentication failed."}
+2019-02-26 14:58:13,127 p=30111 u=root |  fatal: [10.80.99.249]: FAILED! => {"msg": "Authentication failed."}
+2019-02-26 14:58:15,246 p=30127 u=root |  shutdown complete
+2019-02-26 14:58:15,287 p=30128 u=root |  shutdown complete
+2019-02-26 14:58:15,517 p=30111 u=root |  fatal: [10.80.99.252]: FAILED! => {"msg": "timed out"}
+2019-02-26 14:58:15,629 p=30111 u=root |  fatal: [10.80.99.241]: FAILED! => {"msg": "timed out"}
+2019-02-26 14:58:15,632 p=30111 u=root |  	to retry, use: --limit @/root/CASTEL/site.retry
+
+2019-02-26 14:58:15,633 p=30111 u=root |  PLAY RECAP ***************************************************************************************************
+2019-02-26 14:58:15,634 p=30111 u=root |  10.80.99.241               : ok=0    changed=0    unreachable=0    failed=1   
+2019-02-26 14:58:15,634 p=30111 u=root |  10.80.99.244               : ok=0    changed=0    unreachable=0    failed=1   
+2019-02-26 14:58:15,635 p=30111 u=root |  10.80.99.249               : ok=0    changed=0    unreachable=0    failed=1   
+2019-02-26 14:58:15,636 p=30111 u=root |  10.80.99.252               : ok=0    changed=0    unreachable=0    failed=1   
+2019-02-26 14:58:15,636 p=30111 u=root |  10.80.99.254               : ok=0    changed=0    unreachable=0    failed=1   
+2019-02-26 15:29:15,876 p=30225 u=root |   [WARNING]: Could not match supplied host pattern, ignoring: 10.80.99.241
+
+2019-02-26 15:29:15,877 p=30225 u=root |   [WARNING]: Could not match supplied host pattern, ignoring: 10.80.99.244
+
+2019-02-26 15:29:17,489 p=30225 u=root |  PLAY [DEPLOY CONFIG TO SITES] ********************************************************************************
+2019-02-26 15:29:17,509 p=30225 u=root |  PLAY [IOS USE TEMPLATE] **************************************************************************************
+2019-02-26 15:29:17,862 p=30225 u=root |  TASK [TAKE BACKUP BEFORE CHANGES] ****************************************************************************
+2019-02-26 15:29:25,069 p=30235 u=root |  network_os is set to ios
+2019-02-26 15:29:25,509 p=30254 u=root | paramiko [10.80.99.254] starting thread (client mode): 0x6fd7a650L
+2019-02-26 15:29:25,510 p=30254 u=root | paramiko [10.80.99.254] Local version/idstring: SSH-2.0-paramiko_2.4.1
+2019-02-26 15:29:25,511 p=30254 u=root | paramiko [10.80.99.254] Remote version/idstring: SSH-2.0-Cisco-1.25
+2019-02-26 15:29:25,511 p=30254 u=root | paramiko [10.80.99.254] Connected (version 2.0, client Cisco-1.25)
+2019-02-26 15:29:25,517 p=30239 u=root |  network_os is set to ios
+2019-02-26 15:29:25,526 p=30254 u=root | paramiko [10.80.99.254] kex algos:[u'diffie-hellman-group1-sha1'] server key:[u'ssh-rsa'] client encrypt:[u'aes128-cbc', u'3des-cbc', u'aes192-cbc', u'aes256-cbc'] server encrypt:[u'aes128-cbc', u'3des-cbc', u'aes192-cbc', u'aes256-cbc'] client mac:[u'hmac-sha1', u'hmac-sha1-96', u'hmac-md5', u'hmac-md5-96'] server mac:[u'hmac-sha1', u'hmac-sha1-96', u'hmac-md5', u'hmac-md5-96'] client compress:[u'none'] server compress:[u'none'] client lang:[u''] server lang:[u''] kex follows?False
+2019-02-26 15:29:25,526 p=30254 u=root | paramiko [10.80.99.254] Kex agreed: diffie-hellman-group1-sha1
+2019-02-26 15:29:25,526 p=30254 u=root | paramiko [10.80.99.254] HostKey agreed: ssh-rsa
+2019-02-26 15:29:25,526 p=30254 u=root | paramiko [10.80.99.254] Cipher agreed: aes128-cbc
+2019-02-26 15:29:25,527 p=30254 u=root | paramiko [10.80.99.254] MAC agreed: hmac-sha1
+2019-02-26 15:29:25,527 p=30254 u=root | paramiko [10.80.99.254] Compression agreed: none
+2019-02-26 15:29:25,600 p=30238 u=root |  network_os is set to ios
+2019-02-26 15:29:25,911 p=30260 u=root | paramiko [10.80.99.249] starting thread (client mode): 0x2d5a650L
+2019-02-26 15:29:25,911 p=30260 u=root | paramiko [10.80.99.249] Local version/idstring: SSH-2.0-paramiko_2.4.1
+2019-02-26 15:29:25,922 p=30260 u=root | paramiko [10.80.99.249] Remote version/idstring: SSH-2.0-Cisco-1.25
+2019-02-26 15:29:25,922 p=30260 u=root | paramiko [10.80.99.249] Connected (version 2.0, client Cisco-1.25)
+2019-02-26 15:29:25,925 p=30260 u=root | paramiko [10.80.99.249] kex algos:[u'diffie-hellman-group1-sha1'] server key:[u'ssh-rsa'] client encrypt:[u'aes128-cbc', u'3des-cbc', u'aes192-cbc', u'aes256-cbc'] server encrypt:[u'aes128-cbc', u'3des-cbc', u'aes192-cbc', u'aes256-cbc'] client mac:[u'hmac-sha1', u'hmac-sha1-96', u'hmac-md5', u'hmac-md5-96'] server mac:[u'hmac-sha1', u'hmac-sha1-96', u'hmac-md5', u'hmac-md5-96'] client compress:[u'none'] server compress:[u'none'] client lang:[u''] server lang:[u''] kex follows?False
+2019-02-26 15:29:25,925 p=30260 u=root | paramiko [10.80.99.249] Kex agreed: diffie-hellman-group1-sha1
+2019-02-26 15:29:25,926 p=30260 u=root | paramiko [10.80.99.249] HostKey agreed: ssh-rsa
+2019-02-26 15:29:25,926 p=30260 u=root | paramiko [10.80.99.249] Cipher agreed: aes128-cbc
+2019-02-26 15:29:25,926 p=30260 u=root | paramiko [10.80.99.249] MAC agreed: hmac-sha1
+2019-02-26 15:29:25,926 p=30260 u=root | paramiko [10.80.99.249] Compression agreed: none
+2019-02-26 15:29:25,973 p=30254 u=root | paramiko [10.80.99.254] kex engine KexGroup1 specified hash_algo <built-in function openssl_sha1>
+2019-02-26 15:29:25,975 p=30254 u=root | paramiko [10.80.99.254] Switch to new keys ...
+2019-02-26 15:29:26,204 p=30254 u=root | paramiko [10.80.99.254] userauth is OK
+2019-02-26 15:29:26,382 p=30260 u=root | paramiko [10.80.99.249] kex engine KexGroup1 specified hash_algo <built-in function openssl_sha1>
+2019-02-26 15:29:26,386 p=30260 u=root | paramiko [10.80.99.249] Switch to new keys ...
+2019-02-26 15:29:26,605 p=30260 u=root | paramiko [10.80.99.249] userauth is OK
+2019-02-26 15:29:30,187 p=30254 u=root | paramiko [10.80.99.254] Authentication (password) successful!
+2019-02-26 15:29:30,192 p=30260 u=root | paramiko [10.80.99.249] Authentication (password) successful!
+2019-02-26 15:29:30,210 p=30254 u=root | paramiko [10.80.99.254] [chan 0] Max packet in: 32768 bytes
+2019-02-26 15:29:30,211 p=30260 u=root | paramiko [10.80.99.249] [chan 0] Max packet in: 32768 bytes
+2019-02-26 15:29:30,224 p=30254 u=root | paramiko [10.80.99.254] [chan 0] Max packet out: 4096 bytes
+2019-02-26 15:29:30,224 p=30254 u=root | paramiko [10.80.99.254] Secsh channel 0 opened.
+2019-02-26 15:29:30,226 p=30260 u=root | paramiko [10.80.99.249] [chan 0] Max packet out: 4096 bytes
+2019-02-26 15:29:30,226 p=30260 u=root | paramiko [10.80.99.249] Secsh channel 0 opened.
+2019-02-26 15:29:30,241 p=30260 u=root | paramiko [10.80.99.249] [chan 0] Sesch channel 0 request ok
+2019-02-26 15:29:30,241 p=30254 u=root | paramiko [10.80.99.254] [chan 0] Sesch channel 0 request ok
+2019-02-26 15:29:30,255 p=30260 u=root | paramiko [10.80.99.249] [chan 0] Sesch channel 0 request ok
+2019-02-26 15:29:30,258 p=30254 u=root | paramiko [10.80.99.254] [chan 0] Sesch channel 0 request ok
+2019-02-26 15:29:31,356 p=30260 u=root | paramiko [10.80.99.249] [chan 0] EOF received (0)
+2019-02-26 15:29:31,356 p=30260 u=root | paramiko [10.80.99.249] [chan 0] EOF sent (0)
+2019-02-26 15:29:31,357 p=30260 u=root | paramiko [10.80.99.249] Ignoring message for dead channel 0
+2019-02-26 15:29:31,358 p=30260 u=root | paramiko [10.80.99.249] EOF in transport thread
+2019-02-26 15:29:32,217 p=30225 u=root |  fatal: [10.80.99.249]: FAILED! => {"changed": false, "msg": "Socket is closed"}
+2019-02-26 15:29:36,000 p=30239 u=root |  shutdown complete
+2019-02-26 15:29:36,206 p=30225 u=root |  fatal: [10.80.99.252]: FAILED! => {"msg": "timed out"}
+2019-02-26 15:29:37,629 p=30225 u=root |  ok: [10.80.99.254]
+2019-02-26 15:29:37,647 p=30225 u=root |  TASK [base : ADD BASIC FILE & ASSEMBLY] **********************************************************************
+2019-02-26 15:29:38,795 p=30225 u=root |  ok: [10.80.99.254]
+2019-02-26 15:29:38,808 p=30225 u=root |  TASK [tacacs : ADD TACACS FILE & ASSEMBLY] *******************************************************************
+2019-02-26 15:29:39,403 p=30225 u=root |  ok: [10.80.99.254]
+2019-02-26 15:29:39,422 p=30225 u=root |  TASK [tacacs : SETUP AAA TACACS] *****************************************************************************
+2019-02-26 15:29:50,740 p=30225 u=root |  [DEPRECATION WARNING]: Param 'force' is deprecated. See the module docs for more information. This feature 
+will be removed in version 2.6. Deprecation warnings can be disabled by setting deprecation_warnings=False in
+ ansible.cfg.
+2019-02-26 15:29:50,741 p=30225 u=root |  changed: [10.80.99.254]
+2019-02-26 15:29:50,765 p=30225 u=root |  TASK [snmp : ADD SNMP FILE & ASSEMBLY] ***********************************************************************
+2019-02-26 15:29:51,492 p=30225 u=root |  ok: [10.80.99.254]
+2019-02-26 15:29:51,518 p=30225 u=root |  TASK [snmp : SETUP HOST  SNMP] *******************************************************************************
+2019-02-26 15:30:02,166 p=30238 u=root |  persistent connection idle timeout triggered, timeout value is 30 secs.
+See the timeout setting options in the Network Debug and Troubleshooting Guide.
+2019-02-26 15:30:02,268 p=30238 u=root |  shutdown complete
+2019-02-26 15:30:08,699 p=30225 u=root |  changed: [10.80.99.254]
+2019-02-26 15:30:08,731 p=30225 u=root |  TASK [loggin : ADD LOGGIN FILE & ASSEMBLY] *******************************************************************
+2019-02-26 15:30:09,469 p=30225 u=root |  ok: [10.80.99.254]
+2019-02-26 15:30:09,491 p=30225 u=root |  TASK [loggin : SETUP LOGGIN] *********************************************************************************
+2019-02-26 15:30:16,088 p=30225 u=root |  changed: [10.80.99.254]
+2019-02-26 15:30:16,117 p=30225 u=root |  TASK [netflow : SHOW PREVIOUS NETFLOW CONFIG] ****************************************************************
+2019-02-26 15:30:16,185 p=30225 u=root |  skipping: [10.80.99.254]
+2019-02-26 15:30:16,213 p=30225 u=root |  TASK [netflow : set_fact] ************************************************************************************
+2019-02-26 15:30:16,277 p=30225 u=root |  skipping: [10.80.99.254]
+2019-02-26 15:30:16,302 p=30225 u=root |  TASK [netflow : DISPLAY PREVIOUS NETFLOW] ********************************************************************
+2019-02-26 15:30:16,351 p=30225 u=root |  skipping: [10.80.99.254]
+2019-02-26 15:30:16,370 p=30225 u=root |  TASK [netflow : ERASE PREVIOUS NETFLOW CONFIG] ***************************************************************
+2019-02-26 15:30:16,409 p=30225 u=root |  skipping: [10.80.99.254]
+2019-02-26 15:30:16,430 p=30225 u=root |  TASK [netflow : ADD NETFLOW FILE & ASSEMBLY] *****************************************************************
+2019-02-26 15:30:16,470 p=30225 u=root |  skipping: [10.80.99.254]
+2019-02-26 15:30:16,485 p=30225 u=root |  TASK [netflow : SETUP NETFLOW NEW VERSION] *******************************************************************
+2019-02-26 15:30:16,529 p=30225 u=root |  skipping: [10.80.99.254]
+2019-02-26 15:30:16,547 p=30225 u=root |  TASK [netflow : ADD NETFLOW old FILE & ASSEMBLY] *************************************************************
+2019-02-26 15:30:16,593 p=30225 u=root |  skipping: [10.80.99.254]
+2019-02-26 15:30:16,612 p=30225 u=root |  TASK [netflow : SETUP NETFLOW OLD VERSION] *******************************************************************
+2019-02-26 15:30:16,653 p=30225 u=root |  skipping: [10.80.99.254]
+2019-02-26 15:30:16,671 p=30225 u=root |  TASK [SAVE CONFIG] *******************************************************************************************
+2019-02-26 15:30:25,386 p=30225 u=root |  ok: [10.80.99.254]
+2019-02-26 15:30:25,391 p=30254 u=root | paramiko [10.80.99.254] [chan 0] EOF sent (0)
+2019-02-26 15:30:25,431 p=30254 u=root | paramiko [10.80.99.254] EOF in transport thread
+2019-02-26 15:30:25,459 p=30225 u=root |  	to retry, use: --limit @/root/CASTEL/site.retry
+
+2019-02-26 15:30:25,460 p=30225 u=root |  PLAY RECAP ***************************************************************************************************
+2019-02-26 15:30:25,460 p=30225 u=root |  10.80.99.249               : ok=0    changed=0    unreachable=0    failed=1   
+2019-02-26 15:30:25,461 p=30225 u=root |  10.80.99.252               : ok=0    changed=0    unreachable=0    failed=1   
+2019-02-26 15:30:25,461 p=30225 u=root |  10.80.99.254               : ok=9    changed=3    unreachable=0    failed=0   
+2019-02-26 15:30:25,558 p=30235 u=root |  shutdown complete
+2019-02-26 15:32:05,045 p=30601 u=root |  PLAY [DEPLOY CONFIG TO SITES] ********************************************************************************
+2019-02-26 15:32:05,063 p=30601 u=root |  PLAY [IOS USE TEMPLATE] **************************************************************************************
+2019-02-26 15:32:05,289 p=30601 u=root |  TASK [TAKE BACKUP BEFORE CHANGES] ****************************************************************************
+2019-02-26 15:32:09,787 p=30612 u=root |  network_os is set to ios
+2019-02-26 15:32:09,860 p=30613 u=root |  network_os is set to ios
+2019-02-26 15:32:10,134 p=30624 u=root | paramiko [10.80.99.249] starting thread (client mode): 0x97f6650L
+2019-02-26 15:32:10,135 p=30624 u=root | paramiko [10.80.99.249] Local version/idstring: SSH-2.0-paramiko_2.4.1
+2019-02-26 15:32:10,139 p=30624 u=root | paramiko [10.80.99.249] Remote version/idstring: SSH-2.0-Cisco-1.25
+2019-02-26 15:32:10,139 p=30624 u=root | paramiko [10.80.99.249] Connected (version 2.0, client Cisco-1.25)
+2019-02-26 15:32:10,155 p=30624 u=root | paramiko [10.80.99.249] kex algos:[u'diffie-hellman-group1-sha1'] server key:[u'ssh-rsa'] client encrypt:[u'aes128-cbc', u'3des-cbc', u'aes192-cbc', u'aes256-cbc'] server encrypt:[u'aes128-cbc', u'3des-cbc', u'aes192-cbc', u'aes256-cbc'] client mac:[u'hmac-sha1', u'hmac-sha1-96', u'hmac-md5', u'hmac-md5-96'] server mac:[u'hmac-sha1', u'hmac-sha1-96', u'hmac-md5', u'hmac-md5-96'] client compress:[u'none'] server compress:[u'none'] client lang:[u''] server lang:[u''] kex follows?False
+2019-02-26 15:32:10,156 p=30624 u=root | paramiko [10.80.99.249] Kex agreed: diffie-hellman-group1-sha1
+2019-02-26 15:32:10,156 p=30624 u=root | paramiko [10.80.99.249] HostKey agreed: ssh-rsa
+2019-02-26 15:32:10,156 p=30624 u=root | paramiko [10.80.99.249] Cipher agreed: aes128-cbc
+2019-02-26 15:32:10,157 p=30624 u=root | paramiko [10.80.99.249] MAC agreed: hmac-sha1
+2019-02-26 15:32:10,157 p=30624 u=root | paramiko [10.80.99.249] Compression agreed: none
+2019-02-26 15:32:10,613 p=30624 u=root | paramiko [10.80.99.249] kex engine KexGroup1 specified hash_algo <built-in function openssl_sha1>
+2019-02-26 15:32:10,615 p=30624 u=root | paramiko [10.80.99.249] Switch to new keys ...
+2019-02-26 15:32:10,839 p=30624 u=root | paramiko [10.80.99.249] userauth is OK
+2019-02-26 15:32:11,968 p=30624 u=root | paramiko [10.80.99.249] Authentication (password) successful!
+2019-02-26 15:32:11,971 p=30624 u=root | paramiko [10.80.99.249] [chan 0] Max packet in: 32768 bytes
+2019-02-26 15:32:11,984 p=30624 u=root | paramiko [10.80.99.249] [chan 0] Max packet out: 4096 bytes
+2019-02-26 15:32:11,985 p=30624 u=root | paramiko [10.80.99.249] Secsh channel 0 opened.
+2019-02-26 15:32:12,000 p=30624 u=root | paramiko [10.80.99.249] [chan 0] Sesch channel 0 request ok
+2019-02-26 15:32:12,018 p=30624 u=root | paramiko [10.80.99.249] [chan 0] Sesch channel 0 request ok
+2019-02-26 15:32:20,272 p=30613 u=root |  shutdown complete
+2019-02-26 15:32:20,294 p=30601 u=root |  fatal: [10.80.99.252]: FAILED! => {"msg": "timed out"}
+2019-02-26 15:32:25,540 p=30624 u=root | paramiko [10.80.99.249] [chan 0] EOF received (0)
+2019-02-26 15:32:25,541 p=30624 u=root | paramiko [10.80.99.249] [chan 0] EOF sent (0)
+2019-02-26 15:32:25,542 p=30624 u=root | paramiko [10.80.99.249] Ignoring message for dead channel 0
+2019-02-26 15:32:25,542 p=30624 u=root | paramiko [10.80.99.249] EOF in transport thread
+2019-02-26 15:32:26,432 p=30601 u=root |  fatal: [10.80.99.249]: FAILED! => {"changed": false, "msg": "Socket is closed"}
+2019-02-26 15:32:26,437 p=30601 u=root |  	to retry, use: --limit @/root/CASTEL/site.retry
+
+2019-02-26 15:32:26,437 p=30601 u=root |  PLAY RECAP ***************************************************************************************************
+2019-02-26 15:32:26,438 p=30601 u=root |  10.80.99.249               : ok=0    changed=0    unreachable=0    failed=1   
+2019-02-26 15:32:26,438 p=30601 u=root |  10.80.99.252               : ok=0    changed=0    unreachable=0    failed=1   
+2019-02-26 15:32:26,536 p=30612 u=root |  shutdown complete

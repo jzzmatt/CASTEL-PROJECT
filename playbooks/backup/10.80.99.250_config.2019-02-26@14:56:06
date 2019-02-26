@@ -1,0 +1,363 @@
+Building configuration...
+
+Current configuration : 8948 bytes
+!
+! Last configuration change at 14:55:01 UTC Tue Feb 26 2019 by junior.mateus
+!
+version 15.0
+no service pad
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+!
+hostname SW_8PoE_Noc_Residencia
+!
+boot-start-marker
+boot-end-marker
+!
+!
+username admin privilege 15 password 0 +Huambo2015!
+aaa new-model
+!
+!
+aaa authentication login use-srvtacacs group tacacs+ local enable
+aaa authentication enable default group tacacs+ enable
+aaa authorization console
+aaa authorization exec use-srvtacacs group tacacs+ local if-authenticated 
+aaa authorization commands 1 default group tacacs+ if-authenticated 
+aaa authorization commands 15 default group tacacs+ local if-authenticated 
+aaa accounting send stop-record authentication failure
+aaa accounting exec default start-stop group tacacs+
+aaa accounting network default start-stop group tacacs+
+aaa accounting connection default start-stop group tacacs+
+aaa accounting system default start-stop group tacacs+
+!
+!
+!
+!
+!
+!
+aaa session-id common
+system mtu routing 1500
+!
+!
+ip domain-name victoria.local
+vtp domain Nocebo
+vtp mode transparent
+!
+mls qos map policed-dscp  0 10 18 24 46 to 8
+mls qos map cos-dscp 0 8 16 24 32 46 48 56
+mls qos srr-queue input bandwidth 70 30
+mls qos srr-queue input threshold 1 80 90
+mls qos srr-queue input priority-queue 2 bandwidth 30
+mls qos srr-queue input cos-map queue 1 threshold 2 3
+mls qos srr-queue input cos-map queue 1 threshold 3 6 7
+mls qos srr-queue input cos-map queue 2 threshold 1 4
+mls qos srr-queue input dscp-map queue 1 threshold 2 24
+mls qos srr-queue input dscp-map queue 1 threshold 3 48 49 50 51 52 53 54 55
+mls qos srr-queue input dscp-map queue 1 threshold 3 56 57 58 59 60 61 62 63
+mls qos srr-queue input dscp-map queue 2 threshold 3 32 33 40 41 42 43 44 45
+mls qos srr-queue input dscp-map queue 2 threshold 3 46 47
+mls qos srr-queue output cos-map queue 1 threshold 3 4 5
+mls qos srr-queue output cos-map queue 2 threshold 1 2
+mls qos srr-queue output cos-map queue 2 threshold 2 3
+mls qos srr-queue output cos-map queue 2 threshold 3 6 7
+mls qos srr-queue output cos-map queue 3 threshold 3 0
+mls qos srr-queue output cos-map queue 4 threshold 3 1
+mls qos srr-queue output dscp-map queue 1 threshold 3 32 33 40 41 42 43 44 45
+mls qos srr-queue output dscp-map queue 1 threshold 3 46 47
+mls qos srr-queue output dscp-map queue 2 threshold 1 16 17 18 19 20 21 22 23
+mls qos srr-queue output dscp-map queue 2 threshold 1 26 27 28 29 30 31 34 35
+mls qos srr-queue output dscp-map queue 2 threshold 1 36 37 38 39
+mls qos srr-queue output dscp-map queue 2 threshold 2 24
+mls qos srr-queue output dscp-map queue 2 threshold 3 48 49 50 51 52 53 54 55
+mls qos srr-queue output dscp-map queue 2 threshold 3 56 57 58 59 60 61 62 63
+mls qos srr-queue output dscp-map queue 3 threshold 3 0 1 2 3 4 5 6 7
+mls qos srr-queue output dscp-map queue 4 threshold 1 8 9 11 13 15
+mls qos srr-queue output dscp-map queue 4 threshold 2 10 12 14
+mls qos queue-set output 1 threshold 1 100 100 50 200
+mls qos queue-set output 1 threshold 2 125 125 100 400
+mls qos queue-set output 1 threshold 3 100 100 100 400
+mls qos queue-set output 1 threshold 4 60 150 50 200
+mls qos queue-set output 1 buffers 15 25 40 20
+mls qos
+!
+crypto pki trustpoint TP-self-signed-4076239744
+ enrollment selfsigned
+ subject-name cn=IOS-Self-Signed-Certificate-4076239744
+ revocation-check none
+ rsakeypair TP-self-signed-4076239744
+!
+!
+crypto pki certificate chain TP-self-signed-4076239744
+ certificate self-signed 01
+  3082022B 30820194 A0030201 02020101 300D0609 2A864886 F70D0101 05050030 
+  31312F30 2D060355 04031326 494F532D 53656C66 2D536967 6E65642D 43657274 
+  69666963 6174652D 34303736 32333937 3434301E 170D3131 30333330 30313238 
+  34375A17 0D323030 31303130 30303030 305A3031 312F302D 06035504 03132649 
+  4F532D53 656C662D 5369676E 65642D43 65727469 66696361 74652D34 30373632 
+  33393734 3430819F 300D0609 2A864886 F70D0101 01050003 818D0030 81890281 
+  8100AADB AF8F0781 72C68138 5BA602F0 2A4C46DB 3F80B60F 70390131 95FF34C5 
+  25F7CD34 AE331966 326F6E37 4AE199F8 5981C890 3E90DBD0 452E032C 1CA315AF 
+  B9BB3CF7 6BEA47D7 CB00D609 698FCBC3 59DFA2C8 B2188594 3F202F5C F7B432EA 
+  058D102D A00D0099 F12E7466 D8AF9575 758B2DB9 BDB09970 FDF49396 05157265 
+  E9F90203 010001A3 53305130 0F060355 1D130101 FF040530 030101FF 301F0603 
+  551D2304 18301680 144541EF C58A2FA2 65A68684 4469D4A3 407DB5C1 78301D06 
+  03551D0E 04160414 4541EFC5 8A2FA265 A6868444 69D4A340 7DB5C178 300D0609 
+  2A864886 F70D0101 05050003 81810079 3E96ADDA 12B0FEA6 39241792 29E5E495 
+  DC4FD882 2150B881 3CD163AA 51AB55E2 A41B8F51 78262137 765D506B B45C0B61 
+  91883E91 FAE60CE2 FC180444 CC76BB39 78352922 375E8CFA 4FBAD41F 22136EED 
+  D567711A 4D0578ED 3ADA5121 96BBB3AF D11139B3 D19D35FD C73F708D F8916B46 
+  076F7CC2 2B9CC0E2 4C0D40B6 667C1D
+  	quit
+spanning-tree mode pvst
+spanning-tree extend system-id
+!
+!
+!
+!
+!
+!
+!
+!
+!
+vlan internal allocation policy ascending
+!
+vlan 3
+ name VoIP
+!
+vlan 4
+ name Storage
+!
+vlan 5
+ name Servers_Production
+!
+vlan 9
+ name Vmware-VCENTER
+!
+vlan 10
+ name Server_Primavera
+!
+vlan 16
+ name Printers
+!
+vlan 19
+ name CCTV
+!
+vlan 32
+ name VLAN_INSIDE_ASA
+!
+vlan 34
+ name WAN_MPLS
+!
+vlan 35
+ name interconnect-to-RTVSAT
+!
+vlan 39
+ name PBR-to-TMG
+!
+vlan 40
+ name CORE-TMG
+!
+vlan 41
+ name inside_CHKP
+!
+vlan 87
+ name ILO
+!
+vlan 96
+ name RSPAN
+ remote-span
+!
+vlan 98
+ name Server_Management
+!
+vlan 99
+ name Network_Management
+!
+vlan 100 
+!
+vlan 101
+ name Wireless
+!
+vlan 102 
+!
+vlan 103
+ name Guest
+!
+vlan 104
+ name BIH_Wireless
+!
+vlan 105
+ name Condominio
+!
+vlan 106
+ name Recup
+!
+vlan 107
+ name REDE_INDUSTRIAL
+!
+vlan 111
+ name End-Users
+!
+vlan 199
+ name CHKP_MGT
+!
+vlan 255
+ name Egress_TMG
+!
+ip ssh version 2
+ip scp server enable
+!
+class-map match-all AUTOQOS_VOIP_DATA_CLASS
+  match ip dscp ef 
+class-map match-all AUTOQOS_DEFAULT_CLASS
+  match access-group name AUTOQOS-ACL-DEFAULT
+class-map match-all AUTOQOS_VOIP_SIGNAL_CLASS
+  match ip dscp cs3 
+!
+policy-map AUTOQOS-SRND4-CISCOPHONE-POLICY
+ class AUTOQOS_VOIP_DATA_CLASS
+   set dscp ef
+  police 128000 8000 exceed-action policed-dscp-transmit
+ class AUTOQOS_VOIP_SIGNAL_CLASS
+   set dscp cs3
+  police 32000 8000 exceed-action policed-dscp-transmit
+ class AUTOQOS_DEFAULT_CLASS
+   set dscp default
+  police 10000000 8000 exceed-action policed-dscp-transmit
+!
+!
+! 
+!
+!
+!
+!
+!
+!
+!
+!
+interface FastEthernet0/1
+ description CASA 2 (Director Zakaria)
+ switchport access vlan 105
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/2
+ description CASA 1( Carlos Roques)
+ switchport access vlan 105
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/3
+ description RESERVED AP
+ switchport access vlan 99
+ switchport mode access
+ shutdown
+ srr-queue bandwidth share 1 30 35 5
+ priority-queue out 
+ mls qos trust dscp
+ auto qos trust dscp
+ spanning-tree portfast
+!
+interface FastEthernet0/4
+ description RESERVED AP
+ switchport access vlan 99
+ switchport mode access
+ shutdown
+ srr-queue bandwidth share 1 30 35 5
+ priority-queue out 
+ mls qos trust dscp
+ auto qos trust dscp
+ spanning-tree portfast
+!
+interface FastEthernet0/5
+ description RESERVED AP
+ switchport access vlan 99
+ switchport mode access
+ shutdown
+ srr-queue bandwidth share 1 30 35 5
+ priority-queue out 
+ mls qos trust dscp
+ auto qos trust dscp
+ spanning-tree portfast
+!
+interface FastEthernet0/6
+ description RESERVED AP
+ switchport access vlan 99
+ switchport mode access
+ shutdown
+ srr-queue bandwidth share 1 30 35 5
+ priority-queue out 
+ mls qos trust dscp
+ auto qos trust dscp
+ spanning-tree portfast
+!
+interface FastEthernet0/7
+ shutdown
+!
+interface FastEthernet0/8
+ shutdown
+!
+interface GigabitEthernet0/1
+ description Trunk to Core
+ switchport trunk allowed vlan 3-6,10,11,16,19,20,98,99,101,103,105-114
+ switchport mode trunk
+ switchport nonegotiate
+!
+interface GigabitEthernet0/2
+ shutdown
+!
+interface Vlan1
+ no ip address
+!
+interface Vlan99
+ ip address 10.80.99.250 255.255.255.0
+ no ip route-cache
+!
+ip http server
+ip http authentication aaa login-authentication use-srvtacacs
+ip http authentication aaa exec-authorization use-srvtacacs
+ip http authentication aaa command-authorization 15 default
+no ip http secure-server
+!
+!
+ip access-list extended AUTOQOS-ACL-DEFAULT
+ permit ip any any
+kron occurrence reload at 19:00 recurring
+ policy-list Reload
+!
+kron policy-list Reload
+ cli reload
+ cli yes
+!
+tacacs-server host 10.30.10.10 timeout 5
+tacacs-server directed-request
+tacacs-server key s3cr3t2016
+!
+!
+!
+!
+line con 0
+ exec-timeout 15 0
+ privilege level 15
+ logging synchronous
+ login authentication use-srvtacacs
+ length 0
+line vty 0 4
+ exec-timeout 15 0
+ privilege level 15
+ logging synchronous
+ login authentication use-srvtacacs
+ length 0
+ transport input telnet ssh
+line vty 5 15
+ exec-timeout 15 0
+ privilege level 15
+ logging synchronous
+ login authentication use-srvtacacs
+ length 0
+ transport input ssh
+!
+ntp server 10.80.99.254 prefer
+end

@@ -1,0 +1,136 @@
+get_facts:
+    napalm_facts:
+        fqdn: SW_8PoE_Noc_Residencia.victoria.local
+        hostname: SW_8PoE_Noc_Residencia
+        interface_list:
+        - Vlan1
+        - Vlan99
+        - FastEthernet0/1
+        - FastEthernet0/2
+        - FastEthernet0/3
+        - FastEthernet0/4
+        - FastEthernet0/5
+        - FastEthernet0/6
+        - FastEthernet0/7
+        - FastEthernet0/8
+        - GigabitEthernet0/1
+        - GigabitEthernet0/2
+        model: WS-C2960C-8PC-L
+        os_version: C2960C Software (C2960c405-UNIVERSALK9-M), Version 15.0(2)SE5,
+            RELEASE SOFTWARE (fc1)
+        serial_number: FOC1906Y052
+        uptime: 69900
+        vendor: Cisco
+    napalm_fqdn: SW_8PoE_Noc_Residencia.victoria.local
+    napalm_hostname: SW_8PoE_Noc_Residencia
+    napalm_interface_list:
+    - Vlan1
+    - Vlan99
+    - FastEthernet0/1
+    - FastEthernet0/2
+    - FastEthernet0/3
+    - FastEthernet0/4
+    - FastEthernet0/5
+    - FastEthernet0/6
+    - FastEthernet0/7
+    - FastEthernet0/8
+    - GigabitEthernet0/1
+    - GigabitEthernet0/2
+    napalm_interfaces:
+        FastEthernet0/1:
+            description: CASA 2 (Director Zakaria)
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: BC:F1:F2:F6:7B:81
+            speed: 100
+        FastEthernet0/2:
+            description: CASA 1( Carlos Roques)
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: BC:F1:F2:F6:7B:82
+            speed: 100
+        FastEthernet0/3:
+            description: RESERVED AP
+            is_enabled: false
+            is_up: false
+            last_flapped: -1.0
+            mac_address: BC:F1:F2:F6:7B:83
+            speed: 10
+        FastEthernet0/4:
+            description: RESERVED AP
+            is_enabled: false
+            is_up: false
+            last_flapped: -1.0
+            mac_address: BC:F1:F2:F6:7B:84
+            speed: 10
+        FastEthernet0/5:
+            description: RESERVED AP
+            is_enabled: false
+            is_up: false
+            last_flapped: -1.0
+            mac_address: BC:F1:F2:F6:7B:85
+            speed: 10
+        FastEthernet0/6:
+            description: RESERVED AP
+            is_enabled: false
+            is_up: false
+            last_flapped: -1.0
+            mac_address: BC:F1:F2:F6:7B:86
+            speed: 10
+        FastEthernet0/7:
+            description: ''
+            is_enabled: false
+            is_up: false
+            last_flapped: -1.0
+            mac_address: BC:F1:F2:F6:7B:87
+            speed: 10
+        FastEthernet0/8:
+            description: ''
+            is_enabled: false
+            is_up: false
+            last_flapped: -1.0
+            mac_address: BC:F1:F2:F6:7B:88
+            speed: 10
+        GigabitEthernet0/1:
+            description: Trunk to Core
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: BC:F1:F2:F6:7B:89
+            speed: 1000
+        GigabitEthernet0/2:
+            description: ''
+            is_enabled: false
+            is_up: false
+            last_flapped: -1.0
+            mac_address: BC:F1:F2:F6:7B:8A
+            speed: 10
+        Vlan1:
+            description: ''
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: BC:F1:F2:F6:7B:C0
+            speed: 1000
+        Vlan99:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: BC:F1:F2:F6:7B:C1
+            speed: 1000
+    napalm_interfaces_ip:
+        Vlan99:
+            ipv4:
+                10.80.99.250:
+                    prefix_length: 24
+    napalm_model: WS-C2960C-8PC-L
+    napalm_os_version: C2960C Software (C2960c405-UNIVERSALK9-M), Version 15.0(2)SE5,
+        RELEASE SOFTWARE (fc1)
+    napalm_serial_number: FOC1906Y052
+    napalm_uptime: 69900
+    napalm_vendor: Cisco
+changed: false
+failed: false

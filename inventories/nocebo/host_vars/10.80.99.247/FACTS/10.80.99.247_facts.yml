@@ -1,0 +1,127 @@
+get_facts:
+    napalm_facts:
+        fqdn: NOCswMagazin.victoria.local
+        hostname: NOCswMagazin
+        interface_list:
+        - Vlan1
+        - Vlan99
+        - FastEthernet0/1
+        - FastEthernet0/2
+        - FastEthernet0/3
+        - FastEthernet0/4
+        - FastEthernet0/5
+        - FastEthernet0/6
+        - FastEthernet0/7
+        - FastEthernet0/8
+        - GigabitEthernet0/1
+        model: WS-C2960-8TC-L
+        os_version: C2960 Software (C2960-LANBASEK9-M), Version 15.0(2)SE5, RELEASE
+            SOFTWARE (fc1)
+        serial_number: FOC1402V66E
+        uptime: 587880
+        vendor: Cisco
+    napalm_fqdn: NOCswMagazin.victoria.local
+    napalm_hostname: NOCswMagazin
+    napalm_interface_list:
+    - Vlan1
+    - Vlan99
+    - FastEthernet0/1
+    - FastEthernet0/2
+    - FastEthernet0/3
+    - FastEthernet0/4
+    - FastEthernet0/5
+    - FastEthernet0/6
+    - FastEthernet0/7
+    - FastEthernet0/8
+    - GigabitEthernet0/1
+    napalm_interfaces:
+        FastEthernet0/1:
+            description: ''
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: EC:44:76:23:48:01
+            speed: 10
+        FastEthernet0/2:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: EC:44:76:23:48:02
+            speed: 100
+        FastEthernet0/3:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: EC:44:76:23:48:03
+            speed: 100
+        FastEthernet0/4:
+            description: ''
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: EC:44:76:23:48:04
+            speed: 10
+        FastEthernet0/5:
+            description: ''
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: EC:44:76:23:48:05
+            speed: 10
+        FastEthernet0/6:
+            description: ''
+            is_enabled: false
+            is_up: false
+            last_flapped: -1.0
+            mac_address: EC:44:76:23:48:06
+            speed: 10
+        FastEthernet0/7:
+            description: ''
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: EC:44:76:23:48:07
+            speed: 10
+        FastEthernet0/8:
+            description: ''
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: EC:44:76:23:48:08
+            speed: 10
+        GigabitEthernet0/1:
+            description: G2/0/1.Core
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: EC:44:76:23:48:09
+            speed: 1000
+        Vlan1:
+            description: ''
+            is_enabled: false
+            is_up: false
+            last_flapped: -1.0
+            mac_address: EC:44:76:23:48:40
+            speed: 1000
+        Vlan99:
+            description: Network_Management
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: EC:44:76:23:48:41
+            speed: 1000
+    napalm_interfaces_ip:
+        Vlan99:
+            ipv4:
+                10.80.99.247:
+                    prefix_length: 24
+    napalm_model: WS-C2960-8TC-L
+    napalm_os_version: C2960 Software (C2960-LANBASEK9-M), Version 15.0(2)SE5, RELEASE
+        SOFTWARE (fc1)
+    napalm_serial_number: FOC1402V66E
+    napalm_uptime: 587880
+    napalm_vendor: Cisco
+changed: false
+failed: false

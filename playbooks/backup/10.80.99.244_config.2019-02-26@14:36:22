@@ -1,0 +1,888 @@
+Building configuration...
+
+Current configuration : 17668 bytes
+!
+! Last configuration change at 15:23:23 WAT Tue Feb 26 2019 by junior.mateus
+! NVRAM config last updated at 09:19:35 WAT Wed Oct 3 2018
+!
+version 12.4
+no service pad
+service tcp-keepalives-in
+service tcp-keepalives-out
+service timestamps debug datetime msec localtime show-timezone
+service timestamps log datetime msec localtime show-timezone
+service password-encryption
+service sequence-numbers
+!
+hostname NOCrtCME
+!
+boot-start-marker
+boot-end-marker
+!
+logging count
+logging buffered 1000000
+logging rate-limit all 100 except errors
+!
+aaa new-model
+!
+!
+aaa authentication login use-srvtacacs group tacacs+ local enable
+aaa authentication enable default group tacacs+ enable
+aaa authorization console
+aaa authorization exec use-srvtacacs group tacacs+ local if-authenticated 
+aaa authorization commands 1 default group tacacs+ if-authenticated 
+aaa authorization commands 15 default group tacacs+ local if-authenticated 
+aaa accounting send stop-record authentication failure 
+aaa accounting exec default start-stop group tacacs+
+aaa accounting network default start-stop group tacacs+
+aaa accounting connection default start-stop group tacacs+
+aaa accounting system default start-stop group tacacs+
+aaa accounting resource default start-stop group tacacs+
+!
+!
+aaa session-id common
+clock timezone WAT 1
+!
+!
+ip cef
+no ip dhcp use vrf connected
+ip dhcp excluded-address 10.80.3.248 10.80.3.254
+!
+ip dhcp pool voz
+   network 10.80.3.0 255.255.255.0
+   default-router 10.80.3.249 
+   option 150 ip 10.80.3.249 
+!
+!
+no ip domain lookup
+ip domain name victoria.local
+!
+multilink bundle-name authenticated
+!
+!
+voice-card 0
+ no dspfarm
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+voice translation-rule 50
+ rule 1 /\(^[1-9]\)\(..\)/ /788\1\2/
+!
+voice translation-rule 51
+ rule 1 /^788\(...\)/ /\1/
+!
+!
+voice translation-profile Outgoing_CODE_PREFIX
+ translate calling 50
+!
+voice translation-profile incoming_CODE_PREFIX
+ translate called 51
+!
+!
+!
+crypto pki trustpoint TP-self-signed-2917840784
+ enrollment selfsigned
+ subject-name cn=IOS-Self-Signed-Certificate-2917840784
+ revocation-check none
+ rsakeypair TP-self-signed-2917840784
+!
+!
+crypto pki certificate chain TP-self-signed-2917840784
+ certificate self-signed 01
+  3082024E 308201B7 A0030201 02020101 300D0609 2A864886 F70D0101 04050030 
+  31312F30 2D060355 04031326 494F532D 53656C66 2D536967 6E65642D 43657274 
+  69666963 6174652D 32393137 38343037 3834301E 170D3134 30373137 31363034 
+  31345A17 0D323030 31303130 30303030 305A3031 312F302D 06035504 03132649 
+  4F532D53 656C662D 5369676E 65642D43 65727469 66696361 74652D32 39313738 
+  34303738 3430819F 300D0609 2A864886 F70D0101 01050003 818D0030 81890281 
+  8100BCFA 2217A49E D8081A7C 8A691803 AA2339B6 07AE5847 58E2A5C6 0F553E08 
+  6806D491 AE2585C9 FA5AA9F2 B7C22844 0517F198 C7D6BAAC E07B1452 249A3AAC 
+  7F84B484 2DDFE908 5CBB3A4A 53B3A5FD 872BAEB4 94B4D418 A0C5F437 4BC7A152 
+  72B4ACF5 0ED14CA2 C46B21A3 25B0F92D 402CABA2 60A584E8 A0F9E88B 2E5B1F84 
+  9E710203 010001A3 76307430 0F060355 1D130101 FF040530 030101FF 30210603 
+  551D1104 1A301882 164E4F43 7274434D 452E6E6F 6365626F 2D616F2E 636F6D30 
+  1F060355 1D230418 30168014 67937C55 BA145F31 B40AD41D 6BF383EB 09B3F0D8 
+  301D0603 551D0E04 16041467 937C55BA 145F31B4 0AD41D6B F383EB09 B3F0D830 
+  0D06092A 864886F7 0D010104 05000381 81003DF3 CBF7CB53 B8DB1099 25410E18 
+  C4B23BBE B783D736 D6C25CD1 DD63FF23 81C91B4F D98BBA6B B0E85EC8 A2883BBF 
+  D8726534 9279A4F6 6FC9A487 8BACD21B 7C56FC5A A91692F0 0D90662B C115010C 
+  70314595 2FD21CD0 5480AB2F 00FB0F42 91F73AA1 D533713F 4B65F9A6 FFCA3E51 
+  7FEEEAFD B6363FA0 F2241C3E 8670FB84 FE20
+  	quit
+! 
+!
+!
+!
+username admin privilege 15 password 7 090D661C180845425A584E
+archive
+ log config
+  logging enable
+  logging size 1000
+  notify syslog contenttype plaintext
+  hidekeys
+ path ftp://10.30.23.1/$h-$t
+ write-memory
+!
+!
+ip ftp username ciscoBKP
+ip ftp password 7 1511021F0725090F18
+ip ssh version 2
+ip scp server enable
+bridge irb
+!
+!
+!
+!
+interface FastEthernet0/0
+ no ip address
+ ip directed-broadcast
+ duplex auto
+ speed auto
+!
+interface FastEthernet0/0.3
+ encapsulation dot1Q 3
+ ip address 10.80.3.249 255.255.255.0
+ ip directed-broadcast
+ h323-gateway voip interface
+ h323-gateway voip id Nocebo ipaddr 3.3.3.1 1719
+ h323-gateway voip h323-id cme_nocebo.huambo.victoria.local
+ h323-gateway voip tech-prefix 78
+ h323-gateway voip bind srcaddr 10.80.3.249
+!
+interface FastEthernet0/1
+ ip address 10.80.99.244 255.255.255.0
+ duplex auto
+ speed auto
+!
+router eigrp 80
+ redistribute connected
+ network 10.80.3.0 0.0.0.255
+ network 10.80.99.0 0.0.0.255
+ no auto-summary
+!
+ip route 0.0.0.0 0.0.0.0 10.80.99.254
+!
+!
+ip http server
+ip http authentication aaa login-authentication use-srvtacacs
+ip http authentication aaa exec-authorization use-srvtacacs
+ip http authentication aaa command-authorization 15 default
+no ip http secure-server
+ip http path flash:CME_GUI
+!
+ip radius source-interface FastEthernet0/1 
+access-list 55 permit 10.80.5.50
+access-list 55 permit 10.80.99.0 0.0.0.255
+snmp-server community NOCEBO RO 55
+snmp-server community NOCEBO_admin RW 55
+snmp-server ifindex persist
+!
+!
+!
+!
+!
+tftp-server flash:cvm11sccp.8-2-2TR2.sbn alias cvm11sccp.8-2-2TR2.sbn
+tftp-server flash:P00308000500.loads alias P00308000500.loads
+tftp-server flash:P00308000500.sb2 alias P00308000500.sb2
+tftp-server flash:SCCP11.8-2-2SR2S.loads alias SCCP11.8-2-2SR2S.loads
+tftp-server flash:term41.default.load alias term41.default.load
+tftp-server flash:cnu11.8-2-2TR2.sbn alias cnu11.8-2-2TR2.sbn
+tftp-server flash:dsp11.8-2-2TR2.sbn alias dsp11.8-2-2TR2.sbn
+tftp-server flash:jar41sccp.8-2-2TR2.sbn alias jar41sccp.8-2-2TR2.sbn
+tftp-server flash:P00308000501.sbn alias P00308000501.sbn
+tftp-server flash:SCCP41.8-2-2SR2S.loads alias SCCP41.8-2-2SR2S.loads
+tftp-server flash:term61.default.loads alias term61.default.loads
+tftp-server flash:P00308000500.bin alias P00308000500.bin
+tftp-server flash:term06.default.loads alias term06.default.loads
+tftp-server flash:SCCP11.8-0-4ES4-0-1S.loads alias SCCP11.8-0-4ES4-0-1S.loads
+tftp-server flash:apps11.8-2-2TR2.sbn alias apps11.8-2-2TR2.sbn
+tftp-server flash:term11.default.loads alias term11.default.loads
+tftp-server flash:jar11sccp.8-0-3-20.sbn alias jar11sccp.8-0-3-20.sbn
+tftp-server flash:cnu11.3-1-3-19.sbn alias cnu11.3-1-3-19.sbn
+tftp-server flash:dsp11.1-1-3-19.sbn alias dsp11.1-1-3-19.sbn
+tftp-server flash:Desktops/95x34x1/TN-GCuca.png
+tftp-server flash:Desktops/95x34x1/GCuca.png
+tftp-server flash:Desktops/95x34x1/List.xml
+tftp-server flash:/Desktops/95x34x1/TN-GCuca.png
+tftp-server flash:/Desktops/95x34x1/GCuca.png
+tftp-server flash:/Desktops/95x34x1/List.xml
+tftp-server flash:/Desktops/320x196x4/TN-CucaG.png
+tftp-server flash:/Desktops/320x196x4/CucaG.png
+tftp-server flash:/Desktops/320x196x4/List.xml
+tftp-server flash:Desktops/320x196x4/List.xml
+tacacs-server host 10.30.10.10
+tacacs-server key 7 111A4A0605411F5E547B7D
+!
+control-plane
+!
+!
+!
+voice-port 0/0/0
+!
+voice-port 0/0/1
+!
+voice-port 0/0/2
+!
+voice-port 0/0/3
+!
+voice-port 0/2/0
+!
+voice-port 0/2/1
+!
+!
+!
+!
+!
+dial-peer voice 50 voip
+ translation-profile incoming incoming_CODE_PREFIX
+ translation-profile outgoing Outgoing_CODE_PREFIX
+ destination-pattern 7.....$
+ session target ras
+ incoming called-number 7.....$
+ ip qos dscp cs3 signaling
+!
+!
+gateway 
+ timer receive-rtp 1200
+!
+!
+!
+telephony-service
+ max-ephones 41
+ max-dn 72
+ ip source-address 10.80.3.249 port 2000
+ system message NOCEBO
+ user-locale PT
+ network-locale PT
+ time-zone 23
+ max-conferences 8 gain -6
+ web admin system name admin password !Huam2014*
+ dn-webedit 
+ time-webedit 
+ transfer-system full-consult
+ directory entry 1 100 name Christian MARIETTI
+ directory entry 2 110 name Jose MARQUES
+ directory entry 3 150 name Nuno BARBOSA
+ directory entry 4 200 name Quentin HAMBYE
+ directory entry 5 201 name Gil MORAIS
+ directory entry 6 205 name Tiago GODINHO
+ directory entry 7 210 name Xavier FLAVIGNY
+ directory entry 8 212 name Antonio SOLIKA
+ directory entry 9 215 name Erwin WESSELY
+ directory entry 10 220 name Orlis LORET
+ directory entry 11 222 name LABORATORIO
+ directory entry 12 230 name c-S
+ directory entry 13 232 name IMAC 2
+ directory entry 14 243 name Ajunte Chefe de LINHA
+ directory entry 15 240 name Brassagem
+ directory entry 16 250 name Filtracao
+ directory entry 17 255 name S G Sala Maquinas
+ directory entry 18 270 name Esteves KITU
+ directory entry 19 280 name Augusto CHAVOLE
+ directory entry 20 300 name Mvulu NGUINAMAU
+ directory entry 21 301 name Assistente DC
+ directory entry 22 500 name Mauro ALESI
+ directory entry 23 310 name Joelma SARDINHA
+ directory entry 24 390 name Sala REUNIAO
+ directory entry 25 400 name Delfim JOSE GOMES
+ directory entry 26 405 name Alceste HENDA TOMAS
+ directory entry 27 410 name Sala FORMACAO
+ directory entry 28 450 name VAlentim LOURENCO
+ directory entry 29 305 name Sandra KABWE
+ directory entry 30 501 name Andre COIMBRA
+ directory entry 31 505 name Jose TAVARES
+ directory entry 32 510 name Jose LARA
+ directory entry 33 515 name Vasco FELU
+ directory entry 34 610 name Posto DSL
+ directory entry 35 900 name Casa DT
+ directory entry 36 902 name Casa RM
+ create cnf-files version-stamp 7960 Sep 06 2018 10:54:16
+!
+!
+ephone-dn  1
+ number 100 no-reg primary
+ label D.G
+ name Pierre Porterie
+!
+!
+ephone-dn  2
+ number 110 no-reg primary
+ label Ines Macedo
+ description Safety
+ name Ines Macedo
+!
+!
+ephone-dn  3
+ number 405 no-reg primary
+ label Assistencia RH
+ description Departameto RH
+ name Assistencia RH
+ hold-alert 30 originator
+!
+!
+ephone-dn  4
+ number 200 no-reg primary
+ label Zacaria Romao
+ name Zacaria Romao
+!
+!
+ephone-dn  5
+ number 201 no-reg primary
+ label Helder Boa Ventura
+ name Helder Boa Ventura
+!
+!
+ephone-dn  6
+ number 205 no-reg primary
+ label Automatismo
+ description Automatismo(Eletricidade)
+ name Automatismo
+!
+!
+ephone-dn  7
+ number 210 no-reg primary
+ label Carlos Roque
+ description Servicos Gerais(Carlos Roque)
+ name Carlos Roque
+!
+!
+ephone-dn  8
+!
+!
+ephone-dn  9
+ number 215 no-reg primary
+ label Willian Malabo
+ description Linhas(Willian Malabo)
+ name Willian Malabo
+!
+!
+ephone-dn  10
+ number 220 no-reg primary
+ label Adolphe Sandunduma
+ name Adolphe Sandunduma
+!
+!
+ephone-dn  11
+ number 222 no-reg primary
+ label Sala LABORATORIO
+ name Sala LABORATORIO
+!
+!
+ephone-dn  12
+ number 230 no-reg primary
+ label Paulo Kessongo
+ description RH(Paulo Kessongo)
+ name Paulo Kessongo
+!
+!
+ephone-dn  13
+ number 232 no-reg primary
+ label IMAC 2
+ name IMAC 2
+!
+!
+ephone-dn  14
+ number 234 no-reg primary
+ label Enchimento
+ name Enchimento
+!
+!
+ephone-dn  15
+ number 240 no-reg primary
+ label Brassagem
+ name Brassagem
+!
+!
+ephone-dn  16
+ number 250 no-reg primary
+ label Filtracao
+ name Filtracao
+!
+!
+ephone-dn  17
+ number 255 no-reg primary
+ label S G Sala_Maquinas
+ name S G Sala_Maquinas
+!
+!
+ephone-dn  18
+ number 270 no-reg primary
+ label Esteves KITU
+ name Esteves KITU
+!
+!
+ephone-dn  19
+ number 280 no-reg primary
+ label Vasco Felu
+ description Departamento Logistico
+ name Vasco Felu
+!
+!
+ephone-dn  20
+ number 300 no-reg primary
+ label Cindy kioma
+ description Contabilidade(Cindy kioma)
+ name Cindy kioma
+!
+!
+ephone-dn  21
+ number 301 no-reg primary
+ label Jose Tavares
+ description Assistente Comercial(Jose Tavare
+ name Jose Tavares
+!
+!
+ephone-dn  22
+ number 500 no-reg primary
+ label Andre Coimbra 
+ description Director de Vendas(Andre Coimbra
+ name Andre Coimbra 
+!
+!
+ephone-dn  23
+ number 310 no-reg primary
+ label Yuri Sanda
+ description Chefe de Equipa(yuri Sanda)
+ name Yuri Sanda
+!
+!
+ephone-dn  24
+ number 390 no-reg primary
+ label Benjamin Schaaff
+ description Director Financeiro(Benjamin Sch
+ name Benjamin Schaaff
+ hold-alert 30 originator
+!
+!
+ephone-dn  25
+ number 510 no-reg primary
+ label CHEF Importacao_Aprov
+ name Jose LARA
+!
+!
+ephone-dn  26
+ number 305 no-reg primary
+ label Contabilidade
+ name Seccao Contabilidade
+!
+!
+ephone-dn  27
+ number 610 no-reg primary
+ label GPS(Portaria)
+ description Seguranca Portaria(GPS)
+ name GPS(Portaria)
+ hold-alert 30 originator
+!
+!
+ephone-dn  28
+ number 450 no-reg primary
+ label Posto Medico
+ name Posto Medico
+ hold-alert 30 originator
+!
+!
+ephone-dn  29
+ number 505 no-reg primary
+ label CHR
+ name Jose Tavares
+ hold-alert 30 originator
+!
+!
+ephone-dn  30
+ number 450 no-reg primary
+ label Posto Medico
+ name Posto Medico
+ hold-alert 30 originator
+!
+!
+ephone-dn  31
+ number 515 no-reg primary
+ label Jaime Martins
+ description Logistica(Jaime Martins)
+ name Jaime Martins
+ hold-alert 30 originator
+!
+!
+ephone-dn  33
+ number 501 no-reg primary
+ label Tircia Fidalgo
+ description Assistente Comercial(Tircia fida
+ name Tircia Fidalgo
+!
+!
+ephone-dn  34
+ number 520 no-reg primary
+ label Assistente DG
+ name Assistente DG
+ hold-alert 30 originator
+!
+!
+ephone-dn  37
+ number 505 no-reg primary
+ label CHR
+ name Jose Tavares
+!
+!
+ephone-dn  38
+ number 150 no-reg primary
+ label IT
+ name Antonio Solika
+ hold-alert 30 originator
+!
+!
+ephone-dn  39
+ number 212 no-reg primary
+ label Armazen de Pecas
+ name Armazen de Pecas
+!
+!
+ephone  1
+ device-security-mode none
+ description Departameto RH
+ mac-address 0026.9945.0D66
+ type 7911
+ button  1:3
+!
+!
+!
+ephone  2
+ device-security-mode none
+ mac-address 0026.CBC0.3BE5
+ type 7942
+ button  1:1
+!
+!
+!
+ephone  3
+ device-security-mode none
+ description Armazem de Pecas
+ mac-address 0026.99EE.C32E
+ type 7911
+ button  1:39
+!
+!
+!
+ephone  4
+ device-security-mode none
+ mac-address 0024.C40D.476C
+ type 7942
+ button  1:4
+!
+!
+!
+ephone  5
+ device-security-mode none
+ mac-address 0024.C443.3EF0
+ type 7942
+ button  1:5
+!
+!
+!
+ephone  6
+ device-security-mode none
+ description Automatismo(Eletricidade)
+ mac-address 0026.CBC0.6B9A
+ type 7942
+ button  1:6
+!
+!
+!
+ephone  7
+ device-security-mode none
+ description Servicos Gerais(Carlos Roque)
+ mac-address 0024.C40D.4805
+ type 7942
+ button  1:7
+!
+!
+!
+ephone  8
+ device-security-mode none
+ description Linhas(Willian Malabo)
+ mac-address 0024.C442.C2E6
+ type 7942
+ button  1:9
+!
+!
+!
+ephone  9
+ device-security-mode none
+ mac-address 0026.99EE.C422
+ type 7911
+ button  1:8
+!
+!
+!
+ephone  10
+ device-security-mode none
+ mac-address 0024.C442.CA5A
+ type 7942
+ button  1:10
+!
+!
+!
+ephone  11
+ device-security-mode none
+ mac-address 0026.99EE.C15F
+ type 7911
+ button  1:11
+!
+!
+!
+ephone  12
+ device-security-mode none
+ description RH(Paulo Kessongo)
+ mac-address 0026.99EE.C22D
+ type 7911
+ button  1:12
+!
+!
+!
+ephone  13
+ device-security-mode none
+ mac-address 0026.99EE.C144
+ type 7911
+ button  1:13
+!
+!
+!
+ephone  14
+ device-security-mode none
+ mac-address 0026.99EE.C531
+ type 7911
+ button  1:14
+!
+!
+!
+ephone  15
+ device-security-mode none
+ mac-address 0026.9945.07B3
+ type 7911
+ button  1:15
+!
+!
+!
+ephone  16
+ device-security-mode none
+ mac-address 0026.99EE.C17D
+ type 7911
+ button  1:16
+!
+!
+!
+ephone  17
+ device-security-mode none
+ mac-address 0026.99EE.C34B
+ type 7911
+ button  1:17
+!
+!
+!
+ephone  18
+ device-security-mode none
+ mac-address 0026.99EE.C480
+ type 7911
+ button  1:18
+!
+!
+!
+ephone  19
+ device-security-mode none
+ description Departamento Logistico
+ mac-address 0026.99EE.C28E
+ type 7911
+ button  1:19
+!
+!
+!
+ephone  20
+ device-security-mode none
+ description Contabilidade(Cindy kioma)
+ mac-address 0024.C443.4014
+ type 7942
+ button  1:20
+!
+!
+!
+ephone  21
+ device-security-mode none
+ description Assistente Comercial(Jose Tavares)
+ mac-address 0026.9945.0D0E
+ type 7911
+ button  1:21
+!
+!
+!
+ephone  22
+ device-security-mode none
+ description Director de Vendas(Andre Coimbra)
+ mac-address 0024.C40D.4846
+ type 7942
+ button  1:22
+!
+!
+!
+ephone  23
+ device-security-mode none
+ description Chefe de Equipa(yuri Sanda)
+ mac-address 0026.9944.FBB4
+ type 7911
+ button  1:23
+!
+!
+!
+ephone  24
+ device-security-mode none
+!
+!
+!
+ephone  25
+ device-security-mode none
+ mac-address 0026.99EE.C1C7
+ type 7911
+ button  1:25
+!
+!
+!
+ephone  26
+ device-security-mode none
+ mac-address 0026.99EE.C2E6
+ type 7911
+ button  1:29
+!
+!
+!
+ephone  27
+ device-security-mode none
+ description Director Financeiro(Benjamin Sch
+ mac-address 0026.99EE.C48E
+ type 7911
+ button  1:24
+!
+!
+!
+ephone  28
+ device-security-mode none
+ mac-address 0024.C40D.4B4F
+ type 7942
+ button  1:26
+!
+!
+!
+ephone  29
+ device-security-mode none
+ description Logistica(Jaime Martins)
+ mac-address 0026.99EE.C3F3
+ type 7911
+ button  1:31
+!
+!
+!
+ephone  30
+ device-security-mode none
+ description posto_Medico
+ mac-address 0026.9944.FD07
+ type 7911
+ button  1:28
+!
+!
+!
+ephone  31
+ device-security-mode none
+ description Safety(Ines Macedo)
+ mac-address 0023.339C.B2C4
+ type 7911
+ button  1:2
+!
+!
+!
+ephone  32
+ device-security-mode none
+ description Seguranca Portaria(GPS)
+ mac-address 0026.99EE.75B5
+ type 7911
+ button  1:27
+!
+!
+!
+ephone  33
+ device-security-mode none
+ description Assistente Comercial(Tircia fidalgo)
+ mac-address 0026.99EE.C501
+ type 7911
+ button  1:33
+!
+!
+!
+ephone  34
+ device-security-mode none
+ mac-address 0024.C40D.4B8B
+ type 7942
+ button  1:34
+!
+!
+!
+ephone  37
+ device-security-mode none
+ mac-address 0026.99EE.C14D
+ button  1:37
+!
+!
+!
+ephone  38
+ device-security-mode none
+ description Reserved_IT
+ mac-address 0026.99EE.C30B
+ button  1:38
+!
+!
+!
+ephone  39
+ device-security-mode none
+!
+!
+alias exec arch sh archive log config all
+!
+line con 0
+ exec-timeout 15 0
+ privilege level 15
+ logging synchronous
+ login authentication use-srvtacacs
+ length 0
+line aux 0
+line vty 0 4
+ exec-timeout 15 0
+ privilege level 15
+ logging synchronous
+ login authentication use-srvtacacs
+ length 0
+ transport input telnet ssh
+line vty 5 15
+ exec-timeout 15 0
+ privilege level 15
+ logging synchronous
+ login authentication use-srvtacacs
+ length 0
+ transport input ssh
+!
+scheduler allocate 20000 1000
+ntp clock-period 17180272
+ntp update-calendar
+ntp server 10.80.99.254 prefer
+
+!
+webvpn cef
+!
+end

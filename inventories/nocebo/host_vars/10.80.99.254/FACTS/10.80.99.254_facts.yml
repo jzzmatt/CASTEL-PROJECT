@@ -1,0 +1,724 @@
+get_facts:
+    napalm_facts:
+        fqdn: NOCswCR.victoria.local
+        hostname: NOCswCR
+        interface_list:
+        - Vlan1
+        - Vlan3
+        - Vlan4
+        - Vlan5
+        - Vlan9
+        - Vlan10
+        - Vlan11
+        - Vlan16
+        - Vlan19
+        - Vlan32
+        - Vlan34
+        - Vlan40
+        - Vlan41
+        - Vlan87
+        - Vlan98
+        - Vlan99
+        - Vlan100
+        - Vlan101
+        - Vlan102
+        - Vlan103
+        - Vlan104
+        - Vlan105
+        - Vlan106
+        - Vlan107
+        - Vlan111
+        - Vlan121
+        - Vlan199
+        - Vlan255
+        - GigabitEthernet1/0/1
+        - GigabitEthernet1/0/2
+        - GigabitEthernet1/0/3
+        - GigabitEthernet1/0/4
+        - GigabitEthernet1/0/5
+        - GigabitEthernet1/0/6
+        - GigabitEthernet1/0/7
+        - GigabitEthernet1/0/8
+        - GigabitEthernet1/0/9
+        - GigabitEthernet1/0/10
+        - GigabitEthernet1/0/11
+        - GigabitEthernet1/0/12
+        - GigabitEthernet1/0/13
+        - GigabitEthernet1/0/14
+        - GigabitEthernet1/0/15
+        - GigabitEthernet1/0/16
+        - GigabitEthernet1/0/17
+        - GigabitEthernet1/0/18
+        - GigabitEthernet1/0/19
+        - GigabitEthernet1/0/20
+        - GigabitEthernet1/0/21
+        - GigabitEthernet1/0/22
+        - GigabitEthernet1/0/23
+        - GigabitEthernet1/0/24
+        - GigabitEthernet1/0/25
+        - GigabitEthernet1/0/26
+        - GigabitEthernet1/0/27
+        - GigabitEthernet1/0/28
+        - GigabitEthernet2/0/1
+        - GigabitEthernet2/0/2
+        - GigabitEthernet2/0/3
+        - GigabitEthernet2/0/4
+        - GigabitEthernet2/0/5
+        - GigabitEthernet2/0/6
+        - GigabitEthernet2/0/7
+        - GigabitEthernet2/0/8
+        - GigabitEthernet2/0/9
+        - GigabitEthernet2/0/10
+        - GigabitEthernet2/0/11
+        - GigabitEthernet2/0/12
+        model: WS-C3750G-24PS
+        os_version: C3750 Software (C3750-IPSERVICESK9-M), Version 12.2(55)SE9, RELEASE
+            SOFTWARE (fc1)
+        serial_number: FOC1329Z2SX
+        uptime: 29188920
+        vendor: Cisco
+    napalm_fqdn: NOCswCR.victoria.local
+    napalm_hostname: NOCswCR
+    napalm_interface_list:
+    - Vlan1
+    - Vlan3
+    - Vlan4
+    - Vlan5
+    - Vlan9
+    - Vlan10
+    - Vlan11
+    - Vlan16
+    - Vlan19
+    - Vlan32
+    - Vlan34
+    - Vlan40
+    - Vlan41
+    - Vlan87
+    - Vlan98
+    - Vlan99
+    - Vlan100
+    - Vlan101
+    - Vlan102
+    - Vlan103
+    - Vlan104
+    - Vlan105
+    - Vlan106
+    - Vlan107
+    - Vlan111
+    - Vlan121
+    - Vlan199
+    - Vlan255
+    - GigabitEthernet1/0/1
+    - GigabitEthernet1/0/2
+    - GigabitEthernet1/0/3
+    - GigabitEthernet1/0/4
+    - GigabitEthernet1/0/5
+    - GigabitEthernet1/0/6
+    - GigabitEthernet1/0/7
+    - GigabitEthernet1/0/8
+    - GigabitEthernet1/0/9
+    - GigabitEthernet1/0/10
+    - GigabitEthernet1/0/11
+    - GigabitEthernet1/0/12
+    - GigabitEthernet1/0/13
+    - GigabitEthernet1/0/14
+    - GigabitEthernet1/0/15
+    - GigabitEthernet1/0/16
+    - GigabitEthernet1/0/17
+    - GigabitEthernet1/0/18
+    - GigabitEthernet1/0/19
+    - GigabitEthernet1/0/20
+    - GigabitEthernet1/0/21
+    - GigabitEthernet1/0/22
+    - GigabitEthernet1/0/23
+    - GigabitEthernet1/0/24
+    - GigabitEthernet1/0/25
+    - GigabitEthernet1/0/26
+    - GigabitEthernet1/0/27
+    - GigabitEthernet1/0/28
+    - GigabitEthernet2/0/1
+    - GigabitEthernet2/0/2
+    - GigabitEthernet2/0/3
+    - GigabitEthernet2/0/4
+    - GigabitEthernet2/0/5
+    - GigabitEthernet2/0/6
+    - GigabitEthernet2/0/7
+    - GigabitEthernet2/0/8
+    - GigabitEthernet2/0/9
+    - GigabitEthernet2/0/10
+    - GigabitEthernet2/0/11
+    - GigabitEthernet2/0/12
+    napalm_interfaces:
+        GigabitEthernet1/0/1:
+            description: CHECKPOINT MANAGEMENT INTERFACE
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:52:E9:F8:81
+            speed: 1000
+        GigabitEthernet1/0/10:
+            description: RESERVED-VMWARE
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:52:E9:F8:8A
+            speed: 1000
+        GigabitEthernet1/0/11:
+            description: RESERVED-VMWARE
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:52:E9:F8:8B
+            speed: 1000
+        GigabitEthernet1/0/12:
+            description: RESERVED-VMWARE
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:52:E9:F8:8C
+            speed: 1000
+        GigabitEthernet1/0/13:
+            description: Reserved End-Users&VoIP
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:52:E9:F8:8D
+            speed: 100
+        GigabitEthernet1/0/14:
+            description: Reserved tru
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:52:E9:F8:8E
+            speed: 100
+        GigabitEthernet1/0/15:
+            description: Reserved_EXI
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:52:E9:F8:8F
+            speed: 1000
+        GigabitEthernet1/0/16:
+            description: Reserved_EXI
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:52:E9:F8:90
+            speed: 1000
+        GigabitEthernet1/0/17:
+            description: LINK-LAP2(corridor-admin)
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:52:E9:F8:91
+            speed: 100
+        GigabitEthernet1/0/18:
+            description: CUCME
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:52:E9:F8:92
+            speed: 100
+        GigabitEthernet1/0/19:
+            description: Management-to-CME
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:52:E9:F8:93
+            speed: 100
+        GigabitEthernet1/0/2:
+            description: CHECKPOINT INSIDE INTERFACE (LAN4)
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:52:E9:F8:82
+            speed: 1000
+        GigabitEthernet1/0/20:
+            description: LINK-to-LAP1(corridor entrada)
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:52:E9:F8:94
+            speed: 100
+        GigabitEthernet1/0/21:
+            description: LINK-SRV-MACAFEE
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:52:E9:F8:95
+            speed: 1000
+        GigabitEthernet1/0/22:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:52:E9:F8:96
+            speed: 100
+        GigabitEthernet1/0/23:
+            description: TRUNK ASA FIREWALL (E0/3)
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:52:E9:F8:97
+            speed: 100
+        GigabitEthernet1/0/24:
+            description: Reserved End-Users&VoIP
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:52:E9:F8:98
+            speed: 100
+        GigabitEthernet1/0/25:
+            description: WLC2106
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:52:E9:F8:99
+            speed: 10
+        GigabitEthernet1/0/26:
+            description: ''
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:52:E9:F8:9A
+            speed: 10
+        GigabitEthernet1/0/27:
+            description: ''
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:52:E9:F8:9B
+            speed: 10
+        GigabitEthernet1/0/28:
+            description: ''
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:52:E9:F8:9C
+            speed: 10
+        GigabitEthernet1/0/3:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:52:E9:F8:83
+            speed: 1000
+        GigabitEthernet1/0/4:
+            description: LINK-TO-RT VSAT
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:52:E9:F8:84
+            speed: 1000
+        GigabitEthernet1/0/5:
+            description: Optimaint - 10.80.5.12
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:52:E9:F8:85
+            speed: 1000
+        GigabitEthernet1/0/6:
+            description: Reserved_EXI
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:52:E9:F8:86
+            speed: 1000
+        GigabitEthernet1/0/7:
+            description: Reserved CCTV_Server(vlan19)
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:52:E9:F8:87
+            speed: 1000
+        GigabitEthernet1/0/8:
+            description: Reserved_EXI
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:52:E9:F8:88
+            speed: 1000
+        GigabitEthernet1/0/9:
+            description: RESERVED-VMWARE
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:52:E9:F8:89
+            speed: 1000
+        GigabitEthernet2/0/1:
+            description: TRUNK-switch_NOCswPS
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:0A:4A:7B:01
+            speed: 1000
+        GigabitEthernet2/0/10:
+            description: ''
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:0A:4A:7B:0A
+            speed: 10
+        GigabitEthernet2/0/11:
+            description: ''
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:0A:4A:7B:0B
+            speed: 10
+        GigabitEthernet2/0/12:
+            description: ''
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:0A:4A:7B:0C
+            speed: 10
+        GigabitEthernet2/0/2:
+            description: TRUNK-switch_NOCswCC
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:0A:4A:7B:02
+            speed: 1000
+        GigabitEthernet2/0/3:
+            description: TRUNK-switch_NOCswDT
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:0A:4A:7B:03
+            speed: 1000
+        GigabitEthernet2/0/4:
+            description: TRUNK-switch_NOCswAT
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:0A:4A:7B:04
+            speed: 1000
+        GigabitEthernet2/0/5:
+            description: TRUNK-switch_NOCswF1
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:0A:4A:7B:05
+            speed: 1000
+        GigabitEthernet2/0/6:
+            description: Trunk-Sw-Filtracao(Rede Industrial)
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:0A:4A:7B:06
+            speed: 10
+        GigabitEthernet2/0/7:
+            description: LINK SW CONDOMINIO
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:0A:4A:7B:07
+            speed: 1000
+        GigabitEthernet2/0/8:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:0A:4A:7B:08
+            speed: 1000
+        GigabitEthernet2/0/9:
+            description: ''
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:0A:4A:7B:09
+            speed: 10
+        Vlan1:
+            description: ''
+            is_enabled: false
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:52:E9:F8:C0
+            speed: 1000
+        Vlan10:
+            description: PRIMAVERA
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:52:E9:F8:C5
+            speed: 1000
+        Vlan100:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:52:E9:F8:CF
+            speed: 1000
+        Vlan101:
+            description: Wireless_WI-FI
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:52:E9:F8:D0
+            speed: 1000
+        Vlan102:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:52:E9:F8:D1
+            speed: 1000
+        Vlan103:
+            description: Guest_WI-FI
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:52:E9:F8:D2
+            speed: 1000
+        Vlan104:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:52:E9:F8:D3
+            speed: 1000
+        Vlan105:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:52:E9:F8:DA
+            speed: 1000
+        Vlan106:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:52:E9:F8:D4
+            speed: 1000
+        Vlan107:
+            description: REDE_INDUSTRIAL
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:52:E9:F8:D5
+            speed: 1000
+        Vlan11:
+            description: ''
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:52:E9:F8:DB
+            speed: 1000
+        Vlan111:
+            description: General_Direction
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:52:E9:F8:D6
+            speed: 1000
+        Vlan121:
+            description: ''
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:26:52:E9:F8:D7
+            speed: 1000
+        Vlan16:
+            description: Printers
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:52:E9:F8:C6
+            speed: 1000
+        Vlan19:
+            description: CCTV
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:52:E9:F8:C7
+            speed: 1000
+        Vlan199:
+            description: CHECKPOINT MANAGEMENT INTERFACE
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:52:E9:F8:D8
+            speed: 1000
+        Vlan255:
+            description: Outside interface TMG PROXY
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:52:E9:F8:D9
+            speed: 1000
+        Vlan3:
+            description: VoIP
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:52:E9:F8:C1
+            speed: 1000
+        Vlan32:
+            description: Connected to Inside ASA IF E0/3
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:52:E9:F8:C8
+            speed: 1000
+        Vlan34:
+            description: LINK RT WAN
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:52:E9:F8:C9
+            speed: 1000
+        Vlan4:
+            description: Storage
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:52:E9:F8:C2
+            speed: 1000
+        Vlan40:
+            description: CORE-TMG
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:52:E9:F8:CA
+            speed: 1000
+        Vlan41:
+            description: CHECKPOINT INSIDE INTERFACE
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:52:E9:F8:CB
+            speed: 1000
+        Vlan5:
+            description: Servers_Production
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:52:E9:F8:C3
+            speed: 1000
+        Vlan87:
+            description: VLAN ILO
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:52:E9:F8:CC
+            speed: 1000
+        Vlan9:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:52:E9:F8:C4
+            speed: 1000
+        Vlan98:
+            description: Server_Management
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:52:E9:F8:CD
+            speed: 1000
+        Vlan99:
+            description: Network_Management
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:26:52:E9:F8:CE
+            speed: 1000
+    napalm_interfaces_ip:
+        Vlan10:
+            ipv4:
+                10.80.1.253:
+                    prefix_length: 24
+        Vlan101:
+            ipv4:
+                10.80.101.254:
+                    prefix_length: 23
+        Vlan103:
+            ipv4:
+                10.80.103.254:
+                    prefix_length: 23
+        Vlan104:
+            ipv4:
+                10.80.104.254:
+                    prefix_length: 24
+        Vlan105:
+            ipv4:
+                10.80.105.254:
+                    prefix_length: 24
+        Vlan106:
+            ipv4:
+                10.80.106.254:
+                    prefix_length: 24
+        Vlan107:
+            ipv4:
+                10.80.107.254:
+                    prefix_length: 24
+        Vlan111:
+            ipv4:
+                10.80.111.254:
+                    prefix_length: 24
+        Vlan16:
+            ipv4:
+                10.80.16.254:
+                    prefix_length: 24
+        Vlan19:
+            ipv4:
+                10.80.19.254:
+                    prefix_length: 24
+        Vlan199:
+            ipv4:
+                10.80.199.2:
+                    prefix_length: 29
+        Vlan255:
+            ipv4:
+                10.80.255.1:
+                    prefix_length: 30
+        Vlan3:
+            ipv4:
+                10.80.3.254:
+                    prefix_length: 24
+        Vlan32:
+            ipv4:
+                10.80.32.1:
+                    prefix_length: 30
+        Vlan34:
+            ipv4:
+                10.80.34.1:
+                    prefix_length: 30
+        Vlan40:
+            ipv4:
+                10.80.40.254:
+                    prefix_length: 30
+        Vlan41:
+            ipv4:
+                172.19.254.6:
+                    prefix_length: 30
+        Vlan5:
+            ipv4:
+                10.80.5.254:
+                    prefix_length: 24
+        Vlan87:
+            ipv4:
+                10.80.87.6:
+                    prefix_length: 29
+        Vlan9:
+            ipv4:
+                10.80.9.254:
+                    prefix_length: 24
+        Vlan98:
+            ipv4:
+                10.80.98.254:
+                    prefix_length: 24
+        Vlan99:
+            ipv4:
+                10.80.99.254:
+                    prefix_length: 24
+    napalm_model: WS-C3750G-24PS
+    napalm_os_version: C3750 Software (C3750-IPSERVICESK9-M), Version 12.2(55)SE9,
+        RELEASE SOFTWARE (fc1)
+    napalm_serial_number: FOC1329Z2SX
+    napalm_uptime: 29188920
+    napalm_vendor: Cisco
+changed: false
+failed: false
