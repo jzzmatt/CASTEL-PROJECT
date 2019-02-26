@@ -1,0 +1,769 @@
+Building configuration...
+
+Current configuration : 22091 bytes
+!
+! Last configuration change at 14:13:45 WAT Tue Feb 26 2019 by junior.mateus
+!
+version 12.2
+no service pad
+service timestamps debug uptime
+service timestamps log datetime
+service password-encryption
+service sequence-numbers
+!
+hostname EKAswC
+!
+boot-start-marker
+boot-end-marker
+!
+logging buffered 10000
+enable secret 5 $1$bUGG$jsWzEKNzO6OjiT8aFSecc.
+enable password 7 15592E0705787B7470
+!
+username Admin privilege 15 password 7 034F7E00075D711C17
+!
+!
+!
+aaa new-model
+!
+!
+aaa authentication login use-srvtacacs group tacacs+ local enable
+aaa authentication enable default group tacacs+ enable
+aaa authorization console
+aaa authorization exec use-srvtacacs group tacacs+ local if-authenticated 
+aaa authorization commands 1 default group tacacs+ if-authenticated 
+aaa authorization commands 15 default group tacacs+ local if-authenticated 
+aaa accounting send stop-record authentication failure
+aaa accounting exec default start-stop group tacacs+
+aaa accounting network default start-stop group tacacs+
+aaa accounting connection default start-stop group tacacs+
+aaa accounting system default start-stop group tacacs+
+aaa accounting resource default start-stop group tacacs+
+!
+!
+!
+aaa session-id common
+clock timezone WAT 1
+system mtu routing 1500
+!
+track 10 ip sla 10 reachability
+ip routing
+ip domain-name victoria.local
+ip name-server 4.2.2.2
+ip dhcp relay information trust-all
+ip dhcp excluded-address 10.60.101.100 10.60.101.254
+ip dhcp excluded-address 10.60.103.50 10.60.103.254
+ip dhcp excluded-address 10.60.99.1 10.60.99.100
+ip dhcp excluded-address 10.60.99.50
+ip dhcp excluded-address 10.60.99.200 10.60.99.254
+ip dhcp excluded-address 10.60.106.200 10.60.106.254
+ip dhcp excluded-address 10.60.16.50 10.60.16.254
+ip dhcp excluded-address 10.60.16.1
+ip dhcp excluded-address 10.60.87.6
+!
+ip dhcp pool Wireless-EndUsers
+   network 10.60.101.0 255.255.255.0
+   default-router 10.60.101.254 
+   domain-name eka.co.ao
+   dns-server 10.30.48.1 10.30.48.2 10.60.1.20 10.30.10.1 
+   lease 3
+!
+ip dhcp pool Wireless_Residencias
+   network 10.60.103.0 255.255.255.0
+   default-router 10.60.103.254 
+   dns-server 10.30.48.1 10.30.48.2 10.30.10.10 
+   lease 7
+!
+ip dhcp pool Management_DHCP
+   network 10.60.99.0 255.255.255.0
+   default-router 10.60.99.254 
+   dns-server 10.60.1.20 
+   lease 7
+!
+ip dhcp pool WIRED_CABLE_EKA
+   utilization mark high 80 log
+   utilization mark low 50 log
+   network 10.60.106.0 255.255.255.0
+   default-router 10.60.106.254 
+   domain-name eka.co.ao
+   dns-server 10.30.48.1 10.30.48.2 10.60.1.20 10.30.10.1 
+   lease 3
+!
+ip dhcp pool PRINTER
+   network 10.60.16.0 255.255.255.0
+   default-router 10.60.16.254 
+   domain-name eka.co.ao
+   dns-server 10.60.1.20 
+   lease infinite
+!
+ip dhcp pool DHCP_ELO
+   network 10.60.87.0 255.255.255.248
+   default-router 10.60.87.6 
+!
+!
+!
+mls qos map cos-dscp 0 8 16 24 32 46 48 56
+mls qos srr-queue input bandwidth 70 30
+mls qos srr-queue input threshold 1 80 90
+mls qos srr-queue input priority-queue 2 bandwidth 30
+mls qos srr-queue input cos-map queue 1 threshold 2 3
+mls qos srr-queue input cos-map queue 1 threshold 3 6 7
+mls qos srr-queue input cos-map queue 2 threshold 1 4
+mls qos srr-queue input dscp-map queue 1 threshold 2 24
+mls qos srr-queue input dscp-map queue 1 threshold 3 48 49 50 51 52 53 54 55
+mls qos srr-queue input dscp-map queue 1 threshold 3 56 57 58 59 60 61 62 63
+mls qos srr-queue input dscp-map queue 2 threshold 3 32 33 40 41 42 43 44 45
+mls qos srr-queue input dscp-map queue 2 threshold 3 46 47
+mls qos srr-queue output cos-map queue 1 threshold 3 4 5
+mls qos srr-queue output cos-map queue 2 threshold 1 2
+mls qos srr-queue output cos-map queue 2 threshold 2 3
+mls qos srr-queue output cos-map queue 2 threshold 3 6 7
+mls qos srr-queue output cos-map queue 3 threshold 3 0
+mls qos srr-queue output cos-map queue 4 threshold 3 1
+mls qos srr-queue output dscp-map queue 1 threshold 3 32 33 40 41 42 43 44 45
+mls qos srr-queue output dscp-map queue 1 threshold 3 46 47
+mls qos srr-queue output dscp-map queue 2 threshold 1 16 17 18 19 20 21 22 23
+mls qos srr-queue output dscp-map queue 2 threshold 1 26 27 28 29 30 31 34 35
+mls qos srr-queue output dscp-map queue 2 threshold 1 36 37 38 39
+mls qos srr-queue output dscp-map queue 2 threshold 2 24
+mls qos srr-queue output dscp-map queue 2 threshold 3 48 49 50 51 52 53 54 55
+mls qos srr-queue output dscp-map queue 2 threshold 3 56 57 58 59 60 61 62 63
+mls qos srr-queue output dscp-map queue 3 threshold 3 0 1 2 3 4 5 6 7
+mls qos srr-queue output dscp-map queue 4 threshold 1 8 9 11 13 15
+mls qos srr-queue output dscp-map queue 4 threshold 2 10 12 14
+mls qos queue-set output 1 threshold 1 100 100 50 200
+mls qos queue-set output 1 threshold 2 125 125 100 400
+mls qos queue-set output 1 threshold 3 100 100 100 400
+mls qos queue-set output 1 threshold 4 60 150 50 200
+mls qos queue-set output 1 buffers 15 25 40 20
+mls qos
+!
+crypto pki trustpoint TP-self-signed-1568731392
+ enrollment selfsigned
+ subject-name cn=IOS-Self-Signed-Certificate-1568731392
+ revocation-check none
+ rsakeypair TP-self-signed-1568731392
+!
+!
+crypto pki certificate chain TP-self-signed-1568731392
+ certificate self-signed 01
+  3082023F 308201A8 A0030201 02020101 300D0609 2A864886 F70D0101 04050030 
+  31312F30 2D060355 04031326 494F532D 53656C66 2D536967 6E65642D 43657274 
+  69666963 6174652D 31353638 37333133 3932301E 170D3134 30383133 31383439 
+  33315A17 0D323030 31303130 30303030 305A3031 312F302D 06035504 03132649 
+  4F532D53 656C662D 5369676E 65642D43 65727469 66696361 74652D31 35363837 
+  33313339 3230819F 300D0609 2A864886 F70D0101 01050003 818D0030 81890281 
+  8100C1FD 06FFD6DE 8263FC3E A849AC02 A318129C 11158C00 207D78DA 2C8AB00E 
+  9120429C 20EA3561 F2432D3A 957FCD22 19F5B415 43CC613C 133C652B 1DF9880E 
+  5B149391 2F958902 9B4C3A70 DB7093E0 D72CA968 21ADE37F AA611E29 FC246F7C 
+  ED9A0873 D188818F D5A402C7 2E7F1681 D16A2401 49F29E1E 6BDAA3E5 C9EB1047 
+  B38F0203 010001A3 67306530 0F060355 1D130101 FF040530 030101FF 30120603 
+  551D1104 0B300982 07454B41 7377432E 301F0603 551D2304 18301680 14EC95F4 
+  0BE511C4 84983FA7 D8F09528 F0B21853 92301D06 03551D0E 04160414 EC95F40B 
+  E511C484 983FA7D8 F09528F0 B2185392 300D0609 2A864886 F70D0101 04050003 
+  818100A1 5EEB16EC DD9EDE47 15A23456 0A545C0F B294CA70 C7245913 9524CCF4 
+  708D197A DE5D4B01 BA7E8EA7 F116F9CD 051F722F 8A5B889D 43057BA6 DAFF90D8 
+  C07DAE69 71389488 0F511278 AB7B1AA5 A0BBE5CD 06A0F1D7 C3A9D0A8 BB9084AB 
+  5342B145 C9FC221E 0A310D01 421C2702 38665821 3A2F9A69 5D510139 07AD928D 67CF80
+  quit
+auto qos srnd4
+!
+!
+!
+errdisable recovery cause udld
+errdisable recovery cause bpduguard
+errdisable recovery cause security-violation
+errdisable recovery cause channel-misconfig (STP)
+errdisable recovery cause pagp-flap
+errdisable recovery cause dtp-flap
+errdisable recovery cause link-flap
+errdisable recovery cause sfp-config-mismatch
+errdisable recovery cause gbic-invalid
+errdisable recovery cause l2ptguard
+errdisable recovery cause psecure-violation
+errdisable recovery cause dhcp-rate-limit
+errdisable recovery cause vmps
+errdisable recovery cause storm-control
+errdisable recovery cause inline-power
+errdisable recovery cause arp-inspection
+errdisable recovery cause loopback
+errdisable recovery interval 30
+archive
+ log config
+  logging enable
+  logging size 1000
+  notify syslog contenttype plaintext
+  hidekeys
+ path ftp://10.30.23.1/$h-$t
+ write-memory
+!
+spanning-tree mode rapid-pvst
+spanning-tree loopguard default
+spanning-tree extend system-id
+spanning-tree uplinkfast
+spanning-tree backbonefast
+spanning-tree vlan 1-212 priority 24576
+!
+vlan internal allocation policy ascending
+!
+ip ftp username ciscoBKP
+ip ftp password 7 05080F1C22436C2229
+ip ssh version 2
+ip scp server enable
+!
+class-map match-all TRANSACTIONAL_DATA
+ match access-group name AUTOQOS-ACL-TRANSACTIONAL-DATA
+class-map match-all CM_IP_traffic_VLAN
+ match access-group name ACL_Qos-traffic
+class-map match-all MULTIMEDIA_CONFERENCING
+ match access-group name AUTOQOS-ACL-MULTIENHANCED-CONF
+class-map match-all SCAVENGER
+ match access-group name AUTOQOS-ACL-SCAVANGER
+class-map match-all SIGNALING
+ match access-group name AUTOQOS-ACL-SIGNALING
+class-map match-all BULK_DATA
+ match access-group name AUTOQOS-ACL-BULK-DATA
+!
+!
+policy-map SRVFARM
+ class CM_IP_traffic_VLAN
+  set ip dscp af21
+policy-map DVLAN_MARKING
+ class MULTIMEDIA_CONFERENCING
+  set dscp af41
+ class SIGNALING
+  set dscp cs3
+ class TRANSACTIONAL_DATA
+  set dscp af21
+ class BULK_DATA
+  set dscp af11
+ class SCAVENGER
+  set dscp cs1
+ class class-default
+  set dscp default
+!
+!
+!
+!
+interface GigabitEthernet0/1
+ switchport access vlan 10
+ switchport mode access
+ spanning-tree portfast
+!
+interface GigabitEthernet0/2
+ switchport access vlan 10
+ switchport mode access
+ spanning-tree portfast
+!
+interface GigabitEthernet0/3
+ description LinK-TO-ForeFront
+ switchport access vlan 10
+ switchport mode access
+ spanning-tree portfast
+!
+interface GigabitEthernet0/4
+ switchport access vlan 10
+ switchport mode access
+ spanning-tree portfast
+!
+interface GigabitEthernet0/5
+ switchport access vlan 10
+ switchport mode access
+ spanning-tree portfast
+!
+interface GigabitEthernet0/6
+ switchport access vlan 10
+ switchport mode access
+ spanning-tree portfast
+!
+interface GigabitEthernet0/7
+ switchport access vlan 10
+ switchport mode access
+ spanning-tree portfast
+!
+interface GigabitEthernet0/8
+ switchport access vlan 10
+ switchport mode access
+ spanning-tree portfast
+!
+interface GigabitEthernet0/9
+ switchport access vlan 10
+ switchport mode access
+ spanning-tree portfast
+!
+interface GigabitEthernet0/10
+ description link-inside NIC of TMG
+ switchport access vlan 32
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ srr-queue bandwidth share 1 30 35 5
+ priority-queue out 
+ mls qos vlan-based
+ auto qos trust dscp
+!
+interface GigabitEthernet0/11
+ description link-outside NIC of TMG
+ switchport access vlan 31
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ srr-queue bandwidth share 1 30 35 5
+ priority-queue out 
+ mls qos vlan-based
+ auto qos trust dscp
+!
+interface GigabitEthernet0/12
+ description LINK TRUNK EDGE ROUTER
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 31,44
+ switchport mode trunk
+ srr-queue bandwidth share 1 30 35 5
+ priority-queue out 
+ mls qos trust dscp
+ auto qos trust dscp
+!
+interface GigabitEthernet0/13
+ description CHECKPOINT INSIDE ( LAN2)
+ switchport access vlan 42
+ switchport mode access
+!
+interface GigabitEthernet0/14
+ description CHECKPOINT OUTSIDE (WAN)
+ switchport access vlan 44
+ switchport mode access
+!
+interface GigabitEthernet0/15
+ switchport access vlan 20
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ mls qos vlan-based
+!
+interface GigabitEthernet0/16
+ switchport access vlan 20
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ srr-queue bandwidth share 1 30 35 5
+ priority-queue out 
+ mls qos vlan-based
+ auto qos trust dscp
+!
+interface GigabitEthernet0/17
+ switchport trunk encapsulation dot1q
+ switchport trunk native vlan 99
+ switchport mode trunk
+ switchport nonegotiate
+ srr-queue bandwidth share 1 30 35 5
+ priority-queue out 
+ mls qos vlan-based
+ auto qos trust dscp
+!
+interface GigabitEthernet0/18
+ switchport access vlan 30
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ srr-queue bandwidth share 1 30 35 5
+ priority-queue out 
+ mls qos vlan-based
+ auto qos trust dscp
+!
+interface GigabitEthernet0/19
+ description ***CME Management **
+ switchport access vlan 99
+ switchport mode access
+ srr-queue bandwidth share 1 30 35 5
+ priority-queue out 
+ mls qos trust dscp
+ auto qos trust dscp
+!
+interface GigabitEthernet0/20
+ switchport access vlan 106
+ switchport mode access
+ srr-queue bandwidth share 1 30 35 5
+ priority-queue out 
+ mls qos vlan-based
+ auto qos trust dscp
+!
+interface GigabitEthernet0/21
+ description ***TRUNK Wireless LAN CONTROLLER***
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ srr-queue bandwidth share 1 30 35 5
+ priority-queue out 
+ mls qos vlan-based
+ auto qos trust dscp
+!
+interface GigabitEthernet0/22
+ description LINK-TRUNK-TO-CME
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 3
+ switchport mode trunk
+ srr-queue bandwidth share 1 30 35 5
+ priority-queue out 
+ mls qos trust dscp
+ auto qos trust dscp
+!
+interface GigabitEthernet0/23
+ description LINK ROUTER WAN (G0/1)
+ switchport access vlan 35
+ switchport mode access
+ srr-queue bandwidth share 1 30 35 5
+ priority-queue out 
+ mls qos trust dscp
+ auto qos trust dscp
+!
+interface GigabitEthernet0/24
+ switchport trunk encapsulation dot1q
+ switchport trunk native vlan 99
+ switchport mode trunk
+ switchport nonegotiate
+ srr-queue bandwidth share 1 30 35 5
+ priority-queue out 
+ mls qos trust dscp
+ auto qos trust dscp
+!
+interface GigabitEthernet0/25
+ switchport trunk encapsulation dot1q
+ switchport trunk native vlan 99
+ switchport mode trunk
+ switchport nonegotiate
+ srr-queue bandwidth share 1 30 35 5
+ priority-queue out 
+ mls qos vlan-based
+ auto qos trust dscp
+!
+interface GigabitEthernet0/26
+ switchport trunk encapsulation dot1q
+ switchport trunk native vlan 99
+ switchport mode trunk
+ switchport nonegotiate
+ srr-queue bandwidth share 1 30 35 5
+ priority-queue out 
+ mls qos vlan-based
+ auto qos trust dscp
+!
+interface GigabitEthernet0/27
+ switchport trunk encapsulation dot1q
+ switchport trunk native vlan 99
+ switchport mode trunk
+ switchport nonegotiate
+ srr-queue bandwidth share 1 30 35 5
+ priority-queue out 
+ mls qos vlan-based
+ auto qos trust dscp
+!
+interface GigabitEthernet0/28
+ switchport trunk encapsulation dot1q
+ switchport trunk native vlan 99
+ switchport mode trunk
+ switchport nonegotiate
+ srr-queue bandwidth share 1 30 35 5
+ priority-queue out 
+ mls qos vlan-based
+ auto qos trust dscp
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+interface Vlan2
+ ip address 10.60.2.254 255.255.255.0
+!
+interface Vlan3
+ description Voice VLAN(IPT,CME)
+ ip address 10.60.3.253 255.255.255.0
+ ip helper-address 10.60.3.254
+!
+interface Vlan5
+ no ip address
+!
+interface Vlan6
+ description Rede Antiga
+ ip dhcp relay information trusted
+ ip address 192.160.5.1 255.255.255.0
+ ip helper-address 192.160.5.202
+ service-policy input DVLAN_MARKING
+!
+interface Vlan7
+ no ip address
+ service-policy input DVLAN_MARKING
+!
+interface Vlan9
+ ip address 10.60.9.254 255.255.255.0
+!
+interface Vlan10
+ description Admin
+ ip dhcp relay information trusted
+ ip address 10.60.1.253 255.255.255.0
+ ip helper-address 10.60.1.20
+!
+interface Vlan16
+ description VLAN PRINTER
+ ip address 10.60.16.254 255.255.255.0
+ service-policy input DVLAN_MARKING
+!
+interface Vlan19
+ description RESERVED_BIOMETRICO
+ ip address 10.60.19.254 255.255.255.0
+ no ip route-cache cef
+ no ip route-cache
+ no ip mroute-cache
+!
+interface Vlan20
+ description BT_AD
+ ip dhcp relay information trusted
+ ip address 10.60.6.1 255.255.255.0
+ ip helper-address 10.60.1.20
+!
+interface Vlan30
+ description BT_LV
+ ip dhcp relay information trusted
+ ip address 10.60.7.1 255.255.255.0
+ ip helper-address 10.60.1.20
+!
+interface Vlan31
+ description LINK outside do TMG ao Core
+ ip address 10.60.31.1 255.255.255.248
+!
+interface Vlan32
+ description Link-to inside TMG
+ ip address 10.60.32.1 255.255.255.252
+!
+interface Vlan35
+ description WAN VSAT CONNECTION
+ ip address 10.60.35.1 255.255.255.252
+!
+interface Vlan42
+ description CHECKPOINT INSIDE INTERFACE
+ ip address 172.19.251.6 255.255.255.252
+!
+interface Vlan87
+ ip address 10.60.87.6 255.255.255.248
+!
+interface Vlan98
+ ip address 10.60.98.254 255.255.255.0
+!
+interface Vlan99
+ description Native&Management
+ ip address 10.60.99.254 255.255.255.0
+!
+interface Vlan100
+ description VLAN_Wireless-Coorporative
+ ip dhcp relay information trusted
+ ip address 10.60.20.1 255.255.255.0
+ ip helper-address 10.60.1.20
+!
+interface Vlan101
+ description Wireless End Users
+ ip address 10.60.101.254 255.255.255.0
+ service-policy input DVLAN_MARKING
+!
+interface Vlan103
+ description Wireless Residencia
+ ip address 10.60.103.254 255.255.255.0
+!
+interface Vlan106
+ description End Users Wired Cable
+ ip address 10.60.106.254 255.255.255.0
+ service-policy input DVLAN_MARKING
+!
+interface Vlan120
+ description CCTV
+ ip dhcp relay information trusted
+ ip address 10.60.5.1 255.255.255.0
+ ip helper-address 10.60.1.20
+!
+interface Vlan210
+ description *** ISP 1 MS TELECOM LAYER 2 VLAN ***
+ no ip address
+!
+interface Vlan211
+ description *** ISP 2 MULTIPLA ***
+ no ip address
+!
+interface Vlan900
+ no ip address
+!
+interface Vlan1007
+ no ip address
+!
+!
+router eigrp 800
+ variance 2
+ network 10.60.35.0 0.0.0.3
+ passive-interface default
+ no passive-interface Vlan35
+ eigrp stub receive-only
+!
+ip classless
+ip route 0.0.0.0 0.0.0.0 10.60.31.6 250 name Mstelecom
+ip route 10.0.0.0 255.0.0.0 10.60.31.6 250 name DMVPN_FailOver
+ip route 172.16.0.0 255.240.0.0 10.60.31.6 250 name DMVPN_FailOver
+ip route 192.168.0.0 255.255.0.0 10.60.31.6 250 name DMVPN_FailOver
+ip http server
+ip http authentication aaa login-authentication use-srvtacacs
+ip http authentication aaa exec-authorization use-srvtacacs
+ip http authentication aaa command-authorization 15 default
+no ip http secure-server
+!
+!
+ip access-list extended ACL_Qos-traffic
+ permit ip any any
+ip access-list extended AUTOQOS-ACL-BULK-DATA
+ remark Web Traffic
+ permit tcp any any eq www
+ permit tcp any any eq 443
+ permit tcp any any eq ftp-data
+ permit tcp any any eq ftp
+ permit tcp any any eq 4434
+ permit tcp any eq 4434 any
+ip access-list extended AUTOQOS-ACL-DEFAULT
+ remark Best Effort
+ permit tcp any any
+ip access-list extended AUTOQOS-ACL-MULTIENHANCED-CONF
+ remark IP/VC or SOFTPHONE
+ permit udp any any range 16348 32767
+ip access-list extended AUTOQOS-ACL-SCAVANGER
+ remark Kazaa 
+ permit tcp any any eq 1214
+ permit udp any any eq 1214
+ remark MICROSOFT DIRECT X GAMING
+ permit tcp any any range 2300 2400
+ permit udp any any range 2300 2400
+ remark Apple ITunes Music SAHRING
+ permit tcp any any eq 3689
+ permit udp any any eq 3689
+ remark BITTORENTS
+ permit tcp any any range 6881 6999
+ remark YAHOO GAMES
+ permit tcp any any eq 11999
+ remark MSN GAMING ZONE
+ permit tcp any any range 28800 29100
+ remark FasTrack
+ remark Gnutella
+ permit udp any any eq 6346
+ permit udp any any eq 6347
+ permit udp any any eq 6348
+ permit tcp any any eq 6346
+ permit tcp any any eq 6347
+ permit tcp any any eq 6348
+ permit tcp any any eq 6349
+ permit tcp any any eq 6355
+ permit tcp any any eq 5634
+ remark Edonkey
+ permit tcp any any eq 4662
+ip access-list extended AUTOQOS-ACL-SIGNALING
+ remark SoftPhone SCCP
+ permit tcp any any range 2000 2002
+ remark SIP
+ permit tcp any any range 5060 5061
+ permit udp any any range 5060 5061
+ip access-list extended AUTOQOS-ACL-TRANSACTIONAL-DATA
+ remark Exchange server 
+ permit tcp any any eq 135
+ remark SMTP
+ permit tcp any any eq smtp
+ remark Secure-SMTP
+ permit tcp any any eq 589
+ permit tcp any any eq 993
+ remark Secure-POP3
+ permit tcp any any eq 995
+ remark Kerberos
+ permit tcp any any eq 88
+ permit tcp any any eq 749
+ permit udp any any eq 88
+ permit udp any any eq 749
+ remark Net-Bios
+ permit tcp any any eq 139
+ permit tcp any any eq 137
+ permit udp any any eq netbios-ns
+ permit udp any any eq netbios-dgm
+ remark LDAP
+ permit tcp any any eq 389
+ remark Microsoft_ds (Active Directory)
+ permit tcp any any eq 445
+ permit udp any any eq 445
+ remark Ms_WBT_server or RDP
+ permit tcp any any eq 3389
+ remark SQL
+ permit tcp any any eq 1521
+ remark SNMP
+ permit tcp any any eq 161
+ permit tcp any any eq 162
+ permit udp any any eq snmp
+ remark NTP
+ permit tcp any any eq 37
+ permit udp any any eq time
+ remark Syslogs
+ permit udp any any eq syslog
+ remark NFS (Network File System )
+ permit tcp any any eq 2049
+ permit udp any any eq 2049
+ip access-list extended AUTOQOS_VOIP_DATA_CLASS
+ remark RTP (VOICE)
+ permit udp any any range 16384 32767
+!
+kron occurrence Semanal-BKP at 21:30 Fri recurring
+ policy-list MY_BKP_CFG
+!
+kron policy-list MY_BKP_CFG
+ cli sh startup-config | redirect ftp://10.30.23.1/EKAswCSTARTUP
+ cli sh running-config | redirect ftp://10.30.23.1/EKAswCRUNNING
+!
+access-list 55 permit 10.60.1.50
+access-list 55 permit 10.30.10.50
+!
+snmp-server community Eka RO 55
+snmp-server community Eka_admin RW 55
+tacacs-server host 10.30.10.10 timeout 5
+tacacs-server directed-request
+tacacs-server key 7 044858051D72581C594853
+!
+banner motd ^C
+####################################################################
+#                                                                  #
+#       ----------      SITE EKA DONDO     -------------           #
+#       ----------       IT DEPARTEMENT       -------------        #
+#                                                                  #
+#       Unauthorized access is prohibit and will be prosecuted     #      
+#  IF Allowed, before Applying any Modification please contact the #
+#                         IT DEPARTEMENT                           #
+#     helpdesk@bihangola.net or suporteit@sabmiller.co.ao          #
+#  _______________________________________________________________ #
+#        GRUPO CUCA BGI ANGOLA    / COCA COLA BOTTLING SA          #
+#                        ( Luanda-ANGOLA )                         #
+#  _______________________________________________________________ #
+#                                                                  #
+####################################################################
+^C
+alias exec arch sh archive log config all
+!
+line con 0
+ exec-timeout 15 0
+ privilege level 15
+ logging synchronous
+ login authentication use-srvtacacs
+ length 0
+line vty 0 4
+ exec-timeout 15 0
+ privilege level 15
+ password 7 024D21500A545F7115
+ logging synchronous
+ login authentication use-srvtacacs
+ length 0
+ transport input telnet ssh
+line vty 5 15
+ exec-timeout 15 0
+ privilege level 15
+ logging synchronous
+ login authentication use-srvtacacs
+ length 0
+ transport input ssh
+!
+ntp clock-period 36029251
+ntp server 10.30.35.1
+event manager applet CLEAR_DHCP_CONFLICT
+ event timer cron cron-entry "0 * * * *"
+ action 1.0 cli command "enable"
+ action 2.0 cli command "clear ip dhcp conflict *"
+ action 3.0 syslog msg "successfully cleared ip DHCP conflict records"
+!
+end

@@ -1,0 +1,471 @@
+Building configuration...
+
+Current configuration : 13349 bytes
+!
+! Last configuration change at 14:43:50 WAT Tue Feb 26 2019 by junior.mateus
+!
+version 12.2
+no service pad
+service timestamps debug uptime
+service timestamps log datetime
+service password-encryption
+service sequence-numbers
+!
+hostname EKAswC2
+!
+boot-start-marker
+boot-end-marker
+!
+logging buffered 1000000
+enable secret 5 $1$F8DZ$pqdZZE7Gh/g77SR9tb3Ss.
+enable password 7 15592E0705787B7471
+!
+username Admin privilege 15 password 7 1252201C13595C5473
+!
+!
+aaa new-model
+!
+!
+aaa authentication login use-srvtacacs group tacacs+ local enable
+aaa authentication enable default group tacacs+ enable
+aaa authorization console
+aaa authorization exec use-srvtacacs group tacacs+ local if-authenticated 
+aaa authorization commands 1 default group tacacs+ if-authenticated 
+aaa authorization commands 15 default group tacacs+ local if-authenticated 
+aaa accounting send stop-record authentication failure
+aaa accounting exec default start-stop group tacacs+
+aaa accounting network default start-stop group tacacs+
+aaa accounting connection default start-stop group tacacs+
+aaa accounting system default start-stop group tacacs+
+aaa accounting resource default start-stop group tacacs+
+!
+!
+!
+aaa session-id common
+clock timezone WAT 1
+system mtu routing 1500
+vtp domain Eka
+vtp mode transparent
+ip domain-name victoria.local
+!
+!
+!
+mls qos map cos-dscp 0 8 16 24 32 46 48 56
+mls qos srr-queue input bandwidth 70 30
+mls qos srr-queue input threshold 1 80 90
+mls qos srr-queue input priority-queue 2 bandwidth 30
+mls qos srr-queue input cos-map queue 1 threshold 2 3
+mls qos srr-queue input cos-map queue 1 threshold 3 6 7
+mls qos srr-queue input cos-map queue 2 threshold 1 4
+mls qos srr-queue input dscp-map queue 1 threshold 2 24
+mls qos srr-queue input dscp-map queue 1 threshold 3 48 49 50 51 52 53 54 55
+mls qos srr-queue input dscp-map queue 1 threshold 3 56 57 58 59 60 61 62 63
+mls qos srr-queue input dscp-map queue 2 threshold 3 32 33 40 41 42 43 44 45
+mls qos srr-queue input dscp-map queue 2 threshold 3 46 47
+mls qos srr-queue output cos-map queue 1 threshold 3 4 5
+mls qos srr-queue output cos-map queue 2 threshold 1 2
+mls qos srr-queue output cos-map queue 2 threshold 2 3
+mls qos srr-queue output cos-map queue 2 threshold 3 6 7
+mls qos srr-queue output cos-map queue 3 threshold 3 0
+mls qos srr-queue output cos-map queue 4 threshold 3 1
+mls qos srr-queue output dscp-map queue 1 threshold 3 32 33 40 41 42 43 44 45
+mls qos srr-queue output dscp-map queue 1 threshold 3 46 47
+mls qos srr-queue output dscp-map queue 2 threshold 1 16 17 18 19 20 21 22 23
+mls qos srr-queue output dscp-map queue 2 threshold 1 26 27 28 29 30 31 34 35
+mls qos srr-queue output dscp-map queue 2 threshold 1 36 37 38 39
+mls qos srr-queue output dscp-map queue 2 threshold 2 24
+mls qos srr-queue output dscp-map queue 2 threshold 3 48 49 50 51 52 53 54 55
+mls qos srr-queue output dscp-map queue 2 threshold 3 56 57 58 59 60 61 62 63
+mls qos srr-queue output dscp-map queue 3 threshold 3 0 1 2 3 4 5 6 7
+mls qos srr-queue output dscp-map queue 4 threshold 1 8 9 11 13 15
+mls qos srr-queue output dscp-map queue 4 threshold 2 10 12 14
+mls qos queue-set output 1 threshold 1 100 100 50 200
+mls qos queue-set output 1 threshold 2 125 125 100 400
+mls qos queue-set output 1 threshold 3 100 100 100 400
+mls qos queue-set output 1 threshold 4 60 150 50 200
+mls qos queue-set output 1 buffers 15 25 40 20
+mls qos
+!
+crypto pki trustpoint TP-self-signed-1984727552
+ enrollment selfsigned
+ subject-name cn=IOS-Self-Signed-Certificate-1984727552
+ revocation-check none
+ rsakeypair TP-self-signed-1984727552
+!
+!
+crypto pki certificate chain TP-self-signed-1984727552
+ certificate self-signed 01
+  30820240 308201A9 A0030201 02020101 300D0609 2A864886 F70D0101 04050030 
+  31312F30 2D060355 04031326 494F532D 53656C66 2D536967 6E65642D 43657274 
+  69666963 6174652D 31393834 37323735 3532301E 170D3134 30383133 31383535 
+  31325A17 0D323030 31303130 30303030 305A3031 312F302D 06035504 03132649 
+  4F532D53 656C662D 5369676E 65642D43 65727469 66696361 74652D31 39383437 
+  32373535 3230819F 300D0609 2A864886 F70D0101 01050003 818D0030 81890281 
+  8100C0E7 BD430E6F ABC7BEE4 77CC89C0 74DA74E3 34C5562C CCC1988F 5910A5A1 
+  054C9C6C 461A3BE0 5D1E77FA 5A48285F D78EC7D6 0D83A024 452F85EC 84B4E900 
+  323154B7 92FF50E8 8B4B10F5 1199D52B 99277D3D B3420EEC 726C98AE 381FB1AE 
+  0DFAAE05 606A8337 F826AE02 AD498490 99857EE4 B7E00636 DE425217 3E7BF655 
+  59350203 010001A3 68306630 0F060355 1D130101 FF040530 030101FF 30130603 
+  551D1104 0C300A82 08454B41 73774332 2E301F06 03551D23 04183016 8014BD07 
+  6709F6AD C56E0FED 88EDD180 605AB677 3F88301D 0603551D 0E041604 14BD0767 
+  09F6ADC5 6E0FED88 EDD18060 5AB6773F 88300D06 092A8648 86F70D01 01040500 
+  03818100 7A49146F 73E26E0A 48B95D0B 3758B3E9 DB117825 F30E191E 3B94D001 
+  47CA51E3 E15CBF2E 202AEE22 244CFA90 866A8858 DFCA6D16 BAD8760B 0F8244E9 
+  10BE39E8 2BAEAA5F E04708F9 5F5DEE7A DD29B9C9 2929A3D8 2E0753F7 F91F24E9 
+  07FBB06C 331A56CC AA12CCBC 0F55A088 2A94D85D 4278D6F7 2927F0CD 01DD65BF BFEE808E
+  quit
+auto qos srnd4
+!
+!
+!
+errdisable recovery cause udld
+errdisable recovery cause bpduguard
+errdisable recovery cause security-violation
+errdisable recovery cause channel-misconfig (STP)
+errdisable recovery cause pagp-flap
+errdisable recovery cause dtp-flap
+errdisable recovery cause link-flap
+errdisable recovery cause sfp-config-mismatch
+errdisable recovery cause gbic-invalid
+errdisable recovery cause l2ptguard
+errdisable recovery cause psecure-violation
+errdisable recovery cause dhcp-rate-limit
+errdisable recovery cause vmps
+errdisable recovery cause storm-control
+errdisable recovery cause inline-power
+errdisable recovery cause arp-inspection
+errdisable recovery cause loopback
+errdisable recovery interval 30
+archive
+ log config
+  logging enable
+  logging size 1000
+  notify syslog contenttype plaintext
+  hidekeys
+ path ftp://10.30.23.1/$h-$t
+ write-memory
+!
+spanning-tree mode rapid-pvst
+spanning-tree loopguard default
+spanning-tree extend system-id
+spanning-tree uplinkfast
+spanning-tree backbonefast
+spanning-tree vlan 1-212 priority 28672
+!
+vlan internal allocation policy ascending
+!
+vlan 2
+ name Vmware_Console
+!
+vlan 3
+ name VOIP
+!
+vlan 5
+ name Vmware_Production
+!
+vlan 6 
+!
+vlan 9
+ name Vmware_Vcenter
+!
+vlan 10,20,30 
+!
+vlan 31
+ name Outside_to-ASA
+!
+vlan 32
+ name PBR-to-TMG
+!
+vlan 87
+ name ELO
+!
+vlan 98
+ name Management_Server
+!
+vlan 99
+ name Management&Native
+!
+vlan 101
+ name Wireless_Users
+!
+vlan 103
+ name Wireless_Residence
+!
+vlan 106
+ name Wired_Users
+!
+vlan 210
+ name ISP1
+!
+vlan 211
+ name ISP2
+!
+vlan 900
+ name VOIP_MSTELECOM
+!
+vlan 1007
+ name DADOS_MSTELECOM
+!
+ip ftp username ciscoBKP
+ip ftp password 7 02050D4808092D0A7C
+ip ssh version 2
+ip scp server enable
+!
+!
+!
+interface Port-channel1
+ description CHANNEL BUNDEL (2GB) *** SW MSTELECOM ***
+ switchport trunk encapsulation dot1q
+ switchport trunk native vlan 99
+ switchport mode trunk
+!
+interface GigabitEthernet0/1
+ description RESERVED-TRUNK-PORT
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ srr-queue bandwidth share 1 30 35 5
+ priority-queue out 
+ mls qos trust dscp
+ auto qos trust dscp
+!
+interface GigabitEthernet0/2
+ description RESERVED-TRUNK-PORT
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ srr-queue bandwidth share 1 30 35 5
+ priority-queue out 
+ mls qos trust dscp
+ auto qos trust dscp
+!
+interface GigabitEthernet0/3
+ description RESERVED-TRUNK-PORT
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ srr-queue bandwidth share 1 30 35 5
+ priority-queue out 
+ mls qos trust dscp
+ auto qos trust dscp
+!
+interface GigabitEthernet0/4
+ description RESERVED-TRUNK-PORT
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+!
+interface GigabitEthernet0/5
+ description RESERVED-TRUNK-PORT
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+!
+interface GigabitEthernet0/6
+ description ELO
+ switchport access vlan 87
+ switchport mode access
+ spanning-tree portfast
+!
+interface GigabitEthernet0/7
+ description HOST HP
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ switchport nonegotiate
+!
+interface GigabitEthernet0/8
+ description HOST HP
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ switchport nonegotiate
+!
+interface GigabitEthernet0/9
+ description HOST HP
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ switchport nonegotiate
+!
+interface GigabitEthernet0/10
+ description HOST HP
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ switchport nonegotiate
+!
+interface GigabitEthernet0/11
+ description RESERVED-TRUNK-PORT
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+!
+interface GigabitEthernet0/12
+ description RESERVED-TRUNK-PORT
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+!
+interface GigabitEthernet0/13
+!
+interface GigabitEthernet0/14
+!
+interface GigabitEthernet0/15
+!
+interface GigabitEthernet0/16
+!
+interface GigabitEthernet0/17
+!
+interface GigabitEthernet0/18
+!
+interface GigabitEthernet0/19
+!
+interface GigabitEthernet0/20
+ description *** ISP2 MULITPLA ***
+ switchport access vlan 211
+ switchport mode access
+ spanning-tree portfast
+!
+interface GigabitEthernet0/21
+ description *** LINK trunk RT ISP NETWORK ***
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ srr-queue bandwidth share 1 30 35 5
+ priority-queue out 
+ mls qos trust dscp
+ auto qos trust dscp
+!
+interface GigabitEthernet0/22
+ description RESERVED FAST TRUNK MEMBER CH1 ***SW MSTELECOM***
+ switchport trunk encapsulation dot1q
+ switchport trunk native vlan 99
+ switchport mode trunk
+ channel-group 1 mode on
+!
+interface GigabitEthernet0/23
+ switchport trunk encapsulation dot1q
+ switchport trunk native vlan 99
+ switchport mode trunk
+ switchport nonegotiate
+ srr-queue bandwidth share 1 30 35 5
+ priority-queue out 
+ mls qos trust dscp
+ auto qos trust dscp
+!
+interface GigabitEthernet0/24
+ switchport trunk encapsulation dot1q
+ switchport trunk native vlan 99
+ switchport mode trunk
+ switchport nonegotiate
+ srr-queue bandwidth share 1 30 35 5
+ priority-queue out 
+ mls qos trust dscp
+ auto qos trust dscp
+!
+interface GigabitEthernet0/25
+ switchport trunk encapsulation dot1q
+ switchport trunk native vlan 99
+ switchport mode trunk
+ switchport nonegotiate
+ srr-queue bandwidth share 1 30 35 5
+ priority-queue out 
+ mls qos trust dscp
+ auto qos trust dscp
+!
+interface GigabitEthernet0/26
+ srr-queue bandwidth share 1 30 35 5
+ priority-queue out 
+ mls qos trust dscp
+ auto qos trust dscp
+!
+interface GigabitEthernet0/27
+ switchport trunk encapsulation dot1q
+ switchport trunk native vlan 99
+ switchport mode trunk
+ switchport nonegotiate
+ srr-queue bandwidth share 1 30 35 5
+ priority-queue out 
+ mls qos trust dscp
+ auto qos trust dscp
+!
+interface GigabitEthernet0/28
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+interface Vlan10
+ no ip address
+!
+interface Vlan99
+ description Management
+ ip address 10.60.99.253 255.255.255.0
+!
+interface Vlan106
+ no ip address
+!
+interface Vlan900
+ no ip address
+!
+interface Vlan1007
+ no ip address
+!
+ip classless
+ip http server
+ip http authentication aaa login-authentication use-srvtacacs
+ip http authentication aaa exec-authorization use-srvtacacs
+ip http authentication aaa command-authorization 15 default
+no ip http secure-server
+!
+!
+kron occurrence Semanal-BKP at 21:30 Fri recurring
+ policy-list MY_BKP_CFG
+!
+kron policy-list MY_BKP_CFG
+ cli sh startup-config | redirect ftp://10.30.23.1/EKAswC2STARTUP
+ cli sh running-config | redirect ftp://10.30.23.1/EKAswC2RUNNING
+!
+access-list 55 permit 10.60.1.50
+access-list 55 permit 10.30.10.50
+!
+snmp-server community Eka RO 55
+snmp-server community Eka_admin RW 55
+tacacs-server host 10.30.10.10
+tacacs-server directed-request
+tacacs-server key 7 111A4A0605411F5E547B7D
+!
+banner motd ^C
+####################################################################
+#                                                                  #
+#       ----------      SITE EKA DONDO     -------------           #
+#       ----------       IT DEPARTEMENT       -------------        #
+#                                                                  #
+#       Unauthorized access is prohibit and will be prosecuted     #      
+#  IF Allowed, before Applying any Modification please contact the #
+#                         IT DEPARTEMENT                           #
+#     helpdesk@bihangola.net or suporteit@sabmiller.co.ao          #
+#  _______________________________________________________________ #
+#        GRUPO CUCA BGI ANGOLA    / COCA COLA BOTTLING SA          #
+#                        ( Luanda-ANGOLA )                         #
+#  _______________________________________________________________ #
+#                                                                  #
+####################################################################
+^C
+alias exec po sh etherchannel summary 
+alias exec arch sh archive log config all
+!
+line con 0
+ exec-timeout 15 0
+ privilege level 15
+ logging synchronous
+ login authentication use-srvtacacs
+ length 0
+line vty 0 4
+ exec-timeout 15 0
+ privilege level 15
+ password 7 11423C0E16405B5D54
+ logging synchronous
+ login authentication use-srvtacacs
+ length 0
+ transport input telnet ssh
+line vty 5 15
+ exec-timeout 15 0
+ privilege level 15
+ logging synchronous
+ login authentication use-srvtacacs
+ length 0
+ transport input ssh
+!
+ntp clock-period 36029118
+ntp server 10.60.99.254
+end

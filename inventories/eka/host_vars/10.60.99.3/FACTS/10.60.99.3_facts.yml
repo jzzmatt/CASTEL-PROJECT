@@ -1,0 +1,307 @@
+get_facts:
+    napalm_facts:
+        fqdn: EkaSWAD1.victoria.local
+        hostname: EkaSWAD1
+        interface_list:
+        - Vlan1
+        - Vlan99
+        - FastEthernet0
+        - GigabitEthernet1/0/1
+        - GigabitEthernet1/0/2
+        - GigabitEthernet1/0/3
+        - GigabitEthernet1/0/4
+        - GigabitEthernet1/0/5
+        - GigabitEthernet1/0/6
+        - GigabitEthernet1/0/7
+        - GigabitEthernet1/0/8
+        - GigabitEthernet1/0/9
+        - GigabitEthernet1/0/10
+        - GigabitEthernet1/0/11
+        - GigabitEthernet1/0/12
+        - GigabitEthernet1/0/13
+        - GigabitEthernet1/0/14
+        - GigabitEthernet1/0/15
+        - GigabitEthernet1/0/16
+        - GigabitEthernet1/0/17
+        - GigabitEthernet1/0/18
+        - GigabitEthernet1/0/19
+        - GigabitEthernet1/0/20
+        - GigabitEthernet1/0/21
+        - GigabitEthernet1/0/22
+        - GigabitEthernet1/0/23
+        - GigabitEthernet1/0/24
+        - GigabitEthernet1/0/25
+        - GigabitEthernet1/0/26
+        - Te1/0/1
+        - Te1/0/2
+        model: WS-C2960S-24PD-L
+        os_version: C2960S Software (C2960S-UNIVERSALK9-M), Version 12.2(55)SE7, RELEASE
+            SOFTWARE (fc1)
+        serial_number: FOC1728Y0TE
+        uptime: 7513860
+        vendor: Cisco
+    napalm_fqdn: EkaSWAD1.victoria.local
+    napalm_hostname: EkaSWAD1
+    napalm_interface_list:
+    - Vlan1
+    - Vlan99
+    - FastEthernet0
+    - GigabitEthernet1/0/1
+    - GigabitEthernet1/0/2
+    - GigabitEthernet1/0/3
+    - GigabitEthernet1/0/4
+    - GigabitEthernet1/0/5
+    - GigabitEthernet1/0/6
+    - GigabitEthernet1/0/7
+    - GigabitEthernet1/0/8
+    - GigabitEthernet1/0/9
+    - GigabitEthernet1/0/10
+    - GigabitEthernet1/0/11
+    - GigabitEthernet1/0/12
+    - GigabitEthernet1/0/13
+    - GigabitEthernet1/0/14
+    - GigabitEthernet1/0/15
+    - GigabitEthernet1/0/16
+    - GigabitEthernet1/0/17
+    - GigabitEthernet1/0/18
+    - GigabitEthernet1/0/19
+    - GigabitEthernet1/0/20
+    - GigabitEthernet1/0/21
+    - GigabitEthernet1/0/22
+    - GigabitEthernet1/0/23
+    - GigabitEthernet1/0/24
+    - GigabitEthernet1/0/25
+    - GigabitEthernet1/0/26
+    - Te1/0/1
+    - Te1/0/2
+    napalm_interfaces:
+        FastEthernet0:
+            description: ''
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: DC:A5:F4:BC:82:37
+            speed: 100
+        GigabitEthernet1/0/1:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: DC:A5:F4:BC:82:01
+            speed: 100
+        GigabitEthernet1/0/10:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: DC:A5:F4:BC:82:0A
+            speed: 1000
+        GigabitEthernet1/0/11:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: DC:A5:F4:BC:82:0B
+            speed: 100
+        GigabitEthernet1/0/12:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: DC:A5:F4:BC:82:0C
+            speed: 100
+        GigabitEthernet1/0/13:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: DC:A5:F4:BC:82:0D
+            speed: 1000
+        GigabitEthernet1/0/14:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: DC:A5:F4:BC:82:0E
+            speed: 100
+        GigabitEthernet1/0/15:
+            description: ''
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: DC:A5:F4:BC:82:0F
+            speed: 100
+        GigabitEthernet1/0/16:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: DC:A5:F4:BC:82:10
+            speed: 100
+        GigabitEthernet1/0/17:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: DC:A5:F4:BC:82:11
+            speed: 100
+        GigabitEthernet1/0/18:
+            description: END USER+PHONE
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: DC:A5:F4:BC:82:12
+            speed: 100
+        GigabitEthernet1/0/19:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: DC:A5:F4:BC:82:13
+            speed: 10
+        GigabitEthernet1/0/2:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: DC:A5:F4:BC:82:02
+            speed: 100
+        GigabitEthernet1/0/20:
+            description: END USER+PHONE
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: DC:A5:F4:BC:82:14
+            speed: 1000
+        GigabitEthernet1/0/21:
+            description: ''
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: DC:A5:F4:BC:82:15
+            speed: 100
+        GigabitEthernet1/0/22:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: DC:A5:F4:BC:82:16
+            speed: 1000
+        GigabitEthernet1/0/23:
+            description: RESERVED TRUNK FO
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: DC:A5:F4:BC:82:17
+            speed: 1000
+        GigabitEthernet1/0/24:
+            description: TRUNK TO SWAD2
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: DC:A5:F4:BC:82:18
+            speed: 100
+        GigabitEthernet1/0/25:
+            description: RESERVED TRUNK FO
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: DC:A5:F4:BC:82:19
+            speed: 1000
+        GigabitEthernet1/0/26:
+            description: RESERVED TRUNK FO
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: DC:A5:F4:BC:82:1A
+            speed: 10
+        GigabitEthernet1/0/3:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: DC:A5:F4:BC:82:03
+            speed: 100
+        GigabitEthernet1/0/4:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: DC:A5:F4:BC:82:04
+            speed: 100
+        GigabitEthernet1/0/5:
+            description: END USER+PHONE
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: DC:A5:F4:BC:82:05
+            speed: 1000
+        GigabitEthernet1/0/6:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: DC:A5:F4:BC:82:06
+            speed: 1000
+        GigabitEthernet1/0/7:
+            description: ''
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: DC:A5:F4:BC:82:07
+            speed: 1000
+        GigabitEthernet1/0/8:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: DC:A5:F4:BC:82:08
+            speed: 100
+        GigabitEthernet1/0/9:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: DC:A5:F4:BC:82:09
+            speed: 100
+        TenGigabitEthernet1/0/1:
+            description: ''
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: DC:A5:F4:BC:82:1B
+            speed: 10000
+        TenGigabitEthernet1/0/2:
+            description: ''
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: DC:A5:F4:BC:82:1C
+            speed: 10000
+        Vlan1:
+            description: ''
+            is_enabled: false
+            is_up: false
+            last_flapped: -1.0
+            mac_address: DC:A5:F4:BC:82:40
+            speed: 1000
+        Vlan99:
+            description: Management VLAN
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: DC:A5:F4:BC:82:41
+            speed: 1000
+    napalm_interfaces_ip:
+        Vlan99:
+            ipv4:
+                10.60.99.3:
+                    prefix_length: 24
+    napalm_model: WS-C2960S-24PD-L
+    napalm_os_version: C2960S Software (C2960S-UNIVERSALK9-M), Version 12.2(55)SE7,
+        RELEASE SOFTWARE (fc1)
+    napalm_serial_number: FOC1728Y0TE
+    napalm_uptime: 7513860
+    napalm_vendor: Cisco
+changed: false
+failed: false
