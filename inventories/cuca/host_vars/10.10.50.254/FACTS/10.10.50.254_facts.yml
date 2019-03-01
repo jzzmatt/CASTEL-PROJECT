@@ -1,0 +1,2226 @@
+get_facts:
+    napalm_facts:
+        fqdn: CUCALDA_N1_SWCore.CUCA-BGI.local
+        hostname: CUCALDA_N1_SWCore
+        interface_list:
+        - Vlan1
+        - Vlan2
+        - Vlan3
+        - Vlan4
+        - Vlan5
+        - Vlan6
+        - Vlan7
+        - Vlan9
+        - Vlan10
+        - Vlan11
+        - Vlan12
+        - Vlan13
+        - Vlan14
+        - Vlan15
+        - Vlan16
+        - Vlan17
+        - Vlan18
+        - Vlan19
+        - Vlan20
+        - Vlan21
+        - Vlan22
+        - Vlan23
+        - Vlan24
+        - Vlan25
+        - Vlan26
+        - Vlan27
+        - Vlan29
+        - Vlan30
+        - Vlan31
+        - Vlan32
+        - Vlan33
+        - Vlan34
+        - Vlan35
+        - Vlan36
+        - Vlan40
+        - Vlan41
+        - Vlan44
+        - Vlan45
+        - Vlan50
+        - Vlan51
+        - Vlan54
+        - Vlan55
+        - Vlan56
+        - Vlan57
+        - Vlan58
+        - Vlan59
+        - Vlan60
+        - Vlan61
+        - Vlan62
+        - Vlan63
+        - Vlan70
+        - Vlan80
+        - Vlan81
+        - Vlan98
+        - Vlan99
+        - Vlan100
+        - Vlan101
+        - Vlan102
+        - Vlan103
+        - Vlan104
+        - Vlan105
+        - Vlan106
+        - Vlan107
+        - Vlan108
+        - Vlan109
+        - Vlan110
+        - Vlan111
+        - Vlan112
+        - Vlan113
+        - Vlan115
+        - Vlan116
+        - Vlan120
+        - Vlan130
+        - Vlan131
+        - Vlan150
+        - Vlan160
+        - Vlan199
+        - Vlan200
+        - Vlan201
+        - Vlan204
+        - Vlan205
+        - Vlan211
+        - Vlan212
+        - Vlan213
+        - Vlan214
+        - Vlan230
+        - Vlan250
+        - Vlan300
+        - Vlan303
+        - Vlan304
+        - Vlan305
+        - Vlan310
+        - Vlan311
+        - Vlan312
+        - Vlan313
+        - Vlan315
+        - Vlan317
+        - Vlan398
+        - Vlan399
+        - Vlan400
+        - Vlan401
+        - Vlan412
+        - Vlan500
+        - Vlan501
+        - Vlan502
+        - Vlan503
+        - Vlan504
+        - Vlan505
+        - Vlan506
+        - Vlan507
+        - Vlan508
+        - Vlan509
+        - Vlan510
+        - Vlan511
+        - Vlan512
+        - Vlan513
+        - Vlan514
+        - Vlan515
+        - Vlan516
+        - Vlan517
+        - Vlan518
+        - Vlan519
+        - Vlan521
+        - Vlan801
+        - Vlan802
+        - Vlan803
+        - Vlan804
+        - Vlan805
+        - Vlan806
+        - Vlan807
+        - Vlan808
+        - Vlan809
+        - FastEthernet1
+        - GigabitEthernet1/1
+        - GigabitEthernet1/2
+        - GigabitEthernet1/3
+        - GigabitEthernet1/4
+        - GigabitEthernet1/5
+        - GigabitEthernet1/6
+        - GigabitEthernet2/1
+        - GigabitEthernet2/2
+        - GigabitEthernet2/3
+        - GigabitEthernet2/4
+        - GigabitEthernet2/5
+        - GigabitEthernet2/6
+        - GigabitEthernet3/1
+        - GigabitEthernet3/2
+        - GigabitEthernet4/1
+        - GigabitEthernet4/2
+        - GigabitEthernet5/1
+        - GigabitEthernet5/2
+        - GigabitEthernet5/3
+        - GigabitEthernet5/4
+        - GigabitEthernet5/5
+        - GigabitEthernet5/6
+        - GigabitEthernet5/7
+        - GigabitEthernet5/8
+        - GigabitEthernet5/9
+        - GigabitEthernet5/10
+        - GigabitEthernet5/11
+        - GigabitEthernet5/12
+        - GigabitEthernet5/13
+        - GigabitEthernet5/14
+        - GigabitEthernet5/15
+        - GigabitEthernet5/16
+        - GigabitEthernet5/17
+        - GigabitEthernet5/18
+        - GigabitEthernet5/19
+        - GigabitEthernet5/20
+        - GigabitEthernet5/21
+        - GigabitEthernet5/22
+        - GigabitEthernet5/23
+        - GigabitEthernet5/24
+        - GigabitEthernet5/25
+        - GigabitEthernet5/26
+        - GigabitEthernet5/27
+        - GigabitEthernet5/28
+        - GigabitEthernet5/29
+        - GigabitEthernet5/30
+        - GigabitEthernet5/31
+        - GigabitEthernet5/32
+        - GigabitEthernet5/33
+        - GigabitEthernet5/34
+        - GigabitEthernet5/35
+        - GigabitEthernet5/36
+        - GigabitEthernet5/37
+        - GigabitEthernet5/38
+        - GigabitEthernet5/39
+        - GigabitEthernet5/40
+        - GigabitEthernet5/41
+        - GigabitEthernet5/42
+        - GigabitEthernet5/43
+        - GigabitEthernet5/44
+        - GigabitEthernet5/45
+        - GigabitEthernet5/46
+        - GigabitEthernet5/47
+        - GigabitEthernet5/48
+        - Port-channel1
+        model: WS-C4507R-E
+        os_version: Catalyst 4500 L3 Switch Software (cat4500-ENTSERVICESK9-M), Version
+            12.2(54)SG, RELEASE SOFTWARE (fc3)
+        serial_number: FOX1240GGTQ
+        uptime: 80009100
+        vendor: Cisco
+    napalm_fqdn: CUCALDA_N1_SWCore.CUCA-BGI.local
+    napalm_hostname: CUCALDA_N1_SWCore
+    napalm_interface_list:
+    - Vlan1
+    - Vlan2
+    - Vlan3
+    - Vlan4
+    - Vlan5
+    - Vlan6
+    - Vlan7
+    - Vlan9
+    - Vlan10
+    - Vlan11
+    - Vlan12
+    - Vlan13
+    - Vlan14
+    - Vlan15
+    - Vlan16
+    - Vlan17
+    - Vlan18
+    - Vlan19
+    - Vlan20
+    - Vlan21
+    - Vlan22
+    - Vlan23
+    - Vlan24
+    - Vlan25
+    - Vlan26
+    - Vlan27
+    - Vlan29
+    - Vlan30
+    - Vlan31
+    - Vlan32
+    - Vlan33
+    - Vlan34
+    - Vlan35
+    - Vlan36
+    - Vlan40
+    - Vlan41
+    - Vlan44
+    - Vlan45
+    - Vlan50
+    - Vlan51
+    - Vlan54
+    - Vlan55
+    - Vlan56
+    - Vlan57
+    - Vlan58
+    - Vlan59
+    - Vlan60
+    - Vlan61
+    - Vlan62
+    - Vlan63
+    - Vlan70
+    - Vlan80
+    - Vlan81
+    - Vlan98
+    - Vlan99
+    - Vlan100
+    - Vlan101
+    - Vlan102
+    - Vlan103
+    - Vlan104
+    - Vlan105
+    - Vlan106
+    - Vlan107
+    - Vlan108
+    - Vlan109
+    - Vlan110
+    - Vlan111
+    - Vlan112
+    - Vlan113
+    - Vlan115
+    - Vlan116
+    - Vlan120
+    - Vlan130
+    - Vlan131
+    - Vlan150
+    - Vlan160
+    - Vlan199
+    - Vlan200
+    - Vlan201
+    - Vlan204
+    - Vlan205
+    - Vlan211
+    - Vlan212
+    - Vlan213
+    - Vlan214
+    - Vlan230
+    - Vlan250
+    - Vlan300
+    - Vlan303
+    - Vlan304
+    - Vlan305
+    - Vlan310
+    - Vlan311
+    - Vlan312
+    - Vlan313
+    - Vlan315
+    - Vlan317
+    - Vlan398
+    - Vlan399
+    - Vlan400
+    - Vlan401
+    - Vlan412
+    - Vlan500
+    - Vlan501
+    - Vlan502
+    - Vlan503
+    - Vlan504
+    - Vlan505
+    - Vlan506
+    - Vlan507
+    - Vlan508
+    - Vlan509
+    - Vlan510
+    - Vlan511
+    - Vlan512
+    - Vlan513
+    - Vlan514
+    - Vlan515
+    - Vlan516
+    - Vlan517
+    - Vlan518
+    - Vlan519
+    - Vlan521
+    - Vlan801
+    - Vlan802
+    - Vlan803
+    - Vlan804
+    - Vlan805
+    - Vlan806
+    - Vlan807
+    - Vlan808
+    - Vlan809
+    - FastEthernet1
+    - GigabitEthernet1/1
+    - GigabitEthernet1/2
+    - GigabitEthernet1/3
+    - GigabitEthernet1/4
+    - GigabitEthernet1/5
+    - GigabitEthernet1/6
+    - GigabitEthernet2/1
+    - GigabitEthernet2/2
+    - GigabitEthernet2/3
+    - GigabitEthernet2/4
+    - GigabitEthernet2/5
+    - GigabitEthernet2/6
+    - GigabitEthernet3/1
+    - GigabitEthernet3/2
+    - GigabitEthernet4/1
+    - GigabitEthernet4/2
+    - GigabitEthernet5/1
+    - GigabitEthernet5/2
+    - GigabitEthernet5/3
+    - GigabitEthernet5/4
+    - GigabitEthernet5/5
+    - GigabitEthernet5/6
+    - GigabitEthernet5/7
+    - GigabitEthernet5/8
+    - GigabitEthernet5/9
+    - GigabitEthernet5/10
+    - GigabitEthernet5/11
+    - GigabitEthernet5/12
+    - GigabitEthernet5/13
+    - GigabitEthernet5/14
+    - GigabitEthernet5/15
+    - GigabitEthernet5/16
+    - GigabitEthernet5/17
+    - GigabitEthernet5/18
+    - GigabitEthernet5/19
+    - GigabitEthernet5/20
+    - GigabitEthernet5/21
+    - GigabitEthernet5/22
+    - GigabitEthernet5/23
+    - GigabitEthernet5/24
+    - GigabitEthernet5/25
+    - GigabitEthernet5/26
+    - GigabitEthernet5/27
+    - GigabitEthernet5/28
+    - GigabitEthernet5/29
+    - GigabitEthernet5/30
+    - GigabitEthernet5/31
+    - GigabitEthernet5/32
+    - GigabitEthernet5/33
+    - GigabitEthernet5/34
+    - GigabitEthernet5/35
+    - GigabitEthernet5/36
+    - GigabitEthernet5/37
+    - GigabitEthernet5/38
+    - GigabitEthernet5/39
+    - GigabitEthernet5/40
+    - GigabitEthernet5/41
+    - GigabitEthernet5/42
+    - GigabitEthernet5/43
+    - GigabitEthernet5/44
+    - GigabitEthernet5/45
+    - GigabitEthernet5/46
+    - GigabitEthernet5/47
+    - GigabitEthernet5/48
+    - Port-channel1
+    napalm_interfaces:
+        FastEthernet1:
+            description: ''
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:1D:A2:5C:BE:AC
+            speed: 100
+        GigabitEthernet1/1:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:1B:54:81:A4:F2
+            speed: 1000
+        GigabitEthernet1/2:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:1B:54:81:A4:F3
+            speed: 1000
+        GigabitEthernet1/3:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:1B:54:81:A4:F4
+            speed: 1000
+        GigabitEthernet1/4:
+            description: Ligado sw-laboratorio
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:1B:54:81:A4:F5
+            speed: 1000
+        GigabitEthernet1/5:
+            description: Ligado a sw-comercial
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:1B:54:81:A4:F6
+            speed: 1000
+        GigabitEthernet1/6:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:1B:54:81:A4:F7
+            speed: 1000
+        GigabitEthernet2/1:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:1E:7A:D1:45:5C
+            speed: 1000
+        GigabitEthernet2/2:
+            description: SW_CCTV
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:1E:7A:D1:45:5D
+            speed: 1000
+        GigabitEthernet2/3:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:1E:7A:D1:45:5E
+            speed: 1000
+        GigabitEthernet2/4:
+            description: '**** SW-INFORMATICA ****'
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:1E:7A:D1:45:5F
+            speed: 1000
+        GigabitEthernet2/5:
+            description: Ligado a sw-dirgeral
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:1E:7A:D1:45:60
+            speed: 1000
+        GigabitEthernet2/6:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:1E:7A:D1:45:61
+            speed: 1000
+        GigabitEthernet3/1:
+            description: ''
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:00
+            speed: 1000
+        GigabitEthernet3/2:
+            description: ''
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:01
+            speed: 1000
+        GigabitEthernet4/1:
+            description: ''
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:02
+            speed: 1000
+        GigabitEthernet4/2:
+            description: ''
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:03
+            speed: 1000
+        GigabitEthernet5/1:
+            description: Liagdo Router01
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:14:B5:E6:E0
+            speed: 1000
+        GigabitEthernet5/10:
+            description: CONECTED TO ILO SERVER
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:14:B5:E6:E9
+            speed: 1000
+        GigabitEthernet5/11:
+            description: Ligado VMWARE_HOST3
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:14:B5:E6:EA
+            speed: 1000
+        GigabitEthernet5/12:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:14:B5:E6:EB
+            speed: 10
+        GigabitEthernet5/13:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:14:B5:E6:EC
+            speed: 1000
+        GigabitEthernet5/14:
+            description: conected router-internet
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:14:B5:E6:ED
+            speed: 1000
+        GigabitEthernet5/15:
+            description: 'connected TVCABO '
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:14:B5:E6:EE
+            speed: 1000
+        GigabitEthernet5/16:
+            description: CONECTED VMWARE HOST 3
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:14:B5:E6:EF
+            speed: 1000
+        GigabitEthernet5/17:
+            description: '*** CONNECTED TO ASA ETH1 ***'
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:14:B5:E6:F0
+            speed: 1000
+        GigabitEthernet5/18:
+            description: CONEC-VPRX04
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:14:B5:E6:F1
+            speed: 100
+        GigabitEthernet5/19:
+            description: CONEC-VPRX04
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:24:14:B5:E6:F2
+            speed: 1000
+        GigabitEthernet5/2:
+            description: 'connected NETAPP2040 '
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:14:B5:E6:E1
+            speed: 1000
+        GigabitEthernet5/20:
+            description: CONECTED TO VMWARE HOST 3
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:14:B5:E6:F3
+            speed: 1000
+        GigabitEthernet5/21:
+            description: Ligado VMWARE_HOST1_MANAG
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:14:B5:E6:F4
+            speed: 1000
+        GigabitEthernet5/22:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:14:B5:E6:F5
+            speed: 1000
+        GigabitEthernet5/23:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:14:B5:E6:F6
+            speed: 1000
+        GigabitEthernet5/24:
+            description: '**** MANAGEMENT_STR_LAB01 ****'
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:14:B5:E6:F7
+            speed: 1000
+        GigabitEthernet5/25:
+            description: ''
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:24:14:B5:E6:F8
+            speed: 1000
+        GigabitEthernet5/26:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:14:B5:E6:F9
+            speed: 1000
+        GigabitEthernet5/27:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:14:B5:E6:FA
+            speed: 1000
+        GigabitEthernet5/28:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:14:B5:E6:FB
+            speed: 1000
+        GigabitEthernet5/29:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:14:B5:E6:FC
+            speed: 1000
+        GigabitEthernet5/3:
+            description: ligado svr-itdata
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:24:14:B5:E6:E2
+            speed: 1000
+        GigabitEthernet5/30:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:14:B5:E6:FD
+            speed: 100
+        GigabitEthernet5/31:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:14:B5:E6:FE
+            speed: 100
+        GigabitEthernet5/32:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:14:B5:E6:FF
+            speed: 100
+        GigabitEthernet5/33:
+            description: '**** RBT-D2D01 ****'
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:14:B5:E7:00
+            speed: 1000
+        GigabitEthernet5/34:
+            description: CONECTED NETAPP01
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:14:B5:E7:01
+            speed: 1000
+        GigabitEthernet5/35:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:14:B5:E7:02
+            speed: 1000
+        GigabitEthernet5/36:
+            description: ''
+            is_enabled: false
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:24:14:B5:E7:03
+            speed: 1000
+        GigabitEthernet5/37:
+            description: CONECTED TO NEW STORAGE
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:14:B5:E7:04
+            speed: 1000
+        GigabitEthernet5/38:
+            description: CORE_to_ASA-WAN
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:14:B5:E7:05
+            speed: 1000
+        GigabitEthernet5/39:
+            description: Outside_GWVoz_Tsolnet
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:14:B5:E7:06
+            speed: 1000
+        GigabitEthernet5/4:
+            description: Ligado Outside Concentrador VPN
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:14:B5:E6:E3
+            speed: 1000
+        GigabitEthernet5/40:
+            description: '**** CONNECTED TO SW-SRVROOM ****'
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:14:B5:E7:07
+            speed: 1000
+        GigabitEthernet5/41:
+            description: '**** CONNECTED TO SW-SRVROOM ****'
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:14:B5:E7:08
+            speed: 1000
+        GigabitEthernet5/42:
+            description: '**** STORAGE_NETWORK ****'
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:14:B5:E7:09
+            speed: 1000
+        GigabitEthernet5/43:
+            description: ''
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:24:14:B5:E7:0A
+            speed: 1000
+        GigabitEthernet5/44:
+            description: DMZ_ASA_NEW_F0/3
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:14:B5:E7:0B
+            speed: 100
+        GigabitEthernet5/45:
+            description: DMZ_ASA_F0/2
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:14:B5:E7:0C
+            speed: 100
+        GigabitEthernet5/46:
+            description: CALL Managers e gw voz
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:14:B5:E7:0D
+            speed: 100
+        GigabitEthernet5/47:
+            description: CALL Managers e gw voz
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:14:B5:E7:0E
+            speed: 100
+        GigabitEthernet5/48:
+            description: CALL Managers e gw voz
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:14:B5:E7:0F
+            speed: 100
+        GigabitEthernet5/5:
+            description: '*** NERA VICTORIA ***'
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:24:14:B5:E6:E4
+            speed: 1000
+        GigabitEthernet5/6:
+            description: Mikrotik --> Router1811(SNET)
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:14:B5:E6:E5
+            speed: 100
+        GigabitEthernet5/7:
+            description: Router1811 --> Snet BackBone
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:14:B5:E6:E6
+            speed: 100
+        GigabitEthernet5/8:
+            description: MODEM ITA (TRUNK)
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:14:B5:E6:E7
+            speed: 100
+        GigabitEthernet5/9:
+            description: TRUNK ROUTER BORDER (IF OUTSIDE ISP)
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:14:B5:E6:E8
+            speed: 100
+        Port-channel1:
+            description: ''
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:00:00:00:00:00
+            speed: 100
+        Vlan1:
+            description: ''
+            is_enabled: false
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan10:
+            description: '**** VLAN_SERVERS ****'
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan100:
+            description: '***VLAN_USERS***'
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan101:
+            description: '**** VLAN_WIRELESS_NETWORK ****'
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan102:
+            description: '**** VLAN_SUITS ****'
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan103:
+            description: '**** VLAN_VISITORS ****'
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan104:
+            description: '**** VLAN_IT_DPT ****'
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan105:
+            description: DIRECAO COMERCIAL BEER
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan106:
+            description: '**** VLAN_FINANCIAL_DIR ****'
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan107:
+            description: '**** VLAN_TECHNICAL_DIR ****'
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan108:
+            description: '**** VLAN_PROVISION_DIR ****'
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan109:
+            description: '**** VLAN_CENTRAL_DIR ****'
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan11:
+            description: VLAN_BACKUP
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan110:
+            description: VLAN_HUMAN_RESOURCES
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan111:
+            description: '**** VLAN_GENERAL_DIR ****'
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan112:
+            description: '**** VLAN_SECURITY_DIR ****'
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan113:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan115:
+            description: 'VLAN-BIH-WIRELESS '
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan116:
+            description: VLAN-VDI
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan12:
+            description: '*** VLAN_DOMAIN_DC ***'
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan120:
+            description: VLAN-INTERNET-ACESS
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan13:
+            description: '*** VLAN_EXCHANGE ***'
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan130:
+            description: VLAN_SNET
+            is_enabled: false
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan131:
+            description: Link Snet
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan14:
+            description: '*** VLAN_PROXY  ***'
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan15:
+            description: VLAN_DATA_BASE
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan150:
+            description: VLAN_NSX
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan16:
+            description: '*** VLAN_PRINTER ***'
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan160:
+            description: VLAN-VIRTUA-TO-FISICAL
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan17:
+            description: VLAN-FILESHARE
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan18:
+            description: VLAN-BUSSINESS-APLIJCATION
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan19:
+            description: 'VLAN-TV CABO '
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan199:
+            description: VLAN-STAGING
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan2:
+            description: VLAN_ADM
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan20:
+            description: '**** VLAN_TURNSTILES ****'
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan200:
+            description: VLAN_DESENVOL_TEST
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan201:
+            description: '**** PRE_IMPLEMENT ****'
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan204:
+            description: '***server for SUDMO ***'
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan205:
+            description: '***VLAN-HOTSPOT***'
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan21:
+            description: '**** VLAN_ISP_AT'
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan211:
+            description: '***** MANUFACTURE_ENERGY_NETWORK *****'
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan212:
+            description: '***** MANUFACTURE_GRIND_NETWORK *****'
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan213:
+            description: '***** MANUFACTURE_PRODUCTION_NETWORK *****'
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan214:
+            description: '*** VLAN_INDUSTRY_NETWORK ***'
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan22:
+            description: '**** VLAN_ISP_SDN'
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan23:
+            description: VLAN_ISP_TSOLNET
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan230:
+            description: VLAN_INDUSTRY_NETWORK
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan24:
+            description: VLAN_ISP_ITA
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan25:
+            description: '*** VLAN_ISP_TVCABO ***'
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan250:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan26:
+            description: '*** VLAN_APT_RT ***'
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan27:
+            description: '*** VLAN_EXCH_EDGE ***'
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan29:
+            description: VLAN_BACKUP_SRV
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan3:
+            description: VLAN_IPT
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan30:
+            description: VLAN_PRINTERS
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan300:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan303:
+            description: VLAN-LAB-VOIP
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan304:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan305:
+            description: VLAN-LAB-VMWARE
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan31:
+            description: INterconnect-Private-Network
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan310:
+            description: VLAN-LAB-SERVERS
+            is_enabled: false
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan311:
+            description: VLAN-LAB-BACKUP
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan312:
+            description: VLAN-LAB-DC
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan313:
+            description: VLAN-EXCHANGE-LAB
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan315:
+            description: VLAN-LAB-DATABASE
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan317:
+            description: VLAN-LAB-SHARE
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan32:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan33:
+            description: VLAN_INTERLINK_ISP
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan34:
+            description: Interconnect-to-NERA
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan35:
+            description: LINK-to-RT-BORDER
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan36:
+            description: INTER_VICTORIA
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan398:
+            description: VLAN-LAB-SERVER-MANAGER
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan399:
+            description: VLAN-LAB-DVC-NETWORK
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan4:
+            description: '**** VLAN_STORAGE ****'
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan40:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan400:
+            description: ''
+            is_enabled: false
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan401:
+            description: VLA-VOICE-UC320W
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan41:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan412:
+            description: VLAN-TEST-DC
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan44:
+            description: ''
+            is_enabled: false
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan45:
+            description: VLAN DAG
+            is_enabled: false
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan5:
+            description: VLAN_CCTV
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan50:
+            description: VLAN_MANAGEMENT
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan500:
+            description: ''
+            is_enabled: false
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan501:
+            description: VLAN-NETWORK-MANAGEMENT
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan502:
+            description: VLAN-VMWARE-MANAGEMENT
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan503:
+            description: VLAN-STORAGE/ISCSI
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan504:
+            description: VLAN-VMOTION
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan505:
+            description: VLAN-FAULT-TOLERANCE
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan506:
+            description: VLAN-VXLAN
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan507:
+            description: VLAN-BACKUP/RESTORE
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan508:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan509:
+            description: VLAN-CORPORATE-EUD
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan51:
+            description: VLAN-SERVER-MANAGER
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan510:
+            description: VLAN-VOIP-EUD
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan511:
+            description: VLAN-GUEST-EUD
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan512:
+            description: VLAN-W-CORPORATE
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan513:
+            description: VLAN-W-VOIP
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan514:
+            description: VLAN-W-GUEST
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan515:
+            description: VLAN-CCTV
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan516:
+            description: VLAN-BIOMETRIC
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan517:
+            description: VLAN-COMPLEX-RESIDENCIAL
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan518:
+            description: VLAN-SUDMO
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan519:
+            description: VLAN-INT-VIRTUAL-FISICAL
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan521:
+            description: VLAN-ILO
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan54:
+            description: '**** VLAN_PFSENSE ****'
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan55:
+            description: VLAN_DMZ
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan56:
+            description: Isa --> Router
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan57:
+            description: Isa --> DMZ
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan58:
+            description: Asa--->Router
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan59:
+            description: Isa--->Asa
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan6:
+            description: '*** VLAN_VMOTION_FT ***'
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan60:
+            description: VLAN_CCTV_SECURE
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan61:
+            description: VLAN_ACESS_CONTROLER
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan62:
+            description: VLAN_MANAGEMENT_CCTV
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan63:
+            description: VLAN-MANAGEMENT-NETWORK
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan7:
+            description: VMWARE-SERVICE
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan70:
+            description: VLAN_WGUEST
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan80:
+            description: VLAN_PROV_1
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan801:
+            description: VLAN_MANAGEMT_SWITCHS
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan802:
+            description: VLAN_ILO_NEW
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan803:
+            description: VLAN_VMWARE_NEW
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan804:
+            description: VLAN_STORAGE
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan805:
+            description: VLAN_V_MOTION
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan806:
+            description: VLAN_FAULT_TOLERANCE
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan807:
+            description: VLAN_VXLAN
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan808:
+            description: VLAN_LINK_VIRTUAL_TO FISIC
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan809:
+            description: VLAN_VCENTER_HA
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan81:
+            description: VLAN_PROV_22
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan9:
+            description: VLAN_FAUL_TOLARENCE
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan98:
+            description: '**** VLAN_SERVER_MANG  ****'
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+        Vlan99:
+            description: VLAN-NETWORK-MANG
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:24:97:5E:96:3F
+            speed: 1000
+    napalm_interfaces_ip:
+        Vlan10:
+            ipv4:
+                10.10.10.254:
+                    prefix_length: 24
+        Vlan100:
+            ipv4:
+                10.10.100.254:
+                    prefix_length: 24
+        Vlan101:
+            ipv4:
+                10.10.101.254:
+                    prefix_length: 24
+        Vlan102:
+            ipv4:
+                10.10.102.252:
+                    prefix_length: 24
+        Vlan103:
+            ipv4:
+                10.10.103.252:
+                    prefix_length: 24
+        Vlan104:
+            ipv4:
+                10.10.104.254:
+                    prefix_length: 24
+        Vlan105:
+            ipv4:
+                10.10.105.254:
+                    prefix_length: 24
+        Vlan106:
+            ipv4:
+                10.10.106.254:
+                    prefix_length: 24
+        Vlan107:
+            ipv4:
+                10.10.107.254:
+                    prefix_length: 24
+        Vlan108:
+            ipv4:
+                10.10.108.254:
+                    prefix_length: 24
+        Vlan109:
+            ipv4:
+                10.10.109.62:
+                    prefix_length: 26
+        Vlan11:
+            ipv4:
+                10.10.11.14:
+                    prefix_length: 28
+        Vlan110:
+            ipv4:
+                10.10.110.254:
+                    prefix_length: 24
+        Vlan111:
+            ipv4:
+                10.10.111.14:
+                    prefix_length: 28
+        Vlan112:
+            ipv4:
+                10.10.112.62:
+                    prefix_length: 26
+        Vlan113:
+            ipv4:
+                10.10.113.254:
+                    prefix_length: 24
+        Vlan115:
+            ipv4:
+                10.10.115.254:
+                    prefix_length: 24
+        Vlan116:
+            ipv4:
+                10.10.119.254:
+                    prefix_length: 22
+        Vlan12:
+            ipv4:
+                10.10.12.30:
+                    prefix_length: 27
+        Vlan120:
+            ipv4:
+                10.10.123.254:
+                    prefix_length: 22
+        Vlan13:
+            ipv4:
+                10.10.13.30:
+                    prefix_length: 27
+        Vlan14:
+            ipv4:
+                10.10.14.14:
+                    prefix_length: 28
+        Vlan15:
+            ipv4:
+                10.10.15.14:
+                    prefix_length: 28
+        Vlan150:
+            ipv4:
+                10.10.150.254:
+                    prefix_length: 24
+        Vlan16:
+            ipv4:
+                10.10.16.254:
+                    prefix_length: 24
+        Vlan160:
+            ipv4:
+                172.16.160.254:
+                    prefix_length: 24
+        Vlan17:
+            ipv4:
+                10.10.17.6:
+                    prefix_length: 29
+        Vlan18:
+            ipv4:
+                10.10.18.30:
+                    prefix_length: 27
+        Vlan19:
+            ipv4:
+                10.10.19.30:
+                    prefix_length: 27
+        Vlan199:
+            ipv4:
+                10.10.199.254:
+                    prefix_length: 24
+        Vlan2:
+            ipv4:
+                10.10.1.254:
+                    prefix_length: 23
+        Vlan20:
+            ipv4:
+                10.10.20.254:
+                    prefix_length: 24
+        Vlan200:
+            ipv4:
+                10.10.200.254:
+                    prefix_length: 24
+        Vlan201:
+            ipv4:
+                10.10.201.254:
+                    prefix_length: 24
+        Vlan204:
+            ipv4:
+                10.11.4.254:
+                    prefix_length: 24
+        Vlan205:
+            ipv4:
+                10.10.205.254:
+                    prefix_length: 24
+        Vlan211:
+            ipv4:
+                10.11.1.254:
+                    prefix_length: 24
+        Vlan212:
+            ipv4:
+                10.11.2.254:
+                    prefix_length: 24
+        Vlan213:
+            ipv4:
+                10.11.3.254:
+                    prefix_length: 24
+        Vlan250:
+            ipv4:
+                10.10.250.14:
+                    prefix_length: 28
+        Vlan29:
+            ipv4:
+                10.10.29.14:
+                    prefix_length: 28
+        Vlan3:
+            ipv4:
+                10.10.3.254:
+                    prefix_length: 23
+        Vlan30:
+            ipv4:
+                10.10.30.254:
+                    prefix_length: 24
+        Vlan300:
+            ipv4:
+                192.168.1.254:
+                    prefix_length: 24
+        Vlan303:
+            ipv4:
+                10.12.3.62:
+                    prefix_length: 26
+        Vlan304:
+            ipv4:
+                10.12.4.14:
+                    prefix_length: 28
+        Vlan305:
+            ipv4:
+                10.12.5.6:
+                    prefix_length: 29
+        Vlan310:
+            ipv4:
+                10.12.10.62:
+                    prefix_length: 26
+        Vlan311:
+            ipv4:
+                10.12.11.6:
+                    prefix_length: 29
+        Vlan312:
+            ipv4:
+                10.12.12.6:
+                    prefix_length: 29
+        Vlan313:
+            ipv4:
+                10.12.13.6:
+                    prefix_length: 29
+        Vlan315:
+            ipv4:
+                10.12.15.14:
+                    prefix_length: 28
+        Vlan317:
+            ipv4:
+                10.12.17.6:
+                    prefix_length: 29
+        Vlan32:
+            ipv4:
+                10.10.32.1:
+                    prefix_length: 28
+        Vlan34:
+            ipv4:
+                10.10.34.1:
+                    prefix_length: 30
+        Vlan35:
+            ipv4:
+                172.10.35.1:
+                    prefix_length: 29
+        Vlan398:
+            ipv4:
+                10.12.98.14:
+                    prefix_length: 28
+        Vlan399:
+            ipv4:
+                10.20.99.254:
+                    prefix_length: 24
+        Vlan4:
+            ipv4:
+                10.10.4.14:
+                    prefix_length: 28
+        Vlan40:
+            ipv4:
+                172.16.40.6:
+                    prefix_length: 29
+        Vlan401:
+            ipv4:
+                10.1.1.1:
+                    prefix_length: 24
+        Vlan412:
+            ipv4:
+                10.13.12.2:
+                    prefix_length: 30
+        Vlan5:
+            ipv4:
+                10.10.5.254:
+                    prefix_length: 24
+        Vlan50:
+            ipv4:
+                10.10.50.254:
+                    prefix_length: 24
+        Vlan500:
+            ipv4:
+                10.110.0.254:
+                    prefix_length: 24
+        Vlan501:
+            ipv4:
+                10.104.64.254:
+                    prefix_length: 24
+        Vlan502:
+            ipv4:
+                10.104.65.254:
+                    prefix_length: 24
+        Vlan503:
+            ipv4:
+                10.104.66.30:
+                    prefix_length: 27
+        Vlan504:
+            ipv4:
+                10.104.66.46:
+                    prefix_length: 28
+        Vlan505:
+            ipv4:
+                10.104.66.62:
+                    prefix_length: 28
+        Vlan506:
+            ipv4:
+                10.104.66.78:
+                    prefix_length: 28
+        Vlan507:
+            ipv4:
+                10.104.66.110:
+                    prefix_length: 27
+        Vlan508:
+            ipv4:
+                10.104.96.254:
+                    prefix_length: 24
+        Vlan509:
+            ipv4:
+                10.104.100.254:
+                    prefix_length: 23
+        Vlan51:
+            ipv4:
+                10.10.51.254:
+                    prefix_length: 24
+        Vlan510:
+            ipv4:
+                10.104.102.254:
+                    prefix_length: 23
+        Vlan511:
+            ipv4:
+                10.104.104.254:
+                    prefix_length: 25
+        Vlan512:
+            ipv4:
+                10.104.110.62:
+                    prefix_length: 26
+        Vlan513:
+            ipv4:
+                10.104.110.126:
+                    prefix_length: 26
+        Vlan515:
+            ipv4:
+                10.104.112.254:
+                    prefix_length: 24
+        Vlan516:
+            ipv4:
+                10.104.113.254:
+                    prefix_length: 24
+        Vlan517:
+            ipv4:
+                10.104.114.254:
+                    prefix_length: 24
+        Vlan518:
+            ipv4:
+                10.104.115.254:
+                    prefix_length: 24
+        Vlan519:
+            ipv4:
+                172.16.170.6:
+                    prefix_length: 29
+        Vlan521:
+            ipv4:
+                10.104.67.254:
+                    prefix_length: 24
+        Vlan59:
+            ipv4:
+                172.16.59.4:
+                    prefix_length: 28
+        Vlan6:
+            ipv4:
+                10.10.6.254:
+                    prefix_length: 24
+        Vlan60:
+            ipv4:
+                10.10.60.254:
+                    prefix_length: 24
+        Vlan61:
+            ipv4:
+                10.10.61.254:
+                    prefix_length: 24
+        Vlan63:
+            ipv4:
+                10.104.76.254:
+                    prefix_length: 24
+        Vlan7:
+            ipv4:
+                10.10.7.14:
+                    prefix_length: 28
+        Vlan80:
+            ipv4:
+                10.104.80.30:
+                    prefix_length: 27
+        Vlan801:
+            ipv4:
+                10.104.0.254:
+                    prefix_length: 24
+        Vlan802:
+            ipv4:
+                10.104.1.254:
+                    prefix_length: 24
+        Vlan803:
+            ipv4:
+                10.104.2.254:
+                    prefix_length: 24
+        Vlan804:
+            ipv4:
+                10.104.3.30:
+                    prefix_length: 27
+        Vlan805:
+            ipv4:
+                10.104.3.62:
+                    prefix_length: 27
+        Vlan806:
+            ipv4:
+                10.104.3.94:
+                    prefix_length: 27
+        Vlan807:
+            ipv4:
+                10.104.3.126:
+                    prefix_length: 27
+        Vlan808:
+            ipv4:
+                172.16.10.10:
+                    prefix_length: 30
+        Vlan809:
+            ipv4:
+                10.104.3.129:
+                    prefix_length: 29
+        Vlan81:
+            ipv4:
+                10.104.80.60:
+                    prefix_length: 27
+        Vlan9:
+            ipv4:
+                10.10.9.30:
+                    prefix_length: 27
+        Vlan98:
+            ipv4:
+                10.10.98.254:
+                    prefix_length: 24
+        Vlan99:
+            ipv4:
+                10.10.99.254:
+                    prefix_length: 24
+    napalm_model: WS-C4507R-E
+    napalm_os_version: Catalyst 4500 L3 Switch Software (cat4500-ENTSERVICESK9-M),
+        Version 12.2(54)SG, RELEASE SOFTWARE (fc3)
+    napalm_serial_number: FOX1240GGTQ
+    napalm_uptime: 80009100
+    napalm_vendor: Cisco
+changed: false
+failed: false

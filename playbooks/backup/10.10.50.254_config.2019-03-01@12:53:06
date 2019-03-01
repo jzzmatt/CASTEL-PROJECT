@@ -1,0 +1,1651 @@
+Building configuration...
+
+Current configuration : 44361 bytes
+!
+! Last configuration change at 14:42:46 UTC Fri Feb 22 2019 by odorico.domingos
+! NVRAM config last updated at 14:13:46 UTC Fri Feb 1 2019 by Edson.Francisco
+!
+version 12.2
+configuration mode exclusive auto expire 600
+no service pad
+service timestamps debug uptime
+service timestamps log datetime
+service password-encryption
+service compress-config
+service sequence-numbers
+!
+hostname CUCALDA_N1_SWCore
+!
+boot-start-marker
+boot system flash bootflash:cat4500-entservicesk9-mz.122-54.SG.bin
+boot-end-marker
+!
+enable secret 5 $1$H3kL$x579LoWka6mRafiGyhcMW1
+!
+username root privilege 15 secret 5 $1$u8zz$pBHFzxFRhuzkmHQK.MY1J0
+!
+!
+aaa new-model
+!
+!
+aaa authentication login ciscoadmins group radius local
+aaa authorization exec ciscoadmins group radius if-authenticated local 
+!
+!
+!
+aaa session-id common
+clock timezone UTC 1
+ip subnet-zero
+no ip domain-lookup
+ip domain-name CUCA-BGI.local
+ip host CISCO-LWAPP-CONTROLLER.cuca-bgi.local 10.10.50.51
+ip name-server 10.10.12.10
+ip vrf mgmtVrf
+!
+ip dhcp smart-relay
+ip dhcp excluded-address 10.10.3.254
+ip dhcp excluded-address 10.10.200.245 10.10.200.254
+ip dhcp excluded-address 10.10.50.1 10.10.50.100
+ip dhcp excluded-address 10.10.50.200 10.10.50.254
+ip dhcp excluded-address 10.10.112.62
+ip dhcp excluded-address 10.10.112.1 10.10.112.5
+ip dhcp excluded-address 10.10.101.1 10.10.101.20
+ip dhcp excluded-address 10.10.106.1 10.10.106.20
+ip dhcp excluded-address 10.10.108.1 10.10.108.20
+ip dhcp excluded-address 10.10.107.1 10.10.107.20
+ip dhcp excluded-address 10.10.101.250 10.10.101.254
+ip dhcp excluded-address 10.10.106.250 10.10.106.254
+ip dhcp excluded-address 10.10.108.250 10.10.108.254
+ip dhcp excluded-address 10.10.107.250 10.10.107.254
+ip dhcp excluded-address 10.10.104.1 10.10.104.5
+ip dhcp excluded-address 10.10.104.62
+ip dhcp excluded-address 10.10.105.1 10.10.105.5
+ip dhcp excluded-address 10.10.105.30
+ip dhcp excluded-address 10.10.110.250 10.10.110.254
+ip dhcp excluded-address 10.10.113.1 10.10.113.20
+ip dhcp excluded-address 10.10.113.250 10.10.113.254
+ip dhcp excluded-address 10.10.111.14
+ip dhcp excluded-address 10.10.111.1 10.10.111.5
+ip dhcp excluded-address 10.10.200.1 10.10.200.150
+ip dhcp excluded-address 10.10.201.1 10.10.201.100
+ip dhcp excluded-address 10.10.201.249 10.10.201.254
+ip dhcp excluded-address 10.10.200.249 10.10.200.254
+ip dhcp excluded-address 10.10.109.62
+ip dhcp excluded-address 10.10.109.16
+ip dhcp excluded-address 10.10.103.250 10.10.103.254
+ip dhcp excluded-address 10.10.103.1 10.10.103.100
+ip dhcp excluded-address 10.10.114.250 10.10.114.254
+ip dhcp excluded-address 10.10.102.1 10.10.102.150
+ip dhcp excluded-address 10.10.102.250 10.10.102.254
+ip dhcp excluded-address 10.11.4.250 10.11.4.254
+ip dhcp excluded-address 10.11.4.1 10.11.4.100
+ip dhcp excluded-address 10.10.205.1 10.10.205.100
+ip dhcp excluded-address 10.10.116.1 10.10.116.9
+ip dhcp excluded-address 10.10.3.1 10.10.3.10
+ip dhcp excluded-address 10.10.70.62
+ip dhcp excluded-address 10.10.19.1 10.10.19.30
+ip dhcp excluded-address 10.10.119.254
+ip dhcp excluded-address 10.10.23.254
+ip dhcp excluded-address 10.10.115.254
+ip dhcp excluded-address 10.10.115.253
+ip dhcp excluded-address 10.1.108.5
+ip dhcp excluded-address 10.10.108.50
+ip dhcp excluded-address 10.10.110.50
+ip dhcp excluded-address 10.104.67.1 10.104.67.99
+ip dhcp excluded-address 10.104.100.254
+ip dhcp excluded-address 10.104.3.1 10.104.3.20
+ip dhcp excluded-address 10.104.3.26 10.104.3.30
+ip dhcp excluded-address 10.104.1.1 10.104.1.240
+ip dhcp excluded-address 10.104.0.1 10.104.0.240
+ip dhcp excluded-address 10.104.1.246 10.104.1.254
+ip dhcp excluded-address 10.104.0.246 10.104.0.254
+ip dhcp excluded-address 10.104.2.254
+ip dhcp excluded-address 10.104.2.1 10.104.2.150
+ip dhcp excluded-address 10.10.120.254
+!
+ip dhcp pool DENV
+   network 10.10.200.0 255.255.255.0
+   default-router 10.10.200.250 
+   domain-name LAB-CUCA.local
+   dns-server 10.10.200.2 
+!
+ip dhcp pool APN-CLIENTS-POOL
+   network 10.10.50.0 255.255.255.0
+   dns-server 10.10.50.254 
+   default-router 10.10.50.254 
+!
+ip dhcp pool PRE_IMPLEMENTATION_NETW
+   network 10.10.201.0 255.255.255.0
+   default-router 10.10.201.254 
+   lease 7
+!
+ip dhcp pool SUITS
+   network 10.10.102.0 255.255.255.0
+   default-router 10.10.102.252 
+   domain-name CUCA-BGI.local
+   dns-server 8.8.8.8 8.8.4.4 
+   lease 7
+!
+ip dhcp pool SUDMO
+   network 10.11.4.0 255.255.255.0
+   default-router 10.11.4.254 
+   domain-name CUCA-BGI.local
+   dns-server 8.8.8.8 8.8.4.4 
+   lease 7
+!
+ip dhcp pool HOTSPOT
+   network 10.10.205.0 255.255.255.0
+   dns-server 8.8.8.8 8.8.4.4 
+   default-router 10.10.205.254 
+   domain-name CUCA-BGI.local
+   lease 7
+!
+ip dhcp pool UC320W
+   network 192.168.10.0 255.255.255.0
+   domain-name cuca-bgi.local
+   default-router 192.168.10.1 
+!
+ip dhcp pool UC-VOICE
+   network 10.1.1.0 255.255.255.0
+   default-router 10.1.1.1 
+   option 150 ip 10.1.1.1 192.168.10.1 
+   domain-name cuca-bgi.local
+!
+ip dhcp pool FileShare_Formacao
+   network 10.10.19.0 255.255.255.224
+   dns-server 10.10.12.10 
+   default-router 10.10.19.30 
+   domain-name CUCA-BGI.local
+   lease 0 1
+!
+ip dhcp pool ipt
+   default-router 10.10.3.254 
+   option 150 ip 10.10.3.1 10.10.3.2 
+   option 66 ip 10.10.11.10 
+   domain-name cuca-bgi.local
+   dns-server 10.10.12.10 10.10.12.1 
+   lease 0 1
+!
+ip dhcp pool IPT
+   network 10.10.2.0 255.255.254.0
+   default-router 10.10.3.254 
+   option 150 ip 10.10.3.1 10.10.3.2 
+   option 66 ip 10.10.11.10 
+   domain-name cuca-bgi.local
+   dns-server 10.10.12.10 10.10.12.1 
+   lease 0 1
+!
+ip dhcp pool WIRELESS_GUEST
+   network 10.10.103.0 255.255.255.0
+   dns-server 8.8.8.8 8.8.4.4 
+   default-router 10.10.103.251 
+   domain-name CUCA-BGI.local
+   lease 2
+!
+ip dhcp pool ILO
+   network 10.104.67.0 255.255.255.0
+   domain-name CUCA-BGI.LOCAL
+   default-router 10.10.67.254 
+   dns-server 10.104.80.2 10.10.12.10 10.10.12.2 
+   lease 0 1
+!
+ip dhcp pool Wireless_Victoria
+   network 10.10.105.0 255.255.255.0
+   default-router 10.10.105.254 
+   option 43 hex f104.0a1e.63f5
+   dns-server 10.30.10.1 
+   lease 0 1
+!
+ip dhcp pool NEW-STORAGE
+   network 10.104.3.0 255.255.255.224
+   default-router 10.104.3.30 
+   domain-name cuca-bgi.local
+   dns-server 10.10.12.10 10.10.12.2 
+!
+ip dhcp pool MANAGE-SWITCH
+   network 10.104.0.0 255.255.255.0
+   default-router 10.104.0.254 
+   domain-name cuca-bgi.local
+   dns-server 10.10.12.10 10.10.12.2 
+   lease 0 1
+!
+ip dhcp pool ILO-NEW
+   network 10.104.1.0 255.255.255.0
+   default-router 10.104.1.254 
+   domain-name cuca-bgi.local
+   dns-server 10.10.12.10 10.10.12.2 
+   lease 0 1
+!
+ip dhcp pool VLAN-VMWARE-NEW
+   network 10.104.2.0 255.255.255.0
+   default-router 10.104.2.254 
+   domain-name cuca-bgi.local
+   dns-server 10.10.12.10 10.10.12.2 
+!
+ip dhcp pool CENTRAL_DIRECTION
+   network 10.10.109.0 255.255.255.192
+   domain-name CUCA-BGI.local
+   default-router 10.10.109.62 
+   dns-server 10.30.48.1 10.30.48.2 
+   lease 0 1
+!
+ip dhcp pool IT_DIRECTION
+   network 10.10.104.0 255.255.255.0
+   domain-name CUCA-BGI.local
+   default-router 10.10.104.254 
+   dns-server 10.30.48.1 10.30.48.2 
+   lease 0 1
+!
+ip dhcp pool VDI
+   network 10.10.116.0 255.255.252.0
+   domain-name CUCA-BGI.local
+   default-router 10.10.119.254 
+   dns-server 10.30.48.1 10.30.48.2 
+   lease 0 1
+!
+ip dhcp pool PROVISION_DIRECTION
+   network 10.10.108.0 255.255.255.0
+   domain-name CUCA-BGI.local
+   default-router 10.10.108.254 
+   dns-server 10.30.48.1 10.30.48.2 
+   lease 0 1
+!
+ip dhcp pool SECURITY_DIRECTION
+   network 10.10.112.0 255.255.255.192
+   default-router 10.10.112.62 
+   domain-name CUCA-BGI.local
+   dns-server 10.30.48.1 10.30.48.2 
+   lease 0 1
+!
+ip dhcp pool VITORIA
+   network 10.10.114.0 255.255.255.0
+   default-router 10.10.114.254 
+   domain-name cuca-bgi.local
+   dns-server 10.30.48.1 10.30.48.2 
+   lease 0 1
+!
+ip dhcp pool GENERAL_DIRECTION
+   network 10.10.111.0 255.255.255.240
+   domain-name CUCA-BGI.local
+   default-router 10.10.111.14 
+   dns-server 10.30.48.1 10.30.48.2 
+   lease 0 1
+!
+ip dhcp pool HUMAN_RESOURCES
+   network 10.10.110.0 255.255.255.0
+   domain-name CUCA-BGI.local
+   default-router 10.10.110.254 
+   dns-server 10.30.48.1 10.30.48.2 
+   lease 0 1
+!
+ip dhcp pool FINANCIAL_DIRECTION
+   network 10.10.106.0 255.255.255.0
+   domain-name CUCA-BGI.local
+   dns-server 10.30.48.1 10.30.48.2 
+   default-router 10.10.106.254 
+   lease 0 1
+!
+ip dhcp pool USERS
+   network 10.10.100.0 255.255.255.0
+   domain-name CUCA-BGI.local
+   default-router 10.10.100.254 
+   dns-server 10.30.48.1 10.30.48.2 
+   lease 0 1
+!
+ip dhcp pool TECHNICAL_DIRECTION
+   network 10.10.107.0 255.255.255.0
+   default-router 10.10.107.254 
+   domain-name CUCA-BGI.local
+   dns-server 10.30.48.1 10.30.48.2 
+   lease 0 1
+!
+ip dhcp pool CORPORATE-EUD
+   network 10.104.100.0 255.255.255.0
+   default-router 10.104.100.254 
+   domain-name cuca-bgi.local
+   dns-server 10.30.48.1 10.30.48.2 
+   lease 0 1
+!
+ip dhcp pool DIRECAO-COMERCIAL-BEER
+   default-router 10.10.105.254 
+   domain-name CUCA-BGI.local
+   dns-server 10.10.12.10 10.10.12.2 
+   lease 0 1
+!
+ip dhcp pool WIRELESS-BIH
+   network 10.10.115.0 255.255.255.0
+   domain-name cuca-bgi.local
+   default-router 10.10.115.254 
+   dns-server 10.30.48.1 10.30.48.2 
+!
+ip dhcp pool INTERNET-ACESS
+   network 10.10.120.0 255.255.252.0
+   domain-name CUCA-BGI.local
+   dns-server 10.30.48.1 10.30.48.2 
+   default-router 10.10.123.254 
+   lease 0 1
+!
+ip dhcp pool WIRELESS_NETWORK
+   network 10.10.101.0 255.255.255.0
+   default-router 10.10.101.254 
+   domain-name CUCA-BGI.local
+   dns-server 10.110.0.1 10.110.0.2 
+   lease 0 1
+!
+ip dhcp pool COMERCIAL_DIRECTION
+   network 10.10.113.0 255.255.255.0
+   domain-name CUCA-BGI.local
+   default-router 10.10.113.254 
+   dns-server 10.110.0.1 10.110.0.2 
+   lease 0 1
+!
+!
+no ip igmp snooping
+cluster run
+!
+!
+!
+system mtu 1550
+errdisable recovery interval 60
+power redundancy-mode redundant
+!
+!
+!
+archive
+ log config
+  logging enable
+  logging size 200
+  notify syslog contenttype plaintext
+  hidekeys
+ path tftp://10.10.10.50/$h
+!
+spanning-tree mode rapid-pvst
+spanning-tree loopguard default
+spanning-tree portfast bpduguard default
+spanning-tree portfast bpdufilter default
+spanning-tree extend system-id
+spanning-tree uplinkfast
+spanning-tree backbonefast
+spanning-tree vlan 1-900 priority 4096
+!
+redundancy
+ mode sso
+ main-cpu
+  auto-sync standard
+!
+vlan internal allocation policy ascending
+!
+ip ssh time-out 60
+ip ssh source-interface Vlan50
+ip ssh version 2
+!
+!
+interface Port-channel1
+ switchport
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+!
+interface FastEthernet1
+ ip vrf forwarding mgmtVrf
+ no ip address
+ speed auto
+ duplex auto
+!
+interface GigabitEthernet1/1
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ logging event link-status
+!
+interface GigabitEthernet1/2
+ switchport trunk encapsulation dot1q
+ switchport trunk pruning vlan none
+ switchport mode trunk
+ logging event link-status
+!
+interface GigabitEthernet1/3
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ logging event link-status
+!
+interface GigabitEthernet1/4
+ description Ligado sw-laboratorio
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ logging event link-status
+ spanning-tree bpdufilter enable
+!
+interface GigabitEthernet1/5
+ description Ligado a sw-comercial
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ logging event link-status
+ spanning-tree bpdufilter enable
+!
+interface GigabitEthernet1/6
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ logging event link-status
+!
+interface GigabitEthernet2/1
+ switchport access vlan 23
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+!
+interface GigabitEthernet2/2
+ description SW_CCTV
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+!
+interface GigabitEthernet2/3
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+!
+interface GigabitEthernet2/4
+ description **** SW-INFORMATICA ****
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+!
+interface GigabitEthernet2/5
+ description Ligado a sw-dirgeral
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+!
+interface GigabitEthernet2/6
+ switchport access vlan 35
+ switchport mode access
+ spanning-tree portfast
+!
+interface GigabitEthernet3/1
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+!
+interface GigabitEthernet3/2
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+!
+interface GigabitEthernet4/1
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+!
+interface GigabitEthernet4/2
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+!
+interface GigabitEthernet5/1
+ description Liagdo Router01
+ switchport trunk encapsulation dot1q
+ switchport trunk pruning vlan none
+ switchport mode trunk
+ logging event link-status
+ spanning-tree portfast
+!
+interface GigabitEthernet5/2
+ description connected NETAPP2040 
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ logging event link-status
+ spanning-tree portfast trunk
+!
+interface GigabitEthernet5/3
+ description ligado svr-itdata
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ logging event link-status
+ spanning-tree portfast trunk
+!
+interface GigabitEthernet5/4
+ description Ligado Outside Concentrador VPN
+ switchport trunk encapsulation dot1q
+ switchport trunk pruning vlan none
+ switchport mode trunk
+ logging event link-status
+!
+interface GigabitEthernet5/5
+ description *** NERA VICTORIA ***
+ switchport access vlan 35
+ switchport mode access
+ spanning-tree portfast
+!
+interface GigabitEthernet5/6
+ description Mikrotik --> Router1811(SNET)
+ switchport access vlan 230
+ switchport mode access
+ logging event link-status
+ spanning-tree portfast
+!
+interface GigabitEthernet5/7
+ description Router1811 --> Snet BackBone
+ switchport access vlan 98
+ switchport trunk encapsulation dot1q
+ switchport mode access
+ logging event link-status
+ spanning-tree portfast
+!
+interface GigabitEthernet5/8
+ description MODEM ITA (TRUNK)
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 901,902
+ switchport mode trunk
+ switchport nonegotiate
+!
+interface GigabitEthernet5/9
+ description TRUNK ROUTER BORDER (IF OUTSIDE ISP)
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 901,902
+ switchport mode trunk
+ switchport nonegotiate
+!
+interface GigabitEthernet5/10
+ description CONECTED TO ILO SERVER
+ switchport access vlan 802
+!
+interface GigabitEthernet5/11
+ description Ligado VMWARE_HOST3
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ switchport nonegotiate
+ logging event link-status
+ spanning-tree portfast trunk
+!
+interface GigabitEthernet5/12
+ switchport access vlan 51
+ logging event link-status
+!
+interface GigabitEthernet5/13
+ switchport access vlan 11
+ switchport trunk encapsulation dot1q
+ switchport mode access
+ logging event link-status
+!
+interface GigabitEthernet5/14
+ description conected router-internet
+ switchport access vlan 23
+ switchport mode access
+ logging event link-status
+!
+interface GigabitEthernet5/15
+ description connected TVCABO 
+ switchport access vlan 25
+ switchport trunk encapsulation dot1q
+ switchport mode access
+ logging event link-status
+ spanning-tree portfast trunk
+!
+interface GigabitEthernet5/16
+ description CONECTED VMWARE HOST 3
+ switchport access vlan 10
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ switchport nonegotiate
+ logging event link-status
+!
+interface GigabitEthernet5/17
+ description *** CONNECTED TO ASA ETH1 ***
+ switchport access vlan 59
+ switchport mode access
+ logging event link-status
+ spanning-tree portfast
+!
+interface GigabitEthernet5/18
+ description CONEC-VPRX04
+ switchport access vlan 51
+ switchport mode access
+ logging event link-status
+ spanning-tree portfast
+!
+interface GigabitEthernet5/19
+ description CONEC-VPRX04
+ switchport access vlan 11
+ switchport mode access
+ logging event link-status
+ spanning-tree portfast
+!
+interface GigabitEthernet5/20
+ description CONECTED TO VMWARE HOST 3
+ switchport access vlan 54
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ switchport nonegotiate
+ logging event link-status
+ spanning-tree bpduguard enable
+ spanning-tree guard root
+!
+interface GigabitEthernet5/21
+ description Ligado VMWARE_HOST1_MANAG
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ switchport nonegotiate
+ logging event link-status
+ spanning-tree portfast trunk
+!
+interface GigabitEthernet5/22
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ switchport nonegotiate
+ logging event link-status
+ spanning-tree portfast trunk
+!
+interface GigabitEthernet5/23
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ switchport nonegotiate
+ logging event link-status
+ spanning-tree portfast trunk
+!
+interface GigabitEthernet5/24
+ description **** MANAGEMENT_STR_LAB01 ****
+ switchport access vlan 10
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ logging event link-status
+ spanning-tree portfast
+!
+interface GigabitEthernet5/25
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ switchport nonegotiate
+ logging event link-status
+ spanning-tree portfast trunk
+!
+interface GigabitEthernet5/26
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ switchport nonegotiate
+ logging event link-status
+ spanning-tree portfast trunk
+!
+interface GigabitEthernet5/27
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ switchport nonegotiate
+ logging event link-status
+ spanning-tree portfast trunk
+!
+interface GigabitEthernet5/28
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ switchport nonegotiate
+ logging event link-status
+ spanning-tree portfast trunk
+!
+interface GigabitEthernet5/29
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ switchport nonegotiate
+ logging event link-status
+ spanning-tree portfast trunk
+!
+interface GigabitEthernet5/30
+ switchport access vlan 2
+ switchport mode access
+ logging event link-status
+!
+interface GigabitEthernet5/31
+ switchport access vlan 2
+ switchport mode access
+ logging event link-status
+ spanning-tree portfast
+!
+interface GigabitEthernet5/32
+ switchport access vlan 2
+ switchport mode access
+ logging event link-status
+!
+interface GigabitEthernet5/33
+ description **** RBT-D2D01 ****
+ switchport access vlan 804
+ switchport mode access
+!
+interface GigabitEthernet5/34
+ description CONECTED NETAPP01
+ switchport access vlan 10
+ logging event link-status
+ spanning-tree portfast trunk
+!
+interface GigabitEthernet5/35
+ switchport access vlan 2
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ switchport voice vlan 3
+ logging event link-status
+!
+interface GigabitEthernet5/36
+ switchport access vlan 11
+ switchport trunk encapsulation dot1q
+ switchport mode access
+ shutdown
+!
+interface GigabitEthernet5/37
+ description CONECTED TO NEW STORAGE
+ switchport access vlan 804
+!
+interface GigabitEthernet5/38
+ description CORE_to_ASA-WAN
+ switchport access vlan 204
+ switchport mode access
+ logging event link-status
+ spanning-tree portfast
+!
+interface GigabitEthernet5/39
+ description Outside_GWVoz_Tsolnet
+ switchport access vlan 23
+ switchport mode access
+ logging event link-status
+!
+interface GigabitEthernet5/40
+ description **** CONNECTED TO SW-SRVROOM ****
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ logging event link-status
+!
+interface GigabitEthernet5/41
+ description **** CONNECTED TO SW-SRVROOM ****
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ logging event link-status
+!
+interface GigabitEthernet5/42
+ description **** STORAGE_NETWORK ****
+ switchport access vlan 14
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ logging event link-status
+ spanning-tree portfast
+!
+interface GigabitEthernet5/43
+ switchport trunk encapsulation dot1q
+ switchport mode access
+ logging event link-status
+ spanning-tree bpduguard enable
+!
+interface GigabitEthernet5/44
+ description DMZ_ASA_NEW_F0/3
+ switchport access vlan 41
+ switchport mode access
+ logging event link-status
+ speed 100
+ duplex full
+!
+interface GigabitEthernet5/45
+ description DMZ_ASA_F0/2
+ switchport access vlan 57
+ switchport mode access
+ logging event link-status
+ speed 100
+ duplex full
+!
+interface GigabitEthernet5/46
+ description CALL Managers e gw voz
+ switchport access vlan 3
+ switchport mode access
+ logging event link-status
+ speed 100
+ duplex full
+!
+interface GigabitEthernet5/47
+ description CALL Managers e gw voz
+ switchport access vlan 3
+ switchport mode access
+ logging event link-status
+ speed 100
+ duplex full
+!
+interface GigabitEthernet5/48
+ description CALL Managers e gw voz
+ switchport access vlan 3
+ switchport mode access
+ logging event link-status
+ speed 100
+ duplex full
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+interface Vlan2
+ description VLAN_ADM
+ ip address 10.10.1.254 255.255.254.0
+!
+interface Vlan3
+ description VLAN_IPT
+ ip address 10.10.3.254 255.255.254.0
+!
+interface Vlan4
+ description **** VLAN_STORAGE ****
+ ip address 10.10.4.14 255.255.255.240
+!
+interface Vlan5
+ description VLAN_CCTV
+ ip address 10.10.5.254 255.255.255.0
+!
+interface Vlan6
+ description *** VLAN_VMOTION_FT ***
+ ip address 10.10.6.254 255.255.255.0
+!
+interface Vlan7
+ description VMWARE-SERVICE
+ ip address 10.10.7.14 255.255.255.240
+!
+interface Vlan9
+ description VLAN_FAUL_TOLARENCE
+ ip address 10.10.9.30 255.255.255.224
+!
+interface Vlan10
+ description **** VLAN_SERVERS ****
+ ip address 10.10.10.254 255.255.255.0
+!
+interface Vlan11
+ description VLAN_BACKUP
+ ip address 10.10.11.14 255.255.255.240
+!
+interface Vlan12
+ description *** VLAN_DOMAIN_DC ***
+ ip address 10.10.12.30 255.255.255.224
+!
+interface Vlan13
+ description *** VLAN_EXCHANGE ***
+ ip address 10.10.13.30 255.255.255.224
+ ip route-cache policy
+!
+interface Vlan14
+ description *** VLAN_PROXY  ***
+ ip address 10.10.14.14 255.255.255.240
+!
+interface Vlan15
+ description VLAN_DATA_BASE
+ ip address 10.10.15.14 255.255.255.240
+!
+interface Vlan16
+ description *** VLAN_PRINTER ***
+ ip address 10.10.16.254 255.255.255.0
+!
+interface Vlan17
+ description VLAN-FILESHARE
+ ip address 10.10.17.6 255.255.255.248
+!
+interface Vlan18
+ description VLAN-BUSSINESS-APLIJCATION
+ ip address 10.10.18.30 255.255.255.224
+!
+interface Vlan19
+ description VLAN-TV CABO 
+ ip address 10.10.19.30 255.255.255.224
+!
+interface Vlan20
+ description **** VLAN_TURNSTILES ****
+ ip address 10.10.20.254 255.255.255.0
+!
+interface Vlan21
+ description **** VLAN_ISP_AT
+ no ip address
+!
+interface Vlan22
+ description **** VLAN_ISP_SDN
+ no ip address
+!
+interface Vlan23
+ description VLAN_ISP_TSOLNET
+ no ip address
+!
+interface Vlan24
+ description VLAN_ISP_ITA
+ no ip address
+!
+interface Vlan25
+ description *** VLAN_ISP_TVCABO ***
+ no ip address
+!
+interface Vlan26
+ description *** VLAN_APT_RT ***
+ no ip address
+!
+interface Vlan27
+ description *** VLAN_EXCH_EDGE ***
+ no ip address
+!
+interface Vlan29
+ description VLAN_BACKUP_SRV
+ ip address 10.10.29.14 255.255.255.240
+!
+interface Vlan30
+ description VLAN_PRINTERS
+ ip address 10.10.30.254 255.255.255.0
+!
+interface Vlan31
+ description INterconnect-Private-Network
+ no ip address
+!
+interface Vlan32
+ ip address 10.10.32.1 255.255.255.240
+ ip summary-address eigrp 10 10.10.0.0 255.255.0.0
+!
+interface Vlan33
+ description VLAN_INTERLINK_ISP
+ no ip address
+!
+interface Vlan34
+ description Interconnect-to-NERA
+ ip address 10.10.34.1 255.255.255.252
+!
+interface Vlan35
+ description LINK-to-RT-BORDER
+ ip address 172.10.35.1 255.255.255.248
+!
+interface Vlan36
+ description INTER_VICTORIA
+ no ip address
+!
+interface Vlan40
+ ip address 172.16.40.6 255.255.255.248
+!
+interface Vlan41
+ no ip address
+!
+interface Vlan44
+ no ip address
+ shutdown
+!
+interface Vlan45
+ description VLAN DAG
+ no ip address
+ shutdown
+!
+interface Vlan50
+ description VLAN_MANAGEMENT
+ ip address 10.10.50.254 255.255.255.0
+!
+interface Vlan51
+ description VLAN-SERVER-MANAGER
+ ip address 10.10.51.254 255.255.255.0
+!
+interface Vlan54
+ description **** VLAN_PFSENSE ****
+ no ip address
+!
+interface Vlan55
+ description VLAN_DMZ
+ no ip address
+!
+interface Vlan56
+ description Isa --> Router
+ no ip address
+!
+interface Vlan57
+ description Isa --> DMZ
+ no ip address
+!
+interface Vlan58
+ description Asa--->Router
+ no ip address
+!
+interface Vlan59
+ description Isa--->Asa
+ ip address 172.16.59.4 255.255.255.240
+ ip helper-address 172.16.59.1
+!
+interface Vlan60
+ description VLAN_CCTV_SECURE
+ ip address 10.10.60.254 255.255.255.0
+!
+interface Vlan61
+ description VLAN_ACESS_CONTROLER
+ ip address 10.10.61.254 255.255.255.0
+!
+interface Vlan62
+ description VLAN_MANAGEMENT_CCTV
+ no ip address
+!
+interface Vlan63
+ description VLAN-MANAGEMENT-NETWORK
+ mtu 9000
+ ip address 10.104.76.254 255.255.255.0
+!
+interface Vlan70
+ description VLAN_WGUEST
+ no ip address
+!
+interface Vlan80
+ description VLAN_PROV_1
+ ip address 10.104.80.30 255.255.255.224
+!
+interface Vlan81
+ description VLAN_PROV_22
+ ip address 10.104.80.60 255.255.255.224
+!
+interface Vlan98
+ description **** VLAN_SERVER_MANG  ****
+ ip address 10.10.98.254 255.255.255.0
+!
+interface Vlan99
+ description VLAN-NETWORK-MANG
+ ip address 10.10.99.254 255.255.255.0
+!
+interface Vlan100
+ description ***VLAN_USERS***
+ ip address 10.10.100.254 255.255.255.0
+!
+interface Vlan101
+ description **** VLAN_WIRELESS_NETWORK ****
+ ip address 10.10.101.254 255.255.255.0
+!
+interface Vlan102
+ description **** VLAN_SUITS ****
+ ip address 10.10.102.252 255.255.255.0
+ ip route-cache policy
+ ip policy route-map PBR102
+!
+interface Vlan103
+ description **** VLAN_VISITORS ****
+ ip address 10.10.103.252 255.255.255.0
+ ip route-cache policy
+ ip policy route-map PBR103
+!
+interface Vlan104
+ description **** VLAN_IT_DPT ****
+ mtu 1600
+ ip address 10.10.104.254 255.255.255.0
+!
+interface Vlan105
+ description DIRECAO COMERCIAL BEER
+ ip address 10.10.105.254 255.255.255.0
+!
+interface Vlan106
+ description **** VLAN_FINANCIAL_DIR ****
+ ip address 10.10.106.254 255.255.255.0
+!
+interface Vlan107
+ description **** VLAN_TECHNICAL_DIR ****
+ ip address 10.10.107.254 255.255.255.0
+!
+interface Vlan108
+ description **** VLAN_PROVISION_DIR ****
+ ip address 10.10.108.254 255.255.255.0
+!
+interface Vlan109
+ description **** VLAN_CENTRAL_DIR ****
+ ip address 10.10.109.62 255.255.255.192
+!
+interface Vlan110
+ description VLAN_HUMAN_RESOURCES
+ ip address 10.10.110.254 255.255.255.0
+!
+interface Vlan111
+ description **** VLAN_GENERAL_DIR ****
+ ip address 10.10.111.14 255.255.255.240
+!
+interface Vlan112
+ description **** VLAN_SECURITY_DIR ****
+ ip address 10.10.112.62 255.255.255.192
+!
+interface Vlan113
+ ip address 10.10.113.254 255.255.255.0
+!
+interface Vlan115
+ description VLAN-BIH-WIRELESS 
+ ip address 10.10.115.254 255.255.255.0
+!
+interface Vlan116
+ description VLAN-VDI
+ ip address 10.10.119.254 255.255.252.0
+!
+interface Vlan120
+ description VLAN-INTERNET-ACESS
+ ip address 10.10.123.254 255.255.252.0
+!
+interface Vlan130
+ description VLAN_SNET
+ no ip address
+ shutdown
+!
+interface Vlan131
+ description Link Snet
+ no ip address
+!
+interface Vlan150
+ description VLAN_NSX
+ mtu 9000
+ ip address 10.10.150.254 255.255.255.0
+!
+interface Vlan160
+ description VLAN-VIRTUA-TO-FISICAL
+ mtu 9000
+ ip address 172.16.160.254 255.255.255.0
+!
+interface Vlan199
+ description VLAN-STAGING
+ ip address 10.10.199.254 255.255.255.0
+!
+interface Vlan200
+ description VLAN_DESENVOL_TEST
+ ip address 10.10.200.254 255.255.255.0
+!
+interface Vlan201
+ description **** PRE_IMPLEMENT ****
+ ip address 10.10.201.254 255.255.255.0
+ ip access-group PRE_IMPLEMENT_TO_ITDATA out
+!
+interface Vlan204
+ description ***server for SUDMO ***
+ ip address 10.11.4.254 255.255.255.0
+ ip route-cache policy
+ ip policy route-map PBR204
+!
+interface Vlan205
+ description ***VLAN-HOTSPOT***
+ ip address 10.10.205.254 255.255.255.0
+!
+interface Vlan211
+ description ***** MANUFACTURE_ENERGY_NETWORK *****
+ ip address 10.11.1.254 255.255.255.0
+ ip access-group MANUFACTURE_TRAFFIC_ONLY in
+!
+interface Vlan212
+ description ***** MANUFACTURE_GRIND_NETWORK *****
+ ip address 10.11.2.254 255.255.255.0
+ ip access-group MANUFACTURE_TRAFFIC_ONLY in
+!
+interface Vlan213
+ description ***** MANUFACTURE_PRODUCTION_NETWORK *****
+ ip address 10.11.3.254 255.255.255.0
+ ip access-group MANUFACTURE_TRAFFIC_ONLY in
+!
+interface Vlan214
+ description *** VLAN_INDUSTRY_NETWORK ***
+ no ip address
+!
+interface Vlan230
+ description VLAN_INDUSTRY_NETWORK
+ no ip address
+!
+interface Vlan250
+ ip address 10.10.250.14 255.255.255.240
+!
+interface Vlan300
+ ip address 192.168.1.254 255.255.255.0
+!
+interface Vlan303
+ description VLAN-LAB-VOIP
+ ip address 10.12.3.62 255.255.255.192
+!
+interface Vlan304
+ ip address 10.12.4.14 255.255.255.240
+!
+interface Vlan305
+ description VLAN-LAB-VMWARE
+ ip address 10.12.5.6 255.255.255.248
+!
+interface Vlan310
+ description VLAN-LAB-SERVERS
+ ip address 10.12.10.62 255.255.255.192
+ shutdown
+!
+interface Vlan311
+ description VLAN-LAB-BACKUP
+ ip address 10.12.11.6 255.255.255.248
+!
+interface Vlan312
+ description VLAN-LAB-DC
+ ip address 10.12.12.6 255.255.255.248
+!
+interface Vlan313
+ description VLAN-EXCHANGE-LAB
+ ip address 10.12.13.6 255.255.255.248
+!
+interface Vlan315
+ description VLAN-LAB-DATABASE
+ ip address 10.12.15.14 255.255.255.240
+!
+interface Vlan317
+ description VLAN-LAB-SHARE
+ ip address 10.12.17.6 255.255.255.248
+!
+interface Vlan398
+ description VLAN-LAB-SERVER-MANAGER
+ ip address 10.12.98.14 255.255.255.240
+!
+interface Vlan399
+ description VLAN-LAB-DVC-NETWORK
+ ip address 10.20.99.254 255.255.255.0
+!
+interface Vlan400
+ no ip address
+ shutdown
+!
+interface Vlan401
+ description VLA-VOICE-UC320W
+ ip address 10.1.1.1 255.255.255.0
+!
+interface Vlan412
+ description VLAN-TEST-DC
+ ip address 10.13.12.2 255.255.255.252
+!
+interface Vlan500
+ ip address 10.110.0.254 255.255.255.0
+ shutdown
+!
+interface Vlan501
+ description VLAN-NETWORK-MANAGEMENT
+ ip address 10.104.64.254 255.255.255.0
+!
+interface Vlan502
+ description VLAN-VMWARE-MANAGEMENT
+ ip address 10.104.65.254 255.255.255.0
+!
+interface Vlan503
+ description VLAN-STORAGE/ISCSI
+ ip address 10.104.66.30 255.255.255.224
+!
+interface Vlan504
+ description VLAN-VMOTION
+ ip address 10.104.66.46 255.255.255.240
+!
+interface Vlan505
+ description VLAN-FAULT-TOLERANCE
+ ip address 10.104.66.62 255.255.255.240
+!
+interface Vlan506
+ description VLAN-VXLAN
+ ip address 10.104.66.78 255.255.255.240
+!
+interface Vlan507
+ description VLAN-BACKUP/RESTORE
+ ip address 10.104.66.110 255.255.255.224
+!
+interface Vlan508
+ ip address 10.104.96.254 255.255.255.0
+!
+interface Vlan509
+ description VLAN-CORPORATE-EUD
+ ip address 10.104.100.254 255.255.254.0
+!
+interface Vlan510
+ description VLAN-VOIP-EUD
+ ip address 10.104.102.254 255.255.254.0
+!
+interface Vlan511
+ description VLAN-GUEST-EUD
+ ip address 10.104.104.254 255.255.255.128
+!
+interface Vlan512
+ description VLAN-W-CORPORATE
+ ip address 10.104.110.62 255.255.255.192
+!
+interface Vlan513
+ description VLAN-W-VOIP
+ ip address 10.104.110.126 255.255.255.192
+!
+interface Vlan514
+ description VLAN-W-GUEST
+ no ip address
+!
+interface Vlan515
+ description VLAN-CCTV
+ ip address 10.104.112.254 255.255.255.0
+!
+interface Vlan516
+ description VLAN-BIOMETRIC
+ ip address 10.104.113.254 255.255.255.0
+!
+interface Vlan517
+ description VLAN-COMPLEX-RESIDENCIAL
+ ip address 10.104.114.254 255.255.255.0
+!
+interface Vlan518
+ description VLAN-SUDMO
+ ip address 10.104.115.254 255.255.255.0
+!
+interface Vlan519
+ description VLAN-INT-VIRTUAL-FISICAL
+ mtu 9000
+ ip address 172.16.170.6 255.255.255.248
+!
+interface Vlan521
+ description VLAN-ILO
+ mtu 9000
+ ip address 10.104.67.254 255.255.255.0
+!
+interface Vlan801
+ description VLAN_MANAGEMT_SWITCHS
+ ip address 10.104.0.254 255.255.255.0
+!
+interface Vlan802
+ description VLAN_ILO_NEW
+ ip address 10.104.1.254 255.255.255.0
+!
+interface Vlan803
+ description VLAN_VMWARE_NEW
+ ip address 10.104.2.254 255.255.255.0
+!
+interface Vlan804
+ description VLAN_STORAGE
+ ip address 10.104.3.30 255.255.255.224
+!
+interface Vlan805
+ description VLAN_V_MOTION
+ ip address 10.104.3.62 255.255.255.224
+!
+interface Vlan806
+ description VLAN_FAULT_TOLERANCE
+ ip address 10.104.3.94 255.255.255.224
+!
+interface Vlan807
+ description VLAN_VXLAN
+ mtu 9000
+ ip address 10.104.3.126 255.255.255.224
+!
+interface Vlan808
+ description VLAN_LINK_VIRTUAL_TO FISIC
+ ip address 172.16.10.10 255.255.255.252
+!
+interface Vlan809
+ description VLAN_VCENTER_HA
+ ip address 10.104.3.129 255.255.255.248
+!
+!
+router eigrp 10
+ network 10.0.0.0
+ network 10.10.32.0 0.0.0.255
+ passive-interface default
+ no passive-interface Vlan32
+ no passive-interface Vlan50
+ no passive-interface Vlan13
+ no passive-interface Vlan12
+ no passive-interface Vlan2
+ eigrp stub summary
+!
+ip local pool VPN-TECNIMIL-IP-POOL 192.168.50.1
+ip local pool VPN-EXECUTIVE-IP-POOL 192.168.100.2 192.168.100.20
+ip local pool VPN-USER-GENERIC 192.168.200.16 192.168.200.31
+ip local pool VPN-LOCAL-POOL 172.16.255.16 172.16.255.247
+ip default-gateway 10.104.3.62
+ip route 0.0.0.0 0.0.0.0 172.10.35.2
+ip route 10.0.0.0 255.0.0.0 172.10.35.2
+ip route 10.10.50.241 255.255.255.255 10.10.200.253
+ip route 10.10.50.242 255.255.255.255 10.10.200.253
+ip route 10.10.50.252 255.255.255.255 10.10.50.100
+ip route 10.104.2.0 255.255.255.0 10.10.0.251
+ip route 10.104.20.0 255.255.254.0 10.10.0.251
+ip route 10.104.22.0 255.255.255.224 10.10.0.251
+ip route 10.104.22.64 255.255.255.192 10.10.0.251
+ip route 10.104.22.128 255.255.255.224 10.10.0.251
+ip route 10.104.24.0 255.255.252.0 10.10.0.251
+ip route 10.104.80.0 255.255.255.224 10.10.0.251
+ip route 10.104.80.32 255.255.255.224 10.10.0.251
+ip route 10.104.80.64 255.255.255.248 10.10.0.251
+ip route 10.104.80.72 255.255.255.248 10.10.0.251
+ip route 10.104.80.80 255.255.255.248 10.10.0.251
+ip route 10.104.80.96 255.255.255.224 10.10.0.251
+ip route 10.104.82.0 255.255.254.0 10.10.0.251
+ip route 10.110.0.0 255.255.0.0 172.16.10.9
+ip route 10.200.0.0 255.255.0.0 10.10.1.252
+ip route 41.207.229.0 255.255.255.0 10.10.3.6
+ip route 172.16.0.0 255.240.0.0 172.10.35.2
+ip route 172.16.10.0 255.255.255.252 172.16.10.9
+ip route 172.16.254.0 255.255.255.0 10.10.50.100
+ip route 172.40.31.0 255.255.255.0 10.10.200.253
+ip route 192.168.0.0 255.255.0.0 172.10.35.2
+ip route 192.168.1.0 255.255.255.0 Vlan300
+ip http server
+no ip http secure-server
+!
+!
+ip access-list extended CCTV_NETWORK_TO_DATACENTER
+ permit icmp any any echo
+ permit icmp any any echo-reply
+ip access-list extended DENV_ONLY
+ permit ip 10.10.200.0 0.0.0.255 10.10.0.0 0.0.1.255 log
+ permit ip 10.10.0.0 0.0.1.255 10.10.200.0 0.0.0.255
+ permit ip 10.10.200.0 0.0.0.255 10.10.12.0 0.0.0.255
+ permit ip 10.10.12.0 0.0.0.255 10.10.200.0 0.0.0.255 log
+ permit ip 10.10.200.0 0.0.0.255 10.10.104.0 0.0.0.63
+ permit ip 10.10.104.0 0.0.0.63 10.10.200.0 0.0.0.255
+ permit ip 10.10.50.0 0.0.0.255 10.10.200.0 0.0.0.255
+ permit ip 10.10.200.0 0.0.0.255 10.10.50.0 0.0.0.255
+ip access-list extended EXECUTIVE-VPN-ACL
+ip access-list extended MANUFACTURE_TRAFFIC_ONLY
+ deny   ip any any
+ip access-list extended PRE_IMPLEMENTATION_TRAFFIC
+ deny   ip any any
+ip access-list extended PRE_IMPLEMENT_TO_ITDATA
+ permit ip 10.10.201.0 0.0.0.255 host 10.10.0.8
+ permit ip host 10.10.0.8 10.10.201.0 0.0.0.255
+ip access-list extended toCuca
+ permit tcp any any eq 443 log
+ permit udp any any eq 443 log
+ permit icmp any any log
+ permit tcp any any eq 137 log
+ permit udp any any eq netbios-ns log
+ permit tcp any any eq 138 log
+ permit udp any any eq netbios-dgm log
+ permit tcp any any eq 139 log
+ permit udp any any eq netbios-ss log
+ permit udp any any
+ permit udp any any range 16384 32776 log
+ permit ip any any log
+ permit tcp any any eq 1433 log
+ permit udp any any eq 1433 log
+!
+!
+ip prefix-list CUCA_LAN seq 5 permit 10.10.0.0/16
+!
+ip prefix-list Non_LAN seq 5 permit 10.0.0.0/8
+!
+ip prefix-list WAN_GRUPO seq 5 permit 10.30.0.0/16
+ip prefix-list WAN_GRUPO seq 10 permit 10.20.0.0/16
+ip prefix-list WAN_GRUPO seq 15 permit 10.40.0.0/16
+ip prefix-list WAN_GRUPO seq 20 permit 10.50.0.0/16
+ip prefix-list WAN_GRUPO seq 25 permit 10.60.0.0/16
+ip prefix-list WAN_GRUPO seq 30 permit 10.70.0.0/16
+ip prefix-list WAN_GRUPO seq 35 permit 10.80.0.0/16
+ip prefix-list WAN_GRUPO seq 40 permit 10.31.0.0/16
+ip prefix-list WAN_GRUPO seq 45 permit 10.15.0.0/16
+ip radius source-interface Vlan50 
+kron occurrence backup at 0:00 recurring
+ policy-list BACKUP_CONFIG_DAILY
+!
+kron policy-list BACKUP_CONFIG_DAILY
+ cli archive config
+!
+logging source-interface Vlan50
+logging 10.10.50.46
+access-list 10 permit 10.10.200.0 0.0.0.255
+access-list 30 permit 0.0.0.0 255.255.255.0 log
+access-list 102 remark *** PERMITED_PACKETS_PBR ***
+access-list 102 deny   icmp 10.0.0.0 0.255.255.255 10.10.102.0 0.0.0.255
+access-list 102 deny   icmp 10.10.102.0 0.0.0.255 10.0.0.0 0.255.255.255
+access-list 102 deny   ip 10.10.102.0 0.0.0.255 10.10.0.0 0.0.255.255
+access-list 102 deny   ip 10.10.0.0 0.0.255.255 10.10.102.0 0.0.0.255
+access-list 102 deny   ip 10.10.102.0 0.0.0.255 10.121.0.0 0.0.255.255
+access-list 102 deny   ip 10.121.0.0 0.0.255.255 10.10.102.0 0.0.0.255
+access-list 102 deny   ip 10.10.102.0 0.0.0.255 192.168.0.0 0.0.255.255
+access-list 102 deny   ip 192.168.0.0 0.0.255.255 10.10.102.0 0.0.0.255
+access-list 102 deny   ip 10.10.102.0 0.0.0.255 10.11.0.0 0.0.255.255
+access-list 102 deny   ip 10.11.0.0 0.0.255.255 10.10.102.0 0.0.0.255
+access-list 102 permit ip 10.10.102.0 0.0.0.255 any
+access-list 102 permit ip any 10.10.102.0 0.0.0.255
+access-list 102 permit ip 10.10.205.0 0.0.0.255 any
+access-list 112 remark *** DROPED_PACKETS_PBR ***
+access-list 112 deny   udp host 0.0.0.0 host 255.255.255.255
+access-list 112 deny   udp host 255.255.255.255 host 0.0.0.0
+access-list 112 permit icmp any any
+access-list 112 permit ip any any
+access-list 113 remark *** DROPED_PACKETS_PBR ***
+access-list 113 deny   udp host 0.0.0.0 host 255.255.255.255
+access-list 113 deny   udp host 255.255.255.255 host 0.0.0.0
+access-list 113 permit icmp any any
+access-list 113 permit ip any any
+access-list 124 remark *** PERMITED_PACKETS_PBR ***
+access-list 124 deny   icmp 10.0.0.0 0.255.255.255 10.11.4.0 0.0.0.255
+access-list 124 deny   icmp 10.11.4.0 0.0.0.255 10.0.0.0 0.255.255.255
+access-list 124 deny   ip 10.11.4.0 0.0.0.255 10.10.0.0 0.0.255.255
+access-list 124 deny   ip 10.10.0.0 0.0.255.255 10.11.4.0 0.0.0.255
+access-list 124 deny   ip 10.11.4.0 0.0.0.255 10.121.0.0 0.0.255.255
+access-list 124 deny   ip 10.121.0.0 0.0.255.255 10.11.4.0 0.0.0.255
+access-list 124 deny   ip 10.11.4.0 0.0.0.255 192.168.0.0 0.0.255.255
+access-list 124 deny   ip 192.168.0.0 0.0.255.255 10.11.4.0 0.0.0.255
+access-list 124 deny   ip 10.11.4.0 0.0.0.255 10.11.0.0 0.0.255.255
+access-list 124 deny   ip 10.11.0.0 0.0.255.255 10.11.4.0 0.0.0.255
+access-list 124 permit ip 10.11.4.0 0.0.0.255 any
+access-list 124 permit ip any 10.11.4.0 0.0.0.255
+access-list 125 remark *** DROPED_PACKETS_PBR ***
+access-list 125 permit icmp any any
+access-list 125 permit ip any any
+access-list 135 remark *** Trafego SIP ***
+access-list 135 permit ip 10.10.2.0 0.0.1.255 host 80.172.231.51
+access-list 135 permit ip any host 80.172.231.51
+arp 10.10.13.5 03bf.0a0a.0d05 ARPA
+arp 10.10.7.13 03bf.0a0a.070d ARPA
+arp 10.10.13.25 03bf.0a0a.0d19 ARPA
+arp 10.10.200.57 03bf.0a0a.c839 ARPA alias
+!
+route-map PBR103 permit 10
+ description PBR_VISITORS
+ match ip address 103
+ set ip next-hop 172.16.59.1
+!
+route-map PBR103 permit 20
+ description PBR_VISITORS
+ match ip address 113
+ set interface Null0
+!
+route-map PBR102 permit 10
+ description PBR_SUITS
+ match ip address 102
+ set ip next-hop 172.16.59.1
+!
+route-map PBR102 permit 20
+ description PBR_SUITS
+ match ip address 112
+ set interface Null0
+!
+route-map PBR204 permit 10
+ description PBR_SUDMO
+ match ip address 124
+ set ip next-hop 172.16.59.1
+!
+route-map PBR204 permit 20
+ description PBR_SUDMO
+ match ip address 125
+ set interface Null0
+!
+route-map CUCM-SIP permit 10
+ description TRAFEGO_SIP
+ match ip address 135
+ set ip next-hop 172.16.59.1
+!
+!
+snmp-server community CUCA-BGI RO
+snmp-server community public RW
+no snmp-server trap authentication acl-failure
+snmp-server location Datacenter CUCA
+snmp-server enable traps snmp authentication linkdown linkup coldstart warmstart
+snmp-server enable traps transceiver all
+snmp-server enable traps call-home message-send-fail server-fail
+snmp-server enable traps tty
+snmp-server enable traps eigrp
+snmp-server enable traps ospf state-change
+snmp-server enable traps ospf errors
+snmp-server enable traps ospf retransmit
+snmp-server enable traps ospf lsa
+snmp-server enable traps ospf cisco-specific state-change nssa-trans-change
+snmp-server enable traps ospf cisco-specific state-change shamlink interface-old
+snmp-server enable traps ospf cisco-specific state-change shamlink neighbor
+snmp-server enable traps ospf cisco-specific errors
+snmp-server enable traps ospf cisco-specific retransmit
+snmp-server enable traps ospf cisco-specific lsa
+snmp-server enable traps flex-links status
+snmp-server enable traps fru-ctrl
+snmp-server enable traps entity
+snmp-server enable traps ether-oam
+snmp-server enable traps flash insertion removal
+snmp-server enable traps l2tc threshold sys-threshold
+snmp-server enable traps power-ethernet group 5
+snmp-server enable traps power-ethernet police
+snmp-server enable traps cpu threshold
+snmp-server enable traps rep
+snmp-server enable traps vtp
+snmp-server enable traps vlancreate
+snmp-server enable traps vlandelete
+snmp-server enable traps auth-framework sec-violation
+snmp-server enable traps dot1x auth-fail-vlan guest-vlan no-auth-fail-vlan no-guest-vlan
+snmp-server enable traps envmon fan shutdown supply temperature status
+snmp-server enable traps entity-diag boot-up-fail hm-test-recover hm-thresh-reached scheduled-test-fail
+snmp-server enable traps port-security
+snmp-server enable traps ethernet cfm cc mep-up mep-down cross-connect loop config
+snmp-server enable traps ethernet cfm crosscheck mep-missing mep-unknown service-up
+snmp-server enable traps ethernet cfm alarm
+snmp-server enable traps ethernet evc status create delete
+snmp-server enable traps energywise
+snmp-server enable traps rtr
+snmp-server enable traps bgp
+snmp-server enable traps bulkstat collection transfer
+snmp-server enable traps cef resource-failure peer-state-change peer-fib-state-change inconsistency
+snmp-server enable traps config-copy
+snmp-server enable traps config
+snmp-server enable traps config-ctid
+snmp-server enable traps event-manager
+snmp-server enable traps hsrp
+snmp-server enable traps ipmulticast
+snmp-server enable traps isis
+snmp-server enable traps msdp
+snmp-server enable traps pim neighbor-change rp-mapping-change invalid-pim-message
+snmp-server enable traps rf
+snmp-server enable traps bridge newroot topologychange
+snmp-server enable traps stpx inconsistency root-inconsistency loop-inconsistency
+snmp-server enable traps syslog
+snmp-server enable traps errdisable
+snmp-server enable traps vlan-membership
+snmp-server enable traps mac-notification change move threshold
+snmp-server host 10.10.51.9 version 2c CUCA-BGI 
+snmp-server host 10.10.50.254 version 2c cuca-bgi-RO 
+radius-server host 10.10.0.200 auth-port 1645 acct-port 1646 key 7 1556580F162F3F2F7B72
+!
+control-plane
+!
+banner exec ^C
+
+******************************************************
+         Unauthorized Use Is Prohibited
+All access to this device and network are logged. If
+    you do not own this device or have access you
+         must disconnect immediately
+******************************************************
+^C
+banner motd ^C
+
+CC
+======================================================================
+                               Cuca BGI 
+                         - Acesso Reservado -
+         Acesso nao autorizado punido por lei: 109/91; 67/98
+----------------------------------------------------------------------
+                  Suporte Tecnico: REGRA SA (suporte@regra.pt)
+                                  Cuca
+                               SWITCH CORE
+======================================================================
+^C
+alias exec cpu1 sh proc cpu sort 1m | ex 0.00
+alias exec cpu show processes cpu sorted | exclude 0.00% 0.00% 0.00%
+alias exec mem show proc mem | excl 0.00%_0.00%_0.00%
+!
+line con 0
+ stopbits 1
+line vty 0 4
+ authorization exec ciscoadmins
+ login authentication ciscoadmins
+ transport input ssh
+!
+ntp clock-period 17179491
+ntp source Vlan50
+ntp master 6
+ntp update-calendar
+ntp server 10.10.50.252 prefer
+time-range TESTE
+ periodic weekdays 11:55 to 12:05
+!
+time-range WEB-ACCESS
+ periodic weekdays 0:00 to 6:59
+ periodic weekend 0:00 to 23:59
+ periodic weekdays 17:00 to 23:59
+!
+end
