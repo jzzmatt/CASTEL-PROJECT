@@ -14,7 +14,7 @@ get_facts:
         os_version: C2900 Software (C2900-UNIVERSALK9-M), Version 15.2(4)M6a, RELEASE
             SOFTWARE (fc1)
         serial_number: FCZ183270RR
-        uptime: 14966760
+        uptime: 18356700
         vendor: Cisco
     napalm_fqdn: RT_CBJ_BORDER2Wan.victoria.local
     napalm_hostname: RT_CBJ_BORDER2Wan
@@ -105,7 +105,7 @@ get_facts:
     napalm_os_version: C2900 Software (C2900-UNIVERSALK9-M), Version 15.2(4)M6a, RELEASE
         SOFTWARE (fc1)
     napalm_serial_number: FCZ183270RR
-    napalm_uptime: 14966760
+    napalm_uptime: 18356700
     napalm_vendor: Cisco
 changed: false
 failed: false

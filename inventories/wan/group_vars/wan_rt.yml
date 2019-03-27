@@ -8,16 +8,20 @@ ios_provider:
 
 
 netflow:
-    name: "CiscoPrime_Export"
-    ip: "10.30.99.252"
-    port: "9996"
+    exporters: 
+        - { name: "CiscoPrime_Export",
+            ip: "10.30.99.252",
+            port: "9996",
+          }
+
+        - {
+            name: "CiscoPrime_Export2",
+            ip: "10.30.99.251",
+            port: "9991",
+          }
     policy: "perform_policy"
     monitor_name: "CiscoPrime_flow"
-
-oldnetflow:
-    name: "MYMONITOR"
-    ip: "10.30.99.252"
-    port: "9996"
-    export: "NETFLOW_ANALYSER"
     record: "MYRECORD"
+      
+
 ...

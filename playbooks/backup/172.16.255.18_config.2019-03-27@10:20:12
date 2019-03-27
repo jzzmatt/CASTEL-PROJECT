@@ -1,10 +1,10 @@
 Building configuration...
 
-Current configuration : 11286 bytes
+Current configuration : 10666 bytes
 !
-! Last configuration change at 09:14:07 WAT Sat Feb 16 2019 by junior.mateus
-! NVRAM config last updated at 16:05:58 WAT Thu Feb 14 2019 by junior.mateus
-! NVRAM config last updated at 16:05:58 WAT Thu Feb 14 2019 by junior.mateus
+! Last configuration change at 12:32:06 WAT Mon Mar 25 2019 by junior.mateus
+! NVRAM config last updated at 10:14:20 WAT Wed Mar 27 2019 by junior.mateus
+! NVRAM config last updated at 10:14:20 WAT Wed Mar 27 2019 by junior.mateus
 version 15.1
 service timestamps debug datetime msec localtime
 service timestamps log datetime msec localtime
@@ -27,18 +27,8 @@ aaa group server radius GRPE_SRV_RADIUS
 !
 aaa authentication login default group GRPE_SRV_RADIUS local
 aaa authentication login My_AUTHENT group GRPE_SRV_RADIUS local
-aaa authentication login use-srvtacacs group tacacs+ local enable
-aaa authentication enable default group tacacs+ enable
-aaa authorization console
-aaa authorization exec use-srvtacacs group tacacs+ local if-authenticated 
-aaa authorization commands 1 default group tacacs+ if-authenticated 
-aaa authorization commands 15 default group tacacs+ local if-authenticated 
-aaa accounting send stop-record authentication failure
-aaa accounting exec default start-stop group tacacs+
-aaa accounting network default start-stop group tacacs+
-aaa accounting connection default start-stop group tacacs+
-aaa accounting system default start-stop group tacacs+
-aaa accounting resource default start-stop group tacacs+
+aaa accounting exec default start-stop group GRPE_SRV_RADIUS
+aaa accounting system default start-stop group GRPE_SRV_RADIUS
 !
 !
 !
@@ -193,8 +183,8 @@ interface Tunnel2016
  ip flow monitor MYMONITOR output
  ip nhrp authentication vict2016
  ip nhrp group 4MB_grpe
- ip nhrp map multicast 10.0.1.2
  ip nhrp map 172.16.255.30 10.0.1.2
+ ip nhrp map multicast 10.0.1.2
  ip nhrp network-id 99
  ip nhrp holdtime 300
  ip nhrp nhs 172.16.255.30
@@ -352,6 +342,7 @@ kron policy-list MY_BKP_CFG
 logging trap debugging
 logging 10.30.10.79
 logging 10.30.99.251
+logging 10.30.99.244
 !
 route-map RM_LAN_CERBAB permit 10
  match ip address prefix-list LAN
@@ -364,10 +355,8 @@ snmp-server ifindex persist
 snmp-server location DATACENTER VICTORIA
 snmp-server contact support.helpdesk@bihangola.net
 snmp-server host 10.30.99.251 version 2c victoria_pub 
+snmp-server host 10.30.99.252 version 2c victoria_pub 
 snmp ifmib ifalias long
-tacacs-server host 10.30.10.10 timeout 5
-tacacs-server directed-request
-tacacs-server key 7 105D5A1A174406595C557C
 !
 radius server srv-radius2
  address ipv4 10.30.10.36 auth-port 1645 acct-port 1646
@@ -416,7 +405,7 @@ line 2
 line vty 0 4
  privilege level 15
  logging synchronous
- login authentication use-srvtacacs
+ login authentication My_AUTHENT
  length 0
  transport input telnet ssh
 line vty 5 15

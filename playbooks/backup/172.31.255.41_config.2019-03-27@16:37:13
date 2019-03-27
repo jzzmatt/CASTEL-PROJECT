@@ -1,8 +1,10 @@
 Building configuration...
 
-Current configuration : 13975 bytes
+Current configuration : 14200 bytes
 !
-! Last configuration change at 15:28:33 WAT Wed Feb 20 2019 by junior.mateus
+! Last configuration change at 16:01:51 WAT Wed Mar 27 2019 by junior.mateus
+! NVRAM config last updated at 16:02:09 WAT Wed Mar 27 2019 by junior.mateus
+! NVRAM config last updated at 16:02:09 WAT Wed Mar 27 2019 by junior.mateus
 version 15.1
 service timestamps debug datetime msec
 service timestamps log datetime msec
@@ -14,6 +16,7 @@ boot-start-marker
 boot-end-marker
 !
 !
+logging buffered 100000
 !
 aaa new-model
 !
@@ -54,13 +57,14 @@ flow record MYRECORD
  collect counter packets
 !
 !
-flow exporter MY_IT360_Export
- destination 10.30.10.6
- transport udp 2055
+flow exporter NETFLOW_ANALYSER
+ destination 10.30.99.252
+ transport udp 9996
 !
 !
 flow monitor MYMONITOR
  record MYRECORD
+ exporter NETFLOW_ANALYSER
 !
 ip source-route
 ip cef
@@ -285,13 +289,12 @@ interface GigabitEthernet0/1
  speed auto
 !
 interface GigabitEthernet0/2
- description LINK-TO-TERRAVERDE
+ description NERA_WAN (TERRAVERDE)
  bandwidth 80000
  ip address 172.31.255.41 255.255.255.252
  no ip redirects
  no ip unreachables
  no ip proxy-arp
- ip nbar protocol-discovery
  ip flow monitor MYMONITOR input
  ip flow monitor MYMONITOR output
  ip virtual-reassembly in
@@ -356,6 +359,8 @@ kron policy-list MY_BKP_CFG
 !
 logging trap debugging
 logging 10.30.10.79
+logging 10.30.99.251
+logging 10.30.99.244
 access-list 55 permit 10.30.10.6
 access-list 55 permit 10.30.10.50
 !

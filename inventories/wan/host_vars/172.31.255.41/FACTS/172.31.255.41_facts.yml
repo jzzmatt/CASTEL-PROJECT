@@ -15,7 +15,7 @@ get_facts:
         os_version: C2900 Software (C2900-UNIVERSALK9-M), Version 15.1(4)M2, RELEASE
             SOFTWARE (fc1)
         serial_number: FCZ154521BE
-        uptime: 9184800
+        uptime: 12216000
         vendor: Cisco
     napalm_fqdn: RT-Funda-CCbl.victoria.local
     napalm_hostname: RT-Funda-CCbl
@@ -51,7 +51,7 @@ get_facts:
             mac_address: CC:EF:48:E5:AF:31
             speed: 100
         GigabitEthernet0/2:
-            description: LINK-TO-TERRAVERDE
+            description: NERA_WAN (TERRAVERDE)
             is_enabled: true
             is_up: true
             last_flapped: -1.0
@@ -114,7 +114,7 @@ get_facts:
     napalm_os_version: C2900 Software (C2900-UNIVERSALK9-M), Version 15.1(4)M2, RELEASE
         SOFTWARE (fc1)
     napalm_serial_number: FCZ154521BE
-    napalm_uptime: 9184800
+    napalm_uptime: 12216000
     napalm_vendor: Cisco
 changed: false
 failed: false

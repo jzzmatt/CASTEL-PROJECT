@@ -15,9 +15,9 @@
   roles:
 #      - base
 #      - tacacs
-      - snmp
-      - loggin
-#      - netflow 
+#      - snmp
+#      - loggin
+      - netflow 
  
   post_tasks:
      - name: SAVE CONFIG 

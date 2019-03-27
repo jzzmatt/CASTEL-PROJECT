@@ -27,28 +27,14 @@
   tags: ['erase']
   when: (groups['wan_rt'] is defined) and (inventory_hostname in groups['wan_rt'])
 
-- name: ADD NETFLOW FILE & ASSEMBLY 
-  template: src=netflow1.j2 dest={{ inventory_dir}}/{{ build_dir }}/06-netflow.conf 
-  run_once: true 
-  tags: ['netflow1_file']
-  when: (groups['wan_va'] is defined) and (inventory_hostname in groups['wan_va'])
 
-- name: SETUP NETFLOW NEW VERSION
-  ios_config:
-      authorize: yes 
-      provider: "{{ ios_provider }}"
-      diff_against: running 
-      src: netflow1.j2  
-  when: (groups['wan_va'] is defined) and (inventory_hostname in groups['wan_va'])
-  tags: ['netflow1']
-
-- name: ADD NETFLOW old FILE & ASSEMBLY
+- name: ADD NETFLOW FILE & ASSEMBLY
   template: src=netflow2.j2 dest={{ inventory_dir }}/{{ build_dir }}/06-netflow.conf
   run_once: true 
   tags: ['netflow2_file']
   when: (groups['wan_rt'] is defined) and (inventory_hostname in groups['wan_rt']) and (inventory_hostname not in groups['wan_va'])
 
-- name: SETUP NETFLOW OLD VERSION 
+- name: SETUP NETFLOW  VERSION 
   ios_config:
       authorize: yes 
       provider: "{{ ios_provider }}"

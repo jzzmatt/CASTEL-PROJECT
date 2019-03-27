@@ -12,7 +12,7 @@ get_facts:
         os_version: C2900 Software (C2900-UNIVERSALK9-M), Version 15.1(4)M2, RELEASE
             SOFTWARE (fc1)
         serial_number: FCZ154170EH
-        uptime: 349860
+        uptime: 1195860
         vendor: Cisco
     napalm_fqdn: CerbabRT_WAN.victoria.local
     napalm_hostname: CerbabRT_WAN
@@ -75,7 +75,7 @@ get_facts:
     napalm_os_version: C2900 Software (C2900-UNIVERSALK9-M), Version 15.1(4)M2, RELEASE
         SOFTWARE (fc1)
     napalm_serial_number: FCZ154170EH
-    napalm_uptime: 349860
+    napalm_uptime: 1195860
     napalm_vendor: Cisco
 changed: false
 failed: false

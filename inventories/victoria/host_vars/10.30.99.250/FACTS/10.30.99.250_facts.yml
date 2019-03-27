@@ -1,0 +1,676 @@
+get_facts:
+    napalm_facts:
+        fqdn: CORE-SRV-LAYER.victoria.local
+        hostname: CORE-SRV-LAYER
+        interface_list:
+        - Vlan1
+        - Vlan6
+        - Vlan9
+        - Vlan10
+        - Vlan13
+        - Vlan21
+        - Vlan23
+        - Vlan40
+        - Vlan50
+        - Vlan98
+        - Vlan99
+        - Vlan121
+        - Vlan150
+        - Vlan151
+        - Vlan255
+        - FastEthernet1/0/1
+        - FastEthernet1/0/2
+        - FastEthernet1/0/3
+        - FastEthernet1/0/4
+        - FastEthernet1/0/5
+        - FastEthernet1/0/6
+        - FastEthernet1/0/7
+        - FastEthernet1/0/8
+        - FastEthernet1/0/9
+        - FastEthernet1/0/10
+        - FastEthernet1/0/11
+        - FastEthernet1/0/12
+        - FastEthernet1/0/13
+        - FastEthernet1/0/14
+        - FastEthernet1/0/15
+        - FastEthernet1/0/16
+        - FastEthernet1/0/17
+        - FastEthernet1/0/18
+        - FastEthernet1/0/19
+        - FastEthernet1/0/20
+        - FastEthernet1/0/21
+        - FastEthernet1/0/22
+        - FastEthernet1/0/23
+        - FastEthernet1/0/24
+        - FastEthernet1/0/25
+        - FastEthernet1/0/26
+        - FastEthernet1/0/27
+        - FastEthernet1/0/28
+        - FastEthernet1/0/29
+        - FastEthernet1/0/30
+        - FastEthernet1/0/31
+        - FastEthernet1/0/32
+        - FastEthernet1/0/33
+        - FastEthernet1/0/34
+        - FastEthernet1/0/35
+        - FastEthernet1/0/36
+        - FastEthernet1/0/37
+        - FastEthernet1/0/38
+        - FastEthernet1/0/39
+        - FastEthernet1/0/40
+        - FastEthernet1/0/41
+        - FastEthernet1/0/42
+        - FastEthernet1/0/43
+        - FastEthernet1/0/44
+        - FastEthernet1/0/45
+        - FastEthernet1/0/46
+        - FastEthernet1/0/47
+        - FastEthernet1/0/48
+        - GigabitEthernet1/0/1
+        - GigabitEthernet1/0/2
+        - GigabitEthernet1/0/3
+        - GigabitEthernet1/0/4
+        - Port-channel1
+        model: WS-C3750-48TS
+        os_version: C3750 Software (C3750-IPSERVICESK9-M), Version 12.2(35)SE5, RELEASE
+            SOFTWARE (fc1)
+        serial_number: FDO1232Y4SW
+        uptime: 77082480
+        vendor: Cisco
+    napalm_fqdn: CORE-SRV-LAYER.victoria.local
+    napalm_hostname: CORE-SRV-LAYER
+    napalm_interface_list:
+    - Vlan1
+    - Vlan6
+    - Vlan9
+    - Vlan10
+    - Vlan13
+    - Vlan21
+    - Vlan23
+    - Vlan40
+    - Vlan50
+    - Vlan98
+    - Vlan99
+    - Vlan121
+    - Vlan150
+    - Vlan151
+    - Vlan255
+    - FastEthernet1/0/1
+    - FastEthernet1/0/2
+    - FastEthernet1/0/3
+    - FastEthernet1/0/4
+    - FastEthernet1/0/5
+    - FastEthernet1/0/6
+    - FastEthernet1/0/7
+    - FastEthernet1/0/8
+    - FastEthernet1/0/9
+    - FastEthernet1/0/10
+    - FastEthernet1/0/11
+    - FastEthernet1/0/12
+    - FastEthernet1/0/13
+    - FastEthernet1/0/14
+    - FastEthernet1/0/15
+    - FastEthernet1/0/16
+    - FastEthernet1/0/17
+    - FastEthernet1/0/18
+    - FastEthernet1/0/19
+    - FastEthernet1/0/20
+    - FastEthernet1/0/21
+    - FastEthernet1/0/22
+    - FastEthernet1/0/23
+    - FastEthernet1/0/24
+    - FastEthernet1/0/25
+    - FastEthernet1/0/26
+    - FastEthernet1/0/27
+    - FastEthernet1/0/28
+    - FastEthernet1/0/29
+    - FastEthernet1/0/30
+    - FastEthernet1/0/31
+    - FastEthernet1/0/32
+    - FastEthernet1/0/33
+    - FastEthernet1/0/34
+    - FastEthernet1/0/35
+    - FastEthernet1/0/36
+    - FastEthernet1/0/37
+    - FastEthernet1/0/38
+    - FastEthernet1/0/39
+    - FastEthernet1/0/40
+    - FastEthernet1/0/41
+    - FastEthernet1/0/42
+    - FastEthernet1/0/43
+    - FastEthernet1/0/44
+    - FastEthernet1/0/45
+    - FastEthernet1/0/46
+    - FastEthernet1/0/47
+    - FastEthernet1/0/48
+    - GigabitEthernet1/0/1
+    - GigabitEthernet1/0/2
+    - GigabitEthernet1/0/3
+    - GigabitEthernet1/0/4
+    - Port-channel1
+    napalm_interfaces:
+        FastEthernet1/0/1:
+            description: RESRVED SERVER FARMS
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:23:04:44:3E:03
+            speed: 100
+        FastEthernet1/0/10:
+            description: RESRVED SERVER FARMS
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:23:04:44:3E:0C
+            speed: 10
+        FastEthernet1/0/11:
+            description: RESERVED EXI
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:23:04:44:3E:0D
+            speed: 100
+        FastEthernet1/0/12:
+            description: RESERVED EXI
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:23:04:44:3E:0E
+            speed: 100
+        FastEthernet1/0/13:
+            description: RESRVED SERVER FARMS
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:23:04:44:3E:0F
+            speed: 100
+        FastEthernet1/0/14:
+            description: RESRVED SERVER FARMS
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:23:04:44:3E:10
+            speed: 10
+        FastEthernet1/0/15:
+            description: To_IBM_Management
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:23:04:44:3E:11
+            speed: 100
+        FastEthernet1/0/16:
+            description: RESRVED SERVER FARMS
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:23:04:44:3E:12
+            speed: 100
+        FastEthernet1/0/17:
+            description: RANGE SERVER SABMILLER
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:23:04:44:3E:13
+            speed: 10
+        FastEthernet1/0/18:
+            description: RANGE SERVER SABMILLER
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:23:04:44:3E:14
+            speed: 10
+        FastEthernet1/0/19:
+            description: RANGE SERVER SABMILLER
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:23:04:44:3E:15
+            speed: 10
+        FastEthernet1/0/2:
+            description: RESRVED SERVER FARMS
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:23:04:44:3E:04
+            speed: 100
+        FastEthernet1/0/20:
+            description: RANGE SERVER SABMILLER
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:23:04:44:3E:16
+            speed: 10
+        FastEthernet1/0/21:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:23:04:44:3E:17
+            speed: 100
+        FastEthernet1/0/22:
+            description: ''
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:23:04:44:3E:18
+            speed: 10
+        FastEthernet1/0/23:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:23:04:44:3E:19
+            speed: 100
+        FastEthernet1/0/24:
+            description: LINK TO JUNIPER FIREWALL
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:23:04:44:3E:1A
+            speed: 10
+        FastEthernet1/0/25:
+            description: RANGE SERVER SABMILLER
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:23:04:44:3E:1D
+            speed: 10
+        FastEthernet1/0/26:
+            description: RANGE SERVER SABMILLER
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:23:04:44:3E:1E
+            speed: 100
+        FastEthernet1/0/27:
+            description: RANGE SERVER SABMILLER
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:23:04:44:3E:1F
+            speed: 10
+        FastEthernet1/0/28:
+            description: RANGE SERVER SABMILLER
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:23:04:44:3E:20
+            speed: 100
+        FastEthernet1/0/29:
+            description: ''
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:23:04:44:3E:21
+            speed: 100
+        FastEthernet1/0/3:
+            description: RESRVED SERVER FARMS
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:23:04:44:3E:05
+            speed: 10
+        FastEthernet1/0/30:
+            description: New_Storage_HP
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:23:04:44:3E:22
+            speed: 100
+        FastEthernet1/0/31:
+            description: RANGE SERVER SABMILLER
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:23:04:44:3E:23
+            speed: 100
+        FastEthernet1/0/32:
+            description: RANGE SERVER SABMILLER
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:23:04:44:3E:24
+            speed: 100
+        FastEthernet1/0/33:
+            description: SRV_LAB
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:23:04:44:3E:25
+            speed: 100
+        FastEthernet1/0/34:
+            description: ''
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:23:04:44:3E:26
+            speed: 10
+        FastEthernet1/0/35:
+            description: RANGE SERVER SABMILLER
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:23:04:44:3E:27
+            speed: 10
+        FastEthernet1/0/36:
+            description: RANGE SERVER SABMILLER
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:23:04:44:3E:28
+            speed: 100
+        FastEthernet1/0/37:
+            description: Range Vmware_VMOTION_New storage
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:23:04:44:3E:29
+            speed: 100
+        FastEthernet1/0/38:
+            description: RANGE SERVER SABMILLER
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:23:04:44:3E:2A
+            speed: 10
+        FastEthernet1/0/39:
+            description: RANGE SERVER SABMILLER
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:23:04:44:3E:2B
+            speed: 10
+        FastEthernet1/0/4:
+            description: RESRVED SERVER FARMS
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:23:04:44:3E:06
+            speed: 10
+        FastEthernet1/0/40:
+            description: RANGE SERVER SABMILLER
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:23:04:44:3E:2C
+            speed: 10
+        FastEthernet1/0/41:
+            description: RANGE SERVER SABMILLER
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:23:04:44:3E:2D
+            speed: 10
+        FastEthernet1/0/42:
+            description: RANGE SERVER SABMILLER
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:23:04:44:3E:2E
+            speed: 10
+        FastEthernet1/0/43:
+            description: RANGE SERVER SABMILLER
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:23:04:44:3E:2F
+            speed: 10
+        FastEthernet1/0/44:
+            description: RANGE SERVER SABMILLER
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:23:04:44:3E:30
+            speed: 10
+        FastEthernet1/0/45:
+            description: RANGE SERVER SABMILLER
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:23:04:44:3E:31
+            speed: 10
+        FastEthernet1/0/46:
+            description: Reserved Synology (bkp server)
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:23:04:44:3E:32
+            speed: 100
+        FastEthernet1/0/47:
+            description: LINK VLAN 23 DMZ ASA
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:23:04:44:3E:33
+            speed: 100
+        FastEthernet1/0/48:
+            description: ''
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:23:04:44:3E:34
+            speed: 10
+        FastEthernet1/0/5:
+            description: RESRVED SERVER FARMS
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:23:04:44:3E:07
+            speed: 100
+        FastEthernet1/0/6:
+            description: CHECKPOINT DATACENTER INTERFACE
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:23:04:44:3E:08
+            speed: 10
+        FastEthernet1/0/7:
+            description: CHECKPOINT DATACENTER INTERFACE
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:23:04:44:3E:09
+            speed: 10
+        FastEthernet1/0/8:
+            description: NETAPP VLAN 13
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:23:04:44:3E:0A
+            speed: 100
+        FastEthernet1/0/9:
+            description: NETAPP VLAN 13
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:23:04:44:3E:0B
+            speed: 100
+        GigabitEthernet1/0/1:
+            description: FAST TRUNK 802.1Q ( DOWSTREAM TO ACCESS LAYER )
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:23:04:44:3E:01
+            speed: 1000
+        GigabitEthernet1/0/2:
+            description: FAST TRUNK 802.1Q ( DOWSTREAM TO ACCESS LAYER )
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:23:04:44:3E:02
+            speed: 10
+        GigabitEthernet1/0/3:
+            description: DR ( LINK CORE DISTRIB)
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:23:04:44:3E:1B
+            speed: 1000
+        GigabitEthernet1/0/4:
+            description: FAST LAYER 3 ETHERCHANNEL CORE LAYER CENTRAL
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:23:04:44:3E:1C
+            speed: 10
+        Port-channel1:
+            description: FAST LAYER 3 TO CENTRAL CORE
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:00:00:00:00:00
+            speed: 10
+        Vlan1:
+            description: ''
+            is_enabled: false
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:23:04:44:3E:40
+            speed: 1000
+        Vlan10:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:23:04:44:3E:43
+            speed: 1000
+        Vlan121:
+            description: '***NETWORK RANGE SABMILLER***'
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:23:04:44:3E:4B
+            speed: 1000
+        Vlan13:
+            description: 'RESERVED ISCSI '
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:23:04:44:3E:44
+            speed: 1000
+        Vlan150:
+            description: VXLAN
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:23:04:44:3E:4C
+            speed: 1000
+        Vlan151:
+            description: LINK EdgeVmware
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:23:04:44:3E:4D
+            speed: 1000
+        Vlan21:
+            description: ''
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 00:23:04:44:3E:45
+            speed: 1000
+        Vlan23:
+            description: LINK-to-IntDMZ
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:23:04:44:3E:46
+            speed: 1000
+        Vlan255:
+            description: OUTSIDE INTERFACE TMG PROXY SRV
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:23:04:44:3E:4E
+            speed: 1000
+        Vlan40:
+            description: link to inside NiC TMG
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:23:04:44:3E:47
+            speed: 1000
+        Vlan50:
+            description: VLAN CHECKPOINT DATACENTER GTW
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:23:04:44:3E:48
+            speed: 1000
+        Vlan6:
+            description: VMWARE VMOTION
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:23:04:44:3E:41
+            speed: 1000
+        Vlan9:
+            description: Vmware VCENTER
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:23:04:44:3E:42
+            speed: 1000
+        Vlan98:
+            description: Servers ESXI VMWARE Managements
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:23:04:44:3E:49
+            speed: 1000
+        Vlan99:
+            description: INBAND MANAGEMENT
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 00:23:04:44:3E:4A
+            speed: 1000
+    napalm_interfaces_ip:
+        Vlan10:
+            ipv4:
+                10.30.10.254:
+                    prefix_length: 24
+        Vlan121:
+            ipv4:
+                10.121.162.1:
+                    prefix_length: 24
+        Vlan13:
+            ipv4:
+                10.30.13.254:
+                    prefix_length: 24
+        Vlan150:
+            ipv4:
+                10.30.150.254:
+                    prefix_length: 24
+        Vlan151:
+            ipv4:
+                172.16.151.2:
+                    prefix_length: 30
+        Vlan50:
+            ipv4:
+                10.30.50.5:
+                    prefix_length: 29
+        Vlan6:
+            ipv4:
+                10.30.6.254:
+                    prefix_length: 24
+        Vlan9:
+            ipv4:
+                10.30.9.254:
+                    prefix_length: 24
+        Vlan98:
+            ipv4:
+                10.30.98.254:
+                    prefix_length: 24
+        Vlan99:
+            ipv4:
+                10.30.99.250:
+                    prefix_length: 24
+    napalm_model: WS-C3750-48TS
+    napalm_os_version: C3750 Software (C3750-IPSERVICESK9-M), Version 12.2(35)SE5,
+        RELEASE SOFTWARE (fc1)
+    napalm_serial_number: FDO1232Y4SW
+    napalm_uptime: 77082480
+    napalm_vendor: Cisco
+changed: false
+failed: false

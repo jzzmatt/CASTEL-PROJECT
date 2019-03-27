@@ -1,0 +1,236 @@
+Building configuration...
+
+
+Current configuration : 4697 bytes
+!
+! Last configuration change at 09:49:59 UTC Wed Mar 27 2019 by junior.mateus
+! NVRAM config last updated at 09:50:27 UTC Wed Mar 27 2019 by junior.mateus
+! NVRAM config last updated at 09:50:27 UTC Wed Mar 27 2019 by junior.mateus
+version 15.1
+service timestamps debug datetime msec
+service timestamps log datetime msec
+service password-encryption
+!
+hostname RT-WAN-DRINCO
+!
+boot-start-marker
+boot-end-marker
+!
+!
+logging buffered 100000
+!
+aaa new-model
+!
+!
+aaa authentication login use-srvtacacs group tacacs+ local enable
+aaa authentication enable default group tacacs+ enable
+aaa authorization console
+aaa authorization exec use-srvtacacs group tacacs+ local if-authenticated 
+aaa authorization commands 1 default group tacacs+ if-authenticated 
+aaa authorization commands 15 default group tacacs+ local if-authenticated 
+aaa accounting send stop-record authentication failure
+aaa accounting exec default start-stop group tacacs+
+aaa accounting network default start-stop group tacacs+
+aaa accounting connection default start-stop group tacacs+
+aaa accounting system default start-stop group tacacs+
+aaa accounting resource default start-stop group tacacs+
+!
+!
+!
+!
+!
+aaa session-id common
+!
+memory-size iomem 10
+!
+dot11 syslog
+!
+flow record MYRECORD
+ match ipv4 protocol
+ match ipv4 source address
+ match ipv4 destination address
+ match transport source-port
+ match transport destination-port
+ match interface input
+ match application name
+ collect ipv4 dscp
+ collect interface output
+ collect counter bytes
+ collect counter packets
+!
+!
+flow exporter CiscoPrime_Export
+ destination 10.30.99.252
+ transport udp 9996
+ option exporter-stats timeout 2
+!
+!
+flow exporter CiscoPrime_Export2
+ destination 10.30.99.251
+ transport udp 9991
+ option exporter-stats timeout 2
+!
+!
+flow monitor perform_policy
+ record MYRECORD
+ exporter CiscoPrime_Export
+ exporter CiscoPrime_Export2
+!
+ip source-route
+!
+!
+ip cef
+!
+!
+!
+ip domain name victoria.local
+no ipv6 cef
+!
+multilink bundle-name authenticated
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+voice-card 0
+!
+crypto pki token default removal timeout 0
+!
+!
+!
+!
+license udi pid CISCO2811 sn FCZ141171G0
+archive
+ log config
+  logging enable
+  logging size 1000
+  notify syslog contenttype plaintext
+  hidekeys
+ path ftp://10.30.22.1/$h-$t
+ write-memory
+username admin privilege 15 password 7 050A02022842
+!
+redundancy
+!
+!
+ip ftp username ciscoBKP
+ip ftp password 7 045802150C2E6E6539
+ip ssh version 2
+ip scp server enable
+! 
+!
+!
+!
+!
+!
+!
+!
+interface Tunnel2016
+ description *** DMVPN SPOKE TO VICTORIA *** 
+ bandwidth 10000
+ ip address 172.16.255.28 255.255.255.240
+ no ip redirects
+ ip mtu 1400
+ ip flow monitor perform_policy input
+ ip flow monitor perform_policy output
+ ip nhrp authentication vict2016
+ ip nhrp map 172.16.255.30 10.0.1.2
+ ip nhrp map multicast 10.0.1.2
+ ip nhrp network-id 99
+ ip nhrp holdtime 300
+ ip nhrp nhs 172.16.255.30
+ ip tcp adjust-mss 1360
+ no ip split-horizon eigrp 800
+ delay 1000
+ tunnel source FastEthernet0/0
+ tunnel mode gre multipoint
+ tunnel key 1000
+!
+interface FastEthernet0/0
+ description LINK MPLS UNITEL
+ ip address 10.0.1.78 255.255.255.252
+ duplex full
+ speed 100
+!
+interface FastEthernet0/1
+ description LINK LAN DRINKO
+ ip address 10.75.35.1 255.255.255.252
+ duplex auto
+ speed auto
+!
+!
+router eigrp 800
+ network 10.75.35.0 0.0.0.3
+ network 172.16.255.0 0.0.0.255
+ passive-interface default
+ no passive-interface Tunnel2016
+ no passive-interface FastEthernet0/1
+!
+ip forward-protocol nd
+ip http server
+ip http authentication aaa login-authentication use-srvtacacs
+ip http authentication aaa exec-authorization use-srvtacacs
+ip http authentication aaa command-authorization 15 default
+no ip http secure-server
+!
+!
+ip route 10.0.1.0 255.255.255.0 10.0.1.77 name Drinko->MplsUnitel
+!
+logging trap debugging
+logging 10.30.99.251
+!
+!
+!
+!
+snmp-server community V1Ctoria2014_admin RW 55
+snmp-server community V1Ctoria2014 RO
+snmp-server community victoria_pub RO
+snmp-server community victoria_wr RW
+snmp-server location DATACENTER VICTORIA
+snmp-server contact support.helpdesk@bihangola.net
+snmp-server host 10.30.99.251 version 2c victoria_pub 
+snmp ifmib ifalias long
+!
+tacacs-server host 10.30.10.10 timeout 5
+tacacs-server directed-request
+tacacs-server key 7 0017400516081F545F701A
+!
+!
+!
+control-plane
+!
+!
+!
+!
+mgcp profile default
+!
+!
+!
+!
+!
+alias exec flow sh flow monitor perform_policy cache format tabl
+!
+line con 0
+line aux 0
+line vty 0 4
+ privilege level 15
+ login authentication use-srvtacacs
+ transport input telnet ssh
+line vty 5 15
+ exec-timeout 15 0
+ privilege level 15
+ logging synchronous
+ login authentication use-srvtacacs
+ length 0
+ transport input ssh
+!
+scheduler allocate 20000 1000
+ntp master
+ntp server 10.30.35.1
+end

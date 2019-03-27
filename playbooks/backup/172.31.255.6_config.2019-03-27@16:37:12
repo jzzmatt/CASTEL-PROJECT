@@ -1,0 +1,289 @@
+Building configuration...
+
+Current configuration : 10195 bytes
+!
+version 12.2
+no service pad
+service timestamps debug datetime msec
+service timestamps log datetime msec
+service password-encryption
+!
+hostname RT3560SW_WANCUCA
+!
+boot-start-marker
+boot-end-marker
+!
+logging buffered 100000
+!
+username admin privilege 15 password 7 034F6D02051B731C1F5D
+!
+!
+aaa new-model
+!
+!
+aaa authentication login use-srvtacacs group tacacs+ local enable
+aaa authentication enable default group tacacs+ enable
+aaa authorization console
+aaa authorization exec use-srvtacacs group tacacs+ local if-authenticated 
+aaa authorization commands 1 default group tacacs+ if-authenticated 
+aaa authorization commands 15 default group tacacs+ local if-authenticated 
+aaa accounting send stop-record authentication failure
+aaa accounting exec default start-stop group tacacs+
+aaa accounting network default start-stop group tacacs+
+aaa accounting connection default start-stop group tacacs+
+aaa accounting system default start-stop group tacacs+
+aaa accounting resource default start-stop group tacacs+
+!
+!
+!
+aaa session-id common
+system mtu routing 1500
+vtp domain CUCA
+vtp mode transparent
+ip routing
+ip domain-name victoria.local
+!
+!
+!
+mls qos map cos-dscp 0 8 16 24 32 46 48 56
+mls qos srr-queue input bandwidth 70 30
+mls qos srr-queue input threshold 1 80 90
+mls qos srr-queue input priority-queue 2 bandwidth 30
+mls qos srr-queue input cos-map queue 1 threshold 2 3
+mls qos srr-queue input cos-map queue 1 threshold 3 6 7
+mls qos srr-queue input cos-map queue 2 threshold 1 4
+mls qos srr-queue input dscp-map queue 1 threshold 2 24
+mls qos srr-queue input dscp-map queue 1 threshold 3 48 49 50 51 52 53 54 55
+mls qos srr-queue input dscp-map queue 1 threshold 3 56 57 58 59 60 61 62 63
+mls qos srr-queue input dscp-map queue 2 threshold 3 32 33 40 41 42 43 44 45
+mls qos srr-queue input dscp-map queue 2 threshold 3 46 47
+mls qos srr-queue output cos-map queue 1 threshold 3 4 5
+mls qos srr-queue output cos-map queue 2 threshold 1 2
+mls qos srr-queue output cos-map queue 2 threshold 2 3
+mls qos srr-queue output cos-map queue 2 threshold 3 6 7
+mls qos srr-queue output cos-map queue 3 threshold 3 0
+mls qos srr-queue output cos-map queue 4 threshold 3 1
+mls qos srr-queue output dscp-map queue 1 threshold 3 32 33 40 41 42 43 44 45
+mls qos srr-queue output dscp-map queue 1 threshold 3 46 47
+mls qos srr-queue output dscp-map queue 2 threshold 1 16 17 18 19 20 21 22 23
+mls qos srr-queue output dscp-map queue 2 threshold 1 26 27 28 29 30 31 34 35
+mls qos srr-queue output dscp-map queue 2 threshold 1 36 37 38 39
+mls qos srr-queue output dscp-map queue 2 threshold 2 24
+mls qos srr-queue output dscp-map queue 2 threshold 3 48 49 50 51 52 53 54 55
+mls qos srr-queue output dscp-map queue 2 threshold 3 56 57 58 59 60 61 62 63
+mls qos srr-queue output dscp-map queue 3 threshold 3 0 1 2 3 4 5 6 7
+mls qos srr-queue output dscp-map queue 4 threshold 1 8 9 11 13 15
+mls qos srr-queue output dscp-map queue 4 threshold 2 10 12 14
+mls qos queue-set output 1 threshold 1 100 100 50 200
+mls qos queue-set output 1 threshold 2 125 125 100 400
+mls qos queue-set output 1 threshold 3 100 100 100 400
+mls qos queue-set output 1 threshold 4 60 150 50 200
+mls qos queue-set output 1 buffers 15 25 40 20
+mls qos
+password encryption aes
+!
+crypto pki trustpoint TP-self-signed-521747712
+ enrollment selfsigned
+ subject-name cn=IOS-Self-Signed-Certificate-521747712
+ revocation-check none
+ rsakeypair TP-self-signed-521747712
+!
+!
+crypto pki certificate chain TP-self-signed-521747712
+ certificate self-signed 01
+  30820255 308201BE A0030201 02020101 300D0609 2A864886 F70D0101 04050030 
+  30312E30 2C060355 04031325 494F532D 53656C66 2D536967 6E65642D 43657274 
+  69666963 6174652D 35323137 34373731 32301E17 0D393330 33303130 30303130 
+  305A170D 32303031 30313030 30303030 5A303031 2E302C06 03550403 1325494F 
+  532D5365 6C662D53 69676E65 642D4365 72746966 69636174 652D3532 31373437 
+  37313230 819F300D 06092A86 4886F70D 01010105 0003818D 00308189 02818100 
+  BF9B8D64 75A6FD18 A14B94A4 23575B31 E95F1921 86D3EF53 FCDFE553 732AE462 
+  80AFC93A 4BF34534 11105B25 7AE2F401 AC7B91B3 5C1E55D8 FF8E1DAF 882F83BD 
+  3947425C 9761CDFB F23F63AC 37CB08E7 867B8137 38F49B22 6318CFC3 05F1988A 
+  7717BA16 3B4A20AF 5F6C06CE 0C804B66 8D5647FB 0C7F43D4 ADE8F9AF 319C5DFF 
+  02030100 01A37F30 7D300F06 03551D13 0101FF04 05300301 01FF302A 0603551D 
+  11042330 21821F52 54333536 3053575F 57414E43 5543412E 76696374 6F726961 
+  2E6C6F63 616C301F 0603551D 23041830 168014E3 1ADB21EB 3FB64CB9 C2C7DA76 
+  69595D02 F77E8330 1D060355 1D0E0416 0414E31A DB21EB3F B64CB9C2 C7DA7669 
+  595D02F7 7E83300D 06092A86 4886F70D 01010405 00038181 0095E9A0 C3B5DAE2 
+  F0E86F38 C6DC3ACD EF11F935 66C953A0 A1E892F5 528695E5 A16C6B3C 499D8EB5 
+  64CCFE77 249E3269 A51CEF27 8E046C2D FF42CB6A 5F6912BA 96649691 5F13C839 
+  0DD4D4E7 5E1A3768 3369FC3A 18101952 46D2E7F6 32BCC8E8 F71A17E9 8E79703C 
+  7A10F8D1 F0123D7A EB26943F 5BA12AEA D22B625E 23F426C0 B4
+  quit
+auto qos srnd4
+!
+!
+!
+spanning-tree mode pvst
+spanning-tree extend system-id
+!
+vlan internal allocation policy ascending
+!
+vlan 35
+ name interconnect_Hube
+!
+ip ssh version 2
+ip scp server enable
+!
+!
+!
+interface FastEthernet0/1
+ description NERA_WAN (VICTORIA)
+ no switchport
+ ip address 172.31.255.6 255.255.255.252
+!
+interface FastEthernet0/2
+ description NERA_WAN (NOCAL)
+ no switchport
+ ip address 172.31.255.9 255.255.255.252
+!
+interface FastEthernet0/3
+!
+interface FastEthernet0/4
+!
+interface FastEthernet0/5
+!
+interface FastEthernet0/6
+!
+interface FastEthernet0/7
+!
+interface FastEthernet0/8
+!
+interface GigabitEthernet0/1
+ description LINK CORE (CUCA SA)
+ no switchport
+ ip address 172.10.35.2 255.255.255.248
+ shutdown
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+!
+router eigrp 800
+ variance 4
+ network 172.31.255.4 0.0.0.3
+ network 172.31.255.8 0.0.0.3
+ redistribute static route-map RM_CUCA
+ redistribute connected route-map RM_Connected
+ passive-interface default
+ no passive-interface FastEthernet0/1
+ no passive-interface GigabitEthernet0/1
+ no passive-interface FastEthernet0/2
+!
+ip classless
+ip route 10.10.0.0 255.255.0.0 172.10.35.1 name CUCA_LAN
+ip route 10.104.0.0 255.255.192.0 172.10.35.1 name DC_NX_FILTER
+ip route 10.104.64.0 255.255.192.0 172.10.35.1 name DC_CUCA_LAN
+ip route 10.110.0.0 255.255.0.0 172.10.35.1 name DC_NSX_INFRA_VIRTUAL
+ip http server
+ip http authentication aaa login-authentication use-srvtacacs
+ip http authentication aaa exec-authorization use-srvtacacs
+ip http authentication aaa command-authorization 15 default
+no ip http secure-server
+!
+!
+!
+ip prefix-list LAN_CUCA seq 5 permit 10.10.0.0/16
+ip prefix-list LAN_CUCA seq 10 permit 10.104.64.0/18
+ip prefix-list LAN_CUCA seq 15 permit 10.104.0.0/18
+ip prefix-list LAN_CUCA seq 20 permit 10.110.0.0/16
+!
+ip prefix-list cucaTMG seq 5 permit 172.10.35.0/29
+ip radius source-interface FastEthernet0/1 vrf default
+logging trap debugging
+logging 10.30.99.251
+logging 10.30.99.244
+access-list 55 permit 10.30.10.6
+route-map RM_Connected permit 10
+ match ip address prefix-list cucaTMG
+!
+route-map RM_CUCA permit 10
+ match ip address prefix-list LAN_CUCA
+!
+!
+snmp-server community victoria RW
+snmp-server community vict2016 RO
+snmp-server community victoria_pub RO
+snmp-server community victoria_wr RW
+snmp-server location DATACENTER VICTORIA
+snmp-server contact support.helpdesk@bihangola.net
+snmp-server enable traps snmp authentication linkdown linkup coldstart warmstart
+snmp-server enable traps transceiver all
+snmp-server enable traps tty
+snmp-server enable traps eigrp
+snmp-server enable traps ospf state-change
+snmp-server enable traps ospf errors
+snmp-server enable traps ospf retransmit
+snmp-server enable traps ospf lsa
+snmp-server enable traps ospf cisco-specific state-change nssa-trans-change
+snmp-server enable traps ospf cisco-specific state-change shamlink interface-old
+snmp-server enable traps ospf cisco-specific state-change shamlink neighbor
+snmp-server enable traps ospf cisco-specific errors
+snmp-server enable traps ospf cisco-specific retransmit
+snmp-server enable traps ospf cisco-specific lsa
+snmp-server enable traps cluster
+snmp-server enable traps entity
+snmp-server enable traps cpu threshold
+snmp-server enable traps power-ethernet group 1
+snmp-server enable traps power-ethernet police
+snmp-server enable traps rep
+snmp-server enable traps vtp
+snmp-server enable traps vlancreate
+snmp-server enable traps vlandelete
+snmp-server enable traps flash insertion removal
+snmp-server enable traps port-security
+snmp-server enable traps auth-framework sec-violation
+snmp-server enable traps dot1x auth-fail-vlan guest-vlan no-auth-fail-vlan no-guest-vlan
+snmp-server enable traps envmon fan shutdown supply temperature status
+snmp-server enable traps bgp
+snmp-server enable traps cef resource-failure peer-state-change peer-fib-state-change inconsistency
+snmp-server enable traps config-copy
+snmp-server enable traps config
+snmp-server enable traps config-ctid
+snmp-server enable traps event-manager
+snmp-server enable traps hsrp
+snmp-server enable traps ipmulticast
+snmp-server enable traps isis
+snmp-server enable traps msdp
+snmp-server enable traps pim neighbor-change rp-mapping-change invalid-pim-message
+snmp-server enable traps energywise
+snmp-server enable traps vstack
+snmp-server enable traps bridge newroot topologychange
+snmp-server enable traps stpx inconsistency root-inconsistency loop-inconsistency
+snmp-server enable traps syslog
+snmp-server enable traps rtr
+snmp-server enable traps mac-notification change move threshold
+snmp-server enable traps vlan-membership
+snmp-server enable traps errdisable
+snmp-server host 10.30.99.251 version 2c victoria_pub 
+snmp ifmib ifalias long
+snmp ifmib ifindex persist
+tacacs-server host 10.30.10.10 timeout 5
+tacacs-server directed-request
+tacacs-server key 7 06155C225E1D1D4B554644
+!
+!
+line con 0
+ exec-timeout 15 0
+ privilege level 15
+ logging synchronous
+ login authentication use-srvtacacs
+ length 0
+line vty 0 4
+ exec-timeout 15 0
+ privilege level 15
+ logging synchronous
+ login authentication use-srvtacacs
+ length 0
+ transport input telnet ssh
+line vty 5 15
+ exec-timeout 15 0
+ privilege level 15
+ logging synchronous
+ login authentication use-srvtacacs
+ length 0
+ transport input ssh
+!
+end

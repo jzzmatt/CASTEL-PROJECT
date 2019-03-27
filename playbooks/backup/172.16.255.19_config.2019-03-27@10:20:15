@@ -1,11 +1,9 @@
 Building configuration...
 
 
-Current configuration : 21289 bytes
+Current configuration : 20831 bytes
 !
-! Last configuration change at 10:38:58 GMT Sat Feb 16 2019 by junior.mateus
-! NVRAM config last updated at 10:14:12 GMT Sat Feb 16 2019 by junior.mateus
-! NVRAM config last updated at 10:14:12 GMT Sat Feb 16 2019 by junior.mateus
+! No configuration change since last restart
 version 15.1
 service tcp-keepalives-in
 service tcp-keepalives-out
@@ -64,16 +62,6 @@ flow record MYRECORD
  collect interface output
  collect counter bytes
  collect counter packets
-!
-!
-flow exporter MY_IT360_Export
- destination 10.30.10.6
- transport udp 2055
-!
-!
-flow exporter CiscoPrime_Export
- destination 10.30.99.252
- transport udp 9996
 !
 !
 flow exporter NETFLOW_ANALYSER
@@ -238,10 +226,6 @@ interface Tunnel104
  description TUNNEL VSAT Catumbel->HubeNERA_VIANA
  ip address 172.17.255.38 255.255.255.252
  ip mtu 1300
- ip nbar protocol-discovery
- ip flow monitor MYMONITOR input
- ip flow monitor MYMONITOR output
- ip flow ingress
  ip tcp adjust-mss 1260
  load-interval 30
  qos pre-classify
@@ -266,8 +250,8 @@ interface Tunnel2016
  ip flow monitor MYMONITOR output
  ip nhrp authentication vict2016
  ip nhrp group 10MB_grpe
- ip nhrp map multicast 10.0.1.2
  ip nhrp map 172.16.255.30 10.0.1.2
+ ip nhrp map multicast 10.0.1.2
  ip nhrp network-id 99
  ip nhrp holdtime 300
  ip nhrp nhs 172.16.255.30
@@ -285,8 +269,8 @@ interface Tunnel20000
  ip wccp 61 redirect out
  ip wccp 62 redirect in
  ip nhrp authentication YvaPrQY7
- ip nhrp map 172.27.1.1 10.252.19.14
  ip nhrp map multicast 10.252.19.14
+ ip nhrp map 172.27.1.1 10.252.19.14
  ip nhrp network-id 3
  ip nhrp holdtime 300
  ip nhrp nhs 172.27.1.1
@@ -401,7 +385,7 @@ interface SM1/0
  ip address 172.31.1.1 255.255.255.252
  ip wccp redirect exclude in
  service-module ip address 172.31.1.2 255.255.255.252
- !Application: Restarted at Wed Oct  3 08:04:14 2018
+ !Application: Restarted at Mon Mar 25 02:37:22 2019
  service-module ip default-gateway 172.31.1.1
  no keepalive
 !

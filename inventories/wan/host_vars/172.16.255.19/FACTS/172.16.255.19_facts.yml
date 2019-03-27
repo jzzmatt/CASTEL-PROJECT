@@ -36,7 +36,7 @@ get_facts:
         os_version: C2900 Software (C2900-UNIVERSALK9-M), Version 15.1(4)M1, RELEASE
             SOFTWARE (fc1)
         serial_number: FGL153812PF
-        uptime: 11740800
+        uptime: 185220
         vendor: Cisco
     napalm_fqdn: CCCSBA_RT_Wan.victoria.local
     napalm_hostname: CCCSBA_RT_Wan
@@ -327,7 +327,7 @@ get_facts:
     napalm_os_version: C2900 Software (C2900-UNIVERSALK9-M), Version 15.1(4)M1, RELEASE
         SOFTWARE (fc1)
     napalm_serial_number: FGL153812PF
-    napalm_uptime: 11740800
+    napalm_uptime: 185220
     napalm_vendor: Cisco
 changed: false
 failed: false

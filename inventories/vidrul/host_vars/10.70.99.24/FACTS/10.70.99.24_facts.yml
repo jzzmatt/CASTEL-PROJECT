@@ -1,0 +1,307 @@
+get_facts:
+    napalm_facts:
+        fqdn: SW_24PoE_Vid_Mini-Lab.victoria.local
+        hostname: SW_24PoE_Vid_Mini-Lab
+        interface_list:
+        - Vlan1
+        - Vlan99
+        - FastEthernet0
+        - GigabitEthernet1/0/1
+        - GigabitEthernet1/0/2
+        - GigabitEthernet1/0/3
+        - GigabitEthernet1/0/4
+        - GigabitEthernet1/0/5
+        - GigabitEthernet1/0/6
+        - GigabitEthernet1/0/7
+        - GigabitEthernet1/0/8
+        - GigabitEthernet1/0/9
+        - GigabitEthernet1/0/10
+        - GigabitEthernet1/0/11
+        - GigabitEthernet1/0/12
+        - GigabitEthernet1/0/13
+        - GigabitEthernet1/0/14
+        - GigabitEthernet1/0/15
+        - GigabitEthernet1/0/16
+        - GigabitEthernet1/0/17
+        - GigabitEthernet1/0/18
+        - GigabitEthernet1/0/19
+        - GigabitEthernet1/0/20
+        - GigabitEthernet1/0/21
+        - GigabitEthernet1/0/22
+        - GigabitEthernet1/0/23
+        - GigabitEthernet1/0/24
+        - GigabitEthernet1/0/25
+        - GigabitEthernet1/0/26
+        - GigabitEthernet1/0/27
+        - GigabitEthernet1/0/28
+        model: WS-C2960S-24PS-L
+        os_version: C2960S Software (C2960S-UNIVERSALK9-M), Version 12.2(55)SE5, RELEASE
+            SOFTWARE (fc1)
+        serial_number: FOC1631Z3JX
+        uptime: 314340
+        vendor: Cisco
+    napalm_fqdn: SW_24PoE_Vid_Mini-Lab.victoria.local
+    napalm_hostname: SW_24PoE_Vid_Mini-Lab
+    napalm_interface_list:
+    - Vlan1
+    - Vlan99
+    - FastEthernet0
+    - GigabitEthernet1/0/1
+    - GigabitEthernet1/0/2
+    - GigabitEthernet1/0/3
+    - GigabitEthernet1/0/4
+    - GigabitEthernet1/0/5
+    - GigabitEthernet1/0/6
+    - GigabitEthernet1/0/7
+    - GigabitEthernet1/0/8
+    - GigabitEthernet1/0/9
+    - GigabitEthernet1/0/10
+    - GigabitEthernet1/0/11
+    - GigabitEthernet1/0/12
+    - GigabitEthernet1/0/13
+    - GigabitEthernet1/0/14
+    - GigabitEthernet1/0/15
+    - GigabitEthernet1/0/16
+    - GigabitEthernet1/0/17
+    - GigabitEthernet1/0/18
+    - GigabitEthernet1/0/19
+    - GigabitEthernet1/0/20
+    - GigabitEthernet1/0/21
+    - GigabitEthernet1/0/22
+    - GigabitEthernet1/0/23
+    - GigabitEthernet1/0/24
+    - GigabitEthernet1/0/25
+    - GigabitEthernet1/0/26
+    - GigabitEthernet1/0/27
+    - GigabitEthernet1/0/28
+    napalm_interfaces:
+        FastEthernet0:
+            description: ''
+            is_enabled: false
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 88:75:56:5F:7F:37
+            speed: 100
+        GigabitEthernet1/0/1:
+            description: Mini-Lab_Terminal and Line 11-12
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 88:75:56:5F:7F:01
+            speed: 100
+        GigabitEthernet1/0/10:
+            description: Lab_Terminal and Users
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 88:75:56:5F:7F:0A
+            speed: 10
+        GigabitEthernet1/0/11:
+            description: Lab_Terminal and Users
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 88:75:56:5F:7F:0B
+            speed: 10
+        GigabitEthernet1/0/12:
+            description: Lab_Terminal and Users
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 88:75:56:5F:7F:0C
+            speed: 10
+        GigabitEthernet1/0/13:
+            description: Lab_Terminal and Users
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 88:75:56:5F:7F:0D
+            speed: 10
+        GigabitEthernet1/0/14:
+            description: Lab_Terminal and Users
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 88:75:56:5F:7F:0E
+            speed: 10
+        GigabitEthernet1/0/15:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 88:75:56:5F:7F:0F
+            speed: 100
+        GigabitEthernet1/0/16:
+            description: AP_Regist(Vict2ndWC)
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 88:75:56:5F:7F:10
+            speed: 10
+        GigabitEthernet1/0/17:
+            description: CCTV
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 88:75:56:5F:7F:11
+            speed: 100
+        GigabitEthernet1/0/18:
+            description: CCTV
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 88:75:56:5F:7F:12
+            speed: 100
+        GigabitEthernet1/0/19:
+            description: ''
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 88:75:56:5F:7F:13
+            speed: 10
+        GigabitEthernet1/0/2:
+            description: Mini-Lab_Terminal and Line 11-12
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 88:75:56:5F:7F:02
+            speed: 1000
+        GigabitEthernet1/0/20:
+            description: ''
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 88:75:56:5F:7F:14
+            speed: 10
+        GigabitEthernet1/0/21:
+            description: ''
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 88:75:56:5F:7F:15
+            speed: 10
+        GigabitEthernet1/0/22:
+            description: ''
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 88:75:56:5F:7F:16
+            speed: 10
+        GigabitEthernet1/0/23:
+            description: ''
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 88:75:56:5F:7F:17
+            speed: 10
+        GigabitEthernet1/0/24:
+            description: Trunk to Zona_Quente
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 88:75:56:5F:7F:18
+            speed: 1000
+        GigabitEthernet1/0/25:
+            description: Trunk to Zona_Quente
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 88:75:56:5F:7F:19
+            speed: 10
+        GigabitEthernet1/0/26:
+            description: ''
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 88:75:56:5F:7F:1A
+            speed: 10
+        GigabitEthernet1/0/27:
+            description: ''
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 88:75:56:5F:7F:1B
+            speed: 10
+        GigabitEthernet1/0/28:
+            description: ''
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 88:75:56:5F:7F:1C
+            speed: 10
+        GigabitEthernet1/0/3:
+            description: Mini-Lab_Terminal and Line 11-12
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 88:75:56:5F:7F:03
+            speed: 1000
+        GigabitEthernet1/0/4:
+            description: Mini-Lab_Terminal and Line 11-12
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 88:75:56:5F:7F:04
+            speed: 100
+        GigabitEthernet1/0/5:
+            description: Mini-Lab_Control Cabinet
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 88:75:56:5F:7F:05
+            speed: 100
+        GigabitEthernet1/0/6:
+            description: Mini-Lab_Terminal and Line 11-12
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 88:75:56:5F:7F:06
+            speed: 1000
+        GigabitEthernet1/0/7:
+            description: Lab_Terminal and Users
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 88:75:56:5F:7F:07
+            speed: 10
+        GigabitEthernet1/0/8:
+            description: Lab_Terminal and Users
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 88:75:56:5F:7F:08
+            speed: 10
+        GigabitEthernet1/0/9:
+            description: Lab_Terminal and Users
+            is_enabled: true
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 88:75:56:5F:7F:09
+            speed: 10
+        Vlan1:
+            description: ''
+            is_enabled: false
+            is_up: false
+            last_flapped: -1.0
+            mac_address: 88:75:56:5F:7F:40
+            speed: 1000
+        Vlan99:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: 88:75:56:5F:7F:41
+            speed: 1000
+    napalm_interfaces_ip:
+        Vlan99:
+            ipv4:
+                10.70.99.24:
+                    prefix_length: 24
+    napalm_model: WS-C2960S-24PS-L
+    napalm_os_version: C2960S Software (C2960S-UNIVERSALK9-M), Version 12.2(55)SE5,
+        RELEASE SOFTWARE (fc1)
+    napalm_serial_number: FOC1631Z3JX
+    napalm_uptime: 314340
+    napalm_vendor: Cisco
+changed: false
+failed: false

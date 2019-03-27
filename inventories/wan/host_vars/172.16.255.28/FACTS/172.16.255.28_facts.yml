@@ -1,0 +1,63 @@
+get_facts:
+    napalm_facts:
+        fqdn: RT-WAN-DRINCO.victoria.local
+        hostname: RT-WAN-DRINCO
+        interface_list:
+        - FastEthernet0/0
+        - FastEthernet0/1
+        - Tunnel2016
+        model: '2811'
+        os_version: 2800 Software (C2800NM-ADVENTERPRISEK9-M), Version 15.1(4)M4,
+            RELEASE SOFTWARE (fc1)
+        serial_number: FCZ141171G0
+        uptime: 303060
+        vendor: Cisco
+    napalm_fqdn: RT-WAN-DRINCO.victoria.local
+    napalm_hostname: RT-WAN-DRINCO
+    napalm_interface_list:
+    - FastEthernet0/0
+    - FastEthernet0/1
+    - Tunnel2016
+    napalm_interfaces:
+        FastEthernet0/0:
+            description: LINK MPLS UNITEL
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: EC:44:76:96:41:B8
+            speed: 100
+        FastEthernet0/1:
+            description: LINK LAN DRINKO
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: EC:44:76:96:41:B9
+            speed: 100
+        Tunnel2016:
+            description: '*** DMVPN SPOKE TO VICTORIA *** '
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: ''
+            speed: 10
+    napalm_interfaces_ip:
+        FastEthernet0/0:
+            ipv4:
+                10.0.1.78:
+                    prefix_length: 30
+        FastEthernet0/1:
+            ipv4:
+                10.75.35.1:
+                    prefix_length: 30
+        Tunnel2016:
+            ipv4:
+                172.16.255.28:
+                    prefix_length: 28
+    napalm_model: '2811'
+    napalm_os_version: 2800 Software (C2800NM-ADVENTERPRISEK9-M), Version 15.1(4)M4,
+        RELEASE SOFTWARE (fc1)
+    napalm_serial_number: FCZ141171G0
+    napalm_uptime: 303060
+    napalm_vendor: Cisco
+changed: false
+failed: false

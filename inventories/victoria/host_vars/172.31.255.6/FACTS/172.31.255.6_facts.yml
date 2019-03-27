@@ -17,7 +17,7 @@ get_facts:
         os_version: C3560 Software (C3560-IPSERVICESK9-M), Version 12.2(55)SE9, RELEASE
             SOFTWARE (fc1)
         serial_number: FOC1525V2B3
-        uptime: 789780
+        uptime: 165060
         vendor: Cisco
     napalm_fqdn: RT3560SW_WANCUCA.victoria.local
     napalm_hostname: RT3560SW_WANCUCA
@@ -34,14 +34,14 @@ get_facts:
     - GigabitEthernet0/1
     napalm_interfaces:
         FastEthernet0/1:
-            description: NERA_WAN (VICTORIA)
+            description: NERA MICROWAVE VICTORIA DC
             is_enabled: true
             is_up: true
             last_flapped: -1.0
             mac_address: B8:62:1F:19:3D:41
             speed: 100
         FastEthernet0/2:
-            description: NERA_WAN (NOCAL)
+            description: NERA MICROWAVE NOCAL
             is_enabled: true
             is_up: true
             last_flapped: -1.0
@@ -91,11 +91,11 @@ get_facts:
             speed: 10
         GigabitEthernet0/1:
             description: LINK CORE (CUCA SA)
-            is_enabled: false
-            is_up: false
+            is_enabled: true
+            is_up: true
             last_flapped: -1.0
             mac_address: B8:62:1F:19:3D:43
-            speed: 10
+            speed: 1000
         Vlan1:
             description: ''
             is_enabled: false
@@ -120,7 +120,7 @@ get_facts:
     napalm_os_version: C3560 Software (C3560-IPSERVICESK9-M), Version 12.2(55)SE9,
         RELEASE SOFTWARE (fc1)
     napalm_serial_number: FOC1525V2B3
-    napalm_uptime: 789780
+    napalm_uptime: 165060
     napalm_vendor: Cisco
 changed: false
 failed: false

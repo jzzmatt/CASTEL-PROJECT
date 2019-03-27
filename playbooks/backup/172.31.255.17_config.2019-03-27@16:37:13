@@ -1,8 +1,8 @@
 Building configuration...
 
-Current configuration : 7025 bytes
+Current configuration : 6679 bytes
 !
-! No configuration change since last restart
+! Last configuration change at 15:50:33 UTC Wed Mar 27 2019 by junior.mateus
 version 15.1
 service timestamps debug datetime msec
 service timestamps log datetime msec
@@ -14,6 +14,7 @@ boot-start-marker
 boot-end-marker
 !
 !
+logging buffered 100000
 enable password 7 145C261D09162E2E7678626263
 !
 aaa new-model
@@ -41,27 +42,9 @@ aaa session-id common
 !
 no ipv6 cef
 !
-flow record MYRECORD
- match ipv4 protocol
- match ipv4 source address
- match ipv4 destination address
- match transport source-port
- match transport destination-port
- match interface input
- match application name
- collect ipv4 dscp
- collect interface output
- collect counter bytes
- collect counter packets
-!
-!
-flow exporter MY_IT360_Export
- destination 10.30.10.6
- transport udp 2055
-!
-!
-flow monitor MYMONITOR
- record MYRECORD
+flow exporter NETFLOW_ANALYSER
+ destination 10.30.99.252
+ transport udp 9996
 !
 ip source-route
 ip cef
@@ -148,40 +131,29 @@ interface Embedded-Service-Engine0/0
  shutdown
 !
 interface GigabitEthernet0/0
- description Link to Funda
+ description NERA_WAN (FUNDA)
  ip address 172.31.255.42 255.255.255.252
- ip nbar protocol-discovery
- ip flow monitor MYMONITOR input
- ip flow monitor MYMONITOR output
  ip flow ingress
  duplex auto
  speed auto
 !
 interface GigabitEthernet0/1
- description Link to Viana
+ description NERA_WAN (VIANA)
  ip address 172.31.255.30 255.255.255.252
- ip nbar protocol-discovery
- ip flow monitor MYMONITOR input
- ip flow monitor MYMONITOR output
  ip flow ingress
  duplex auto
  speed auto
 !
 interface GigabitEthernet0/2
- description Link to Victoria
+ description NERA_WAN (VICTORIA)
  ip address 172.31.255.17 255.255.255.252
- ip flow monitor MYMONITOR input
- ip flow monitor MYMONITOR output
  ip flow ingress
  duplex auto
  speed auto
 !
 interface FastEthernet0/0/0
- description LINNK-TO-VIDRUL
+ description NERA_WAN (VIDRUL)
  ip address 172.31.255.49 255.255.255.252
- ip nbar protocol-discovery
- ip flow monitor MYMONITOR input
- ip flow monitor MYMONITOR output
  ip flow ingress
  duplex auto
  speed auto
@@ -226,6 +198,8 @@ kron policy-list MY_BKP_CFG
 !
 logging trap debugging
 logging 10.30.10.79
+logging 10.30.99.251
+logging 10.30.99.244
 access-list 55 permit 10.30.10.6
 !
 !
@@ -236,7 +210,13 @@ route-map STATIC_RED permit 10
 !
 !
 snmp-server community victoria RW 55
+snmp-server community victoria_pub RO
+snmp-server community victoria_wr RW
 snmp-server ifindex persist
+snmp-server location DATACENTER VICTORIA
+snmp-server contact support.helpdesk@bihangola.net
+snmp-server host 10.30.99.251 version 2c victoria_pub 
+snmp ifmib ifalias long
 tacacs-server host 10.30.10.10 timeout 5
 tacacs-server directed-request
 tacacs-server key 7 06155C225E1D1D4B554644

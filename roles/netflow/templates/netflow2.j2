@@ -1,4 +1,4 @@
-flow record {{ oldnetflow.record }}
+flow record {{ netflow.record }}
   match ipv4 protocol
   match ipv4 source address
   match ipv4 destination address
@@ -8,20 +8,36 @@ flow record {{ oldnetflow.record }}
   match application name 
   collect ipv4 dscp 
   collect interface output
-  collect counter bytes
-  collect counter packets 
+  collect counter bytes long
+  collect counter packets long
 !
-flow exporter {{ oldnetflow.export }}
-  destination {{ oldnetflow.ip }}
-  transport udp {{ oldnetflow.port }}
+{% for flowexp in netflow.exporters %}
+flow exporter {{ flowexp.name  }}
+  destination {{ flowexp.ip }}
+  transport udp {{ flowexp.port }}
+  option exporter-stats timeout 2
+{% endfor %}
 !
-flow monitor {{ oldnetflow.name }}
-  record {{ oldnetflow.record }} 
-  exporter {{ oldnetflow.export }}
+flow monitor {{ netflow.policy }} 
+  record {{ netflow.record }}
+{% for flowexp in netflow.exporters %}
+  exporter {{ flowexp.name }}
+{% endfor %}
+  
 !
 {% if groups['wan_unitel'] is defined and inventory_hostname in groups['wan_unitel'] %}
 {% set netflow_intf="Tunnel2016" %}
 interface {{ netflow_intf }}
-  ip flow monitor {{ oldnetflow.name }} input
-  ip flow monitor {{ oldnetflow.name }} output
+  ip flow monitor {{ netflow.policy }} input
+  ip flow monitor {{ netflow.policy }} output
+{% endif %}
+
+{% if groups['wan_nera'] is defined and inventory_hostname in groups['wan_nera'] %}
+{% for intf,values in get_facts.napalm_interfaces.items() %}
+{% if values.description.startswith("NERA_WAN") %}
+interface {{ intf }}
+  ip flow monitor {{ netflow.policy }} input
+  ip flow monitor {{ netflow.policy }} output
+{% endif %}
+{% endfor %}
 {% endif %}

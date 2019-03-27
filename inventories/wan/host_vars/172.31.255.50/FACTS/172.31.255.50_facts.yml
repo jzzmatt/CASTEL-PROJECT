@@ -10,7 +10,7 @@ get_facts:
         os_version: C1900 Software (C1900-UNIVERSALK9-M), Version 15.2(1)T1, RELEASE
             SOFTWARE (fc1)
         serial_number: FCZ15509188
-        uptime: 2225580
+        uptime: 4845120
         vendor: Cisco
     napalm_fqdn: RT-VIDRUL-WAN.victoria.local
     napalm_hostname: RT-VIDRUL-WAN
@@ -34,7 +34,7 @@ get_facts:
             mac_address: 70:CA:9B:5F:DD:A0
             speed: 1000
         GigabitEthernet0/1:
-            description: Radio Nera (Vidrul-> TerraVerde)
+            description: NERA_WAN
             is_enabled: true
             is_up: true
             last_flapped: -1.0
@@ -53,7 +53,7 @@ get_facts:
     napalm_os_version: C1900 Software (C1900-UNIVERSALK9-M), Version 15.2(1)T1, RELEASE
         SOFTWARE (fc1)
     napalm_serial_number: FCZ15509188
-    napalm_uptime: 2225580
+    napalm_uptime: 4845120
     napalm_vendor: Cisco
 changed: false
 failed: false
