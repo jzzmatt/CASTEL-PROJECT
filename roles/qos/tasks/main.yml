@@ -1,0 +1,14 @@
+---
+- name: SEND QOS TO CONFIG FILE
+  template: src=qos.j2 dest={{ inventory_dir }}/{{ build_dir }}/11-qos.conf
+  run_once: true
+
+- name: SETUP QOS ON {{ inventory_hostname }}
+  ios_config:
+#      provider: "{{ ios_provider }}"
+#      authorize: yes 
+      diff_against: running
+      src: qos.j2 
+      
+  
+...

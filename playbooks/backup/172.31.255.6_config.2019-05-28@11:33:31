@@ -1,6 +1,6 @@
 Building configuration...
 
-Current configuration : 10195 bytes
+Current configuration : 10079 bytes
 !
 version 12.2
 no service pad
@@ -154,7 +154,6 @@ interface GigabitEthernet0/1
  description LINK CORE (CUCA SA)
  no switchport
  ip address 172.10.35.2 255.255.255.248
- shutdown
 !
 interface Vlan1
  no ip address
@@ -173,10 +172,9 @@ router eigrp 800
  no passive-interface FastEthernet0/2
 !
 ip classless
-ip route 10.10.0.0 255.255.0.0 172.10.35.1 name CUCA_LAN
-ip route 10.104.0.0 255.255.192.0 172.10.35.1 name DC_NX_FILTER
-ip route 10.104.64.0 255.255.192.0 172.10.35.1 name DC_CUCA_LAN
-ip route 10.110.0.0 255.255.0.0 172.10.35.1 name DC_NSX_INFRA_VIRTUAL
+ip route 10.10.0.0 255.255.0.0 172.10.35.1
+ip route 10.104.0.0 255.255.0.0 172.10.35.1 name DC_NX_FILTER
+ip route 10.110.0.0 255.255.0.0 172.10.35.1
 ip http server
 ip http authentication aaa login-authentication use-srvtacacs
 ip http authentication aaa exec-authorization use-srvtacacs
@@ -187,7 +185,7 @@ no ip http secure-server
 !
 ip prefix-list LAN_CUCA seq 5 permit 10.10.0.0/16
 ip prefix-list LAN_CUCA seq 10 permit 10.104.64.0/18
-ip prefix-list LAN_CUCA seq 15 permit 10.104.0.0/18
+ip prefix-list LAN_CUCA seq 15 permit 10.104.0.0/16
 ip prefix-list LAN_CUCA seq 20 permit 10.110.0.0/16
 !
 ip prefix-list cucaTMG seq 5 permit 172.10.35.0/29

@@ -1,10 +1,8 @@
 Building configuration...
 
-Current configuration : 14200 bytes
+Current configuration : 14438 bytes
 !
-! Last configuration change at 16:01:51 WAT Wed Mar 27 2019 by junior.mateus
-! NVRAM config last updated at 16:02:09 WAT Wed Mar 27 2019 by junior.mateus
-! NVRAM config last updated at 16:02:09 WAT Wed Mar 27 2019 by junior.mateus
+! No configuration change since last restart
 version 15.1
 service timestamps debug datetime msec
 service timestamps log datetime msec
@@ -62,9 +60,27 @@ flow exporter NETFLOW_ANALYSER
  transport udp 9996
 !
 !
+flow exporter CiscoPrime_Export
+ destination 10.30.99.252
+ transport udp 9996
+ option exporter-stats timeout 2
+!
+!
+flow exporter CiscoPrime_Export2
+ destination 10.30.99.251
+ transport udp 9991
+ option exporter-stats timeout 2
+!
+!
 flow monitor MYMONITOR
  record MYRECORD
  exporter NETFLOW_ANALYSER
+!
+!
+flow monitor perform_policy
+ record MYRECORD
+ exporter CiscoPrime_Export
+ exporter CiscoPrime_Export2
 !
 ip source-route
 ip cef
@@ -260,9 +276,11 @@ interface Tunnel2015
  ip address 172.16.24.1 255.255.255.248
  no ip redirects
  ip mtu 1400
+ ip flow monitor perform_policy input
+ ip flow monitor perform_policy output
  ip nhrp authentication vict2015
- ip nhrp map multicast 196.216.60.236
  ip nhrp map 172.16.24.6 196.216.60.236
+ ip nhrp map multicast 196.216.60.236
  ip nhrp network-id 98
  ip nhrp holdtime 300
  ip nhrp nhs 172.16.24.6
@@ -295,8 +313,8 @@ interface GigabitEthernet0/2
  no ip redirects
  no ip unreachables
  no ip proxy-arp
- ip flow monitor MYMONITOR input
- ip flow monitor MYMONITOR output
+ ip flow monitor perform_policy input
+ ip flow monitor perform_policy output
  ip virtual-reassembly in
  load-interval 30
  duplex auto

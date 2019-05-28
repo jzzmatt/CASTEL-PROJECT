@@ -1,10 +1,10 @@
 Building configuration...
 
-Current configuration : 14539 bytes
+Current configuration : 14377 bytes
 !
-! Last configuration change at 14:19:17 WAT Wed Mar 27 2019 by junior.mateus
-! NVRAM config last updated at 14:17:30 WAT Wed Mar 27 2019 by junior.mateus
-! NVRAM config last updated at 14:17:30 WAT Wed Mar 27 2019 by junior.mateus
+! Last configuration change at 12:07:16 WAT Tue May 28 2019 by junior.mateus
+! NVRAM config last updated at 12:07:21 WAT Tue May 28 2019 by junior.mateus
+! NVRAM config last updated at 12:07:21 WAT Tue May 28 2019 by junior.mateus
 version 15.2
 service timestamps debug datetime msec
 service timestamps log datetime msec
@@ -74,11 +74,6 @@ flow record MYRECORD
  collect counter packets
 !
 !
-flow exporter NETFLOW_ANALYSER
- destination 10.30.99.252
- transport udp 9996
-!
-!
 flow exporter CiscoPrime_Export
  destination 10.30.99.252
  transport udp 9996
@@ -89,11 +84,6 @@ flow exporter CiscoPrime_Export2
  destination 10.30.99.251
  transport udp 9991
  option exporter-stats timeout 2
-!
-!
-flow monitor MYMONITOR
- exporter NETFLOW_ANALYSER
- record MYRECORD
 !
 !
 flow monitor perform_policy
@@ -267,8 +257,10 @@ interface Tunnel2015
  no ip redirects
  ip mtu 1400
  no ip split-horizon eigrp 800
+ ip flow monitor perform_policy input
+ ip flow monitor perform_policy output
  ip nhrp authentication vict2015
- ip nhrp group TUNNEL_SHAPE4MB
+ ip nhrp group 4MB_grpe
  ip nhrp map multicast 196.216.60.236
  ip nhrp map 172.16.24.6 196.216.60.236
  ip nhrp network-id 98
@@ -287,11 +279,10 @@ interface Tunnel2016
  no ip redirects
  ip mtu 1400
  no ip split-horizon eigrp 800
- ip flow monitor MYMONITOR input
  ip flow monitor perform_policy input
- ip flow monitor MYMONITOR output
  ip flow monitor perform_policy output
  ip nhrp authentication vict2016
+ ip nhrp group 10MB_grpe
  ip nhrp map multicast 10.0.1.2
  ip nhrp map 172.16.255.30 10.0.1.2
  ip nhrp network-id 99
@@ -355,7 +346,6 @@ ip http authentication aaa exec-authorization use-srvtacacs
 ip http authentication aaa command-authorization 15 default
 no ip http secure-server
 ip http timeout-policy idle 60 life 86400 requests 10000
-ip flow-export destination 10.30.10.6 2055
 !
 ip route 10.0.1.0 255.255.255.0 10.0.1.65 name COBEJE_Mpls
 ip route 196.216.60.236 255.255.255.254 197.234.125.209 name P2P_COBEJE->VICTORIA
@@ -445,8 +435,8 @@ control-plane
 !
 !
 alias exec nbar sh ip nbar protocol-discovery stats bit-rate top-n 10
-alias exec flow sh flow monitor MYMONITOR cache format tabl
 alias exec arch sh archive log config a
+alias exec flow sh flow monitor perform_policy cache format tabl
 banner exec ^C
 % Password expiration warning.
 -----------------------------------------------------------------------
@@ -460,3 +450,69 @@ this session.
  
 It is strongly suggested that you create a new username with a privilege level 
 of 15 using the following command.
+ 
+username <myuser> privilege 15 secret 0 <mypassword>
+ 
+Replace <myuser> and <mypassword> with the username and password you want to 
+use.
+ 
+-----------------------------------------------------------------------
+^C
+banner login ^C
+-----------------------------------------------------------------------
+Cisco Configuration Professional (Cisco CP) is installed on this device. 
+This feature requires the one-time use of the username "cisco" with the 
+password "cisco". These default credentials have a privilege level of 15.
+ 
+YOU MUST USE CISCO CP or the CISCO IOS CLI TO CHANGE THESE  PUBLICLY-KNOWN 
+CREDENTIALS
+
+Here are the Cisco IOS commands.
+
+username <myuser>  privilege 15 secret 0 <mypassword>
+no username cisco
+
+Replace <myuser> and <mypassword> with the username and password you want 
+to use. 
+
+IF YOU DO NOT CHANGE THE PUBLICLY-KNOWN CREDENTIALS, YOU WILL NOT BE ABLE 
+TO LOG INTO THE DEVICE AGAIN AFTER YOU HAVE LOGGED OFF.
+ 
+For more information about Cisco CP please follow the instructions in the 
+QUICK START GUIDE for your router or go to http://www.cisco.com/go/ciscocp 
+-----------------------------------------------------------------------
+^C
+!
+line con 0
+ exec-timeout 15 0
+ privilege level 15
+ logging synchronous
+ login authentication use-srvtacacs
+ length 0
+line aux 0
+line 2
+ no activation-character
+ no exec
+ transport preferred none
+ transport output pad telnet rlogin lapb-ta mop udptn v120 ssh
+ stopbits 1
+line vty 0 4
+ exec-timeout 15 0
+ privilege level 15
+ logging synchronous
+ login authentication use-srvtacacs
+ length 0
+ transport input telnet ssh
+line vty 5 15
+ exec-timeout 15 0
+ privilege level 15
+ logging synchronous
+ login authentication use-srvtacacs
+ length 0
+ transport input ssh
+!
+scheduler allocate 20000 1000
+ntp master
+ntp server 172.23.22.1
+!
+end

@@ -1,0 +1,11 @@
+!
+{% if inventory_hostname in groups['wan_unitel'] or inventory_hostname in groups['wan_ita'] %}
+{% if "Tunnel2016" in get_facts.napalm_facts.interface_list %}
+interface Tunnel2016
+  ip nhrp group {{ qos.tunnel.spoke[0] }}
+{% endif %}
+{% if "Tunnel2015" in get_facts.napalm_facts.interface_list %}
+interface Tunnel2015
+  ip nhrp group {{ qos.tunnel.spoke[1] }}
+{% endif %}
+{% endif %}

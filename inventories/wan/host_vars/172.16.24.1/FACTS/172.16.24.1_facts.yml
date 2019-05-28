@@ -1,60 +1,62 @@
 get_facts:
     napalm_facts:
-        fqdn: RT_CBJ_BORDER2Wan.victoria.local
-        hostname: RT_CBJ_BORDER2Wan
+        fqdn: RT-Funda-CCbl.victoria.local
+        hostname: RT-Funda-CCbl
         interface_list:
         - Embedded-Service-Engine0/0
         - GigabitEthernet0/0
         - GigabitEthernet0/1
         - GigabitEthernet0/2
         - Loopback0
+        - NVI0
+        - Tunnel122
         - Tunnel2015
-        - Tunnel2016
-        model: CISCO2921/K9
-        os_version: C2900 Software (C2900-UNIVERSALK9-M), Version 15.2(4)M6a, RELEASE
+        model: CISCO2911/K9
+        os_version: C2900 Software (C2900-UNIVERSALK9-M), Version 15.1(4)M2, RELEASE
             SOFTWARE (fc1)
-        serial_number: FCZ183270RR
-        uptime: 23706420
+        serial_number: FCZ154521BE
+        uptime: 856560
         vendor: Cisco
-    napalm_fqdn: RT_CBJ_BORDER2Wan.victoria.local
-    napalm_hostname: RT_CBJ_BORDER2Wan
+    napalm_fqdn: RT-Funda-CCbl.victoria.local
+    napalm_hostname: RT-Funda-CCbl
     napalm_interface_list:
     - Embedded-Service-Engine0/0
     - GigabitEthernet0/0
     - GigabitEthernet0/1
     - GigabitEthernet0/2
     - Loopback0
+    - NVI0
+    - Tunnel122
     - Tunnel2015
-    - Tunnel2016
     napalm_interfaces:
         Embedded-Service-Engine0/0:
             description: ''
-            is_enabled: true
+            is_enabled: false
             is_up: false
             last_flapped: -1.0
             mac_address: 00:00:00:00:00:00
             speed: 10
         GigabitEthernet0/0:
-            description: CORE SW COBEJE
+            description: link P2P DMVPN ITA
             is_enabled: true
             is_up: true
             last_flapped: -1.0
-            mac_address: F8:C2:88:B8:A3:A0
-            speed: 1000
+            mac_address: CC:EF:48:E5:AF:30
+            speed: 100
         GigabitEthernet0/1:
-            description: MPLS_UNITEL
+            description: ''
             is_enabled: true
             is_up: true
             last_flapped: -1.0
-            mac_address: F8:C2:88:B8:A3:A1
+            mac_address: CC:EF:48:E5:AF:31
             speed: 100
         GigabitEthernet0/2:
-            description: LINK P2P ITA COBEJE->VICTORIA
+            description: NERA_WAN (TERRAVERDE)
             is_enabled: true
             is_up: true
             last_flapped: -1.0
-            mac_address: F8:C2:88:B8:A3:A2
-            speed: 100
+            mac_address: CC:EF:48:E5:AF:32
+            speed: 80
         Loopback0:
             description: ''
             is_enabled: true
@@ -62,6 +64,20 @@ get_facts:
             last_flapped: -1.0
             mac_address: ''
             speed: 8000
+        NVI0:
+            description: ''
+            is_enabled: true
+            is_up: true
+            last_flapped: -1.0
+            mac_address: ''
+            speed: 0
+        Tunnel122:
+            description: TUNNEL ITA P2P FUNDA->VICTORIA
+            is_enabled: false
+            is_up: false
+            last_flapped: -1.0
+            mac_address: ''
+            speed: 4
         Tunnel2015:
             description: '*** DMVPN SPOKE TO VICTORIA  LINK ITA***'
             is_enabled: true
@@ -69,43 +85,36 @@ get_facts:
             last_flapped: -1.0
             mac_address: ''
             speed: 4
-        Tunnel2016:
-            description: '*** DMVPN SPOKE TO VICTORIA  UNITEL***'
-            is_enabled: true
-            is_up: true
-            last_flapped: -1.0
-            mac_address: ''
-            speed: 10
     napalm_interfaces_ip:
         GigabitEthernet0/0:
             ipv4:
-                10.40.35.1:
-                    prefix_length: 30
+                196.216.62.104:
+                    prefix_length: 31
         GigabitEthernet0/1:
             ipv4:
-                10.0.1.66:
+                10.15.35.1:
                     prefix_length: 30
         GigabitEthernet0/2:
             ipv4:
-                197.234.125.208:
-                    prefix_length: 31
+                172.31.255.41:
+                    prefix_length: 30
         Loopback0:
             ipv4:
-                4.4.4.4:
+                2.2.2.4:
                     prefix_length: 32
+        Tunnel122:
+            ipv4:
+                172.22.22.2:
+                    prefix_length: 30
         Tunnel2015:
             ipv4:
-                172.16.24.2:
+                172.16.24.1:
                     prefix_length: 29
-        Tunnel2016:
-            ipv4:
-                172.16.255.26:
-                    prefix_length: 28
-    napalm_model: CISCO2921/K9
-    napalm_os_version: C2900 Software (C2900-UNIVERSALK9-M), Version 15.2(4)M6a, RELEASE
+    napalm_model: CISCO2911/K9
+    napalm_os_version: C2900 Software (C2900-UNIVERSALK9-M), Version 15.1(4)M2, RELEASE
         SOFTWARE (fc1)
-    napalm_serial_number: FCZ183270RR
-    napalm_uptime: 23706420
+    napalm_serial_number: FCZ154521BE
+    napalm_uptime: 856560
     napalm_vendor: Cisco
 changed: false
 failed: false

@@ -5,6 +5,11 @@ build_dir: "CONFIG"
 final_setup: "FINAL_CONFIG"
 temp_cfg: "TEMP_CONFIG"
 dir_facts: "FACTS"
+ansible_network_os: "ios"
+ansible_user: "junior.mateus"
+ansible_password: "Checkk2009"
+ansible_become: yes
+ansible_become_method: enable
 
 secret:
    username: "junior.mateus"
@@ -13,7 +18,7 @@ secret:
 ios_provider:
     username: "{{ secret.username }}"
     password: "{{ secret.password }}"
-    authorize: true 
+    authorize: yes
     auth_pass: "{{ secret.password }}"
     host: "{{ inventory_hostname }}"
 
@@ -48,5 +53,13 @@ tacacs:
    ip: ["10.30.10.10"]
    key: "s3cr3t2016"
    timeout: 5
+
+qos:
+  tunnel:
+    spoke: ['10MB_grpe', '4MB_grpe']
+    hube: ['TUNNEL_SHAPE10MB', 'TUNNEL_SHAPE4MB']
+    
+   
+
 
 ...

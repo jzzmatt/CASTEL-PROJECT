@@ -1,0 +1,518 @@
+Building configuration...
+
+Current configuration : 14377 bytes
+!
+! Last configuration change at 12:07:16 WAT Tue May 28 2019 by junior.mateus
+! NVRAM config last updated at 12:07:21 WAT Tue May 28 2019 by junior.mateus
+! NVRAM config last updated at 12:07:21 WAT Tue May 28 2019 by junior.mateus
+version 15.2
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+!
+hostname RT_CBJ_BORDER2Wan
+!
+boot-start-marker
+boot-end-marker
+!
+!
+logging buffered 100000
+!
+aaa new-model
+!
+!
+aaa authentication login use-srvtacacs group tacacs+ local enable
+aaa authentication enable default group tacacs+ enable
+aaa authorization console
+aaa authorization exec use-srvtacacs group tacacs+ local if-authenticated 
+aaa authorization commands 1 default group tacacs+ if-authenticated 
+aaa authorization commands 15 default group tacacs+ local if-authenticated 
+aaa accounting send stop-record authentication failure
+aaa accounting exec default start-stop group tacacs+
+aaa accounting network default start-stop group tacacs+
+aaa accounting connection default start-stop group tacacs+
+aaa accounting system default start-stop group tacacs+
+aaa accounting resource default start-stop group tacacs+
+!
+!
+!
+!
+!
+aaa session-id common
+clock timezone WAT 1 0
+!
+ip cef
+!
+!
+!
+!
+
+
+!
+!
+!
+!
+ip domain name victoria.local
+ip name-server 10.30.10.1
+ip name-server 10.30.10.68
+no ipv6 cef
+!
+multilink bundle-name authenticated
+!
+!
+flow record MYRECORD
+ match ipv4 protocol
+ match ipv4 source address
+ match ipv4 destination address
+ match transport source-port
+ match transport destination-port
+ match interface input
+ match application name
+ collect ipv4 dscp
+ collect interface output
+ collect counter bytes
+ collect counter packets
+!
+!
+flow exporter CiscoPrime_Export
+ destination 10.30.99.252
+ transport udp 9996
+ option exporter-stats timeout 2
+!
+!
+flow exporter CiscoPrime_Export2
+ destination 10.30.99.251
+ transport udp 9991
+ option exporter-stats timeout 2
+!
+!
+flow monitor perform_policy
+ exporter CiscoPrime_Export
+ exporter CiscoPrime_Export2
+ record MYRECORD
+!
+!
+!
+key chain pfr-key
+ key 0
+  key-string PFR
+!
+crypto pki trustpoint TP-self-signed-1900284484
+ enrollment selfsigned
+ subject-name cn=IOS-Self-Signed-Certificate-1900284484
+ revocation-check none
+ rsakeypair TP-self-signed-1900284484
+!
+!
+crypto pki certificate chain TP-self-signed-1900284484
+ certificate self-signed 01
+  3082022B 30820194 A0030201 02020101 300D0609 2A864886 F70D0101 05050030 
+  31312F30 2D060355 04031326 494F532D 53656C66 2D536967 6E65642D 43657274 
+  69666963 6174652D 31393030 32383434 3834301E 170D3134 30383035 32333439 
+  33305A17 0D323030 31303130 30303030 305A3031 312F302D 06035504 03132649 
+  4F532D53 656C662D 5369676E 65642D43 65727469 66696361 74652D31 39303032 
+  38343438 3430819F 300D0609 2A864886 F70D0101 01050003 818D0030 81890281 
+  8100AD4E EB2034C0 17D1EF0C 050D6DF7 4B02B17C 2B3B5FAD 555B4EDB B7EE86DF 
+  3F8AFBE9 6CC0501C DB1B33DC 350E69F3 A3C803AC D119C8D3 A0F8DF1A 729EE308 
+  A8AB0F91 9021B1C1 C05ED5BA FE1FE2DD 0C810E99 DE47D783 804A26FE 6135BA5B 
+  63F12A9F 51FF3215 F26D6F9E CCB5663A 599ABAD6 B9B53DAF 7F1468C9 38405D6F 
+  D8FB0203 010001A3 53305130 0F060355 1D130101 FF040530 030101FF 301F0603 
+  551D2304 18301680 14306612 0849EC21 30C2E458 AFAE6EEE FD4F8662 E2301D06 
+  03551D0E 04160414 30661208 49EC2130 C2E458AF AE6EEEFD 4F8662E2 300D0609 
+  2A864886 F70D0101 05050003 81810068 7A6E8176 E260367E 5196A57B C7BFDBE0 
+  DA036D59 052698D5 8E130D05 0C933A4B 7D08CC7C F922ABF3 70B6B7AD 2C524B45 
+  E89EF3F4 54AAB88E 935CB53D D02070BB 17BC6254 7C65FFF1 5D48BA57 15AC73B8 
+  A42C34A3 610B988A 7EE4722F C81717E5 CB4A2CC3 B1158D2F 6C0FB281 96A5AE2F 
+  E44A334A 880C5704 63FEC790 9CA7EB
+  	quit
+!
+pfr master
+ policy-rules WAN_OPT
+ shutdown
+ !
+ border 4.4.4.4 key-chain pfr-key
+  interface Tunnel2015 external
+   link-group tunnel_ITA
+  interface Tunnel2016 external
+   link-group tunnel_UNITEL
+  interface GigabitEthernet0/0 internal
+ !
+ learn
+  traffic-class filter access-list ACL_CBJ_WAN
+ max prefix total 2000
+ holddown 180
+ backoff 180 180
+ mode route metric eigrp tag 7000
+ periodic 180
+!
+pfr border
+ local Loopback0
+ master 4.4.4.4 key-chain pfr-key
+license udi pid CISCO2921/K9 sn FCZ183270RR
+license boot module c2900 technology-package securityk9
+license boot module c2900 technology-package datak9
+!
+!
+archive
+ log config
+  logging enable
+  logging size 1000
+  notify syslog contenttype plaintext
+  hidekeys
+ path ftp://10.30.23.1/$h-$t
+ write-memory
+username admin privilege 15 secret 5 $1$KRx4$pzyTyqmInt/Uf5DktWhcF0
+!
+redundancy
+!
+!
+!
+!
+!
+ip ftp username ciscoBKP
+ip ftp password ciscoBKP
+ip ssh version 2
+ip scp server enable
+!
+class-map match-any Match_StreamingV
+ match protocol http url "dropbox"
+ match protocol http host "*dropbox.com"
+ match protocol http host "*googledrive.com"
+ match protocol http host "*drive.goolge.com"
+ match protocol http host "*video.goolge.com"
+ match ip dscp cs4 
+class-map match-any Match_CriticalData
+ match protocol sqlnet
+ match protocol kerberos
+ match protocol ldap
+ match protocol nfs
+ match protocol snmp
+ match protocol syslog
+ match protocol sap
+ match protocol http url "gmail"
+ match protocol http url "yahoo"
+ match protocol http url "outlook"
+ match access-group name Acl_qos_CriticaData
+ match protocol exchange
+ match protocol smtp
+ match protocol pop3
+ match protocol imap
+ match protocol secure-ldap
+ match protocol ntp
+ match protocol http url "portal.microsoftonline.com"
+ match protocol http host "*microsoftonline.com"
+ match protocol http host "*lync.com"
+ match protocol http host "*onmicrosoft.com"
+ match protocol http url "lync.com"
+ match protocol http url "portal.office.com"
+ match protocol http url "home.office.com"
+ match protocol http host "*.office365.com"
+ match protocol http host "*.office.com"
+ match protocol http host "*.office.net"
+ match protocol http host "*.microsoft.com"
+ match ip dscp cs6 
+ match ip dscp af21  af22 
+ match ip dscp cs2 
+class-map match-any Match_Signal
+ match protocol h323
+ match protocol sip
+ match protocol skinny
+ match protocol mgcp
+ match protocol skype
+ match ip dscp cs3 
+class-map match-any CM_HTTP
+ match access-group name WEB_TRAFFIC
+class-map match-any Match_Scavenger
+ match protocol bittorrent
+ match protocol fasttrack
+ match protocol gnutella
+ match protocol gopher
+ match protocol edonkey
+ match protocol kazaa2
+ match protocol winmx
+ match protocol directconnect
+class-map match-any Match_Voice
+ match protocol rtp
+ match protocol citrix
+ match protocol http url "webex"
+ match ip dscp ef 
+class-map match-any Match_BESTEffort
+ match class-map class-default
+! 
+!
+!
+!
+!
+!
+!
+!
+!
+interface Loopback0
+ ip address 4.4.4.4 255.255.255.255
+!
+interface Tunnel2015
+ description *** DMVPN SPOKE TO VICTORIA  LINK ITA***
+ bandwidth 4000
+ ip address 172.16.24.2 255.255.255.248
+ no ip redirects
+ ip mtu 1400
+ no ip split-horizon eigrp 800
+ ip flow monitor perform_policy input
+ ip flow monitor perform_policy output
+ ip nhrp authentication vict2015
+ ip nhrp group 4MB_grpe
+ ip nhrp map multicast 196.216.60.236
+ ip nhrp map 172.16.24.6 196.216.60.236
+ ip nhrp network-id 98
+ ip nhrp holdtime 300
+ ip nhrp nhs 172.16.24.6
+ ip tcp adjust-mss 1360
+ delay 4000
+ tunnel source GigabitEthernet0/2
+ tunnel mode gre multipoint
+ tunnel key 1008
+!
+interface Tunnel2016
+ description *** DMVPN SPOKE TO VICTORIA  UNITEL***
+ bandwidth 10000
+ ip address 172.16.255.26 255.255.255.240
+ no ip redirects
+ ip mtu 1400
+ no ip split-horizon eigrp 800
+ ip flow monitor perform_policy input
+ ip flow monitor perform_policy output
+ ip nhrp authentication vict2016
+ ip nhrp group 10MB_grpe
+ ip nhrp map multicast 10.0.1.2
+ ip nhrp map 172.16.255.30 10.0.1.2
+ ip nhrp network-id 99
+ ip nhrp holdtime 300
+ ip nhrp nhs 172.16.255.30
+ ip tcp adjust-mss 1360
+ delay 1000
+ tunnel source GigabitEthernet0/1
+ tunnel mode gre multipoint
+ tunnel key 1000
+!
+interface Embedded-Service-Engine0/0
+ no ip address
+!
+interface GigabitEthernet0/0
+ description CORE SW COBEJE
+ ip address 10.40.35.1 255.255.255.252
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet0/1
+ description MPLS_UNITEL
+ ip address 10.0.1.66 255.255.255.252
+ duplex full
+ speed 100
+!
+interface GigabitEthernet0/2
+ description LINK P2P ITA COBEJE->VICTORIA
+ ip address 197.234.125.208 255.255.255.254
+ duplex auto
+ speed auto
+!
+!
+!
+router eigrp 800
+ traffic-share min across-interfaces
+ variance 4
+ network 10.40.35.0 0.0.0.3
+ network 172.16.24.0 0.0.0.15
+ network 172.16.255.0 0.0.0.255
+ passive-interface default
+ no passive-interface Tunnel2015
+ no passive-interface Tunnel2016
+ no passive-interface GigabitEthernet0/1
+ no passive-interface GigabitEthernet0/0
+!
+router bgp 65201
+ bgp log-neighbor-changes
+ redistribute eigrp 800 route-map BGP_COBEJE_ADV_LAN
+ neighbor 172.16.24.6 remote-as 65200
+ neighbor 172.16.24.6 update-source Tunnel2015
+ neighbor 172.16.24.6 next-hop-self
+ distance 190 172.16.24.6 0.0.0.0
+!
+ip forward-protocol nd
+!
+ip http server
+ip http access-class 23
+ip http authentication aaa login-authentication use-srvtacacs
+ip http authentication aaa exec-authorization use-srvtacacs
+ip http authentication aaa command-authorization 15 default
+no ip http secure-server
+ip http timeout-policy idle 60 life 86400 requests 10000
+!
+ip route 10.0.1.0 255.255.255.0 10.0.1.65 name COBEJE_Mpls
+ip route 196.216.60.236 255.255.255.254 197.234.125.209 name P2P_COBEJE->VICTORIA
+!
+ip access-list extended ACL_CBJ_WAN
+ permit ip any 10.0.0.0 0.255.255.255
+ permit ip any 192.168.0.0 0.0.255.255
+ permit ip any host 3.3.3.1
+ip access-list extended Acl_qos_CriticaData
+ remark Mail_Protocols
+ permit tcp any any eq 465
+ permit tcp any any eq 995
+ permit tcp any any eq 993
+ permit tcp any any eq 587
+ remark MS LynC_ONline
+ permit udp any any eq 3478
+ permit udp any any range 50000 59999
+ip access-list extended DENY_GLOBAL_LEARN_LST
+ deny   ip any any
+ip access-list extended NAT_ISP_UNITEL
+ permit ip any any
+ip access-list extended WEB_TRAFFIC
+ permit tcp any any eq www
+ permit tcp any any eq 443
+ permit tcp any any eq ftp
+ permit tcp any any eq ftp-data
+!
+!
+ip prefix-list 10summary seq 5 permit 10.0.0.0/8
+!
+ip prefix-list Cobeje_advertise seq 5 permit 10.40.0.0/16
+!
+ip prefix-list pfr_Internal_GTK seq 5 permit 3.3.3.1/32
+!
+ip prefix-list pfr_Internal_VOIP seq 5 permit 192.168.162.0/24
+ip prefix-list pfr_Internal_VOIP seq 10 permit 192.168.166.0/24
+!
+ip prefix-list pfr_Internal_ipv4 seq 5 permit 10.0.0.0/8
+ip sla auto discovery
+kron occurrence Semanal-BKP at 21:30 Fri recurring
+ policy-list MY_BKP_CFG
+!
+kron policy-list MY_BKP_CFG
+ cli sh startup-config | redirect ftp://10.30.23.1/RT_CBJ_BORDER2WanSTART
+ cli sh running-config | redirect ftp://10.30.23.1/RT_CBJ_BORDER2WanRUNN
+!
+logging trap debugging
+logging host 10.30.99.251
+logging host 10.30.99.244
+access-list 2 permit 10.40.22.1
+access-list 55 permit 10.30.10.6
+access-list 55 permit 10.30.10.50
+access-list 99 permit 10.40.5.0 0.0.0.255
+!
+route-map EIGRP_AD_LAN permit 10
+ match ip address prefix-list Cobeje_advertise
+!
+route-map BGP_COBEJE_ADV_LAN permit 10
+ description Advertise Inside lan to BGP
+ match ip address prefix-list Cobeje_advertise
+!
+route-map RM_bgp.IN.eigrp permit 10
+ match ip address prefix-list 10summary
+!
+!
+snmp-server community V1Ctoria2014 RW 55
+snmp-server community victoria_pub RO
+snmp-server community victoria_wr RW
+snmp-server ifindex persist
+snmp-server location DATACENTER VICTORIA
+snmp-server contact support.helpdesk@bihangola.net
+snmp-server enable traps entity-sensor threshold
+snmp-server host 10.30.99.251 version 2c victoria_pub 
+snmp ifmib ifalias long
+tacacs-server host 10.30.10.10 timeout 5
+tacacs-server directed-request
+tacacs-server key s3cr3t2016
+!
+!
+!
+pfr-map WAN_OPT 10
+ match pfr learn throughput
+ set active-probe echo 10.30.10.254
+ set link-group tunnel_ITA fallback tunnel_UNITEL
+!
+control-plane
+!
+!
+alias exec nbar sh ip nbar protocol-discovery stats bit-rate top-n 10
+alias exec arch sh archive log config a
+alias exec flow sh flow monitor perform_policy cache format tabl
+banner exec ^C
+% Password expiration warning.
+-----------------------------------------------------------------------
+ 
+Cisco Configuration Professional (Cisco CP) is installed on this device 
+and it provides the default username "cisco" for  one-time use. If you have 
+already used the username "cisco" to login to the router and your IOS image 
+supports the "one-time" user option, then this username has already expired. 
+You will not be able to login to the router with this username after you exit 
+this session.
+ 
+It is strongly suggested that you create a new username with a privilege level 
+of 15 using the following command.
+ 
+username <myuser> privilege 15 secret 0 <mypassword>
+ 
+Replace <myuser> and <mypassword> with the username and password you want to 
+use.
+ 
+-----------------------------------------------------------------------
+^C
+banner login ^C
+-----------------------------------------------------------------------
+Cisco Configuration Professional (Cisco CP) is installed on this device. 
+This feature requires the one-time use of the username "cisco" with the 
+password "cisco". These default credentials have a privilege level of 15.
+ 
+YOU MUST USE CISCO CP or the CISCO IOS CLI TO CHANGE THESE  PUBLICLY-KNOWN 
+CREDENTIALS
+
+Here are the Cisco IOS commands.
+
+username <myuser>  privilege 15 secret 0 <mypassword>
+no username cisco
+
+Replace <myuser> and <mypassword> with the username and password you want 
+to use. 
+
+IF YOU DO NOT CHANGE THE PUBLICLY-KNOWN CREDENTIALS, YOU WILL NOT BE ABLE 
+TO LOG INTO THE DEVICE AGAIN AFTER YOU HAVE LOGGED OFF.
+ 
+For more information about Cisco CP please follow the instructions in the 
+QUICK START GUIDE for your router or go to http://www.cisco.com/go/ciscocp 
+-----------------------------------------------------------------------
+^C
+!
+line con 0
+ exec-timeout 15 0
+ privilege level 15
+ logging synchronous
+ login authentication use-srvtacacs
+ length 0
+line aux 0
+line 2
+ no activation-character
+ no exec
+ transport preferred none
+ transport output pad telnet rlogin lapb-ta mop udptn v120 ssh
+ stopbits 1
+line vty 0 4
+ exec-timeout 15 0
+ privilege level 15
+ logging synchronous
+ login authentication use-srvtacacs
+ length 0
+ transport input telnet ssh
+line vty 5 15
+ exec-timeout 15 0
+ privilege level 15
+ logging synchronous
+ login authentication use-srvtacacs
+ length 0
+ transport input ssh
+!
+scheduler allocate 20000 1000
+ntp master
+ntp server 172.23.22.1
+!
+end

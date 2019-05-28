@@ -1,9 +1,9 @@
 Building configuration...
 
-Current configuration : 14938 bytes
+Current configuration : 15663 bytes
 !
-! Last configuration change at 15:32:30 WAT Wed Mar 27 2019 by junior.mateus
-! NVRAM config last updated at 11:39:09 WAT Mon Feb 25 2019 by junior.mateus
+! Last configuration change at 10:41:35 WAT Thu May 23 2019 by odorico.domingos
+! NVRAM config last updated at 11:20:12 WAT Wed May 22 2019 by odorico.domingos
 !
 version 12.2
 no service pad
@@ -55,6 +55,8 @@ ip dhcp excluded-address 10.31.106.252 10.31.106.254
 ip dhcp excluded-address 10.31.106.254
 ip dhcp excluded-address 10.31.99.30 10.31.99.254
 ip dhcp excluded-address 10.31.95.1 10.31.95.5
+ip dhcp excluded-address 192.168.108.254
+ip dhcp excluded-address 10.31.95.254
 !
 ip dhcp pool END_USER-DHCP
    network 10.31.106.0 255.255.255.0
@@ -93,6 +95,12 @@ ip dhcp pool Wireless_Devices_LAP
    default-router 10.31.99.254 
    option 43 hex f104.0a1e.6332
    dns-server 10.30.48.1 10.30.48.2 10.30.10.10 10.30.10.10 
+!
+ip dhcp pool GUEST_MODUS
+   network 192.168.108.0 255.255.255.0
+   default-router 192.168.108.254 
+   dns-server 1.1.1.1 8.8.8.8 
+   lease 0 4
 !
 !
 !
@@ -228,11 +236,9 @@ interface FastEthernet0/1
  mls qos vlan-based
 !
 interface FastEthernet0/2
- description LINK TO SW 1st FLOOR 
- switchport trunk encapsulation dot1q
- switchport trunk native vlan 99
- switchport mode trunk
- mls qos vlan-based
+ switchport access vlan 106
+ switchport mode access
+ switchport voice vlan 3
  spanning-tree portfast
 !
 interface FastEthernet0/3
@@ -258,7 +264,7 @@ interface FastEthernet0/5
  mls qos vlan-based
 !
 interface FastEthernet0/6
- description Sala 6 andar
+ description AP Corredor 6 andar
  switchport trunk encapsulation dot1q
  switchport trunk native vlan 99
  switchport trunk allowed vlan 99,101
@@ -287,11 +293,10 @@ interface FastEthernet0/8
  ip dhcp snooping trust
 !
 interface GigabitEthernet0/1
- description Reserved trunk
- switchport trunk encapsulation dot1q
- switchport mode trunk
- switchport nonegotiate
- mls qos vlan-based
+ description FIBRA VPN TVCABO P2P MODUS->VICTORIA
+ switchport access vlan 305
+ switchport mode access
+ spanning-tree bpdufilter enable
 !
 interface Vlan1
  description Native&Management
@@ -310,7 +315,6 @@ interface Vlan10
 interface Vlan20
  description END USER WIRED
  ip address 192.168.20.254 255.255.255.0
- service-policy input DVLAN_MARKING
 !
 interface Vlan21
  description LINK to Router EDGE
@@ -334,10 +338,18 @@ interface Vlan106
  ip address 10.31.106.254 255.255.255.0
  service-policy input DVLAN_MARKING
 !
+interface Vlan218
+ description GUEST_MODUS
+ ip address 192.168.108.254 255.255.255.0
+ ip policy route-map RM_GUEST
+!
 interface Vlan305
  description FIBRA TVCABO P2P DATACENTER
  ip address 172.31.255.54 255.255.255.252
  ip summary-address eigrp 800 10.31.0.0 255.255.0.0
+!
+interface Vlan901
+ ip address 10.128.16.33 255.255.255.224
 !
 !
 router eigrp 800
@@ -447,11 +459,21 @@ ip prefix-list Eigrp_prfx seq 5 permit 10.31.0.0/16
 ip prefix-list Eigrp_prfx seq 6 permit 192.168.99.0/24
 logging trap debugging
 logging 10.30.99.251
-logging 10.30.99.244
 access-list 55 permit 10.30.10.6
 access-list 55 permit 10.30.10.50
+access-list 103 permit ip 192.168.108.0 0.0.0.255 host 192.168.108.254
+access-list 103 deny   ip 10.0.0.0 0.255.255.255 192.168.108.0 0.0.0.255
+access-list 103 deny   ip 192.168.0.0 0.0.255.255 192.168.108.0 0.0.0.255
+access-list 103 deny   ip 172.16.0.0 0.0.240.255 192.168.108.0 0.0.0.255
+access-list 103 permit ip any any
 route-map RM_EIGRP permit 10
  match ip address prefix-list Eigrp_prfx
+!
+route-map RM_GUEST permit 10
+ match ip address 103
+ set ip next-hop 10.31.21.1
+!
+route-map RM_GUEST permit 15
 !
 !
 snmp-server community V1Ctoria2014 RO 55
@@ -488,6 +510,6 @@ line vty 5 15
  length 0
  transport input ssh
 !
-ntp clock-period 36028886
+ntp clock-period 36028884
 ntp server 172.31.255.53
 end

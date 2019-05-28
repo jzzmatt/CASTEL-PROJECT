@@ -1,10 +1,8 @@
 Building configuration...
 
-Current configuration : 11154 bytes
+Current configuration : 11254 bytes
 !
-! Last configuration change at 09:20:08 WAT Tue Mar 26 2019 by junior.mateus
-! NVRAM config last updated at 16:33:37 WAT Thu Feb 14 2019 by junior.mateus
-! NVRAM config last updated at 16:33:37 WAT Thu Feb 14 2019 by junior.mateus
+! No configuration change since last restart
 version 15.1
 service timestamps debug datetime msec
 service timestamps log datetime msec
@@ -55,8 +53,8 @@ flow record MYRECORD
  match application name
  collect ipv4 dscp
  collect interface output
- collect counter bytes
- collect counter packets
+ collect counter bytes long
+ collect counter packets long
 !
 !
 flow exporter NETFLOW_ANALYSER
@@ -64,9 +62,22 @@ flow exporter NETFLOW_ANALYSER
  transport udp 9996
 !
 !
-flow monitor MYMONITOR
+flow exporter CiscoPrime_Export
+ destination 10.30.99.252
+ transport udp 9996
+ option exporter-stats timeout 2
+!
+!
+flow exporter CiscoPrime_Export2
+ destination 10.30.99.251
+ transport udp 9991
+ option exporter-stats timeout 2
+!
+!
+flow monitor perform_policy
  record MYRECORD
- exporter NETFLOW_ANALYSER
+ exporter CiscoPrime_Export
+ exporter CiscoPrime_Export2
 !
 ip source-route
 ip cef
@@ -189,13 +200,13 @@ interface Tunnel2016
  ip address 172.16.255.20 255.255.255.240
  no ip redirects
  ip mtu 1400
- ip flow monitor MYMONITOR input
- ip flow monitor MYMONITOR output
+ ip flow monitor perform_policy input
+ ip flow monitor perform_policy output
  ip flow ingress
  ip nhrp authentication vict2016
  ip nhrp group 4MB_grpe
- ip nhrp map multicast 10.0.1.2
  ip nhrp map 172.16.255.30 10.0.1.2
+ ip nhrp map multicast 10.0.1.2
  ip nhrp network-id 99
  ip nhrp holdtime 300
  ip nhrp nhs 172.16.255.30

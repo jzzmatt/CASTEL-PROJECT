@@ -19,3 +19,6 @@ wan_va
 wan_unitel
 wan_ita
 wan_nera
+[dmvpn_spoke:children]
+wan_unitel
+wan_ita

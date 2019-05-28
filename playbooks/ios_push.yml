@@ -1,29 +1,31 @@
 ---
 - name: IOS USE TEMPLATE
-  connection: local 
+  connection: network_cli
+  become: yes 
   hosts: all
   gather_facts: no
 
   pre_tasks:
       - name: TAKE BACKUP BEFORE CHANGES 
         ios_config:
-            provider: "{{ ios_provider }}"
-            authorize: yes 
+#            provider: "{{ ios_provider }}"
+#            authorize: yes 
             backup: "yes" 
 
 
   roles:
+      - qos
 #      - base
 #      - tacacs
 #      - snmp
 #      - loggin
-      - netflow 
+#      - netflow 
  
   post_tasks:
      - name: SAVE CONFIG 
        ios_command:
-           provider: "{{ ios_provider }}"
-           authorize: yes 
+#           provider: "{{ ios_provider }}"
+#           authorize: yes 
            commands:
                - wr
        tags: ['save']

@@ -1,7 +1,7 @@
 Building configuration...
 
 
-Current configuration : 20831 bytes
+Current configuration : 21245 bytes
 !
 ! No configuration change since last restart
 version 15.1
@@ -69,9 +69,27 @@ flow exporter NETFLOW_ANALYSER
  transport udp 9996
 !
 !
+flow exporter CiscoPrime_Export
+ destination 10.30.99.252
+ transport udp 9996
+ option exporter-stats timeout 2
+!
+!
+flow exporter CiscoPrime_Export2
+ destination 10.30.99.251
+ transport udp 9991
+ option exporter-stats timeout 2
+!
+!
 flow monitor MYMONITOR
  record MYRECORD
  exporter NETFLOW_ANALYSER
+!
+!
+flow monitor perform_policy
+ record MYRECORD
+ exporter CiscoPrime_Export
+ exporter CiscoPrime_Export2
 !
 ip source-route
 ip cef
@@ -247,11 +265,13 @@ interface Tunnel2016
  ip mtu 1400
  ip nbar protocol-discovery
  ip flow monitor MYMONITOR input
+ ip flow monitor perform_policy input
  ip flow monitor MYMONITOR output
+ ip flow monitor perform_policy output
  ip nhrp authentication vict2016
  ip nhrp group 10MB_grpe
- ip nhrp map 172.16.255.30 10.0.1.2
  ip nhrp map multicast 10.0.1.2
+ ip nhrp map 172.16.255.30 10.0.1.2
  ip nhrp network-id 99
  ip nhrp holdtime 300
  ip nhrp nhs 172.16.255.30
@@ -269,8 +289,8 @@ interface Tunnel20000
  ip wccp 61 redirect out
  ip wccp 62 redirect in
  ip nhrp authentication YvaPrQY7
- ip nhrp map multicast 10.252.19.14
  ip nhrp map 172.27.1.1 10.252.19.14
+ ip nhrp map multicast 10.252.19.14
  ip nhrp network-id 3
  ip nhrp holdtime 300
  ip nhrp nhs 172.27.1.1
@@ -385,7 +405,7 @@ interface SM1/0
  ip address 172.31.1.1 255.255.255.252
  ip wccp redirect exclude in
  service-module ip address 172.31.1.2 255.255.255.252
- !Application: Restarted at Mon Mar 25 02:37:22 2019
+ !Application: Restarted at Mon May 27 03:39:59 2019
  service-module ip default-gateway 172.31.1.1
  no keepalive
 !

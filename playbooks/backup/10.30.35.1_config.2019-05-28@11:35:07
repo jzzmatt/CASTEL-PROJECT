@@ -1,0 +1,648 @@
+Building configuration...
+
+
+Current configuration : 16494 bytes
+!
+! Last configuration change at 12:22:21 WAT Tue May 28 2019 by junior.mateus
+! NVRAM config last updated at 11:17:12 WAT Mon May 27 2019 by junior.mateus
+! NVRAM config last updated at 11:17:12 WAT Mon May 27 2019 by junior.mateus
+version 15.1
+service timestamps debug datetime msec
+service timestamps log datetime msec
+service password-encryption
+!
+hostname Rt_WAN01_VICT
+!
+boot-start-marker
+boot-end-marker
+!
+!
+logging userinfo
+logging buffered 100000
+!
+aaa new-model
+!
+!
+aaa authentication login use-srvtacacs group tacacs+ local enable
+aaa authentication enable default group tacacs+ enable
+aaa authorization console
+aaa authorization exec use-srvtacacs group tacacs+ local if-authenticated 
+aaa authorization commands 1 default group tacacs+ if-authenticated 
+aaa authorization commands 15 default group tacacs+ local if-authenticated 
+aaa accounting send stop-record authentication failure
+aaa accounting exec default start-stop group tacacs+
+aaa accounting network default start-stop group tacacs+
+aaa accounting connection default start-stop group tacacs+
+aaa accounting system default start-stop group tacacs+
+aaa accounting resource default start-stop group tacacs+
+!
+!
+!
+!
+!
+aaa session-id common
+!
+clock timezone WAT 1 0
+errdisable recovery cause udld
+errdisable recovery cause bpduguard
+errdisable recovery cause rootguard
+errdisable recovery cause pagp-flap
+errdisable recovery cause dtp-flap
+errdisable recovery cause link-flap
+errdisable recovery interval 30
+!
+no ipv6 cef
+!
+flow record PrimeNFRec
+ match ipv4 protocol
+ match ipv4 source address
+ match ipv4 destination address
+ match transport source-port
+ match transport destination-port
+ match interface input
+ match application name
+ collect ipv4 dscp
+ collect interface output
+ collect counter bytes long
+ collect counter packets long
+!
+!
+flow exporter PrimeNFExp
+ destination 10.30.99.251
+ transport udp 9991
+ option exporter-stats timeout 20
+!
+!
+flow exporter PrimeNFexp2
+ destination 10.30.99.252
+ transport udp 9996
+!
+!
+flow monitor PrimeNFMon
+ record PrimeNFRec
+ exporter PrimeNFExp
+ exporter PrimeNFexp2
+!
+ip source-route
+ip cef
+!
+!
+!
+!
+!
+ip domain name victoria.local
+ip name-server 10.30.10.1
+ip name-server 10.30.10.10
+!
+multilink bundle-name authenticated
+!
+!
+!
+!
+!
+!
+key chain pfr_key
+ key 0
+  key-string 7 02362269
+crypto pki token default removal timeout 0
+!
+!
+!
+pfr border
+ shutdown
+ local GigabitEthernet0/1.35
+ master 10.30.35.3 key-chain pfr_key
+voice-card 0
+!
+!
+!
+!
+!
+!
+!
+license udi pid CISCO2921/K9 sn FGL164710K4
+license boot module c2900 technology-package datak9
+hw-module sm 1
+!
+!
+!
+archive
+ log config
+  logging enable
+  logging size 1000
+  notify syslog contenttype plaintext
+  hidekeys
+ path ftp://10.30.23.1/$h-$t
+ write-memory
+!
+spanning-tree uplinkfast
+spanning-tree backbonefast
+vtp domain victoria
+vtp mode transparent
+username admin privilege 15 password 7 1344211B0818567A7A7062
+!
+redundancy
+!
+!
+!
+!
+vlan 304
+ name VLAN_P2PQuality
+!
+ip ftp source-interface GigabitEthernet0/1.35
+ip ftp username ciscoBKP
+ip ftp password 7 00071A150754292D3F
+ip ssh version 2
+ip scp server enable
+!
+class-map match-all class-all
+ match any 
+class-map match-all CM_PrivateLan
+ match access-group name Internal_Traffic
+class-map match-any CM_Priority
+ match protocol rtp
+ match protocol skinny
+ match ip dscp cs6 
+ match ip dscp cs5 
+ match ip dscp cs4 
+ match ip dscp cs3 
+!
+!
+policy-map Qos_Tunnel
+ class CM_Priority
+  priority percent 5
+ class CM_PrivateLan
+  set dscp af21
+  bandwidth percent 30
+ class class-default
+  bandwidth percent 40
+  random-detect
+policy-map TUNNEL_SHAPE10MB
+ class class-default
+  shape average 8500000
+  service-policy Qos_Tunnel
+policy-map TUNNEL_SHAPE4MB
+ class class-default
+  shape average 3000000
+  service-policy Qos_Tunnel
+!
+! 
+!
+!
+!
+!
+!
+!
+interface Loopback0
+ ip address 3.1.1.10 255.255.255.255
+!
+interface Tunnel122
+ description TUNNEL ITA P2P VICTORIA->FUNDA
+ bandwidth 4000
+ ip address 172.22.22.1 255.255.255.252
+ ip mtu 1475
+ ip tcp adjust-mss 1400
+ delay 1500210
+ shutdown
+ tunnel source GigabitEthernet0/2/0.122
+ tunnel destination 196.216.62.104
+ tunnel path-mtu-discovery
+!
+interface Tunnel123
+ description TUNNEL ITA P2P VICTORIA->COBEJE
+ bandwidth 4000
+ ip address 172.23.22.1 255.255.255.252
+ ip mtu 1475
+ ip tcp adjust-mss 1400
+ no ip split-horizon eigrp 800
+ delay 1500210
+ shutdown
+ tunnel source GigabitEthernet0/2/0.122
+ tunnel destination 197.234.125.208
+ tunnel path-mtu-discovery
+!
+interface Tunnel124
+ description TUNNEL ITA P2P VICTORIA->LUBANGO
+ bandwidth 2000
+ ip address 172.23.22.5 255.255.255.252
+ ip mtu 1475
+ ip nbar protocol-discovery
+ ip tcp adjust-mss 1400
+ delay 1500210
+ tunnel source GigabitEthernet0/2/0.122
+ tunnel destination 197.234.126.40
+ tunnel path-mtu-discovery
+!
+interface Tunnel125
+ description TUNNEL UNTIEL P2P VICTORIA->QUALITY
+ bandwidth 4000
+ ip address 172.23.22.9 255.255.255.252
+ ip mtu 1475
+ ip tcp adjust-mss 1400
+ delay 1500210
+ tunnel source Vlan304
+ tunnel destination 10.0.1.30
+ tunnel path-mtu-discovery
+!
+interface Tunnel2015
+ description **** DMVPN ITA HUBE ****
+ bandwidth 8000
+ ip address 172.16.24.6 255.255.255.248
+ no ip redirects
+ ip nbar protocol-discovery
+ ip flow monitor PrimeNFMon input
+ ip flow monitor PrimeNFMon output
+ ip nhrp authentication vict2015
+ ip nhrp map multicast dynamic
+ ip nhrp network-id 98
+ ip nhrp holdtime 300
+ ip tcp adjust-mss 1400
+ no ip split-horizon eigrp 800
+ load-interval 30
+ delay 4000
+ tunnel source GigabitEthernet0/2/0.122
+ tunnel mode gre multipoint
+ tunnel key 1008
+ tunnel path-mtu-discovery
+!
+interface Tunnel2016
+ description **** DMVPN UNITEL HUBE ****
+ bandwidth 34000
+ ip address 172.16.255.30 255.255.255.240
+ no ip redirects
+ ip nbar protocol-discovery
+ ip flow monitor PrimeNFMon input
+ ip flow monitor PrimeNFMon output
+ ip nhrp authentication vict2016
+ ip nhrp map multicast dynamic
+ ip nhrp map group 10MB_grpe service-policy output TUNNEL_SHAPE10MB
+ ip nhrp network-id 99
+ ip nhrp holdtime 300
+ ip tcp adjust-mss 1400
+ no ip split-horizon eigrp 800
+ load-interval 30
+ delay 1000
+ tunnel source GigabitEthernet0/0
+ tunnel mode gre multipoint
+ tunnel key 1000
+ tunnel path-mtu-discovery
+!
+interface Embedded-Service-Engine0/0
+ no ip address
+ shutdown
+!
+interface GigabitEthernet0/0
+ description LINK MPLS UNITEL
+ ip address 10.0.1.2 255.255.255.252
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet0/1
+ description TRUNK CORE DATACENTER (FIBRA)
+ no ip address
+ load-interval 30
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet0/1.35
+ description VLAN Wan -> CORE CENTRAL
+ encapsulation dot1Q 35
+ ip address 10.30.35.1 255.255.255.248
+!
+interface GigabitEthernet0/1.305
+ description VLAN Modus Vivendi (Tvcabo Fibra)
+ encapsulation dot1Q 305
+ ip address 172.31.255.53 255.255.255.252
+ ip flow monitor PrimeNFMon input
+ ip flow monitor PrimeNFMon output
+!
+interface GigabitEthernet0/2
+ description TRUNK FIBRA L3 WAN->CORECENTRAL (VLAN 99+ModuS)
+ no ip address
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet0/2/0
+ description TRUNK SW L2
+ no ip address
+ load-interval 30
+!
+interface GigabitEthernet0/2/0.122
+ description LINK MPLS ITA
+ encapsulation dot1Q 122
+ ip address 196.216.60.236 255.255.255.254
+!
+interface GigabitEthernet0/2/0.300
+ description VLAN CUCA SA
+ bandwidth 80000
+ encapsulation dot1Q 300
+ ip address 172.31.255.5 255.255.255.252
+!
+interface GigabitEthernet0/2/0.301
+ description VLAN NOCAL
+ bandwidth 80000
+ encapsulation dot1Q 301
+ ip address 172.31.255.1 255.255.255.252
+ ip flow monitor PrimeNFMon input
+ ip flow monitor PrimeNFMon output
+!
+interface GigabitEthernet0/2/0.302
+ description VLAN TERRAVERDE
+ bandwidth 80000
+ encapsulation dot1Q 302
+ ip address 172.31.255.18 255.255.255.252
+!
+interface GigabitEthernet0/2/0.303
+ description VLAN VIANA
+ bandwidth 80000
+ encapsulation dot1Q 303
+ ip address 172.31.255.22 255.255.255.252
+!
+interface GigabitEthernet0/2/0.999
+ description MGT L2 SW NERA
+ encapsulation dot1Q 999 native
+ ip address 172.16.253.1 255.255.255.252
+!
+interface FastEthernet0/1/0
+ description NERA MICROWAVE TERRAVERDE
+ switchport access vlan 302
+ no ip address
+ duplex full
+ spanning-tree portfast
+!
+interface FastEthernet0/1/1
+ description NERA MICROWAVE VIANA HUBE
+ switchport access vlan 303
+ no ip address
+ duplex full
+ spanning-tree portfast
+!
+interface FastEthernet0/1/2
+ description NERA MICROWAVE NOCAL
+ switchport access vlan 301
+ no ip address
+ duplex full
+ spanning-tree portfast
+!
+interface FastEthernet0/1/3
+ switchport access vlan 300
+ no ip address
+ duplex full
+ spanning-tree portfast
+!
+interface FastEthernet0/1/4
+ no ip address
+!
+interface FastEthernet0/1/5
+ no ip address
+!
+interface FastEthernet0/1/6
+ description LINK P2P UNITEL [QUality]
+ switchport access vlan 304
+ no ip address
+ duplex full
+ speed 100
+ spanning-tree portfast
+!
+interface FastEthernet0/1/7
+ no ip address
+!
+interface FastEthernet0/1/8
+ no ip address
+!
+interface SM1/0
+ no ip address
+ shutdown
+ !Application: Restarted at Sat Jul  1 11:33:35 2017
+!
+interface SM1/1
+ no ip address
+ shutdown
+!
+interface Vlan1
+ no ip address
+!
+interface Vlan304
+ description VLAN P2P Unitel->CAllCenter QUALITY
+ ip address 10.0.1.26 255.255.255.252
+!
+!
+!
+router eigrp 800
+ distribute-list prefix SUMM_DISTRIB out Tunnel2016
+ distribute-list prefix SUMM_DISTRIB out Tunnel2015
+ variance 8
+ network 10.30.35.0 0.0.0.3
+ network 172.16.24.0 0.0.0.15
+ network 172.16.255.0 0.0.0.255
+ network 172.31.255.0 0.0.0.3
+ network 172.31.255.4 0.0.0.3
+ network 172.31.255.16 0.0.0.3
+ network 172.31.255.20 0.0.0.3
+ network 172.31.255.52 0.0.0.3
+ redistribute static route-map RM_EIGRP
+ redistribute bgp 65200 metric 100000 500 255 1 1500 route-map RM_bgp.IN.eigrp
+ passive-interface default
+ no passive-interface Tunnel2015
+ no passive-interface Tunnel2016
+ no passive-interface GigabitEthernet0/0
+ no passive-interface GigabitEthernet0/1.35
+ no passive-interface GigabitEthernet0/2/0.300
+ no passive-interface GigabitEthernet0/2/0.301
+ no passive-interface GigabitEthernet0/2/0.302
+ no passive-interface GigabitEthernet0/2/0.303
+ no passive-interface GigabitEthernet0/1.305
+!
+router bgp 65200
+ bgp log-neighbor-changes
+ bgp redistribute-internal
+ network 10.0.0.0
+ network 192.168.162.0
+ network 192.168.166.0
+ neighbor 172.16.24.2 remote-as 65201
+ neighbor 172.16.24.2 update-source Tunnel2015
+ neighbor 172.16.255.21 remote-as 65504
+ neighbor 172.16.255.21 update-source Tunnel2016
+ neighbor 172.16.255.21 next-hop-self
+ neighbor 172.16.255.22 remote-as 65505
+ neighbor 172.16.255.22 next-hop-self
+ neighbor 172.16.255.23 remote-as 65502
+ neighbor 172.16.255.23 update-source Tunnel2016
+ neighbor 172.16.255.23 next-hop-self
+ neighbor 172.16.255.24 remote-as 65501
+ neighbor 172.16.255.24 update-source Tunnel2016
+ neighbor 172.16.255.24 next-hop-self
+ neighbor 172.16.255.25 remote-as 65500
+ neighbor 172.16.255.25 update-source Tunnel2016
+ neighbor 172.16.255.25 next-hop-self
+ neighbor 172.16.255.27 remote-as 65506
+ neighbor 172.16.255.27 update-source Tunnel2016
+ neighbor 172.16.255.27 next-hop-self
+ distance 190 172.16.24.2 0.0.0.0
+!
+ip forward-protocol nd
+!
+ip http server
+ip http authentication aaa login-authentication use-srvtacacs
+ip http authentication aaa exec-authorization use-srvtacacs
+ip http authentication aaa command-authorization 15 default
+no ip http secure-server
+!
+ip route 10.0.1.0 255.255.255.0 10.0.1.1 name MPLSVictoria->UNITEL
+ip route 10.0.1.28 255.255.255.252 10.0.1.25 name P2P_Victoria->QUALTITY
+ip route 10.17.20.0 255.255.254.0 Tunnel125 name Rotas_>QUALTITY_LAN
+ip route 196.216.62.104 255.255.255.254 196.216.60.237 name P2P_Victoria->FUNDA
+ip route 197.234.125.208 255.255.255.254 196.216.60.237 name P2P_Victoria->COBEJE
+ip route 197.234.126.40 255.255.255.254 196.216.60.237 name P2P_Victoria->Lubango
+!
+ip access-list extended DENY_GLOBAL_LEARN_LST
+ deny   ip any any
+ip access-list extended Internal_Traffic
+ permit ip any 10.0.0.0 0.255.255.255
+ permit ip any 172.16.0.0 0.0.240.255
+ permit ip any 192.168.0.0 0.0.255.255
+!
+!
+ip prefix-list COBEJE_NET seq 5 permit 10.40.0.0/16
+!
+ip prefix-list Distrib_bgp.INeigrp seq 10 permit 10.121.176.0/23
+ip prefix-list Distrib_bgp.INeigrp seq 15 permit 10.172.192.0/24
+ip prefix-list Distrib_bgp.INeigrp seq 20 permit 10.121.179.0/27
+ip prefix-list Distrib_bgp.INeigrp seq 25 permit 10.121.179.32/28
+ip prefix-list Distrib_bgp.INeigrp seq 30 permit 10.121.179.64/26
+ip prefix-list Distrib_bgp.INeigrp seq 35 permit 10.121.179.128/26
+ip prefix-list Distrib_bgp.INeigrp seq 40 permit 192.168.255.0/24
+!
+ip prefix-list PrfConnected seq 5 permit 172.23.22.8/32
+!
+ip prefix-list PrfStatic seq 5 permit 10.17.21.0/24
+!
+ip prefix-list SUMM_DISTRIB seq 5 permit 10.0.0.0/8
+ip prefix-list SUMM_DISTRIB seq 10 permit 192.168.0.0/16
+ip prefix-list SUMM_DISTRIB seq 20 permit 0.0.0.0/0
+ip prefix-list SUMM_DISTRIB seq 22 permit 3.3.3.1/32
+ip prefix-list SUMM_DISTRIB seq 27 permit 192.168.162.0/24
+ip prefix-list SUMM_DISTRIB seq 32 permit 192.168.166.0/24
+ip radius source-interface GigabitEthernet0/1.35 
+kron occurrence Semanal-BKP at 21:30 Fri recurring
+ policy-list MY_BKP_CFG
+!
+kron policy-list MY_BKP_CFG
+ cli sh startup-config | redirect ftp://10.30.23.1/RT_WAN_VICTSTARTUP
+ cli sh running-config | redirect ftp://10.30.23.1/RT_WAN_VICTRUNNING
+!
+logging trap debugging
+logging 10.30.99.251
+logging 10.30.99.244
+access-list 40 permit 10.40.0.0 0.0.255.255
+access-list 55 permit 10.30.10.6
+access-list 55 permit 10.30.10.50
+!
+!
+!
+!
+route-map RM_EIGRP permit 10
+ match ip address prefix-list PrfStatic
+!
+route-map RM_EIGRP_connected permit 10
+ match ip address prefix-list PrfConnected
+!
+route-map RM_bgp.IN.eigrp permit 10
+ match ip address prefix-list Distrib_bgp.INeigrp
+!
+!
+snmp-server community V1Ctoria2014_admin RW 55
+snmp-server community V1Ctoria2014 RO
+snmp-server community victoria_pub RO
+snmp-server community victoria_wr RW
+snmp-server location DATACENTER VICTORIA
+snmp-server contact support.helpdesk@bihangola.net
+snmp-server host 10.30.99.251 version 2c victoria_pub 
+snmp ifmib ifalias long
+tacacs-server host 10.30.10.10
+tacacs-server key 7 08321F4D1B4A1145425A5A
+!
+!
+!
+control-plane
+!
+!
+!
+!
+mgcp profile default
+!
+!
+!
+!
+!
+gatekeeper
+ shutdown
+!
+!
+alias exec nbar sh ip nbar protocol-discovery stats bit-rate top-n 10
+alias exec qos sh auto discovery qos
+alias exec mem show proc mem | excl 0.00%_0.00%_0.00%
+alias exec u undebug all
+alias exec nt terminal no monitor
+alias exec arch sh archive log config a
+alias exec cpu1 sh proc cpu sort 1m | ex 0.00
+alias exec cpu show processes cpu sorted | exclude 0.00% 0.00% 0.00%
+alias exec dmqos show policy-map multipoint
+alias exec tunqos show ip nhrp group-map
+alias exec flow sh flow monitor PrimeNFMon cache format tabl
+banner motd ^C
+####################################################################
+#                                                                  #
+#  ----------      SITE DATACENTER VICTORIA  --------------        #
+#  ----------           IT DEPARTEMENT        -------------        #
+#                                                                  #
+#       Unauthorized access is prohibit and will be prosecuted     #      
+#  IF Allowed, before Applying any Modification please contact the #
+#                         IT DEPARTEMENT                           #
+#     helpdesk@bihangola.net    suporteit@sabmiller.co.ao          #
+#  _______________________________________________________________ #
+#        GRUPO CUCA BGI ANGOLA    / COCA COLA BOTTLING SA          #
+#                        ( Luanda-ANGOLA )                         #
+#  _______________________________________________________________ #
+#                                                                  #
+####################################################################^C
+!
+line con 0
+ exec-timeout 15 0
+ privilege level 15
+ logging synchronous
+ login authentication use-srvtacacs
+ length 0
+line aux 0
+line 2
+ no activation-character
+ no exec
+ transport preferred none
+ transport input all
+ transport output pad telnet rlogin lapb-ta mop udptn v120 ssh
+ stopbits 1
+line 67
+ no activation-character
+ no exec
+ transport preferred none
+ transport input all
+ transport output pad telnet rlogin lapb-ta mop udptn v120 ssh
+ stopbits 1
+line vty 0 4
+ exec-timeout 15 0
+ privilege level 15
+ logging synchronous
+ login authentication use-srvtacacs
+ length 0
+ transport input telnet ssh
+line vty 5 15
+ exec-timeout 15 0
+ privilege level 15
+ logging synchronous
+ login authentication use-srvtacacs
+ length 0
+ transport input ssh
+!
+scheduler allocate 20000 1000
+ntp server 10.30.99.254
+end

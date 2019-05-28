@@ -1,8 +1,8 @@
 Building configuration...
 
-Current configuration : 6679 bytes
+Current configuration : 7610 bytes
 !
-! Last configuration change at 15:50:33 UTC Wed Mar 27 2019 by junior.mateus
+! No configuration change since last restart
 version 15.1
 service timestamps debug datetime msec
 service timestamps log datetime msec
@@ -42,9 +42,41 @@ aaa session-id common
 !
 no ipv6 cef
 !
+flow record MYRECORD
+ match ipv4 protocol
+ match ipv4 source address
+ match ipv4 destination address
+ match transport source-port
+ match transport destination-port
+ match interface input
+ match application name
+ collect ipv4 dscp
+ collect interface output
+ collect counter bytes long
+ collect counter packets long
+!
+!
 flow exporter NETFLOW_ANALYSER
  destination 10.30.99.252
  transport udp 9996
+!
+!
+flow exporter CiscoPrime_Export
+ destination 10.30.99.252
+ transport udp 9996
+ option exporter-stats timeout 2
+!
+!
+flow exporter CiscoPrime_Export2
+ destination 10.30.99.251
+ transport udp 9991
+ option exporter-stats timeout 2
+!
+!
+flow monitor perform_policy
+ record MYRECORD
+ exporter CiscoPrime_Export
+ exporter CiscoPrime_Export2
 !
 ip source-route
 ip cef
@@ -133,6 +165,8 @@ interface Embedded-Service-Engine0/0
 interface GigabitEthernet0/0
  description NERA_WAN (FUNDA)
  ip address 172.31.255.42 255.255.255.252
+ ip flow monitor perform_policy input
+ ip flow monitor perform_policy output
  ip flow ingress
  duplex auto
  speed auto
@@ -140,6 +174,8 @@ interface GigabitEthernet0/0
 interface GigabitEthernet0/1
  description NERA_WAN (VIANA)
  ip address 172.31.255.30 255.255.255.252
+ ip flow monitor perform_policy input
+ ip flow monitor perform_policy output
  ip flow ingress
  duplex auto
  speed auto
@@ -147,6 +183,8 @@ interface GigabitEthernet0/1
 interface GigabitEthernet0/2
  description NERA_WAN (VICTORIA)
  ip address 172.31.255.17 255.255.255.252
+ ip flow monitor perform_policy input
+ ip flow monitor perform_policy output
  ip flow ingress
  duplex auto
  speed auto
@@ -154,6 +192,8 @@ interface GigabitEthernet0/2
 interface FastEthernet0/0/0
  description NERA_WAN (VIDRUL)
  ip address 172.31.255.49 255.255.255.252
+ ip flow monitor perform_policy input
+ ip flow monitor perform_policy output
  ip flow ingress
  duplex auto
  speed auto

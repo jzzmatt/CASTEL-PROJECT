@@ -1,45 +1,38 @@
 Building configuration...
 
-Current configuration : 11653 bytes
+Current configuration : 10690 bytes
 !
-! Last configuration change at 16:05:00 WAT Fri Mar 22 2019 by junior.mateus
-! NVRAM config last updated at 16:12:19 WAT Thu Feb 14 2019 by junior.mateus
-! NVRAM config last updated at 16:12:19 WAT Thu Feb 14 2019 by junior.mateus
+! No configuration change since last restart
 version 15.1
-service timestamps debug datetime msec
-service timestamps log datetime msec
+service timestamps debug datetime msec localtime
+service timestamps log datetime msec localtime
 service password-encryption
 !
-hostname Huambo-RT-Vsat
+hostname CerbabRT_WAN
 !
 boot-start-marker
 boot-end-marker
 !
 !
 logging buffered 100000
+enable secret 5 $1$iVC5$KobNFvLocW15tICJNBl9D1
 !
 aaa new-model
 !
 !
-aaa authentication login use-srvtacacs group tacacs+ local enable
-aaa authentication enable default group tacacs+ enable
-aaa authorization console
-aaa authorization exec use-srvtacacs group tacacs+ local if-authenticated 
-aaa authorization commands 1 default group tacacs+ if-authenticated 
-aaa authorization commands 15 default group tacacs+ local if-authenticated 
-aaa accounting send stop-record authentication failure
-aaa accounting exec default start-stop group tacacs+
-aaa accounting network default start-stop group tacacs+
-aaa accounting connection default start-stop group tacacs+
-aaa accounting system default start-stop group tacacs+
-aaa accounting resource default start-stop group tacacs+
+aaa group server radius GRPE_SRV_RADIUS
+ server name srv-radius2
+!
+aaa authentication login default group GRPE_SRV_RADIUS local
+aaa authentication login My_AUTHENT group GRPE_SRV_RADIUS local
+aaa accounting exec default start-stop group GRPE_SRV_RADIUS
+aaa accounting system default start-stop group GRPE_SRV_RADIUS
 !
 !
 !
 !
 !
 aaa session-id common
-!
 clock timezone WAT 1 0
 !
 no ipv6 cef
@@ -54,18 +47,26 @@ flow record MYRECORD
  match application name
  collect ipv4 dscp
  collect interface output
- collect counter bytes
- collect counter packets
+ collect counter bytes long
+ collect counter packets long
 !
 !
-flow exporter NETFLOW_ANALYSER
+flow exporter CiscoPrime_Export
  destination 10.30.99.252
  transport udp 9996
+ option exporter-stats timeout 2
 !
 !
-flow monitor MYMONITOR
+flow exporter CiscoPrime_Export2
+ destination 10.30.99.251
+ transport udp 9991
+ option exporter-stats timeout 2
+!
+!
+flow monitor perform_policy
  record MYRECORD
- exporter NETFLOW_ANALYSER
+ exporter CiscoPrime_Export
+ exporter CiscoPrime_Export2
 !
 ip source-route
 ip cef
@@ -74,21 +75,20 @@ ip cef
 !
 !
 !
-ip flow-cache timeout active 1
 ip domain name victoria.local
 ip name-server 10.30.10.1
 ip name-server 10.30.10.10
 login block-for 7 attempts 3 within 60
 login on-failure log
 login on-success log
-!
 multilink bundle-name authenticated
+!
 !
 password encryption aes
 crypto pki token default removal timeout 0
 !
 !
-license udi pid CISCO1921/K9 sn FCZ1545C1QW
+license udi pid CISCO2911/K9 sn FCZ154170EH
 !
 !
 archive
@@ -97,13 +97,11 @@ archive
   logging size 1000
   notify syslog contenttype plaintext
   hidekeys
-username admin privilege 15 password 7 100F210C041A405B5D5060
-!
-redundancy
+username admin privilege 15 password 7 074E024D4C5B49544358
 !
 !
-!
-!
+ip ftp username ciscoBKP
+ip ftp password 7 094F471A1A0A35393B
 ip ssh version 2
 ip scp server enable
 !
@@ -156,7 +154,7 @@ policy-map MAKRING
   set dscp ef
 policy-map BRANCH_DMVPN_POLICY
  class REALTIME
-  priority percent 10
+  priority percent 18
  class STREAMING_VIDEO
   bandwidth percent 8
  class SIGNALING_CALLS
@@ -164,9 +162,9 @@ policy-map BRANCH_DMVPN_POLICY
  class IP_ROUTING
   bandwidth percent 5
  class TRANSACTIONAL_DATA
-  bandwidth percent 10
+  bandwidth percent 11
  class BULK_DATA
-  bandwidth percent 24
+  bandwidth percent 15
   random-detect
  class class-default
   random-detect
@@ -174,11 +172,8 @@ policy-map BRANCH_DMVPN_POLICY
 policy-map Shaper_386_all
  description [ 386kb, UP&Down= 184 ]
  class class-default
-  shape average 5000000
+  shape average 188416
   service-policy BRANCH_DMVPN_POLICY
-!
-! 
-!
 !
 !
 !
@@ -186,23 +181,23 @@ policy-map Shaper_386_all
 !
 interface Tunnel2016
  description **** DMVPN SPOKE TO VICTORIA ****
- bandwidth 10000
- ip address 172.16.255.17 255.255.255.240
+ bandwidth 4000
+ ip address 172.16.255.18 255.255.255.240
  no ip redirects
  ip mtu 1400
- ip flow monitor MYMONITOR input
- ip flow monitor MYMONITOR output
+ ip flow monitor perform_policy input
+ ip flow monitor perform_policy output
  ip nhrp authentication vict2016
- ip nhrp group 10MB_grpe
- ip nhrp map 172.16.255.30 10.0.1.2
+ ip nhrp group 4MB_grpe
  ip nhrp map multicast 10.0.1.2
+ ip nhrp map 172.16.255.30 10.0.1.2
  ip nhrp network-id 99
  ip nhrp holdtime 300
  ip nhrp nhs 172.16.255.30
  ip tcp adjust-mss 1360
  no ip split-horizon eigrp 800
  delay 1000
- tunnel source GigabitEthernet0/0
+ tunnel source GigabitEthernet0/1
  tunnel mode gre multipoint
  tunnel key 1000
 !
@@ -211,42 +206,64 @@ interface Embedded-Service-Engine0/0
  shutdown
 !
 interface GigabitEthernet0/0
+ no ip address
+ shutdown
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet0/1
  description LINK MPLS UNITEL
- ip address 10.0.1.34 255.255.255.252
+ ip address 10.0.1.54 255.255.255.252
  duplex full
  speed 100
 !
-interface GigabitEthernet0/1
- description link-to-CRSW(LAN)
- ip address 10.80.34.2 255.255.255.252
+interface GigabitEthernet0/2
+ description LINK-to-CRSW(LAN)
+ ip address 10.50.35.2 255.255.255.252
  load-interval 30
  duplex auto
  speed auto
 !
 !
 router eigrp 800
- network 10.80.34.0 0.0.0.3
+ network 10.50.35.0 0.0.0.3
  network 172.16.255.0 0.0.0.255
+ redistribute static route-map RM_LAN_CERBAB
+ passive-interface default
+ no passive-interface Tunnel2016
+ no passive-interface GigabitEthernet0/2
 !
 ip forward-protocol nd
 !
 ip http server
-ip http authentication aaa login-authentication use-srvtacacs
-ip http authentication aaa exec-authorization use-srvtacacs
-ip http authentication aaa command-authorization 15 default
+ip http authentication local
 no ip http secure-server
 !
-ip route 10.0.1.0 255.255.255.0 10.0.1.33 name Nocebo->MplsUnitel
-ip route 10.10.162.0 255.255.255.0 192.168.50.1
-ip route 172.19.254.0 255.255.255.0 10.80.35.254
+ip route 10.0.1.0 255.255.255.0 10.0.1.53 name Cerbab->MplsUnitel
+ip route 10.50.0.0 255.255.0.0 10.50.35.1 name CerbabLAN
 !
 ip access-list extended BULK-DATA
  remark Web Traffic
  permit tcp any any eq www
  permit tcp any any eq 443
- permit tcp any any eq 4434
- permit tcp any eq 4434 any
- permit tcp any any eq 8080
+ remark FTP
+ permit tcp any any eq ftp-data
+ permit tcp any any eq ftp
+ remark IMAP/SECURE IMAP
+ permit tcp any any eq 143
+ permit tcp any any eq 993
+ remark SMTP
+ permit tcp any any eq smtp
+ remark Secure-SMTP
+ permit tcp any any eq 465
+ permit tcp any any eq 589
+ remark Secure-POP3
+ permit tcp any any eq 995
+ permit tcp any any eq pop3
+ remark PC_BACKUP
+ permit tcp any eq 1914 any
+ remark SSH/SFTP
+ permit tcp any any eq 22
 ip access-list extended MULTIMEDIA_CONFERECING
  permit udp any any range 16384 32767
 ip access-list extended SCAVENGER
@@ -288,8 +305,6 @@ ip access-list extended TRANSACTIONAL-DATA
  permit tcp any any eq 135
  remark Kerberos
  permit tcp any any eq 88
- permit tcp any any eq ftp
- permit tcp any any eq ftp-data
  permit tcp any any eq 749
  permit udp any any eq 88
  permit udp any any eq 749
@@ -319,69 +334,35 @@ ip access-list extended TRANSACTIONAL-DATA
  remark NFS (Network File System )
  permit tcp any any eq 2049
  permit udp any any eq 2049
- permit tcp any any eq 143
- permit tcp any any eq 993
- permit tcp any any eq smtp
- permit tcp any any eq 465
- permit tcp any any eq 589
- permit tcp any any eq 995
- permit tcp any any eq pop3
- permit tcp any eq 1914 any
- permit tcp any any eq 2290
- permit udp any any eq 1645
- permit udp any any eq 1646
- permit udp any eq 2290 any
- permit udp any eq 1645 any
- permit udp any eq 1646 any
 !
 !
-ip prefix-list adv_stat_eigrp seq 10 permit 10.80.0.0/16
-ip prefix-list adv_stat_eigrp seq 15 permit 172.19.254.0/24
-ip radius source-interface GigabitEthernet0/1 
-ip sla 100
- icmp-echo 172.31.255.22 source-ip 172.17.255.2
- request-data-size 24
- tos 30
- owner OpManager
- threshold 100
- timeout 60000
-ip sla schedule 100 life forever start-time 00:00:09 May 08 ageout 60
-ip sla 101
- path-echo 172.31.255.22 source-ip 172.17.255.2
- tos 30
- request-data-size 24
- owner OpManager
- threshold 100
- timeout 60000
- paths-of-statistics-kept 2
- hops-of-statistics-kept 15
-ip sla schedule 101 life forever start-time 14:28:29 May 07
+ip prefix-list LAN seq 5 permit 10.50.0.0/16
+ip radius source-interface GigabitEthernet0/2 
+kron occurrence Semanal-BKP at 21:30 Fri recurring
+ policy-list MY_BKP_CFG
+!
+kron policy-list MY_BKP_CFG
+ cli sh startup-config | redirect ftp://10.30.23.1/Cerbab-RT-VSATSTARTUP
+ cli sh running-config | redirect ftp://10.30.23.1/Cerbab-RT-VSATRUNNING
+!
 logging trap debugging
 logging 10.30.10.79
 logging 10.30.99.251
 logging 10.30.99.244
-access-list 55 permit 10.30.10.6
-access-list 55 permit 10.80.5.50
-access-list 55 permit 10.80.99.0 0.0.0.255
+!
+route-map RM_LAN_CERBAB permit 10
+ match ip address prefix-list LAN
 !
 !
-!
-!
-route-map EIGRP->Static permit 10
- match ip address prefix-list adv_stat_eigrp
-!
-!
-snmp-server community NOCEBO RO 55
-snmp-server community NOCEBO_admin RW 55
+snmp-server community victoria RW
 snmp-server community victoria_pub RO
 snmp-server community victoria_wr RW
 snmp-server ifindex persist
 snmp-server location DATACENTER VICTORIA
 snmp-server contact support.helpdesk@bihangola.net
 snmp-server host 10.30.99.251 version 2c victoria_pub 
+snmp-server host 10.30.99.252 version 2c victoria_pub 
 snmp ifmib ifalias long
-tacacs-server host 10.30.10.10
-tacacs-server key 7 140441081E573E79747965
 !
 radius server srv-radius2
  address ipv4 10.30.10.36 auth-port 1645 acct-port 1646
@@ -399,11 +380,11 @@ alias exec u undebug all
 alias exec nt terminal no monitor
 alias exec arch sh archive log config all
 alias exec nbar sh ip nbar protocol-discovery stats bit-rate top-n 10
-alias exec flow sh flow monitor MYMONITOR cache format tabl
+alias exec flow sh flow monitor perform_policy cache format tabl
 banner motd ^C
 ####################################################################
 #                                                                  #
-#       ----------       SITE NOCEBO HUAMBO   -------------        #
+#       ----------      SITE CERBAB CABINDA   -------------        #
 #       ----------       IT DEPARTEMENT       -------------        #
 #                                                                  #
 #       Unauthorized access is prohibit and will be prosecuted     #      
@@ -419,11 +400,6 @@ banner motd ^C
 ^C
 !
 line con 0
- exec-timeout 15 0
- privilege level 15
- logging synchronous
- login authentication use-srvtacacs
- length 0
 line aux 0
 line 2
  no activation-character
@@ -433,10 +409,9 @@ line 2
  transport output pad telnet rlogin lapb-ta mop udptn v120 ssh
  stopbits 1
 line vty 0 4
- exec-timeout 15 0
  privilege level 15
  logging synchronous
- login authentication use-srvtacacs
+ login authentication My_AUTHENT
  length 0
  transport input telnet ssh
 line vty 5 15
@@ -448,5 +423,5 @@ line vty 5 15
  transport input ssh
 !
 scheduler allocate 20000 1000
-ntp server 172.16.255.30 prefer
+ntp server 172.17.255.13
 end

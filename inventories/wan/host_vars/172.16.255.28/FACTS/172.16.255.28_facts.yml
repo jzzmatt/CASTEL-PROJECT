@@ -10,7 +10,7 @@ get_facts:
         os_version: 2800 Software (C2800NM-ADVENTERPRISEK9-M), Version 15.1(4)M4,
             RELEASE SOFTWARE (fc1)
         serial_number: FCZ141171G0
-        uptime: 303060
+        uptime: 3133560
         vendor: Cisco
     napalm_fqdn: RT-WAN-DRINCO.victoria.local
     napalm_hostname: RT-WAN-DRINCO
@@ -57,7 +57,7 @@ get_facts:
     napalm_os_version: 2800 Software (C2800NM-ADVENTERPRISEK9-M), Version 15.1(4)M4,
         RELEASE SOFTWARE (fc1)
     napalm_serial_number: FCZ141171G0
-    napalm_uptime: 303060
+    napalm_uptime: 3133560
     napalm_vendor: Cisco
 changed: false
 failed: false

@@ -15,7 +15,7 @@ get_facts:
         os_version: C2900 Software (C2900-UNIVERSALK9-M), Version 15.1(4)M2, RELEASE
             SOFTWARE (fc1)
         serial_number: FCZ154521BE
-        uptime: 12216000
+        uptime: 12216900
         vendor: Cisco
     napalm_fqdn: RT-Funda-CCbl.victoria.local
     napalm_hostname: RT-Funda-CCbl
@@ -114,7 +114,7 @@ get_facts:
     napalm_os_version: C2900 Software (C2900-UNIVERSALK9-M), Version 15.1(4)M2, RELEASE
         SOFTWARE (fc1)
     napalm_serial_number: FCZ154521BE
-    napalm_uptime: 12216000
+    napalm_uptime: 12216900
     napalm_vendor: Cisco
 changed: false
 failed: false

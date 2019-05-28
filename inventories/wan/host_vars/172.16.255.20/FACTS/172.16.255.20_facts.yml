@@ -11,7 +11,7 @@ get_facts:
         os_version: C1900 Software (C1900-UNIVERSALK9-M), Version 15.1(4)M2, RELEASE
             SOFTWARE (fc1)
         serial_number: FCZ1545C1R5
-        uptime: 10008120
+        uptime: 2321040
         vendor: Cisco
     napalm_fqdn: EKA-RT-VSAT.victoria.local
     napalm_hostname: EKA-RT-VSAT
@@ -66,7 +66,7 @@ get_facts:
     napalm_os_version: C1900 Software (C1900-UNIVERSALK9-M), Version 15.1(4)M2, RELEASE
         SOFTWARE (fc1)
     napalm_serial_number: FCZ1545C1R5
-    napalm_uptime: 10008120
+    napalm_uptime: 2321040
     napalm_vendor: Cisco
 changed: false
 failed: false

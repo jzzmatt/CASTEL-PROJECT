@@ -1,11 +1,9 @@
 Building configuration...
 
 
-Current configuration : 4697 bytes
+Current configuration : 4511 bytes
 !
-! Last configuration change at 09:49:59 UTC Wed Mar 27 2019 by junior.mateus
-! NVRAM config last updated at 09:50:27 UTC Wed Mar 27 2019 by junior.mateus
-! NVRAM config last updated at 09:50:27 UTC Wed Mar 27 2019 by junior.mateus
+! No configuration change since last restart
 version 15.1
 service timestamps debug datetime msec
 service timestamps log datetime msec
@@ -140,8 +138,8 @@ interface Tunnel2016
  ip flow monitor perform_policy input
  ip flow monitor perform_policy output
  ip nhrp authentication vict2016
- ip nhrp map 172.16.255.30 10.0.1.2
  ip nhrp map multicast 10.0.1.2
+ ip nhrp map 172.16.255.30 10.0.1.2
  ip nhrp network-id 99
  ip nhrp holdtime 300
  ip nhrp nhs 172.16.255.30

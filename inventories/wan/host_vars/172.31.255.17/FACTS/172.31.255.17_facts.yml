@@ -14,7 +14,7 @@ get_facts:
         os_version: C2900 Software (C2900-UNIVERSALK9-M), Version 15.1(4)M4, RELEASE
             SOFTWARE (fc1)
         serial_number: FCZ162620H6
-        uptime: 3840
+        uptime: 5040
         vendor: Cisco
     napalm_fqdn: RT-TerraVerde-CCBL.victoria.local
     napalm_hostname: RT-TerraVerde-CCBL
@@ -101,7 +101,7 @@ get_facts:
     napalm_os_version: C2900 Software (C2900-UNIVERSALK9-M), Version 15.1(4)M4, RELEASE
         SOFTWARE (fc1)
     napalm_serial_number: FCZ162620H6
-    napalm_uptime: 3840
+    napalm_uptime: 5040
     napalm_vendor: Cisco
 changed: false
 failed: false

@@ -1,0 +1,256 @@
+Building configuration...
+
+Current configuration : 5689 bytes
+!
+! Last configuration change at 16:04:59 WAT Fri Mar 22 2019 by junior.mateus
+! NVRAM config last updated at 15:31:57 WAT Mon Feb 11 2019 by junior.mateus
+! NVRAM config last updated at 15:31:57 WAT Mon Feb 11 2019 by junior.mateus
+version 15.1
+service timestamps debug datetime msec
+service timestamps log datetime msec
+service password-encryption
+!
+hostname RT_WAN02_VICT
+!
+boot-start-marker
+boot-end-marker
+!
+!
+logging buffered 100000
+!
+aaa new-model
+!
+!
+aaa authentication login use-srvtacacs group tacacs+ local enable
+aaa authentication enable default group tacacs+ enable
+aaa authorization console
+aaa authorization exec use-srvtacacs group tacacs+ local if-authenticated 
+aaa authorization commands 1 default group tacacs+ if-authenticated 
+aaa authorization commands 15 default group tacacs+ local if-authenticated 
+aaa accounting send stop-record authentication failure
+aaa accounting exec default start-stop group tacacs+
+aaa accounting network default start-stop group tacacs+
+aaa accounting connection default start-stop group tacacs+
+aaa accounting system default start-stop group tacacs+
+aaa accounting resource default start-stop group tacacs+
+!
+!
+!
+!
+!
+aaa session-id common
+!
+clock timezone WAT 1 0
+!
+no ipv6 cef
+!
+flow exporter CiscoPrime_Export
+ destination 10.30.99.251
+ transport udp 9991
+!
+!
+flow monitor type performance-monitor CiscoPrime_Flow
+ record default-rtp
+ exporter CiscoPrime_Export
+!
+ip source-route
+ip cef
+!
+!
+!
+!
+!
+ip domain name victoria.local
+!
+multilink bundle-name authenticated
+!
+!
+!
+key chain pfr-key
+ key 0
+  key-string 7 097C683B
+crypto pki token default removal timeout 0
+!
+!
+!
+pfr master
+ policy-rules WAN_OPT
+ shutdown
+ max-range-utilization percent 30
+ !
+ border 10.30.35.1 key-chain pfr-key
+  interface Tunnel2016 external
+   max-xmit-utilization percentage 30
+   link-group tunnel_Unitel
+  interface Tunnel2015 external
+   link-group tunnel_Ita
+  interface GigabitEthernet0/1.35 internal
+ !
+ learn
+  throughput
+  traffic-class filter access-list DENY_GLOBAL_LEARN_LST
+  list seq 5 refname COBEJE_NETWORK
+   traffic-class prefix-list prefix-Cobeje
+   throughput
+ max prefix total 2000
+ holddown 180
+ backoff 180 180
+ mode route control
+ mode route metric eigrp tag 7000
+ periodic 180
+license udi pid CISCO2921/K9 sn FGL161713ES
+license boot module c2900 technology-package securityk9
+license boot module c2900 technology-package datak9
+!
+!
+username admin privilege 15 password 7 15130F010D247974796B
+!
+redundancy
+!
+!
+!
+!
+ip ssh version 2
+ip scp server enable
+!
+class-map match-all class-all
+ match any 
+!
+!
+policy-map type performance-monitor perfom_policy
+ class class-all
+   flow monitor CiscoPrime_Flow
+!
+! 
+!
+!
+!
+!
+!
+!
+interface Embedded-Service-Engine0/0
+ no ip address
+ shutdown
+!
+interface GigabitEthernet0/0
+ no ip address
+ shutdown
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet0/1
+ description TRUNK CORE DC (FIBRA)
+ no ip address
+ load-interval 30
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet0/1.35
+ description VLAN Wan-> CORE CENTRAL
+ encapsulation dot1Q 35
+ ip address 10.30.35.3 255.255.255.248
+ service-policy type performance-monitor input perfom_policy
+ service-policy type performance-monitor output perfom_policy
+!
+interface GigabitEthernet0/2
+ no ip address
+ shutdown
+ duplex auto
+ speed auto
+!
+!
+!
+router eigrp 800
+ network 10.30.35.0 0.0.0.3
+ passive-interface default
+ no passive-interface GigabitEthernet0/1.35
+!
+ip forward-protocol nd
+!
+ip http server
+ip http authentication aaa login-authentication use-srvtacacs
+ip http authentication aaa exec-authorization use-srvtacacs
+ip http authentication aaa command-authorization 15 default
+no ip http secure-server
+!
+!
+ip access-list extended ACL_PFR_OPT
+ permit ip any 10.40.0.0 0.0.255.255
+ip access-list extended DENY_GLOBAL_LEARN_LST
+ deny   ip any any
+!
+!
+ip prefix-list prefix-Cobeje seq 5 permit 10.40.0.0/16
+logging trap debugging
+logging 10.30.99.251
+logging 10.30.99.244
+!
+!
+!
+!
+!
+snmp-server community victoria_pub RO
+snmp-server community victoria_wr RW
+snmp-server location DATACENTER VICTORIA
+snmp-server contact support.helpdesk@bihangola.net
+snmp-server host 10.30.99.251 version 2c victoria_pub 
+snmp ifmib ifalias long
+tacacs-server host 10.30.10.10 timeout 5
+tacacs-server directed-request
+tacacs-server key 7 105D5A1A174406595C557C
+!
+!
+!
+pfr-map WAN_OPT 10
+ match pfr learn list COBEJE_NETWORK
+ set mode select-exit best
+ set mode route control
+ set resolve range priority 5
+ set resolve loss priority 8 variance 20
+ set resolve utilization priority 10 variance 20
+ no set resolve delay
+ set active-probe echo 10.40.5.254
+ set active-probe echo 10.40.5.16
+!
+control-plane
+!
+!
+alias exec flow sh flow monitor MYMONITOR cache format tabl
+alias exec nbar sh ip nbar protocol-discovery stats bit-rate top-n 10
+alias exec qos sh auto discovery qos
+alias exec mem show proc mem | excl 0.00%_0.00%_0.00%
+alias exec u undebug all
+alias exec nt terminal no monitor
+alias exec arch sh archive log config a
+alias exec cpu1 sh proc cpu sort 1m | ex 0.00
+alias exec cpu show processes cpu sorted | exclude 0.00% 0.00% 0.00%
+alias exec dmqos show policy-map multipoint
+alias exec tunqos show ip nhrp group-map
+!
+line con 0
+line aux 0
+line 2
+ no activation-character
+ no exec
+ transport preferred none
+ transport input all
+ transport output lat pad telnet rlogin lapb-ta mop udptn v120 ssh
+ stopbits 1
+line vty 0 4
+ exec-timeout 15 0
+ privilege level 15
+ logging synchronous
+ login authentication use-srvtacacs
+ length 0
+ transport input telnet ssh
+line vty 5 15
+ exec-timeout 15 0
+ privilege level 15
+ logging synchronous
+ login authentication use-srvtacacs
+ length 0
+ transport input ssh
+!
+scheduler allocate 20000 1000
+ntp server 10.30.35.2
+end
